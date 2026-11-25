@@ -1,99 +1,155 @@
-"""O que tem em volta de cada bairro: pontos do OpenStreetMap por cidade (via Overpass).
+"""O que tem em volta de cada bairro: pontos do OpenStreetMap por cidade.
 
-Salva em data/entorno/<cidade>.json só as coordenadas de cada categoria e os pontos com nome de
-bairro (place=suburb/neighbourhood/quarter), usados como centro dos bairros que não têm contorno
-(caso de São Paulo, onde o mapa é por distrito). Baixa de novo quando o arquivo tem mais de 60 dias
-ou com FORCAR=1. Dados: © colaboradores do OpenStreetMap (ODbL).
+Em vez de consultar o Overpass (que vive sobrecarregado), baixa o recorte regional do Brasil no
+Geofabrik (.osm.pbf), filtra só as etiquetas que interessam com o osmium e separa os pontos de cada
+cidade pela área coberta pelos contornos dos bairros (data/mapas/<cidade>.json).
+
+Salva em data/entorno/<cidade>.json as coordenadas de cada categoria e os pontos com nome de bairro
+(place=suburb/neighbourhood/quarter), usados como centro dos bairros sem contorno (caso de São Paulo).
+Baixa de novo quando o arquivo tem mais de 60 dias ou com FORCAR=1. © colaboradores do OpenStreetMap (ODbL).
 """
 from __future__ import annotations
 
 import datetime as dt
 import json
 import os
+import subprocess
 import sys
 import time
 from pathlib import Path
 
+import requests
+from shapely.geometry import shape
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from atualizar import log  # noqa: E402
-from atualizar_mapas import WIKIDATA, overpass  # noqa: E402
 
 RAIZ = Path(__file__).resolve().parent.parent
 PASTA = RAIZ / "data" / "entorno"
-
-# categoria: filtros Overpass (nwr = nó, via ou relação; "out center" dá um ponto para cada)
-CATEGORIAS = {
-    "escolas": ['nwr["amenity"="school"]', 'nwr["amenity"="kindergarten"]'],
-    "saude": ['nwr["amenity"="hospital"]', 'nwr["amenity"="clinic"]', 'nwr["healthcare"="centre"]'],
-    "mercados": ['nwr["shop"="supermarket"]', 'nwr["shop"="wholesale"]'],
-    "farmacias": ['nwr["amenity"="pharmacy"]'],
-    "shoppings": ['nwr["shop"="mall"]'],
-    "parques": ['nwr["leisure"="park"]'],
-    "restaurantes": ['nwr["amenity"~"^(restaurant|cafe|bar|pub|fast_food)$"]'],
-    "estacoes": ['nwr["railway"~"^(station|halt)$"]["station"!="funicular"]',
-                 'nwr["public_transport"="station"]["bus"="yes"]', 'nwr["amenity"="bus_station"]'],
-    "onibus": ['node["highway"="bus_stop"]'],
-}
+MAPAS = RAIZ / "data" / "mapas"
+TMP = Path(os.environ.get("RUNNER_TEMP", "/tmp"))
+REGIAO = {"sao-paulo": "sudeste", "rio-de-janeiro": "sudeste", "belo-horizonte": "sudeste",
+          "fortaleza": "nordeste", "recife": "nordeste", "porto-alegre": "sul"}
+URL = "https://download.geofabrik.de/south-america/brazil/{}-latest.osm.pbf"
+FILTRO = [
+    "nwr/amenity=school,kindergarten,hospital,clinic,pharmacy,restaurant,cafe,bar,pub,fast_food,bus_station",
+    "nwr/healthcare=centre", "nwr/shop=supermarket,wholesale,mall", "nwr/leisure=park",
+    "nwr/railway=station,halt", "nwr/public_transport=station", "n/highway=bus_stop",
+    "n/place=suburb,neighbourhood,quarter",
+]
+CATS = ["escolas", "saude", "mercados", "farmacias", "shoppings", "parques", "restaurantes", "estacoes", "onibus"]
 
 
-def pontos(qid: str, filtros: list[str], com_nome=False):
-    corpo = "".join(f"{f}(area.a);" for f in filtros)
-    q = f'[out:json][timeout:180];area["wikidata"="{qid}"]->.a;({corpo});out center tags;'
-    els = overpass(q)["elements"]
+def categoria(t: dict) -> str | None:
+    a, sh = t.get("amenity"), t.get("shop")
+    if a in ("school", "kindergarten"):
+        return "escolas"
+    if a in ("hospital", "clinic") or t.get("healthcare") == "centre":
+        return "saude"
+    if sh in ("supermarket", "wholesale"):
+        return "mercados"
+    if a == "pharmacy":
+        return "farmacias"
+    if sh == "mall":
+        return "shoppings"
+    if t.get("leisure") == "park":
+        return "parques"
+    if a in ("restaurant", "cafe", "bar", "pub", "fast_food"):
+        return "restaurantes"
+    if (t.get("railway") in ("station", "halt") and t.get("station") != "funicular") or a == "bus_station" \
+            or (t.get("public_transport") == "station" and t.get("bus") == "yes"):
+        return "estacoes"
+    if t.get("highway") == "bus_stop":
+        return "onibus"
+    return None
+
+
+def baixar(regiao: str) -> Path:
+    destino = TMP / f"{regiao}.osm.pbf"
+    if destino.exists():
+        return destino
+    log(f"  {time.strftime('%H:%M:%S')} baixando {regiao}")
+    with requests.get(URL.format(regiao), stream=True, timeout=600) as r:
+        r.raise_for_status()
+        with open(destino, "wb") as f:
+            for parte in r.iter_content(1 << 20):
+                f.write(parte)
+    log(f"  {time.strftime('%H:%M:%S')} {destino.stat().st_size / 1e6:.0f} MB")
+    return destino
+
+
+def pontos_da_regiao(regiao: str):
+    pbf = baixar(regiao)
+    filt = TMP / f"{regiao}-filtrado.osm.pbf"
+    seq = TMP / f"{regiao}.geojsonseq"
+    subprocess.run(["osmium", "tags-filter", str(pbf), *FILTRO, "-o", str(filt), "--overwrite"], check=True)
+    subprocess.run(["osmium", "export", str(filt), "-f", "geojsonseq", "-o", str(seq), "--overwrite"], check=True)
+    log(f"  {time.strftime('%H:%M:%S')} filtrado e exportado")
     out = []
-    for e in els:
-        lat = e.get("lat") or (e.get("center") or {}).get("lat")
-        lon = e.get("lon") or (e.get("center") or {}).get("lon")
-        if lat is None or lon is None:
-            continue
-        p = [round(lon, 5), round(lat, 5)]
-        if com_nome:
-            p.append((e.get("tags") or {}).get("name", ""))
-        out.append(p)
+    with open(seq, encoding="utf-8") as f:
+        for linha in f:
+            linha = linha.strip().lstrip("\x1e")
+            if not linha:
+                continue
+            ft = json.loads(linha)
+            t = ft.get("properties") or {}
+            try:
+                g = ft["geometry"]
+                if g["type"] == "Point":
+                    x, y = g["coordinates"]
+                else:
+                    p = shape(g).representative_point()
+                    x, y = p.x, p.y
+            except Exception:  # noqa: BLE001
+                continue
+            out.append((x, y, t))
     return out
+
+
+def caixa(slug):
+    mp = json.loads((MAPAS / f"{slug}.json").read_text(encoding="utf-8"))
+    xs = [x for b in mp["bairros"] for a in b["p"] for x, _ in a]
+    ys = [y for b in mp["bairros"] for a in b["p"] for _, y in a]
+    m = 0.02
+    return min(xs) - m, min(ys) - m, max(xs) + m, max(ys) + m
 
 
 def main():
     PASTA.mkdir(parents=True, exist_ok=True)
     forcar = os.environ.get("FORCAR") == "1"
-    for slug, qid in WIKIDATA.items():
+    pendentes = []
+    for slug in REGIAO:
         arq = PASTA / f"{slug}.json"
+        if not (MAPAS / f"{slug}.json").exists():
+            continue
         if arq.exists() and not forcar:
-            antigo = json.loads(arq.read_text(encoding="utf-8"))
-            idade = (dt.date.today() - dt.date.fromisoformat(antigo.get("baixado_em", "2000-01-01"))).days
-            completo = all(c in antigo.get("cat", {}) for c in CATEGORIAS) and antigo.get("lugares")
-            if idade < 60 and completo:
-                continue
-        log(f"== {slug}")
-        res = {"fonte": "OpenStreetMap", "baixado_em": dt.date.today().isoformat(), "cat": {}, "faltam": []}
-        if arq.exists():  # aproveita o que já veio numa rodada anterior
             ant = json.loads(arq.read_text(encoding="utf-8"))
-            res["cat"] = ant.get("cat", {})
-            if ant.get("lugares"):
-                res["lugares"] = ant["lugares"]
-        for cat, filtros in CATEGORIAS.items():
-            if cat in res["cat"] and not forcar:
+            idade = (dt.date.today() - dt.date.fromisoformat(ant.get("baixado_em", "2000-01-01"))).days
+            if idade < 60 and all(c in ant.get("cat", {}) for c in CATS) and ant.get("lugares"):
                 continue
-            try:
-                com_nome = cat in ("estacoes", "shoppings")
-                res["cat"][cat] = pontos(qid, filtros, com_nome)
-                log(f"  {cat}: {len(res['cat'][cat])}")
-                arq.write_text(json.dumps(res, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-            except Exception as e:  # noqa: BLE001
-                log(f"  ERRO {cat}: {e!r}")
-                res["faltam"].append(cat)
-            time.sleep(3)
-        try:
-            if res.get("lugares") and not forcar:
-                raise StopIteration
-            res["lugares"] = pontos(qid, ['node["place"~"^(suburb|neighbourhood|quarter)$"]'], True)
-            log(f"  lugares: {len(res['lugares'])}")
-        except StopIteration:
-            pass
-        except Exception as e:  # noqa: BLE001
-            log(f"  ERRO lugares: {e!r}")
-            res["faltam"].append("lugares")
-        arq.write_text(json.dumps(res, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+        pendentes.append(slug)
+    for regiao in sorted({REGIAO[s] for s in pendentes}):
+        log(f"== {regiao}")
+        pts = pontos_da_regiao(regiao)
+        log(f"  {len(pts)} pontos na região")
+        for slug in [s for s in pendentes if REGIAO[s] == regiao]:
+            x0, y0, x1, y1 = caixa(slug)
+            res = {"fonte": "OpenStreetMap (Geofabrik)", "baixado_em": dt.date.today().isoformat(),
+                   "cat": {c: [] for c in CATS}, "lugares": []}
+            for x, y, t in pts:
+                if not (x0 <= x <= x1 and y0 <= y <= y1):
+                    continue
+                if t.get("place") in ("suburb", "neighbourhood", "quarter") and t.get("name"):
+                    res["lugares"].append([round(x, 5), round(y, 5), t["name"]])
+                    continue
+                c = categoria(t)
+                if c:
+                    p = [round(x, 5), round(y, 5)]
+                    if c in ("estacoes", "shoppings"):
+                        p.append(t.get("name", ""))
+                    res["cat"][c].append(p)
+            (PASTA / f"{slug}.json").write_text(json.dumps(res, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+            log(f"  {slug}: " + ", ".join(f"{c} {len(v)}" for c, v in res["cat"].items()) + f", lugares {len(res['lugares'])}")
 
 
 if __name__ == "__main__":
