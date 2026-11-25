@@ -190,7 +190,11 @@ def sao_paulo() -> Base:
                 continue
             vistos.add(mes)
             it = ws.iter_rows(values_only=True)
-            cab = [chave(str(c or "")) for c in next(it)]
+            cab = []
+            for _ in range(6):  # algumas abas têm título antes do cabeçalho
+                cab = [chave(str(c or "")) for c in (next(it, None) or [])]
+                if any(c.startswith("NATUREZA") for c in cab):
+                    break
 
             def col(*nomes):
                 for n in nomes:
@@ -210,6 +214,11 @@ def sao_paulo() -> Base:
             i_uso = col("DESCRICAO DO USO")
             i_acc = col("ACC")
             i_pad = col("DESCRICAO DO PADRAO", "DESCRICAO DO PARDAO")
+            faltam = [nm for nm, i in (("valor", i_val), ("natureza", i_nat), ("area", i_area), ("uso", i_uso)) if i is None]
+            if faltam:
+                b.conta("aba_sem_coluna", f"{ws.title}: {faltam} | {' / '.join(cab[:30])}")
+                log(f"    {ws.title}: faltam colunas {faltam}; cabeçalho {cab}")
+                continue
             n = 0
             for row in it:
                 if not row or row[i_val] is None:
