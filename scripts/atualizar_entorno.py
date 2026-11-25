@@ -61,7 +61,8 @@ def main():
         if arq.exists() and not forcar:
             antigo = json.loads(arq.read_text(encoding="utf-8"))
             idade = (dt.date.today() - dt.date.fromisoformat(antigo.get("baixado_em", "2000-01-01"))).days
-            if idade < 60 and not antigo.get("faltam"):
+            completo = all(c in antigo.get("cat", {}) for c in CATEGORIAS) and antigo.get("lugares")
+            if idade < 60 and completo:
                 continue
         log(f"== {slug}")
         res = {"fonte": "OpenStreetMap", "baixado_em": dt.date.today().isoformat(), "cat": {}, "faltam": []}
