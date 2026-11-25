@@ -56,8 +56,11 @@ def categoria(t: dict) -> str | None:
         return "parques"
     if a in ("restaurant", "cafe", "bar", "pub", "fast_food"):
         return "restaurantes"
-    if (t.get("railway") in ("station", "halt") and t.get("station") != "funicular") or a == "bus_station" \
-            or (t.get("public_transport") == "station" and t.get("bus") == "yes"):
+    # metrô, trem, VLT e estações de BRT; rodoviárias e terminais de ônibus comuns ficam de fora
+    if (t.get("railway") in ("station", "halt") and t.get("station") != "funicular") \
+            or (t.get("public_transport") == "station" and t.get("bus") == "yes" and a != "bus_station"
+                and ("brt" in (t.get("name", "") + t.get("network", "")).lower() or t.get("highway") == "bus_stop"
+                     or "move" in t.get("network", "").lower())):
         return "estacoes"
     if t.get("highway") == "bus_stop":
         return "onibus"

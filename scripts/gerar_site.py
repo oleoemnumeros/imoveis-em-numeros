@@ -515,7 +515,11 @@ def calcular_entorno(s, c, mapa) -> dict:
     if not f.exists():
         return {}
     ent = json.loads(f.read_text(encoding="utf-8"))
-    cats = ent.get("cat", {})
+    cats = dict(ent.get("cat", {}))
+    # "shop=mall" no OpenStreetMap inclui galerias pequenas: para "shopping mais próximo", só os com nome de shopping
+    import re as _re
+    cats["shoppings"] = [p for p in cats.get("shoppings", [])
+                         if len(p) > 2 and _re.search(r"shopping|mall|plaza|outlet|center|centre", p[2], _re.I)]
     # centro de cada bairro: ponto central do contorno; sem contorno, o ponto com o nome do bairro no OSM
     centros = {}
     if mapa.ok:
