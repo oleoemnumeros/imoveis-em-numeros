@@ -150,7 +150,8 @@ class Base:
             self.dbg["area_fora"] += 1
             return
         self.dbg["ok"] += 1
-        self.v.append((chave_bairro(bairro or ""), (bairro or "").strip(), mes, valor, area, tipo, ex))
+        bairro = "" if bairro is None else str(bairro).strip()
+        self.v.append((chave_bairro(bairro), bairro, mes, valor, area, tipo, ex))
 
     def conta(self, campo, valor):
         self.valores[campo][str(valor)[:60]] += 1
@@ -341,9 +342,8 @@ def fortaleza() -> Base:
         fr = num(row.get("FRACAO IDEAL"))
         pav = num(row.get("NUMERO PAVIMENTOS")) or 1
         tipo = "apto" if (fr is not None and fr < 0.5 and pav >= 2) else "casa"
-        am = chave(row.get("ANO MES DEBITO") or "")
-        m = re.match(r"(\d{4}) ([A-Z]+)", am)
-        mes = f"{m.group(1)}-{MESES_PT[m.group(2)]:02d}" if m and m.group(2) in MESES_PT else None
+        # mês em que a declaração (DTI) foi cadastrada; "ANO_MES_DEBITO" é o vencimento e vai até meses à frente
+        mes = mes_de(row.get("DATA CADASTRAMENTO GI IMOVEL"))
         b.conta("padrao", row.get("PADRAO CONSTRUCAO"))
         b.add(row.get("BAIRRO"), mes, num(row.get("VL BASE CALCULO")), num(row.get("AREA EDIFICADA")), tipo,
               venal=num(row.get("VL VENAL")), padrao=(row.get("PADRAO CONSTRUCAO") or "").strip())
