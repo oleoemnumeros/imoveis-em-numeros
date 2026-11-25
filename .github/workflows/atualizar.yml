@@ -41,7 +41,7 @@ jobs:
           python-version: "3.12"
 
       - name: Instalar dependências
-        run: pip install requests==2.32.3 openpyxl==3.1.5
+        run: pip install requests==2.32.3 openpyxl==3.1.5 shapely==2.0.6 osm2geojson==0.2.5
 
       - name: Baixar e agregar o ITBI das prefeituras
         id: robo
@@ -49,6 +49,10 @@ jobs:
         # no push, só regenera o site com os dados já salvos (o robô roda na segunda e no botão)
         if: github.event_name != 'push' || contains(github.event.head_commit.message, '[robo]')
         run: python scripts/atualizar.py ${{ inputs.cidades }}
+
+      - name: Contornos dos bairros (OpenStreetMap; só quando falta)
+        continue-on-error: true
+        run: python scripts/atualizar_mapas.py
 
       - name: Salvar no repositório
         if: always()

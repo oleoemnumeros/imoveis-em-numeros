@@ -286,6 +286,77 @@ def curva_html(b: dict, cidade_m2: int | None, nome: str) -> str:
 </section>"""
 
 
+# ---------------------------------------------------------------- mapa
+CORES_MAPA = ["#EDE7F8", "#CDBDEE", "#A88CDD", "#8459C6", "#5B2EA6"]
+MAPAS = RAIZ / "data" / "mapas"
+
+
+def casar_bairros(mapa_bairros, dados_bairros):
+    """{chave do contorno: chave do ITBI}, pelo nome exato, pelo começo do nome ou por semelhança."""
+    import difflib
+    ks = list(dados_bairros.keys())
+    par = {}
+    for b in mapa_bairros:
+        k = b["k"]
+        if k in dados_bairros:
+            par[k] = k
+            continue
+        cand = [x for x in ks if len(x) >= 8 and len(k) >= 8 and (x.startswith(k) or k.startswith(x))]
+        if len(cand) == 1:
+            par[k] = cand[0]
+            continue
+        m = difflib.get_close_matches(k, ks, n=1, cutoff=0.88)
+        if m:
+            par[k] = m[0]
+    return par
+
+
+def mapa_html(s, c) -> str:
+    f = MAPAS / f"{s}.json"
+    if not f.exists():
+        return ""
+    mp = json.loads(f.read_text(encoding="utf-8"))
+    dados = c["bairros"]
+    par = casar_bairros(mp["bairros"], dados)
+    vals = sorted(dados[par[b["k"]]]["m2_12"] for b in mp["bairros"] if b["k"] in par and dados[par[b["k"]]].get("m2_12"))
+    if len(vals) < 8:
+        return ""
+    cortes = [vals[int(len(vals) * q)] for q in (0.2, 0.4, 0.6, 0.8)]
+    xs = [x for b in mp["bairros"] for a in b["p"] for x, _ in a]
+    ys = [y for b in mp["bairros"] for a in b["p"] for _, y in a]
+    import math
+    lat0 = (min(ys) + max(ys)) / 2
+    kx = math.cos(math.radians(lat0))
+    W = 640
+    esc_ = W / ((max(xs) - min(xs)) * kx)
+    H = (max(ys) - min(ys)) * esc_ + 2
+
+    def pt(x, y):
+        return f"{(x - min(xs)) * kx * esc_:.1f} {(max(ys) - y) * esc_ + 1:.1f}"
+    partes = []
+    usados = 0
+    for b in mp["bairros"]:
+        d = " ".join("M" + " L".join(pt(x, y) for x, y in a) + "Z" for a in b["p"])
+        k = par.get(b["k"])
+        if k and dados[k].get("m2_12"):
+            v = dados[k]["m2_12"]
+            cls = sum(1 for x in cortes if v > x)
+            tit = f"{nome_bonito(dados[k]['nome'])}: R$ {nf(v)}/m² ({nf(dados[k]['n12'])} vendas em 12 meses)"
+            partes.append(f'<a href="{u(f"/{s}/{slug(dados[k]["nome"])}/")}"><path d="{d}" fill="{CORES_MAPA[cls]}"><title>{esc(tit)}</title></path></a>')
+            usados += 1
+        else:
+            partes.append(f'<path class="sd" d="{d}"><title>{esc(nome_bonito(b["nome"]))}: poucas vendas no período</title></path>')
+    faixas = [f"até R$ {nf(cortes[0])}"] + [f"R$ {nf(cortes[i])} a {nf(cortes[i + 1])}" for i in range(3)] + [f"acima de R$ {nf(cortes[3])}"]
+    leg = "".join(f'<li><i style="background:{CORES_MAPA[i]}"></i>{t}</li>' for i, t in enumerate(faixas))
+    leg += '<li><i class="sd"></i>poucas vendas</li>'
+    nivel = "distritos" if mp.get("nivel") == 9 else "bairros"
+    return f"""<section class="card" id="mapa"><h2>Mapa do preço do m² {esc(em_(c['nome']))}</h2>
+<p class="small">Quanto mais escuro, mais caro o metro quadrado (mediana dos últimos 12 meses). Toque num bairro para abrir a página dele.</p>
+<div class="mapa-m2"><svg viewBox="0 0 {W} {H:.0f}" role="img" aria-label="Mapa do preço do metro quadrado por bairro {esc(em_(c['nome']))}">{"".join(partes)}</svg></div>
+<ul class="legenda-m2">{leg}</ul>
+<p class="small">Contornos dos {nivel}: © colaboradores do <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>. {usados} de {len(mp['bairros'])} áreas com dados.</p></section>"""
+
+
 # ---------------------------------------------------------------- página
 NAV = [("/", "Início")]
 
@@ -503,6 +574,7 @@ class Site:
 <p class="small">Mediana do m² de cada mês, em média móvel de 3 meses. Valor usado: {vtxt[0]}.</p></div>
 <div class="card"><h2>Dinheiro movimentado</h2>{grafico_valor(meses, ci['valor'], f'Valor movimentado por mês {em_(nome)}')}</div>
 </section>
+{mapa_html(s, c)}
 {curva}
 <section class="card" id="bairros"><h2>Todos os bairros {esc(de_(nome))}</h2>
 <input class="filtro" type="search" placeholder="Filtrar bairro" aria-label="Filtrar bairro" data-filtro="tab-bairros">
