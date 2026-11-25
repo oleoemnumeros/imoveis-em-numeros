@@ -1,6 +1,8 @@
-name: Contornos dos bairros (OpenStreetMap)
+name: Contornos e entorno dos bairros (OpenStreetMap)
 
 on:
+  schedule:
+    - cron: "23 6 3 * *"
   workflow_dispatch:
     inputs:
       forcar:
@@ -11,6 +13,7 @@ on:
     branches: [main]
     paths:
       - "scripts/atualizar_mapas.py"
+      - "scripts/atualizar_entorno.py"
       - ".github/workflows/mapas.yml"
 
 permissions:
@@ -24,7 +27,7 @@ concurrency:
 jobs:
   mapas:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -35,6 +38,11 @@ jobs:
         env:
           FORCAR: ${{ (github.event_name == 'workflow_dispatch' && inputs.forcar) && '1' || '0' }}
         run: python -u scripts/atualizar_mapas.py
+      - name: Baixar o que tem em volta (escolas, saúde, mercados, transporte...)
+        continue-on-error: true
+        env:
+          FORCAR: ${{ (github.event_name == 'workflow_dispatch' && inputs.forcar) && '1' || '0' }}
+        run: python -u scripts/atualizar_entorno.py
       - name: Salvar e publicar o site de novo
         if: always()
         env:
@@ -42,9 +50,9 @@ jobs:
         run: |
           git config user.name "Imóveis em Números (robô)"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/mapas
+          git add data/mapas data/entorno
           if ! git diff --cached --quiet; then
-            git commit -m "Contornos dos bairros: $(date -u +%Y-%m-%d)"
+            git commit -m "Contornos e entorno dos bairros: $(date -u +%Y-%m-%d)"
             git pull --rebase -q || true
             git push
             gh workflow run atualizar.yml -f cidades=nenhuma || true
