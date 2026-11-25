@@ -1,135 +1,351 @@
 {
  "sao-paulo": {
-  "erro": "TypeError('tuple indices must be integers or slices, not NoneType')"
- },
- "fortaleza": {
   "contagens": {
-   "versoes_descartadas": 0,
-   "nao_residencial": 29427,
-   "ok": 76881,
-   "valor_baixo_ou_vazio": 5655,
-   "area_fora": 217,
-   "m2_extremo_descartado": 1538,
-   "ultimo_mes_incompleto_descartado": "2026-10",
-   "vendas_no_site": 74563,
-   "bairros_no_site": 114,
-   "bairros_total": 121
+   "nao_e_compra_e_venda": 93571,
+   "parte_do_imovel": 379533,
+   "com_bairro": 231214,
+   "ok": 357666,
+   "sem_bairro": 131370,
+   "nao_residencial": 93452,
+   "valor_baixo_ou_vazio": 4862,
+   "area_fora": 56,
+   "bairro_pelo_cep": 128863,
+   "m2_extremo_descartado": 7154,
+   "vendas_no_site": 350512,
+   "bairros_no_site": 1795,
+   "bairros_total": 13674
   },
   "valores": {
-   "uso": [
+   "natureza": [
     [
-     "Residencial",
-     82753
+     "1.Compra e venda",
+     835569
     ],
     [
-     "Comercial",
-     19425
+     "12.Dação em pagamento por escritura pública",
+     22109
     ],
     [
-     "Sem",
-     8724
+     "20.Realização ou integralização de capital ",
+     19353
     ],
     [
-     "Prestação",
-     811
+     "17.Resolução da alienação fiduciária por inadimplemento",
+     11178
     ],
     [
-     "Hotelaria",
-     152
+     "4.Arrematação (em leilão ou hasta pública)",
+     7686
     ],
     [
-     "Saúde",
-     71
+     "2.Cessão de direitos relativos a compromisso de compra e ven",
+     7463
     ],
     [
-     "Instrução",
-     58
+     "15.Permuta por escritura pública",
+     6688
     ],
     [
-     "Fechado",
-     45
+     "26.Cessão de direitos sobre o imóvel com alienação fiduciári",
+     2926
     ],
     [
-     "Religioso",
-     40
+     "3.Adjudicação (vinculada a processo de execução ou cobrança ",
+     2493
     ],
     [
-     "Industrial",
-     36
+     "5.Adjudicação compulsória",
+     2383
     ],
     [
-     "Transporte",
-     20
+     "29.Excesso de meação na partilha (separação / divórcio)",
+     2058
     ],
     [
-     "Institucional",
-     18
+     "8.Cessão de direitos hereditários (ou sucessórios)",
+     1626
     ],
     [
-     "Do lazer",
-     15
+     "23.Cisão total ou parcial",
+     1393
     ],
     [
-     "Comunicação",
-     6
+     "33.Demais atos onerosos translativos",
+     1236
     ],
     [
-     "Desportivo",
-     5
+     "40.Excesso na integralização de capital",
+     1063
     ],
     [
-     "Agricultura",
-     1
-    ]
-   ],
-   "padrao": [
-    [
-     "Alto nivel 1",
-     21562
+     "27.Excesso de quinhão ou quota-parte na divisão amigável ou ",
+     1060
     ],
     [
-     "Alto nivel 3",
-     18234
+     "34.Demais sentenças judiciais",
+     821
     ],
     [
-     "Alto nivel 2",
-     16473
-    ],
-    [
-     "Luxo 1",
-     9729
-    ],
-    [
-     "Luxo 2",
-     5030
-    ],
-    [
-     "Normal 3",
-     4272
-    ],
-    [
-     "Baixo nivel 1",
-     3384
-    ],
-    [
-     "Normal 2",
-     2684
-    ],
-    [
-     "Luxo 3",
+     "21.Incorporação",
      641
     ],
     [
+     "28.Excesso de meação ou quinhão na partilha (sucessão causa ",
+     380
+    ],
+    [
+     "30.Excesso de meação na partilha (dissolução da união estáve",
+     306
+    ],
+    [
+     "25.Desincorporação do bem imóvel pertencente à pessoa jurídi",
+     190
+    ],
+    [
+     "35.Demais transações de direitos de compromisso de compra e ",
+     145
+    ],
+    [
+     "19.Usufruto",
+     69
+    ],
+    [
+     "31.Rejeição dos embargos à arrematação",
+     64
+    ],
+    [
+     "24.Extinção de pessoa jurídica",
+     60
+    ],
+    [
+     "11.Cessão de direitos de superfície",
+     44
+    ],
+    [
+     "5.Excesso de meação ou quinhão na partilha",
+     30
+    ],
+    [
+     "9.Cessão dos direitos do adjudicatário",
+     27
+    ],
+    [
+     "7.Cessão de benfeitorias e construções em terreno compromiss",
+     19
+    ],
+    [
+     "6.Cessão de benfeitorias e construções em terreno alheio",
+     14
+    ],
+    [
+     "10.Cessão dos direitos do arrematante",
+     9
+    ],
+    [
+     "14.Mandato em causa própria",
+     9
+    ],
+    [
+     "16.Remição",
+     8
+    ],
+    [
+     "18.Uso",
+     4
+    ],
+    [
+     "4021050",
+     2
+    ],
+    [
+     "1504001",
+     2
+    ],
+    [
+     "3545070",
+     1
+    ],
+    [
+     "1527040",
+     1
+    ],
+    [
+     "5835003",
+     1
+    ],
+    [
+     "32.Rejeição dos embargos à adjudicação",
+     1
+    ]
+   ],
+   "uso": [
+    [
+     "APARTAMENTO EM CONDOMINIO EXIGE FRACAO IDEAL",
+     271367
+    ],
+    [
+     "RESIDENCIA",
+     79725
+    ],
+    [
+     "GARAGEM UNIDADE AUTONOMA EM EDIFICIO EM CONDOMINIO DE USO EX",
+     33419
+    ],
+    [
+     "ESCRITORIO CONSULTORIO EM CONDOMINIO UNID AUTONOMA EXIGE FRA",
+     19883
+    ],
+    [
+     "FLAT DE USO COMERCIAL SEMELHANTE A HOTEL",
+     8768
+    ],
+    [
+     "RESIDENCIA COLETIVA EXCLUSIVE CORTICO MAIS DE UMA RESIDENCIA",
+     8190
+    ],
+    [
+     "TERRENO",
+     6867
+    ],
+    [
+     "LOJA",
+     4200
+    ],
+    [
+     "GARAGEM UNIDADE AUTONOMA EM EDIFICIO EM CONDOMINIO DE ESCRIT",
+     3525
+    ],
+    [
+     "RESIDENCIA E OUTRO USO PREDOMINANCIA RESIDENCIAL",
+     3302
+    ],
+    [
+     "LOJA E RESIDENCIA PREDOMINANCIA COMERCIAL",
+     2627
+    ],
+    [
+     "LOJA EM EDIFICIO EM CONDOMINIO UNIDADE AUTONOMA EXIGE FRACAO",
+     2365
+    ],
+    [
+     "PREDIO DE ESCRITORIO OU CONSULTORIO NAO EM CONDOMINIO COM OU",
+     2297
+    ],
+    [
+     "OUTRAS EDIFICACOES DO TIPO COM UTILIZACAO MULTIPLA",
+     2062
+    ],
+    [
+     "HOTEL PENSAO OU HOSPEDARIA",
+     1370
+    ],
+    [
+     "FLAT RESIDENCIAL EM CONDOMINIO EXIGE FRACAO IDEAL",
+     1241
+    ],
+    [
+     "INDUSTRIA",
+     1079
+    ],
+    [
+     "OFICINA",
+     658
+    ],
+    [
+     "ARMAZENS GERAIS E DEPOSITOS",
+     652
+    ],
+    [
+     "GARAGEM UNIDADE AUTONOMA DE PREDIO DE GARAGENS EXIGE FRACAO ",
+     501
+    ],
+    [
+     "ESCOLA",
+     436
+    ],
+    [
+     "GARAGEM EXCLUSIVE EM PREDIO EM CONDOMINIO",
+     298
+    ],
+    [
      "",
-     624
+     211
     ],
     [
-     "Normal 1",
-     94
+     "PREDIO DE APARTAMENTO NAO EM CONDOMINIO DE USO MISTO APARTAM",
+     202
     ],
     [
-     "Baixo nivel 3",
+     "POSTO DE SERVICO",
+     184
+    ],
+    [
+     "PREDIO DE APARTAMENTO NAO EM CONDOMINIO DE USO EXCLUSIVAMENT",
+     173
+    ],
+    [
+     "TEMPLO",
+     143
+    ],
+    [
+     "HOSPITAL AMBULATORIO CASA DE SAUDE E ASSEMELHADOS",
+     104
+    ],
+    [
+     "CORTICO HABITACAO COLETIVA SUBNORMAL",
+     64
+    ],
+    [
+     "ASILO ORFANATO CRECHE SEMINARIO OU CONVENTO",
+     37
+    ],
+    [
+     "PREDIO COM USO MISTO PREDOMINANCIA DE USO NAO RESIDENCIAL NA",
+     31
+    ],
+    [
+     "ESTACAO RADIOEMISSORA DE TELEVISAO OU EMPRESA JORNALISTICA",
+     28
+    ],
+    [
+     "CINEMA TEATRO CASA DE DIVERSAO CLUBE OU CONGENERE",
      26
+    ],
+    [
+     "DEPOSITO EM CONDOMINIO EXIGE FRACAO IDEAL",
+     1
+    ]
+   ],
+   "financiamento": [
+    [
+     "",
+     229008
+    ],
+    [
+     "1.Sistema Financeiro de Habitação",
+     115810
+    ],
+    [
+     "2.Minha Casa Minha Vida",
+     6221
+    ],
+    [
+     "3.Consórcio",
+     5920
+    ],
+    [
+     "99.SFI, Carteira Hipotecária, etc",
+     5625
+    ]
+   ],
+   "aba_sem_coluna": [
+    [
+     "JAN-2024: ['valor', 'natureza', 'area', 'uso'] | 102007276 0",
+     1
+    ],
+    [
+     "OUT-2024: ['valor', 'natureza', 'area', 'uso'] | 15216600131",
+     1
     ]
    ]
   },
@@ -139,13 +355,13 @@
    "2026-09"
   ],
   "n_ultimos": [
-   1208,
-   1328,
-   1346,
-   1607,
-   1538,
-   1372
+   6692,
+   7183,
+   7522,
+   8139,
+   7678,
+   7079
   ]
  },
- "gerado_em": "2026-11-25T09:35:16Z"
+ "gerado_em": "2026-11-25T09:38:42Z"
 }
