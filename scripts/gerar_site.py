@@ -501,11 +501,12 @@ ITENS_ENTORNO = [  # categoria, rótulo, tipo ("n" = quantos num raio de 1 km; "
 ]
 
 
-PESOS_PADRAO = {"escolas": 2, "saude": 2, "mercados": 2, "farmacias": 1, "restaurantes": 1, "parques": 2,
-                "onibus": 1, "estacoes": 2, "shoppings": 1, "preco": 0}
+PESOS_PADRAO = {"escolas": 3, "saude": 2, "mercados": 2, "farmacias": 1, "restaurantes": 1, "parques": 2,
+                "onibus": 1, "estacoes": 3, "shoppings": 1, "valor": 3}
+PARTE_VALOR = 0.222  # cada ponto do controle "valorização" = 22% da nota (3 = 67%); o resto é a estrutura
 ROTULO_CURTO = {"escolas": "Escolas e creches", "saude": "Saúde", "mercados": "Supermercados", "farmacias": "Farmácias",
                 "restaurantes": "Restaurantes e bares", "parques": "Parques e praças", "onibus": "Pontos de ônibus",
-                "estacoes": "Metrô, trem ou BRT", "shoppings": "Shoppings", "preco": "Preço do m² mais baixo"}
+                "estacoes": "Metrô, trem ou BRT", "shoppings": "Shoppings", "valor": "Valorização (m² mais caro)"}
 
 
 def _dist(a, b):
@@ -732,7 +733,7 @@ def entorno_html(ind: dict, nome_b: str, nome_c: str, s: str, pos=None, url_rank
     return f"""<section class="card" id="entorno"><h2>O que tem em volta de {esc(nome_b)}</h2>
 <p class="small">{intro} Comparado com os outros bairros {esc(de_(nome_c))}: quanto mais cheia a barra, melhor o bairro está nesse item.</p>
 <ul class="entorno">{"".join(linhas)}</ul>
-{f'<p class="rank-pos">No ranking de estrutura perto de casa, <b>{pos[0]}º de {pos[1]} bairros</b> {esc(de_(nome_c))}. <a href="{url_rank}">Ver o ranking</a></p>' if pos else ''}
+{f'<p class="rank-pos">No ranking de melhores bairros para morar, <b>{pos[0]}º de {pos[1]} bairros</b> {esc(de_(nome_c))}. <a href="{url_rank}">Ver o ranking</a></p>' if pos else ''}
 <p class="small">Fonte: © colaboradores do <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>, mapa colaborativo: pode faltar algum estabelecimento, mas a falta tende a ser parecida entre bairros da mesma cidade.{"" if dentro else " Este bairro não tem contorno no mapa; usamos o ponto que o OpenStreetMap marca com o nome dele."}</p></section>"""
 
 
@@ -956,7 +957,7 @@ class Site:
 <div class="card"><h2>Dinheiro movimentado</h2>{grafico_valor(meses, ci['valor'], f'Valor movimentado por mês {em_(nome)}')}</div>
 </section>
 {self.mapas[s].cidade_html()}
-{f'<section class="card aviso"><div><h2>Melhores bairros para morar {esc(em_(nome))}</h2><p>Ranking de {n_rank} bairros pela estrutura perto de casa: escola, saúde, mercado, transporte, parque. Você escolhe o peso de cada item.</p></div><a class="btn" href="{u(f"/{s}/melhores-bairros/")}">Ver o ranking</a></section>' if n_rank else ''}
+{f'<section class="card aviso"><div><h2>Melhores bairros para morar {esc(em_(nome))}</h2><p>Ranking de {n_rank} bairros pela estrutura perto de casa e pela valorização do imóvel. Você escolhe o peso de cada item.</p></div><a class="btn" href="{u(f"/{s}/melhores-bairros/")}">Ver o ranking</a></section>' if n_rank else ''}
 {curva}
 <section class="card" id="bairros"><h2>Todos os bairros {esc(de_(nome))}</h2>
 <input class="filtro" type="search" placeholder="Filtrar bairro" aria-label="Filtrar bairro" data-filtro="tab-bairros">
@@ -991,18 +992,23 @@ class Site:
         if len(eleg) < 15:
             return 0
         m2s = sorted(b["m2_12"] for _, b in eleg)
-        def p_preco(v):  # mais barato = mais perto de 1
+        def p_valor(v):  # mais caro = mais perto de 1
             menos = sum(1 for x in m2s if x < v) + 0.5 * (sum(1 for x in m2s if x == v) - 1)
-            return 1 - menos / max(len(m2s) - 1, 1)
-        chaves = cats + ["preco"]
+            return menos / max(len(m2s) - 1, 1)
+        chaves = cats + ["valor"]
         linhas = []
         for k, b in eleg:
-            ps = [ent[k][cat][1] for cat in cats] + [p_preco(b["m2_12"])]
+            ps = [ent[k][cat][1] for cat in cats] + [p_valor(b["m2_12"])]
             linhas.append({"k": k, "nome": nome_bonito(b["nome"]), "url": u(f"/{s}/{slug(b['nome'])}/"),
                            "m2": b["m2_12"], "p": [round(x, 3) for x in ps]})
         pesos = [PESOS_PADRAO[ch] for ch in chaves]
+        def nota(p, w):
+            we, wv = w[:-1], w[-1]
+            estr = sum(a * b for a, b in zip(we, p[:-1])) / sum(we) if sum(we) else 0
+            v = min(wv * PARTE_VALOR, 1) if sum(we) else 1
+            return ((1 - v) * estr + v * p[-1]) * 100
         for ln in linhas:
-            ln["nota"] = sum(w * x for w, x in zip(pesos, ln["p"])) / sum(pesos) * 100
+            ln["nota"] = nota(ln["p"], pesos)
         linhas.sort(key=lambda ln: -ln["nota"])
         self.posicoes[s] = {ln["k"]: (i + 1, len(linhas)) for i, ln in enumerate(linhas)}
         nome = c["nome"]
@@ -1020,28 +1026,29 @@ class Site:
         corpo = f"""<section class="hero">
 <span class="kicker">{esc(nome)} · ranking</span>
 <h1>Melhores bairros para morar {esc(em_(nome))}</h1>
-<p class="lead">{len(linhas)} bairros ordenados pela estrutura perto de casa: escola, saúde, mercado, transporte, parque e comércio. No peso padrão, os três primeiros são <strong>{esc(top3)}</strong>. Mude os pesos e o ranking muda na hora.</p>
+<p class="lead">{len(linhas)} bairros ordenados pela estrutura perto de casa (escola, saúde, mercado, transporte, parque e comércio) e pela valorização do imóvel. No peso padrão, os três primeiros são <strong>{esc(top3)}</strong>. Mude os pesos e o ranking muda na hora.</p>
 </section>
 <section class="card"><h2>O que pesa mais para você?</h2>
-<p class="small">0 = não conta; 3 = conta muito. Ligue o preço para achar bairros com boa estrutura e m² mais barato.</p>
+<p class="small">0 = não conta; 3 = conta muito. Zere a valorização para ver só a estrutura a pé.</p>
 <div class="pesos" id="pesos">{ctl}</div>
 <button class="btn sec" type="button" id="pesos-reset">Voltar ao padrão</button></section>
 <section class="card"><h2>Ranking</h2>
 <input class="filtro" type="search" placeholder="Achar um bairro" aria-label="Achar um bairro" data-filtro="tab-rank" data-col="1">
-<div class="tw"><table id="tab-rank" data-rank='{esc(dados)}' data-pesos='{json.dumps(pesos)}'><thead><tr><th>#</th><th>Bairro</th><th class="r">Pontos</th><th class="r">m² mediano</th></tr></thead>
+<div class="tw"><table id="tab-rank" data-rank='{esc(dados)}' data-pesos='{json.dumps(pesos)}' data-parte="{PARTE_VALOR}"><thead><tr><th>#</th><th>Bairro</th><th class="r">Pontos</th><th class="r">m² mediano</th></tr></thead>
 <tbody>{"".join(tab)}</tbody></table></div>
 <button class="btn sec" type="button" data-mais="tab-rank">Mostrar os {len(linhas)} bairros</button></section>
 <section class="card"><h2>Como a conta é feita</h2>
 <ul>
 <li>Para cada item, o bairro recebe de 0 a 100 conforme a posição dele entre os bairros da cidade: 100 é o melhor, 50 é o do meio. A conta de cada item é a que aparece na página do bairro, em "O que tem em volta".</li>
-<li>Os pontos são a média desses valores, com os pesos acima.</li>
+<li>A estrutura é a média desses valores, com os pesos acima.</li>
+<li><b>Valorização:</b> a posição do bairro pelo m² mediano das vendas reais (o mais caro vale 100). É quanto as pessoas aceitam pagar para morar ali, e isso embute o que não tem dado aberto por bairro, como segurança, sossego e fama. No padrão (3), ela vale 67% dos pontos e a estrutura, 33%; cada ponto a menos tira 22% dela.</li>
 <li>Entram os bairros com pelo menos 30 vendas em 12 meses e com todos os itens calculados.</li>
-<li><b>O que não entra:</b> segurança, barulho, trânsito e qualidade das escolas. Não há dado aberto por bairro que permita comparar isso de forma justa. Pontos altos querem dizer muita coisa perto de casa, não necessariamente tranquilidade.</li>
+<li><b>O que não entra diretamente:</b> segurança, barulho, trânsito e qualidade das escolas. Não há dado aberto por bairro que permita comparar isso de forma justa; só aparecem através do preço.</li>
 <li>Fonte da estrutura: © colaboradores do <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>. Preço: {esc(c['fonte'])}.</li>
 </ul></section>"""
         self.busca.append([f"Melhores bairros para morar {em_(nome)}", f"/{s}/melhores-bairros/", "Ranking"])
-        self.pagina(f"/{s}/melhores-bairros/", f"Melhores bairros para morar {em_(nome)}: ranking por estrutura",
-                    f"Ranking de {len(linhas)} bairros {de_(nome)} por escola, saúde, mercado, transporte e parques perto de casa. "
+        self.pagina(f"/{s}/melhores-bairros/", f"Melhores bairros para morar {em_(nome)}: ranking com dados reais",
+                    f"Ranking de {len(linhas)} bairros {de_(nome)} por escola, saúde, mercado, transporte, parques e valorização do imóvel. "
                     f"Escolha o peso de cada item e veja o preço real do m².",
                     corpo, ativo=f"/{s}/", migalhas=[(f"/{s}/", nome), (None, "Melhores bairros")], media=bool(c.get("agregado")))
         return len(linhas)

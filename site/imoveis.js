@@ -44,10 +44,13 @@
     var bt = document.querySelector('[data-mais="tab-rank"]');
     function refaz() {
       var w = Array.prototype.map.call(ins, function (i) { i.nextElementSibling.textContent = i.value; return +i.value; });
-      var tot = w.reduce(function (a, b) { return a + b; }, 0) || 1;
+      var parte = +tab.getAttribute("data-parte"), n = w.length - 1;
+      var tot = 0; for (var k = 0; k < n; k++) tot += w[k];
+      var v = tot ? Math.min(w[n] * parte, 1) : 1;
       var lin = dados.map(function (d) {
-        var s = 0; for (var i = 0; i < w.length; i++) s += w[i] * d[3][i];
-        return [d, s / tot * 100];
+        var s = 0; for (var i = 0; i < n; i++) s += w[i] * d[3][i];
+        var estr = tot ? s / tot : 0;
+        return [d, ((1 - v) * estr + v * d[3][n]) * 100];
       }).sort(function (a, b) { return b[1] - a[1]; });
       var todos = tab.getAttribute("data-todos") === "1", html = "";
       lin.forEach(function (x, i) {
