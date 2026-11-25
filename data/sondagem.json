@@ -1,0 +1,1237 @@
+{
+ "gerado_em": "2026-11-25T09:17:18Z",
+ "cidades": {
+  "belo-horizonte": {
+   "base": "https://dados.pbh.gov.br",
+   "pacotes": [
+    {
+     "pacote": "itbi-relatorios",
+     "titulo": "ITBI Relatórios",
+     "modificado": "2026-11-03T14:14:02.990115",
+     "n_recursos": 32,
+     "recursos": [
+      {
+       "nome": "Dicionário de Dados ITBI Relatórios",
+       "formato": "PDF",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/f925acff-c470-41f0-b4aa-a0e6bece5f20/download/dicionario_de_dados_atualizado_2024_05.pdf",
+       "criado": "2024-07-15T14:33:28.824017",
+       "modificado": "2024-07-15T14:33:28.773796",
+       "tamanho": 405905
+      },
+      {
+       "nome": "Dicionário de Dados ITBI Relatórios atualizado em 08/2024",
+       "formato": "PDF",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/139e6fa9-b2d1-4eec-b1e8-bf5e966211bd/download/dicionario_de_dados_itbi_relatorios_atualizado_2024_08.pdf",
+       "criado": "2024-08-30T17:25:19.496787",
+       "modificado": "2024-08-30T17:25:19.366878",
+       "tamanho": 413020
+      },
+      {
+       "nome": "Dicionário de Dados ITBI Relatórios atualizado em 01/2025",
+       "formato": "PDF",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/2e0419d2-068b-43a7-8b3b-ad3b4f3fefd9/download/dicionario_de_dados_atualizado_2025_01.pdf",
+       "criado": "2025-01-09T14:44:22.692329",
+       "modificado": "2025-01-09T14:44:22.592662",
+       "tamanho": 511833
+      },
+      {
+       "nome": "01/2008 a 05/2024 - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/7f8955aa-0b30-4157-bbc2-7dd444941728/download/pda_itbi_relatorio_200801_a_202405.csv",
+       "criado": "2024-07-15T14:38:07.645845",
+       "modificado": "2024-07-15T14:38:07.595395",
+       "tamanho": 80660705
+      },
+      {
+       "nome": "2024 - Junho - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/b21f9785-6b4c-43a1-bd66-dbf89e63efe7/download/pda_itbi_relatorio_202406.csv",
+       "criado": "2024-07-22T15:03:41.949105",
+       "modificado": "2024-07-22T15:03:41.857596",
+       "tamanho": 348461
+      },
+      {
+       "nome": "2024 - Julho - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/1520a5dc-858a-4eca-89bd-54964c273ce7/download/pda_itbi_relatorio_202407_corrigido.csv",
+       "criado": "2024-08-28T17:29:20.983022",
+       "modificado": "2024-09-04T11:44:51.283464",
+       "tamanho": 417625
+      },
+      {
+       "nome": "2024 - Agosto - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/aa948bd0-9554-4e33-87f7-eb61ef0d2903/download/pda_itbi_relatorio_202408.csv",
+       "criado": "2024-09-12T14:24:55.276507",
+       "modificado": "2024-09-12T14:24:55.019499",
+       "tamanho": 509568
+      },
+      {
+       "nome": "2024 - Setembro - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/f582a331-9608-49a2-be3b-a5a5aa19ecff/download/pda_itbi_relatorio_202409.csv",
+       "criado": "2024-10-16T19:43:58.258328",
+       "modificado": "2024-10-16T19:43:58.120587",
+       "tamanho": 468117
+      },
+      {
+       "nome": "2024 - Outubro - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/f5c13859-c3ee-4e3e-9c34-c6215f49a4a5/download/pda_itbi_relatorio_202410.csv",
+       "criado": "2024-11-28T17:14:52.291558",
+       "modificado": "2024-11-28T17:14:51.953918",
+       "tamanho": 432820
+      },
+      {
+       "nome": "2024 - Novembro  -  ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/97db6e95-141a-4402-aa60-50dd06ae9340/download/pda_itbi_relatorio_202411.csv",
+       "criado": "2024-12-16T14:45:07.794456",
+       "modificado": "2024-12-16T14:45:07.679972",
+       "tamanho": 404129
+      },
+      {
+       "nome": "2024 - Dezembro - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/af6d7c58-e1d2-4fab-8d9a-487dddc30a20/download/pda_itbi_relatorio_202412.csv",
+       "criado": "2025-01-17T15:10:45.715662",
+       "modificado": "2025-01-17T15:10:45.429453",
+       "tamanho": 412690
+      },
+      {
+       "nome": "2025 - Janeiro - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/78c33612-ebf5-4a25-af35-d3065f056579/download/pda_itbi_relatorio_202501.csv",
+       "criado": "2025-02-25T13:30:53.804715",
+       "modificado": "2025-02-25T13:30:52.410462",
+       "tamanho": 459729
+      },
+      {
+       "nome": "2025 - Fevereiro - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/23e019f9-6537-4561-9935-ca7d19ae3b6b/download/pda_itbi_relatorio_202502.csv",
+       "criado": "2025-03-31T12:25:59.259836",
+       "modificado": "2025-03-31T12:25:57.286695",
+       "tamanho": 436273
+      },
+      {
+       "nome": "2025 - Março - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/df8c42ee-166f-4e5d-9eb3-69fc00f3ae57/download/pda_itbi_relatorio_202503.csv",
+       "criado": "2025-04-09T17:52:44.113272",
+       "modificado": "2025-04-09T17:52:43.639346",
+       "tamanho": 382893
+      },
+      {
+       "nome": "2025 - Abril - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/dad2d5af-d9c2-4e09-9766-7f01387fbd9a/download/pda_itbi_relatorio_202504.csv",
+       "criado": "2025-05-12T18:15:12.175219",
+       "modificado": "2025-05-12T18:15:12.033786",
+       "tamanho": 424464
+      },
+      {
+       "nome": "2025 - Maio - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/0e353102-585d-4dfb-ab15-84550b550c61/download/pda_itbi_relatorio_202505.csv",
+       "criado": "2025-06-11T17:45:00.330547",
+       "modificado": "2025-06-11T17:45:00.214361",
+       "tamanho": 407297
+      },
+      {
+       "nome": "2025 - Junho - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/6be6874d-6e20-4d68-a904-2351fc0f31f4/download/pda_itbi_relatorio_202506.csv",
+       "criado": "2025-07-11T14:59:03.556594",
+       "modificado": "2025-07-11T14:59:03.441495",
+       "tamanho": 306837
+      },
+      {
+       "nome": "2025 - Julho - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/9f8b1538-5f8b-469c-8728-f4902b28456e/download/pda_itbi_relatorio_202507.csv",
+       "criado": "2025-08-12T12:40:34.960504",
+       "modificado": "2025-08-12T12:40:34.750524",
+       "tamanho": 447812
+      },
+      {
+       "nome": "2025 - Agosto - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/f4e60a70-3bd8-41dc-b031-42b5f3d1671a/download/pda_itbi_relatorio_202508.csv",
+       "criado": "2025-12-03T18:08:35.096710",
+       "modificado": "2025-12-03T18:08:34.904328",
+       "tamanho": 398271
+      },
+      {
+       "nome": "2025 - Setembro - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/cbdea14d-77de-4c32-a7db-3e327e09257c/download/pda_itbi_relatorio_202509.csv",
+       "criado": "2025-12-03T18:10:43.732638",
+       "modificado": "2025-12-03T18:10:43.551858",
+       "tamanho": 455273
+      },
+      {
+       "nome": "2025 - Outubro - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/fbd1fe60-f838-4392-92c2-98cc09dfc81c/download/pda_itbi_relatorio_202510.csv",
+       "criado": "2025-12-03T18:12:37.964559",
+       "modificado": "2025-12-03T18:12:37.836087",
+       "tamanho": 483212
+      },
+      {
+       "nome": "2025 - Novembro - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/9bd075e2-2abe-42d7-a1e2-b68a18245172/download/pda_itbi_relatorio_202511.csv",
+       "criado": "2025-12-11T14:46:12.904307",
+       "modificado": "2025-12-11T14:46:12.744583",
+       "tamanho": 403678
+      },
+      {
+       "nome": "2025 - Dezembro - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/c3dd25fd-ac34-4f3f-afcc-21589d64ce8a/download/pda_itbi_relatorio_202512.csv",
+       "criado": "2026-01-27T10:29:30.984964",
+       "modificado": "2026-01-27T10:29:30.803018",
+       "tamanho": 416161
+      },
+      {
+       "nome": "2026 - Janeiro - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/2deb4632-f226-40a7-b8ac-89c6d9f8aff9/download/pda_itbi_relatorio_202601.csv",
+       "criado": "2026-02-25T11:04:17.859671",
+       "modificado": "2026-02-25T11:04:17.714302",
+       "tamanho": 350316
+      },
+      {
+       "nome": "2026 - Fevereiro - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/453b3f6d-ec7f-415c-af5e-c23d1f488e2a/download/pda_itbi_relatorio_202602.csv",
+       "criado": "2026-03-23T10:49:27.932323",
+       "modificado": "2026-03-23T10:49:27.751083",
+       "tamanho": 360257
+      },
+      {
+       "nome": "2026 - Março -  ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/0773a6b9-b107-4692-9b85-760221ec3abb/download/pda_itbi_relatorio_202603.csv",
+       "criado": "2026-04-09T17:07:52.705694",
+       "modificado": "2026-04-09T17:07:52.544789",
+       "tamanho": 482680
+      },
+      {
+       "nome": "2026 - Abril - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/9739d3c2-0f38-4aff-9c68-877df748f2ae/download/pda_itbi_relatorio_202604.csv",
+       "criado": "2026-05-08T17:40:32.185465",
+       "modificado": "2026-05-08T17:40:31.901381",
+       "tamanho": 417226
+      },
+      {
+       "nome": "2026 - Maio - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/5abcaa09-f12c-4235-8298-b575ab008ace/download/pda_itbi_relatorio_202605.csv",
+       "criado": "2026-06-16T10:26:47.801024",
+       "modificado": "2026-06-16T10:26:47.549550",
+       "tamanho": 391493
+      },
+      {
+       "nome": "2026 - Junho - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/0207f55f-6733-4612-bd6a-cd9035381cd0/download/pda_itbi_relatorio_202606.csv",
+       "criado": "2026-07-10T17:47:54.658564",
+       "modificado": "2026-09-08T17:51:04.431668",
+       "tamanho": 457662
+      },
+      {
+       "nome": "2026 - Julho - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/39f518a9-c027-41af-868d-0befa2d8f783/download/pda_itbi_relatorio_202607.csv",
+       "criado": "2026-09-08T12:23:25.244719",
+       "modificado": "2026-09-08T12:23:24.781482",
+       "tamanho": 517694
+      },
+      {
+       "nome": "2026 - Agosto - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/17dc691a-fcc8-4932-aadb-cf02bd2f52bb/download/pda_itbi_relatorio_202608.csv",
+       "criado": "2026-09-17T21:10:06.214775",
+       "modificado": "2026-09-17T21:10:05.893800",
+       "tamanho": 446682
+      },
+      {
+       "nome": "2026 - Setembro - ITBI Relatórios",
+       "formato": "CSV",
+       "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/255cd101-66ac-4a76-9a4c-793719d88c21/download/pda_itbi_relatorio_202609.csv",
+       "criado": "2026-11-03T14:13:58.178351",
+       "modificado": "2026-11-03T14:13:57.916550",
+       "tamanho": 394582
+      }
+     ]
+    }
+   ],
+   "amostra_recente": {
+    "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/255cd101-66ac-4a76-9a4c-793719d88c21/download/pda_itbi_relatorio_202609.csv",
+    "status": 200,
+    "bytes": 394582,
+    "content_type": "text/csv",
+    "tipo": "csv",
+    "encoding": "utf-8-sig",
+    "separador": ";",
+    "colunas": [
+     "Endereco Completo",
+     "Bairro",
+     "Ano de Construcao (Unidade)",
+     "Area Terreno Total",
+     "Area Construida Adquirida",
+     "Area Adquirida (Unidades Somadas)",
+     "Padrao Acabamento (Unidade)",
+     "Fracao Ideal Adquirida",
+     "Tipo Construtivo Preponderante",
+     "Descrição Tipo Ocupacao (Unidade)",
+     "Valor Declarado",
+     "Valor Base Calculo",
+     "Zona Uso ITBI",
+     "Data Quitacao"
+    ],
+    "linhas": 2295,
+    "exemplos": [
+     [
+      "AVE ALVARES CABRAL 1181 - APT 408 - LOURDES - 30170-004 - BE",
+      "LOURDES",
+      "1998",
+      "1265,78",
+      "79,6",
+      "79,6",
+      "P5",
+      "0,008271",
+      "AP",
+      "RESIDENCIAL",
+      "430000",
+      "430000",
+      "ZCBH",
+      "01/09/2026"
+     ],
+     [
+      "AVE BARAO HOMEM DE MELO 456 - BLOCO 9 APT 103 - JARDIM AMERI",
+      "JARDIM AMERICA",
+      "2000",
+      "4085,69",
+      "52,29",
+      "52,29",
+      "P3",
+      "0,00567",
+      "AP",
+      "RESIDENCIAL",
+      "194800",
+      "195985,06",
+      "ZAP",
+      "01/09/2026"
+     ],
+     [
+      "AVE COSTA DO MARFIM 281 - APT 105 - HAVAI - 30575-000 - BELO",
+      "HAVAI",
+      "1982",
+      "30174",
+      "91",
+      "91",
+      "P3",
+      "0,004758",
+      "AP",
+      "RESIDENCIAL",
+      "400000",
+      "400000",
+      "ZAR2",
+      "01/09/2026"
+     ]
+    ]
+   },
+   "amostra_antiga": {
+    "url": "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/7f8955aa-0b30-4157-bbc2-7dd444941728/download/pda_itbi_relatorio_200801_a_202405.csv",
+    "status": 200,
+    "bytes": 80660705,
+    "content_type": "text/csv",
+    "tipo": "csv",
+    "encoding": "utf-8-sig",
+    "separador": ";",
+    "colunas": [
+     "Endereco",
+     "Bairro ",
+     "Ano de Construcao Unidade",
+     "Area Terreno Total",
+     "Area Construida Adquirida",
+     "Area Adquirida Unidades Somadas",
+     "Padrao Acabamento Unidade",
+     "Fracao Ideal Adquirida",
+     "Tipo Construtivo Preponderante",
+     "Descricao Tipo Ocupacao Unidade",
+     "Valor Declarado",
+     "Valor Base Calculo",
+     "Zona Uso ITBI",
+     "Data Quitacao Transacao"
+    ],
+    "linhas": 450590,
+    "exemplos": [
+     [
+      "AVE AFONSO PENA 3924 - GARAGE 60 - CRUZEIRO - 30130-009 - BE",
+      "CRUZEIRO",
+      "1976",
+      "1.119,00",
+      "28,53",
+      "28,53",
+      "P3",
+      "0,00447",
+      "VC",
+      "NAO RESIDENCIAL",
+      "1.000,00",
+      "11.411,56",
+      "ZA",
+      "02/01/2008"
+     ],
+     [
+      "AVE AMAZONAS 718 - APT 704 - CENTRO - 30180-006 - BELO HORIZ",
+      "CENTRO",
+      "1960",
+      "1.030,00",
+      "126,99",
+      "126,99",
+      "P2",
+      "0,007197",
+      "AP",
+      "RESIDENCIAL",
+      "85.000,00",
+      "85.000,00",
+      "ZHIP",
+      "02/01/2008"
+     ],
+     [
+      "AVE AUGUSTO DE LIMA 1276 - APT 301 - BARRO PRETO - 30190-003",
+      "BARRO PRETO",
+      "1978",
+      "544",
+      "135,55",
+      "135,55",
+      "P3",
+      "0,025843",
+      "AP",
+      "RESIDENCIAL",
+      "121.500,00",
+      "121.500,00",
+      "ZCBH",
+      "02/01/2008"
+     ]
+    ]
+   }
+  },
+  "recife": {
+   "base": "https://dados.recife.pe.gov.br",
+   "pacotes": [
+    {
+     "pacote": "imposto-sobre-transmissao-de-bens-imoveis-itbi",
+     "titulo": "Imposto sobre Transmissão de Bens Imóveis (ITBI)",
+     "modificado": "2026-11-03T02:05:00.759391",
+     "n_recursos": 13,
+     "recursos": [
+      {
+       "nome": "Dicionário de dados - ITBI",
+       "formato": "JSON",
+       "url": "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/e829c92b-a1b1-47f9-af69-91f584bdc98f/download/dicionario-de-dados-itbi.json",
+       "criado": "2026-03-02T15:13:27.109617",
+       "modificado": "2026-03-02T15:13:26.979595",
+       "tamanho": 5284
+      },
+      {
+       "nome": "ITBI 2026 - Imposto sobre a Transmissão de Bens Imóveis",
+       "formato": "CSV",
+       "url": "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/fc95e204-a121-4b7a-94b2-e4420539c0d1/download/itbi_2026.csv",
+       "criado": "2026-03-04T12:18:25.340648",
+       "modificado": "2026-11-03T02:05:00.698813",
+       "tamanho": 3211008
+      },
+      {
+       "nome": "ITBI 2025 - Imposto sobre a Transmissão de Bens Imóveis",
+       "formato": "CSV",
+       "url": "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/1d705d4a-f67a-4914-971f-01f9b1685d1b/download/itbi-2025-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+       "criado": "2026-03-02T15:13:48.030485",
+       "modificado": "2026-03-02T15:13:47.973430",
+       "tamanho": 4157286
+      },
+      {
+       "nome": "ITBI 2024 - Imposto sobre a Transmissão de Bens Imóveis",
+       "formato": "CSV",
+       "url": "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/756d9a7e-33aa-4fdd-a541-0f5dc97c7502/download/itbi-2024-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+       "criado": "2026-03-02T15:13:51.886093",
+       "modificado": "2026-03-02T15:13:51.830944",
+       "tamanho": 3941355
+      },
+      {
+       "nome": "ITBI 2023 - Imposto sobre a Transmissão de Bens Imóveis",
+       "formato": "CSV",
+       "url": "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/47dfea23-81ec-455e-83a0-3e451e5b5ca6/download/itbi-2023-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+       "criado": "2026-03-02T15:14:13.035415",
+       "modificado": "2026-03-02T15:14:12.965386",
+       "tamanho": 3298079
+      },
+      {
+       "nome": "ITBI 2022 - Imposto sobre a Transmissão de Bens Imóveis",
+       "formato": "CSV",
+       "url": "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/5226cf6f-ed06-4956-b133-a0c788a5d494/download/itbi-2022-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+       "criado": "2026-03-02T15:14:17.087217",
+       "modificado": "2026-03-02T15:14:17.013807",
+       "tamanho": 3855383
+      },
+      {
+       "nome": "ITBI 2021 - Imposto sobre a Transmissão de Bens Imóveis",
+       "formato": "CSV",
+       "url": "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/f3a083a1-aa48-416d-b3aa-c022192219e6/download/itbi-2021-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+       "criado": "2026-03-02T15:14:28.662131",
+       "modificado": "2026-03-02T15:14:28.589594",
+       "tamanho": 3637852
+      },
+      {
+       "nome": "ITBI 2020 - Imposto sobre a Transmissão de Bens Imóveis",
+       "formato": "CSV",
+       "url": "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/6f79d820-b764-4cde-939f-83d80e728c53/download/itbi-2020-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+       "criado": "2026-03-02T15:14:56.131388",
+       "modificado": "2026-03-02T15:14:56.073399",
+       "tamanho": 2866332
+      },
+      {
+       "nome": "ITBI 2019 - Imposto sobre a Transmissão de Bens Imóveis",
+       "formato": "CSV",
+       "url": "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/6a8a8f7e-8d3d-4729-aaf9-fcc43ae2827a/download/itbi-2019-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+       "criado": "2026-03-02T15:15:11.763955",
+       "modificado": "2026-03-02T15:15:11.716439",
+       "tamanho": 3304037
+      },
+      {
+       "nome": "ITBI 2018 - Imposto sobre a Transmissão de Bens Imóveis",
+       "formato": "CSV",
+       "url": "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/ae29c630-77b8-4109-8e1b-02292069f4d5/download/itbi-2018-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+       "criado": "2026-03-02T15:15:37.559856",
+       "modificado": "2026-03-02T15:15:37.514613",
+       "tamanho": 3035609
+      },
+      {
+       "nome": "ITBI 2017 - Imposto sobre a Transmissão de Bens Imóveis",
+       "formato": "CSV",
+       "url": "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/53617998-09e8-420c-9399-75d859c8528e/download/itbi-2017-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+       "criado": "2026-03-02T15:15:54.014300",
+       "modificado": "2026-03-02T15:15:53.963001",
+       "tamanho": 2599846
+      },
+      {
+       "nome": "ITBI 2016 - Imposto sobre a Transmissão de Bens Imóveis",
+       "formato": "CSV",
+       "url": "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/210db9b0-4ea5-49cb-8084-135ebfca848d/download/itbi-2016-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+       "criado": "2026-03-02T15:16:17.827440",
+       "modificado": "2026-03-02T15:16:17.773549",
+       "tamanho": 3108463
+      },
+      {
+       "nome": "ITBI 2015 - Imposto sobre a Transmissão de Bens Imóveis",
+       "formato": "CSV",
+       "url": "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/87caf0ce-5f05-4952-abe5-83fa46eece4c/download/itbi-2015-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+       "criado": "2026-03-02T15:16:34.623560",
+       "modificado": "2026-03-02T15:16:34.573192",
+       "tamanho": 3020565
+      }
+     ]
+    }
+   ],
+   "amostra_recente": {
+    "url": "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/fc95e204-a121-4b7a-94b2-e4420539c0d1/download/itbi_2026.csv",
+    "status": 200,
+    "bytes": 3211008,
+    "content_type": "application/octet-stream",
+    "tipo": "csv",
+    "encoding": "utf-8-sig",
+    "separador": ";",
+    "colunas": [
+     "logradouro",
+     "numero",
+     "complemento",
+     "valor_avaliacao",
+     "bairro",
+     "cidade",
+     "uf",
+     "ano_construcao",
+     "area_terreno",
+     "area_construida",
+     "fracao_ideal",
+     "padrao_acabamento",
+     "tipo_construcao",
+     "tipo_ocupacao",
+     "data_transacao",
+     "estado_conservacao",
+     "tipo_imovel",
+     "sfh",
+     "cod_logradouro",
+     "latitude",
+     "longitude",
+     "ano"
+    ],
+    "linhas": 15078,
+    "exemplos": [
+     [
+      "rua caio pereira",
+      "375",
+      "apto 1002 edf luar do rosarinho",
+      "448283,29",
+      "Encruzilhada",
+      "Recife",
+      "PE",
+      "2007",
+      "798,91",
+      "118,64",
+      "0,02518",
+      "Médio",
+      "Apartamento > 4 Pavimentos",
+      "RESIDENCIAL",
+      "2026-08-11",
+      "Bom",
+      "Apartamento",
+      "0,00",
+      "13269",
+      "-8.034996",
+      "-34.896187",
+      "2026"
+     ],
+     [
+      "rua caio pereira",
+      "375",
+      "apto 802 edf luar do rosarinho",
+      "444316,40",
+      "Encruzilhada",
+      "Recife",
+      "PE",
+      "2007",
+      "798,91",
+      "118,64",
+      "0,02518",
+      "Médio",
+      "Apartamento > 4 Pavimentos",
+      "RESIDENCIAL",
+      "2026-10-19",
+      "Bom",
+      "Apartamento",
+      "0,00",
+      "13269",
+      "-8.034996",
+      "-34.896187",
+      "2026"
+     ],
+     [
+      "rua caio pereira",
+      "800",
+      "apto 1403 edf sainte juliana",
+      "840000,00",
+      "Encruzilhada",
+      "Recife",
+      "PE",
+      "2017",
+      "1295,39",
+      "145,49",
+      "0,01581",
+      "Superior",
+      "Apartamento > 4 Pavimentos",
+      "RESIDENCIAL",
+      "2026-07-09",
+      "Bom",
+      "Apartamento",
+      "248619,76",
+      "13269",
+      "",
+      "",
+      "2026"
+     ]
+    ]
+   },
+   "amostra_antiga": {
+    "url": "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/e829c92b-a1b1-47f9-af69-91f584bdc98f/download/dicionario-de-dados-itbi.json",
+    "status": 200,
+    "bytes": 5284,
+    "content_type": "application/octet-stream",
+    "tipo": "csv",
+    "encoding": "utf-8-sig",
+    "separador": ";",
+    "colunas": [
+     "{"
+    ],
+    "linhas": 161,
+    "exemplos": [
+     [
+      "    \"metadados\": {"
+     ],
+     [
+      "        \"cabecalho\": {"
+     ],
+     [
+      "            \"titulo\": \"\","
+     ]
+    ]
+   }
+  },
+  "fortaleza": {
+   "base": "https://dados.fortaleza.ce.gov.br",
+   "pacotes": [
+    {
+     "pacote": "dados_abertos_itbi_transacoes_imobiliarias",
+     "titulo": "Imposto sobre Transmissão de Bens Imóveis (ITBI)",
+     "modificado": "2026-10-26T10:23:14.632323",
+     "n_recursos": 1,
+     "recursos": [
+      {
+       "nome": "Imposto sobre Transmissão de Bens Imóveis (ITBI)",
+       "formato": "CSV",
+       "url": "https://dados.fortaleza.ce.gov.br/dataset/32608ed2-e4ad-4cd2-b7bc-deea35dd189f/resource/46324d49-9809-4d32-8e5c-b4b570f067ce/download/dados_abertos_itbi_transacoes_imobiliarias.csv",
+       "criado": "2024-02-15T19:27:29.727954",
+       "modificado": "2026-10-19T17:24:10.072861",
+       "tamanho": 41851304
+      }
+     ]
+    }
+   ],
+   "amostra_recente": {
+    "url": "https://dados.fortaleza.ce.gov.br/dataset/32608ed2-e4ad-4cd2-b7bc-deea35dd189f/resource/46324d49-9809-4d32-8e5c-b4b570f067ce/download/dados_abertos_itbi_transacoes_imobiliarias.csv",
+    "status": 200,
+    "bytes": 41851304,
+    "content_type": "text/csv",
+    "tipo": "csv",
+    "encoding": "latin-1",
+    "separador": ";",
+    "colunas": [
+     "VERSAO",
+     "ID_AVALIACAO",
+     "INSCRICAO_IMOVEL",
+     "DIGITO",
+     "NUM_DTI",
+     "EXERCICIO",
+     "DATA_CADASTRAMENTO_GI_IMOVEL",
+     "TIPO_TRANSMITENTE",
+     "TIPO_ADQUIRENTE",
+     "NUMERO_CEP",
+     "BAIRRO",
+     "LOGRADOURO",
+     "NUMERO",
+     "XSIRGAS2000",
+     "YSIRGAS2000",
+     "QTD_FRENTES",
+     "FRACAO_IDEAL",
+     "AREA_TERRENO",
+     "AREA_EDIFICADA",
+     "DATA_CONSTRUCAO",
+     "NUMERO_PAVIMENTOS",
+     "TIPO_USO_IMOVEL",
+     "PADRAO_CONSTRUCAO",
+     "TIPO_TERRENO",
+     "ANO_MES_DEBITO",
+     "NOME_ZONEAMENTO",
+     "ZONA_CARTORIO",
+     "DATA_DA_TRANSACAO_ITBI",
+     "ID_IMOVEL",
+     "CARTOGRAFIA",
+     "VL_BASE_CALCULO",
+     "VL_VENAL",
+     "VL_LANCAMENTO_IPTU",
+     "IND_COMPRA_VIA_PROGRAMA_HABITACIONAL"
+    ],
+    "linhas": 112180,
+    "exemplos": [
+     [
+      "1",
+      "823455",
+      "459611",
+      "0",
+      "7/2022",
+      "2022",
+      "03/01/2022 10:07:14",
+      "Fisica",
+      "Juridica",
+      "60871660",
+      "COAÇU",
+      "AV  GURGEL DO AMARAL",
+      "1234",
+      "557104,882335606",
+      "9575952,3857539",
+      "1",
+      "0,3444036",
+      "392",
+      "108,68",
+      "17/10/2008 00:00:00",
+      "2",
+      "Comercial",
+      "Alto nivel 2",
+      "",
+      "2022/JANEIRO",
+      "ZONA DE OCUPACAO MODERADA 2",
+      "{Matrícula:50387, Zona:1ª Zona}",
+      "",
+      "1794641",
+      "65-298-406",
+      "276666,66",
+      "84058,59",
+      "883,13",
+      "Nenhum"
+     ],
+     [
+      "1",
+      "823632",
+      "816684",
+      "6",
+      "31/2022",
+      "2022",
+      "03/01/2022 15:36:30",
+      "Fisica",
+      "Fisica",
+      "60165070",
+      "MEIRELES",
+      "R  SILVA JATAHY",
+      "376",
+      "555458,0134714589",
+      "9588027,970216004",
+      "2",
+      "0,02329547",
+      "1108,1",
+      "168,46",
+      "19/02/2014 00:00:00",
+      "27",
+      "Residencial",
+      "Luxo 2",
+      "",
+      "2022/JANEIRO",
+      "ZONA DE OCUPACAO CONSOLIDADA",
+      "{Matrícula:40729, Zona:4ª Zona}",
+      "",
+      "2041335",
+      "9-84-163",
+      "666730",
+      "311319,69",
+      "2553,59",
+      "Nenhum"
+     ],
+     [
+      "1",
+      "824395",
+      "728628",
+      "7",
+      "277/2022",
+      "2022",
+      "06/01/2022 15:06:13",
+      "Juridica",
+      "Fisica",
+      "60510665",
+      "DOM LUSTOSA",
+      "R  RUI MONTE",
+      "1070",
+      "546021,044107451",
+      "9585680,979183",
+      "3",
+      "0,0174706",
+      "5346",
+      "108,7",
+      "25/05/2011 00:00:00",
+      "5",
+      "Residencial",
+      "Alto nivel 2",
+      "",
+      "2022/JANEIRO",
+      "ZONA DE REQUALIFICACAO URBANA 1",
+      "{Matrícula:101060, Zona:3ª Zona}",
+      "",
+      "1999538",
+      "30-250-365",
+      "144790",
+      "81984,35",
+      "542,72",
+      "Nenhum"
+     ]
+    ]
+   }
+  },
+  "porto-alegre": {
+   "base": "https://dadosabertos.poa.br",
+   "pacotes": [
+    {
+     "pacote": "itbi",
+     "titulo": "ITBI",
+     "modificado": "2026-11-06T18:56:36.021497",
+     "n_recursos": 8,
+     "recursos": [
+      {
+       "nome": "Dicionário de Dados",
+       "formato": "PDF",
+       "url": "https://dadosabertos.poa.br/dataset/dd8ee5be-06f4-4107-a3bf-5e15aebba6c1/resource/b0fe9643-82bb-4b91-be26-b6292b7aeac7/download/dicionario-de-dados.pdf",
+       "criado": "2025-11-21T18:59:38.546881",
+       "modificado": "2026-11-06T18:56:36.011250",
+       "tamanho": 368786
+      },
+      {
+       "nome": "ITBI 2020",
+       "formato": "ZIP",
+       "url": "https://dadosabertos.poa.br/dataset/dd8ee5be-06f4-4107-a3bf-5e15aebba6c1/resource/60256fcf-9ae6-4adf-b0b4-b6b45fb4b34b/download/itbi-2020.zip",
+       "criado": "2025-11-21T19:08:41.786082",
+       "modificado": "2026-11-06T18:51:50.152570",
+       "tamanho": 1596900
+      },
+      {
+       "nome": "ITBI 2021",
+       "formato": "ZIP",
+       "url": "https://dadosabertos.poa.br/dataset/dd8ee5be-06f4-4107-a3bf-5e15aebba6c1/resource/150848b4-0d01-4ffb-96e0-f5f2a276f5ef/download/itbi-2021.zip",
+       "criado": "2025-11-21T19:17:37.735968",
+       "modificado": "2026-11-06T18:51:51.876568",
+       "tamanho": 2034448
+      },
+      {
+       "nome": "ITBI 2022",
+       "formato": "ZIP",
+       "url": "https://dadosabertos.poa.br/dataset/dd8ee5be-06f4-4107-a3bf-5e15aebba6c1/resource/102520c0-3edc-4f85-947f-6a98b96ed160/download/itbi-2022.zip",
+       "criado": "2025-11-21T19:18:29.027975",
+       "modificado": "2026-11-06T18:51:54.717783",
+       "tamanho": 2125336
+      },
+      {
+       "nome": "ITBI 2023",
+       "formato": "ZIP",
+       "url": "https://dadosabertos.poa.br/dataset/dd8ee5be-06f4-4107-a3bf-5e15aebba6c1/resource/2a4b0aee-7126-4323-936d-5f82fd04aeef/download/itbi-2023.zip",
+       "criado": "2025-11-21T19:21:43.472503",
+       "modificado": "2026-11-06T18:51:56.041711",
+       "tamanho": 2078246
+      },
+      {
+       "nome": "ITBI 2024",
+       "formato": "ZIP",
+       "url": "https://dadosabertos.poa.br/dataset/dd8ee5be-06f4-4107-a3bf-5e15aebba6c1/resource/4947bed6-6be6-40e6-a120-42957e745da5/download/itbi-2024.zip",
+       "criado": "2025-11-21T19:22:31.643866",
+       "modificado": "2026-11-06T18:51:57.959807",
+       "tamanho": 2019234
+      },
+      {
+       "nome": "ITBI 2025",
+       "formato": "ZIP",
+       "url": "https://dadosabertos.poa.br/dataset/dd8ee5be-06f4-4107-a3bf-5e15aebba6c1/resource/e46f56f3-ac8a-4513-b155-5d3038a275b2/download/itbi-2025.zip",
+       "criado": "2025-11-21T19:23:33.323702",
+       "modificado": "2026-11-06T18:52:00.501233",
+       "tamanho": 2233069
+      },
+      {
+       "nome": "ITBI 2026",
+       "formato": "ZIP",
+       "url": "https://dadosabertos.poa.br/dataset/dd8ee5be-06f4-4107-a3bf-5e15aebba6c1/resource/b4cf6e78-6cb9-41f7-8ef7-57dc67feda0c/download/itbi-2026.zip",
+       "criado": "2026-05-13T19:30:31.424922",
+       "modificado": "2026-11-06T18:52:02.100925",
+       "tamanho": 1859569
+      }
+     ]
+    },
+    {
+     "pacote": "itbi-imunidades-e-beneficios-fiscais",
+     "titulo": "ITBI - Imunidades e Benefícios Fiscais",
+     "modificado": "2026-08-25T18:15:07.076457",
+     "n_recursos": 7,
+     "recursos": [
+      {
+       "nome": "Dicionário de dados",
+       "formato": "PDF",
+       "url": "https://dadosabertos.poa.br/dataset/f96cafeb-8969-484a-bd4d-e091ada5d3a5/resource/eda316b3-9cf7-46fa-87ed-1561488217ef/download/dicionarios-de-dados.pdf",
+       "criado": "2026-07-14T19:23:04.744104",
+       "modificado": "2026-07-21T18:16:23.366803",
+       "tamanho": 62749
+      },
+      {
+       "nome": "ITBI - Imunidades e Benefícios Fiscais 2025",
+       "formato": "CSV",
+       "url": "https://dadosabertos.poa.br/dataset/f96cafeb-8969-484a-bd4d-e091ada5d3a5/resource/85be5cc0-514f-4c39-9757-643ee7c2964a/download/renuncia_fiscal_itbi_dados_abertos_2025.csv",
+       "criado": "2026-07-13T18:25:17.171353",
+       "modificado": "2026-08-20T18:39:35.252659",
+       "tamanho": 1547
+      },
+      {
+       "nome": "ITBI - Imunidades e Benefícios Fiscais 2024",
+       "formato": "CSV",
+       "url": "https://dadosabertos.poa.br/dataset/f96cafeb-8969-484a-bd4d-e091ada5d3a5/resource/c30ba665-0930-42ed-995c-d405710d5f4a/download/renuncia_fiscal_itbi_dados_abertos_2024.csv",
+       "criado": "2026-07-21T18:20:20.112747",
+       "modificado": "2026-08-20T18:44:04.412677",
+       "tamanho": 1374
+      },
+      {
+       "nome": "ITBI - Imunidades e Benefícios Fiscais 2023",
+       "formato": "CSV",
+       "url": "https://dadosabertos.poa.br/dataset/f96cafeb-8969-484a-bd4d-e091ada5d3a5/resource/b81b3936-5583-4ca7-8b08-35cb6f2bdc7c/download/renuncia_fiscal_itbi_dados_abertos_2023.csv",
+       "criado": "2026-07-21T18:22:03.779413",
+       "modificado": "2026-08-20T18:35:29.628112",
+       "tamanho": 1478
+      },
+      {
+       "nome": "ITBI - Imunidades e Benefícios Fiscais 2022",
+       "formato": "CSV",
+       "url": "https://dadosabertos.poa.br/dataset/f96cafeb-8969-484a-bd4d-e091ada5d3a5/resource/aed8e65f-2f7a-42e6-ae3e-a3cd01007e7c/download/renuncia_fiscal_itbi_dados_abertos_2022.csv",
+       "criado": "2026-07-21T18:23:11.614194",
+       "modificado": "2026-08-25T18:15:07.062676",
+       "tamanho": 1311
+      },
+      {
+       "nome": "ITBI - Imunidades e Benefícios Fiscais 2021",
+       "formato": "CSV",
+       "url": "https://dadosabertos.poa.br/dataset/f96cafeb-8969-484a-bd4d-e091ada5d3a5/resource/2466a9f8-1257-480d-9a1b-f4ad9c8b952d/download/renuncia_fiscal_itbi_dados_abertos_2021.csv",
+       "criado": "2026-07-21T18:24:25.357400",
+       "modificado": "2026-08-20T18:30:47.420679",
+       "tamanho": 1124
+      },
+      {
+       "nome": "ITBI - Imunidades e Benefícios Fiscais 2020",
+       "formato": "CSV",
+       "url": "https://dadosabertos.poa.br/dataset/f96cafeb-8969-484a-bd4d-e091ada5d3a5/resource/950e26c9-c702-4284-ba01-00f036c2aa5d/download/renuncia_fiscal_itbi_dados_abertos_2020.csv",
+       "criado": "2026-07-21T18:25:28.878328",
+       "modificado": "2026-08-20T18:26:28.870933",
+       "tamanho": 1208
+      }
+     ]
+    }
+   ],
+   "amostra_recente": {
+    "url": "https://dadosabertos.poa.br/dataset/dd8ee5be-06f4-4107-a3bf-5e15aebba6c1/resource/b4cf6e78-6cb9-41f7-8ef7-57dc67feda0c/download/itbi-2026.zip",
+    "status": 200,
+    "bytes": 1859569,
+    "content_type": "application/zip",
+    "tipo": "csv",
+    "encoding": "utf-8-sig",
+    "separador": ";",
+    "colunas": [
+     "numero_guia",
+     "data_estimativa",
+     "data_pagamento",
+     "base_de_calculo",
+     "perc_transmitido",
+     "finalidade_construcao",
+     "logradouro",
+     "n_endereco",
+     "n_unidade",
+     "complemento_endereco",
+     "bairro",
+     "cep",
+     "area_total_terreno",
+     "area_constr_total",
+     "area_constr_privativa",
+     "ano_construcao",
+     "n_matricula_reg_imoveis",
+     "n_zona_reg_imoveis",
+     "situacao"
+    ],
+    "linhas": 49684,
+    "exemplos": [
+     [
+      "1481179",
+      "2026-06-16 00:00:00",
+      "",
+      "42000.00",
+      "8.3333",
+      "RESIDENCIA ISOLADA",
+      "Avenida BEIRA RIO",
+      "1371",
+      "",
+      "",
+      "BELEM NOVO",
+      "91780010",
+      "514.00",
+      "149.00",
+      "149.00",
+      "1962",
+      "121351",
+      "3",
+      "Impressa"
+     ],
+     [
+      "1481192",
+      "2026-06-16 00:00:00",
+      "",
+      "170000.00",
+      "33.3333",
+      "RESIDENCIA ISOLADA",
+      "Avenida BEIRA RIO",
+      "1371",
+      "",
+      "",
+      "BELEM NOVO",
+      "91780010",
+      "514.00",
+      "149.00",
+      "149.00",
+      "1962",
+      "121351",
+      "3",
+      "Impressa"
+     ],
+     [
+      "1496530",
+      "2026-04-08 00:00:00",
+      "",
+      "337000.00",
+      "100.0000",
+      "APARTAMENTO",
+      "Rua DA  REPUBLICA",
+      "580",
+      "404",
+      "",
+      "CIDADE BAIXA",
+      "90050321",
+      "0.00",
+      "60.23",
+      "52.62",
+      "1979",
+      "30836",
+      "5",
+      "Lançada"
+     ]
+    ],
+    "zip": [
+     "itbi-2026.csv"
+    ]
+   },
+   "amostra_antiga": {
+    "url": "https://dadosabertos.poa.br/dataset/dd8ee5be-06f4-4107-a3bf-5e15aebba6c1/resource/60256fcf-9ae6-4adf-b0b4-b6b45fb4b34b/download/itbi-2020.zip",
+    "status": 200,
+    "bytes": 1596900,
+    "content_type": "application/zip",
+    "tipo": "csv",
+    "encoding": "utf-8-sig",
+    "separador": ";",
+    "colunas": [
+     "numero_guia",
+     "data_estimativa",
+     "data_pagamento",
+     "base_de_calculo",
+     "perc_transmitido",
+     "finalidade_construcao",
+     "logradouro",
+     "n_endereco",
+     "n_unidade",
+     "complemento_endereco",
+     "bairro",
+     "cep",
+     "area_total_terreno",
+     "area_constr_total",
+     "area_constr_privativa",
+     "ano_construcao",
+     "n_matricula_reg_imoveis",
+     "n_zona_reg_imoveis",
+     "situacao"
+    ],
+    "linhas": 43022,
+    "exemplos": [
+     [
+      "1003799",
+      "2020-05-04 00:00:00",
+      "",
+      "621000.00",
+      "100.0000",
+      "APARTAMENTO",
+      "Rua QUINTINO BOCAIUVA",
+      "1505",
+      "704",
+      "",
+      "RIO BRANCO",
+      "90440051",
+      "0.00",
+      "106.91",
+      "74.38",
+      "2014",
+      "183782",
+      "1",
+      "Lançada"
+     ],
+     [
+      "1005542",
+      "2020-07-14 00:00:00",
+      "",
+      "870000.00",
+      "100.0000",
+      "APARTAMENTO",
+      "Rua MARQUES DO POMBAL",
+      "1405",
+      "501",
+      "",
+      "AUXILIADORA",
+      "90540001",
+      "0.00",
+      "227.01",
+      "145.23",
+      "2007",
+      "115794",
+      "1",
+      "Lançada"
+     ],
+     [
+      "1005543",
+      "2020-07-14 00:00:00",
+      "",
+      "50000.00",
+      "100.0000",
+      "ESPACO DE ESTACIONAMENTO RESIDENCIAL",
+      "Rua MARQUES DO POMBAL",
+      "1405",
+      "30",
+      "",
+      "AUXILIADORA",
+      "90540001",
+      "0.00",
+      "16.36",
+      "11.50",
+      "2007",
+      "115838",
+      "1",
+      "Lançada"
+     ]
+    ],
+    "zip": [
+     "itbi-2020.csv"
+    ]
+   }
+  },
+  "vitoria": {
+   "base": "https://dados.vitoria.es.gov.br",
+   "erro": "HTTPError('404 Client Error: Not Found for url: https://dados.vitoria.es.gov.br/api/3/action/package_search?q=itbi&rows=20')"
+  },
+  "rio-de-janeiro-ckan": {
+   "base": "https://www.data.rio",
+   "erro": "HTTPError('404 Client Error: Not Found for url: https://www.data.rio/api/3/action/package_search?q=itbi&rows=20')"
+  },
+  "sao-paulo": {
+   "pagina": "https://prefeitura.sp.gov.br/web/fazenda/w/acesso_a_informacao/31501",
+   "status_pagina": 403,
+   "links": []
+  },
+  "rio-de-janeiro-hub": {
+   "tentativas": [
+    {
+     "url": "https://www.data.rio/api/search/v1/collections/all/items?q=ITBI&limit=50",
+     "status": 200,
+     "resposta": "{\"type\": \"FeatureCollection\", \"features\": [{\"id\": \"b8f484f9af7f455a9a2e2747638cf8eb\", \"type\": \"Feature\", \"geometry\": null, \"properties\": {\"snippet\": \"Link para o portal da Secretaria Municipal de Fazenda, que apresenta dados tributários agregados da Cidade do Rio de Janeiro (ITBI, IPTU, ISS)\", \"extent\": null, \"commentsEnabled\": true, \"groupDesignations\": null, \"access\": \"public\", \"apiToken2ExpirationDate\": -1, \"typeKeywords\": [\"Data\", \"Document\"], \"description\": \"<div>Link para o portal da Secretaria Municipal de Fazenda, que apresenta dados tributários agregados da Cidade do Rio de Janeiro em formato de planilhas Excel, para download. Abaixo a lista de bases de dados disponíveis.</div><div><br /></div><div>ITBI – VALORES MÉDIOS POR M² DE TRANSAÇÕES IMOBILIÁRIAS POR TRECHO DE LOGRADOURO</div><div><br /></div><div>ISS – ARRECADAÇÃO MENSAL POR SERVIÇO</div><div><br /></div><div>IPTU – ARRECADAÇÃO ANUAL DO IPTU E TCL POR BAIRRO E TIPOLOGIA – 2014 a 2024</div><div> </div><div>RENÚNCIAS FISCAIS – ISS</div><div><br /></div><div>RENÚNCIAS FISCAIS – ITBI</div>\", \"licenseInfo\": \"<a href='https://creativecommons.org/licenses/by/4.0' rel='nofollow ugc'><img alt='Creative Commons License' src='https://i.creativecommons.org/l/by/4.0/88x31.png' style='border-width:0;' /></a><br />This work is licensed under a <a href='https://creativecommons.org/licenses/by/4.0' rel='nofollow ugc'>Creative Commons Attribution 4.0 International License</a>\", \"title\": \"Dados Tributários Agregados - Portal SMF\", \"type\": \"Document Link\", \"orgId\": \"OlP4dGNtIcnD3RYf\", \"screenshots\": [], \"subInfo\": 0, \"advancedSettings\": null, \"appCategories\": [], \"modified\": 1750100884000, \"avgRating\": 0, \"id\": \"b8f484f9af7f455a9a2e2747638cf8eb\", \"categories\": [\"/Categories/Uso do Solo e Dinâmica Imobiliária\"], \"spatialReference\": null, \"numRatings\": 0, \"owner\": \"PrefeituraRio\", \"accessInformation\": \"Secretaria Municipal de Fazenda, Prefeitura da Cidade do Rio de Janeiro\", \"largeThumbnail\": null, \"lastViewed\": 1750100400000, \"thumbnail\": \"thumbnail/thumbnail1750100819880.png\", \"languages\": [], \"created\": 1750100547000, \"documentation\": null, \"banner\": null, \"classification\": null, \"url\": \"https://fazenda.prefeitura.rio/itbi-valores-medios-por-m2-de-transacoes-imobiliarias-por-trecho-de-logradouro\", \"tags\": [\"SMF\", \"Fazenda\", \"ITBI\", \"IPTU\", \"ISS\", \"Dados tributários\"], \"numViews\": 2, \"numComments\": 0, \"size\": 109, \"listed\": false, \"scoreCompleteness\": 98, \"culture\": \"pt-br\", \"industries\": [], \"apiToken1ExpirationDate\": -1, \"name\": null, \"guid\": null, \"proxyFilter\": null, \"properties\": null, \"source\": \"Prefeitura da Cidade do Rio de Janeiro\", \"license\": \"CC-BY-4.0\"}, \"time\": null, \"links\": [{\"rel\": \"self\", \"type\": \"application/geo+json\", \"title\": \"This document as GeoJSON\", \"href\": \"https://www.data.rio/api/search/v1/collections/all/items/b8f484f9af7f455a9a2e2747638cf8eb\"}, {\"rel\": \"collection\", \"type\": \"application/json\", \"title\": \"All\", \"href\": \"https://www.data.rio/api/search/v1/collections/all\"}]}, {\"id\": \"0965968f12424f8792b240568616e6aa\", \"type\": \"Feature\", \"geometry\": {\"type\": \"Polygon\", \"coordinates\": [[[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]]}, \"properties\": {\"snippet\": \"Dados de Transações Imobiliárias pelas Divisões Administrativas de AP, RP, RA e Bairros, e por mês, na Cidade do Rio de Janeiro, segundo a Natureza de Compra e Venda e de Promessa e Compra e Venda, para imóveis Residenciais e Não Residenciais, segundo suas tipologias, a partir de 2010.\", \"extent\": {\"type\": \"Polygon\", \"coordinates\": [[[0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]]}, \"commentsEnabled\": true, \"groupDesignations\": null, \"access\": \"public\", \"apiToken2ExpirationDate\": -1, \"typeKeywords\": [\"ArcGIS Server\", \"Data\", \"Feature Access\", \"Feature Service\", \"Metadata\", \"Service\", \"Singlelayer\", \"Table\"], \"description\": \"<div style='text-align:Left;'><div><div><p><span>Frequência de atualização: Mensal (por motivos ligados à limpreza da base de dados bruta do ITBI, a partir de junho de 2026 os dados desta tabela não contém os registros do último mês)</span></p><p><span>Foram considerados o número total de transações no mês, para as Naturezas de Compra e Venda e de Promessa de Compra e venda, as médias de área construída, as médias de percentual do imóvel transacionado, a média do valor da transação e a média dos valores totais do imóvel, apurado pela relação entre o percentual transacionado e o valor da transação.</span></p><p><span>Não estão contabilizadas as demais Naturezas de Transações, não tendo esta tabela o total de Transações imobiliárias. Porém este total perfaz valor acima de 95% do total das Transações.</span></p></div></div></div>\", \"licenseInfo\": \"<a href='https://creativecommons.org/licenses/by/4.0' rel='nofollow ugc'><img alt='Creative Commons License' src='https://i.creativecommons.org/l/by/4.0/88x31.png' style='border-width:0;' /></a><br />This work is licensed under a <a href='https://creativecommons.org/licenses/by/4.0' rel='nofollow ugc'>Creative Commons Attribution 4.0 International License</a>\", \"ownerId\": \"c53e2b53c2400a89905cfcb971a089b7\", \"title\": \"ITBI - Transações Imobiliárias por Divisão Administrativa e Mês - Imóveis Residenciais e Não Residenciais\", \"type\": \"Feature Service\", \"orgId\": \"OlP4dGNtIcnD3RYf\", \"screenshots\": [], \"contentStatus\": \"public_authoritative\", \"subInfo\": 0, \"advancedSettings\": null, \"appCategories\": [], \"modified\": 1794325689000, \"avgRating\": 0, \"id\": \"0965968f12424f8792b240568616e6aa\", \"categories\": [\"/Categories/Uso do Solo e Dinâmica Imobiliária/Dinâmica Imobiliária\", \"/Categories/Economia\"], \"spatialReference\": null, \"numRatings\": 0, \"owner\": \"PrefeituraRio\", \"accessInformation\": \"PCRJ - Prefeitura da Cidade do Rio de Janeiro, Secretaria Municipal de Fazenda, elaborado pelo Instituto Municipal de Urbanismo Pereira Passos \", \"largeThumbnail\": null, \"lastViewed\": 1794322800000, \"thumbnail\": \"thumbnail/thumbnail1759415980925.png\", \"languages\": [], \"created\": 1689604762000, \"documentation\": null, \"banner\": null, \"classi"
+    },
+    {
+     "url": "https://www.data.rio/api/v3/datasets?q=ITBI",
+     "status": 200,
+     "resposta": "{\"data\": [{\"id\": \"84ebc0fc5e0c4c3fa05571cb11cc588d\", \"type\": \"dataset\", \"attributes\": {\"errors\": [], \"access\": \"public\", \"additionalResources\": [{\"url\": \"https://datario.maps.arcgis.com/sharing/rest/content/items/84ebc0fc5e0c4c3fa05571cb11cc588d/data\"}], \"collection\": [\"Dataset\"], \"categories\": [\"Economia\"], \"commentsEnabled\": true, \"composeStatus\": {\"retries\": 0, \"pass\": true, \"lastRetriedAt\": 1620068256347}, \"composedAt\": 1620068256347, \"content\": \"Feature Collection\", \"created\": 1612965047000, \"description\": \"Preços imobiliários ITBI 2019_2020\", \"downloadable\": true, \"enrichCoverage\": \"local\", \"enrichQuality\": 66, \"extent\": {\"coordinates\": [[-43.7136, -23.0325], [-43.1056, -22.7506]], \"type\": \"envelope\"}, \"groupIds\": [], \"hasApi\": false, \"hubType\": \"Feature Collection\", \"id\": \"84ebc0fc5e0c4c3fa05571cb11cc588d\", \"itemId\": \"84ebc0fc5e0c4c3fa05571cb11cc588d\", \"itemModified\": 1620068255000, \"itemExtent\": [[-43.71359999999926, -23.03249999999961], [-43.10559999999928, -22.750599999999608]], \"layer\": null, \"layers\": null, \"licenseInfo\": null, \"metadata\": {\"metadata\": {\"mdContact\": {\"rpIndName\": \"Yasmin Couto\", \"rpOrgName\": \"UFF\", \"rpPosName\": \"Mestranda PPGAU\", \"role\": {\"RoleCd\": {\"@_value\": \"011\"}}}, \"mdFileID\": \"84ebc0fc5e0c4c3fa05571cb11cc588d\", \"distInfo\": {\"distTranOps\": {\"onLineSrc\": {\"linkage\": \"https://datario.maps.arcgis.com/sharing/rest/content/items/84ebc0fc5e0c4c3fa05571cb11cc588d/data\"}}}, \"mdDateSt\": \"2021-05-03\", \"Esri\": {\"ArcGISFormat\": 1, \"CreaTime\": \"15:45:02.43\", \"ArcGISstyle\": \"ISO 19139 Metadata Implementation Specification GML3.2\", \"ArcGISProfile\": \"ISO19139\", \"ModDate\": \"2021-05-03\", \"CreaDate\": \"2021-05-03\", \"ModTime\": \"15:47:59.80\", \"MapLyrSync\": \"false\", \"PublishStatus\": \"editor:esri.dijit.metadata.editor\"}, \"mdTimeSt\": \"15:45:02.43\", \"dataIdInfo\": {\"idAbs\": \"Preços imobiliários ITBI 2019_2020\", \"dataExt\": {\"geoEle\": {\"GeoBndBox\": {\"eastBL\": -43.10559999999928, \"southBL\": -23.03249999999961, \"northBL\": -22.750599999999608, \"westBL\": -43.71359999999926}}}, \"idCitation\": {\"date\": {\"reviseDate\": 2021, \"pubDate\": 2021, \"createDate\": 2020}, \"resTitle\": \"ITBI IENDERECOS 2019-2020\"}, \"dataLang\": {\"countryCode\": {\"@_value\": \"BR\"}, \"languageCode\": {\"@_value\": \"por\"}}, \"dataChar\": {\"CharSetCd\": {\"@_value\": \"004\"}}, \"searchKeys\": {\"keyword\": \"ITBI\"}, \"resConst\": [{\"LegConsts\": {\"othConsts\": \"Outras Restrições\", \"accessConsts\": {\"RestrictCd\": {\"@_value\": \"008\"}}}}, {\"LegConsts\": {\"useConsts\": {\"RestrictCd\": {\"@_value\": \"008\"}}, \"othConsts\": \"Outras Restrições\"}}]}, \"mdChar\": {\"CharSetCd\": {\"@_value\": \"004\"}}}}, \"modified\": 1620068255000, \"modifiedProvenance\": \"item.modified\", \"name\": \"ITBI IENDERECOS 2019-2020\", \"openData\": false, \"orgId\": \"mgrvZxGU0bSJbVld\", \"orgName\": \"DATA.RIO Hub\", \"organization\": \"DATA.RIO Hub\", \"orgExtent\": {\"ymin\": -2671490.721102117, \"xmin\": -4903734.888934411, \"ymax\": -2554802.7724270537, \"xmax\": -4728184.051953421, \"spatialReference\": {\"wkid\": 102100}}, \"orgContactEmail\": \"mailto:comitedatario@gmail.com\", \"owner\": \"ycouto\", \"region\": \"WO\", \"searchDescription\": \"Preços imobiliários ITBI 2019_2020\", \"server\": null, \"size\": 1323003, \"slug\": \"datario::itbi-ienderecos-2019-2020\", \"source\": \"DATA.RIO Hub\", \"sourceProvenance\": \"org.name\", \"structuredLicense\": {\"type\": \"none\"}, \"license\": \"none\", \"tags\": [\"ITBI\"], \"thumbnail\": \"thumbnail/ago_downloaded.png\", \"thumbnailUrl\": \"thumbnail/ago_downloaded.png\", \"type\": \"Feature Collection\", \"typeCategories\": [\"Dataset\"], \"typeKeywords\": [\"Data\", \"Feature Collection\", \"Metadata\", \"Singlelayer\"], \"validExtent\": true, \"boundary\": null, \"snippet\": null, \"culture\": \"pt-br\"}, \"links\": {\"self\": \"https://www.data.rio/api/v3/datasets/84ebc0fc5e0c4c3fa05571cb11cc588d\", \"rawEs\": \"https://www.data.rio/api/es/datasets/84ebc0fc5e0c4c3fa05571cb11cc588d\", \"itemPage\": \"https://www.arcgis.com/home/item.html?id=84ebc0fc5e0c4c3fa05571cb11cc588d\", \"esriRest\": \"https://www.arcgis.com/sharing/content/items/84ebc0fc5e0c4c3fa05571cb11cc588d?f=json\"}, \"meta\": {\"highlights\": {\"name\": [\"<mark class=\\\"hub-search-highlight name-highlight\\\">ITBI</mark> IENDERECOS 2019-2020\"], \"tags\": [\"<mark class=\\\"hub-search-highlight tags-highlight\\\">ITBI</mark>\"], \"searchDescription\": [\"Preços imobiliários <mark class=\\\"hub-search-highlight searchDescription-highlight\\\">ITBI</mark> 2019_2020\"]}, \"matchedFields\": [\"name\", \"stemmedName\", \"stemmedSearchDescription\", \"tags\", \"searchDescription\", \"stemmedTags\"]}}, {\"id\": \"3bf562dfe386461b85786b7bb807c10c\", \"type\": \"dataset\", \"attributes\": {\"errors\": [], \"access\": \"public\", \"additionalResources\": [], \"collection\": [\"Document\"], \"categories\": [], \"commentsEnabled\": true, \"composeStatus\": {\"retries\": 0, \"lastSuccessAt\": 1795515953824, \"pass\": true, \"lastRetriedAt\": 1795515953824}, \"composedAt\": 1795515953823, \"content\": \"Hub Page\", \"created\": 1656797685000, \"description\": null, \"downloadable\": false, \"enrichCoverage\": \"unknown\", \"enrichQuality\": 66, \"extent\": null, \"groupIds\": [\"b7dba99525e94cb78211a51d68b46df6\"], \"hasApi\": false, \"hubType\": \"Hub Page\", \"id\": \"3bf562dfe386461b85786b7bb807c10c\", \"itemId\": \"3bf562dfe386461b85786b7bb807c10c\", \"itemModified\": 1657644739000, \"itemExtent\": [], \"layer\": null, \"layers\": null, \"licenseInfo\": null, \"metadata\": null, \"modified\": 1657644739000, \"modifiedProvenance\": \"item.modified\", \"name\": \"ITBI\", \"openData\": false, \"orgId\": \"yMGuLgrGTySfMe0j\", \"orgName\": \"Prefeitura Municipal de Mogi Mirim SP\", \"organization\": \"Prefeitura Municipal de Mogi Mirim SP\", \"orgExtent\": {\"ymin\": 2700000, \"xmin\": -15000000, \"ymax\": 6500000, \"xmax\": -6200000, \"spatialReference\": {\"wkid\": 102100}}, \"orgContactEmail\": \"mailto:cadastromogi@gmail.com\", \"owner\": \"Prefeitura_Mogi_Mirim_Cavalheri\", \"region\": \"BR\", \"searchDescription\": \"ITBI Restituição de ITBI Revisão de ITBI e ITCMD Não incidência de ITBI\", \"server\": null, \"size\": 3881, \"slug\": \"SIGMogiMirim::itbi\", \"source\": \"Prefeitura Municipal de Mogi Mirim SP\", \"sourceProvenance\": \"org.name\", \"structuredLicense\": {\"type\": \"none\"}, \"license\": \"none\", \""
+    },
+    {
+     "url": "https://hub.arcgis.com/api/v3/datasets?q=ITBI%20Rio%20de%20Janeiro",
+     "status": 200,
+     "resposta": "{\"data\": [{\"id\": \"d9db0d30044a4af0b4b0974ddd18e84e\", \"type\": \"dataset\", \"attributes\": {\"errors\": [], \"access\": \"public\", \"additionalResources\": [], \"collection\": [\"Map\"], \"categories\": [], \"commentsEnabled\": true, \"composeStatus\": {\"retries\": 0, \"pass\": true, \"lastRetriedAt\": 1652819406362}, \"composedAt\": 1652819406361, \"content\": \"Web Map\", \"created\": 1376085008000, \"description\": \"Mapa Urbano Básico do Rio de Janeiro<div><br /></div><div><br /></div>\", \"downloadable\": false, \"enrichCoverage\": \"regional\", \"enrichQuality\": 76, \"extent\": {\"coordinates\": [[-43.8897, -23.1477], [-42.7826, -22.5433]], \"type\": \"envelope\"}, \"groupIds\": [], \"hasApi\": false, \"hubType\": \"Web Map\", \"id\": \"d9db0d30044a4af0b4b0974ddd18e84e\", \"itemId\": \"d9db0d30044a4af0b4b0974ddd18e84e\", \"itemModified\": 1652819405000, \"itemExtent\": [[-43.8897, -23.1477], [-42.7826, -22.5433]], \"layer\": null, \"layers\": null, \"licenseInfo\": \"<span style='font-family: Verdana, Helvetica, sans-serif; font-size: 12px; background-color: rgb(255, 255, 255);'>uso público, citadas as fontes e sem alteração das informações originais.</span>\", \"metadata\": {\"metadata\": {\"mdContact\": {\"role\": {\"RoleCd\": {\"@_value\": \"007\"}}}, \"mdFileID\": \"d9db0d30044a4af0b4b0974ddd18e84e\", \"mdDateSt\": \"2018-01-30\", \"Esri\": {\"ArcGISFormat\": 1, \"CreaTime\": \"18:02:45.16\", \"ArcGISstyle\": \"North American Profile of ISO19115 2003\", \"ArcGISProfile\": \"NAP\", \"ModDate\": \"2018-01-30\", \"CreaDate\": \"2018-01-30\", \"ModTime\": \"18:02:48.34\", \"PublishStatus\": \"editor:esri.dijit.metadata.editor\"}, \"dataIdInfo\": {\"idAbs\": \"Mapa Urbano Básico do Rio de Janeiro<div><br /></div><div><br /></div>\", \"idCredit\": \"Prefeitura da Cidade do Rio de Janeiro, Instituto Pereira Passos\", \"dataExt\": {\"geoEle\": {\"GeoBndBox\": {\"eastBL\": -42.7826, \"southBL\": -23.1477, \"northBL\": -22.5433, \"westBL\": -43.8897}}}, \"idCitation\": {\"resTitle\": \"Mapa Básico - Rio de Janeiro\"}, \"idPurp\": \"Mapa Urbano Básico do Rio de Janeiro\", \"dataChar\": {\"CharSetCd\": {\"@_value\": \"004\"}}, \"searchKeys\": {\"keyword\": [\"basemap\", \"Rio de Janeiro\"]}, \"resConst\": {\"Consts\": {\"useLimit\": \"<span style='font-family: Verdana, Helvetica, sans-serif; font-size: 12px; background-color: rgb(255, 255, 255);'>uso público, citadas as fontes e sem alteração das informações originais.</span>\"}}}, \"mdChar\": {\"CharSetCd\": {\"@_value\": \"004\"}}}}, \"modified\": 1652819405000, \"modifiedProvenance\": \"item.modified\", \"name\": \"Mapa Básico - Rio de Janeiro\", \"openData\": false, \"orgId\": \"OlP4dGNtIcnD3RYf\", \"orgName\": \"Prefeitura da Cidade do Rio de Janeiro\", \"organization\": \"Prefeitura da Cidade do Rio de Janeiro\", \"orgExtent\": {\"ymin\": 7415800.108891633, \"xmin\": 607710.8490041889, \"ymax\": 7517498.775062416, \"xmax\": 735247.7153699397, \"spatialReference\": {\"latestWkid\": 31983, \"wkid\": 31983}}, \"orgContactEmail\": \"mailto:datario@gmail.com\", \"owner\": \"PrefeituraRio\", \"region\": \"Americas\", \"searchDescription\": \"Mapa Urbano Básico do Rio de Janeiro\", \"sector\": \"Local and State Government\", \"server\": null, \"size\": 617, \"slug\": \"PCRJ::mapa-básico-rio-de-janeiro\", \"source\": \"Prefeitura da Cidade do Rio de Janeiro\", \"sourceProvenance\": \"org.name\", \"structuredLicense\": {\"text\": \"uso público, citadas as fontes e sem alteração das informações originais.\", \"type\": \"custom\"}, \"license\": \"custom\", \"tags\": [\"basemap\", \"Rio de Janeiro\"], \"thumbnail\": \"thumbnail/thumbnail.png\", \"thumbnailUrl\": \"thumbnail/thumbnail.png\", \"type\": \"Web Map\", \"typeCategories\": [\"Map\"], \"typeKeywords\": [\"ArcGIS Online\", \"Explorer Web Map\", \"Map\", \"Metadata\", \"Online Map\", \"Web Map\"], \"validExtent\": true, \"boundary\": {\"provenance\": \"item\", \"center\": [-43.33615, -22.8455], \"geometry\": {\"type\": \"polygon\", \"rings\": [[[-43.8897, -22.5433], [-42.7826, -22.5433], [-42.7826, -23.1477], [-43.8897, -23.1477], [-43.8897, -22.5433]]], \"spatialReference\": {\"wkid\": 4326}}, \"setBy\": null}, \"snippet\": \"Mapa Urbano Básico do Rio de Janeiro\", \"culture\": \"pt-br\"}, \"links\": {\"self\": \"https://hub.arcgis.com/api/v3/datasets/d9db0d30044a4af0b4b0974ddd18e84e\", \"rawEs\": \"https://hub.arcgis.com/api/es/datasets/d9db0d30044a4af0b4b0974ddd18e84e\", \"itemPage\": \"https://www.arcgis.com/home/item.html?id=d9db0d30044a4af0b4b0974ddd18e84e\", \"esriRest\": \"https://www.arcgis.com/sharing/content/items/d9db0d30044a4af0b4b0974ddd18e84e?f=json\"}, \"meta\": {\"highlights\": {\"name\": [\"Mapa Básico - <mark class=\\\"hub-search-highlight name-highlight\\\">Rio de Janeiro</mark>\"], \"tags\": [\"<mark class=\\\"hub-search-highlight tags-highlight\\\">Rio de Janeiro</mark>\"], \"searchDescription\": [\"Mapa Urbano Básico do <mark class=\\\"hub-search-highlight searchDescription-highlight\\\">Rio de Janeiro</mark>\"]}, \"matchedFields\": [\"name\", \"stemmedName\", \"stemmedSearchDescription\", \"tags\", \"searchDescription\", \"stemmedTags\", \"synonymTags\"]}}, {\"id\": \"4ca27463d9ac4b51a58d5e0ef33d7647\", \"type\": \"dataset\", \"attributes\": {\"errors\": [], \"access\": \"public\", \"additionalResources\": [], \"collection\": [\"App\"], \"categories\": [], \"commentsEnabled\": true, \"composeStatus\": {\"retries\": 0, \"lastSuccessAt\": 1795520176623, \"pass\": true, \"lastRetriedAt\": 1795520176624}, \"composedAt\": 1795520176623, \"content\": \"Web Mapping Application\", \"contentSecurityPolicy\": [\"default-src 'none'; script-src 'nonce-nAMLkgAszGDle9wsikUwNm' 'unsafe-eval' https://challenges.cloudflare.com; script-src-attr 'none'; style-src 'unsafe-inline'; img-src 'self' https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; frame-src 'self' https://challenges.cloudflare.com blob:; child-src 'self' https://challenges.cloudflare.com blob:; worker-src blob:; form-action http: https:; base-uri 'self'\"], \"created\": 1542217152000, \"dailyViewTrendRate\": 17936.01869702107, \"description\": \"<span>Cidade do Rio de Janeiro - Panorama</span><div>Painel de informações sobre a Cidade do Rio de Janeiro, publicado pelo Instituto Brasileiro de Geografia e Estatística - IBGE.</div><div><br /></div><div>página original:<a href='https://cidades.ibge.gov.br/brasil/rj/rio-de-janeiro/panorama' target='_blan"
+    }
+   ]
+  },
+  "vitoria-extra": {
+   "tentativas": [
+    {
+     "url": "https://transparencia.vitoria.es.gov.br",
+     "status": 200,
+     "inicio": "<!DOCTYPE html>\r\n<html><head>\r\n<meta http-equiv=\"Pragma\" content=\"no-cache\"/>\r\n<meta http-equiv=\"Expires\" content=\"-1\"/>\r\n<meta http-equiv=\"CacheControl\" content=\"no-cache\"/>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\r\n<link rel=\"shortcut icon\" href=\"data:;base64,iVBORw0KGgo=\"/>\r\n\r\n<script type=\"text/javascript\">\r\n(function(){\r\nwindow[\"bobcmn\"] = \"101110101010102000000062000000052000000062000000012df05d3e4200000096200000000200000002300000000300000000300000006/TSPD/300000008TSPD_10130000000cTSPD_101_DID300000005https3000000b00868ab5c07ab200083a24c343d6e2fa7c77dbab5096846928df622adeb4defc476f58755eee7ea8d087a95e0180a2800572cba7e52984388ba440ff10c254c364ce14325d5f9bd00a0a35b6d5f011689973f90f69ba239b5300000002TS200000000200000000\";\r\n\r\nwindow[\"failureConfig\"] = \"524f6f70732e2e2e2e736f6d657468696e672077656e742077726f6e672e2e2e2e20796f757220737570706f72742069642069733a2025444f534c372e6368616c6c656e67652e737570706f72745f6964252e143134373739393735333830333936343733303834062f545350442f171801\";window.SUcn=!!window.SUcn;try{(function(){(function zo(){var Z=!1;function S(Z){for(var S=0;Z--;)S+=J(document.documentElement,null);return S}function J(Z,S){var L=\"vi\";S=S||new l;return so(Z,function(Z){Z.setAttribute(\"data-\"+L,S.s0());return J(Z,S)},null)}function l(){this.os=1;this.ZZ=0;this.OL=this.os;this.lO=null;this.s0=function(){this.lO=this.ZZ+this.OL;if(!isFinite(this.lO))return this.reset(),this.s0();this.ZZ=this.OL;this.OL=this.lO;this.lO=null;return this.OL}"
+    },
+    {
+     "url": "https://dadosabertos.vitoria.es.gov.br/api/3/action/package_search?q=itbi",
+     "status": 200,
+     "inicio": "<!doctype html>\n<html lang=\"pt-BR\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.ico\" />\n    <!-- <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin> -->\n    <!-- <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor\" crossorigin=\"anonymous\"> -->\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <meta name=\"description\" content=\"Portal de Dados Abertos: conjuntos de dados pÃºblicos do municÃ­pio para download e acesso via API.\" />\n    <meta name=\"theme-color\" content=\"#538a95\" />\n    <!-- <script src=\"https://kit.fontawesome.com/63b85b67b2.js\" crossorigin=\"anonymous\"></script> -->\n    <link href=\"/styles/bootstrap.min.css\" rel=\"stylesheet\" />\n    <link href=\"/styles/fontawesome.min.css\" rel=\"stylesheet\" />\n    <script type=\"module\" crossorigin src=\"/assets/index-DLG4p22H.js\"></script>\n    <link rel=\"stylesheet\" crossorigin href=\"/assets/index-C7gUfu_s.css\">\n  </head>\n  <body>\n    <div id=\"app\"></div>\n    <script src=\"/scripts/bootstrap.bundle.min.js\"></script>\n    <script src=\"/scripts/fontawesome.min.js\"></script>\n  </body>\n</html>\n<script id=\"f5_cspm\">(function(){var f5_cspm={f5_p:'MHEPDJHEAOAJMOFEPENLCBGHGJBDLNLJFBMDKGDOCEKLPNOJJADNMKAMPOKJKALJBCGBLOMBAAJJEANPEJEAKLANAAKAAJJJCJLI"
+    }
+   ]
+  }
+ }
+}
