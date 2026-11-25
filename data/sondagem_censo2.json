@@ -1,0 +1,124 @@
+{
+ "lista https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/malha_com_atributos/setores/csv/": [
+  "https://www.ibge.gov.br/",
+  "/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/malha_com_atributos/setores/",
+  "BR_setores_CD2022.csv",
+  "https://www.ibge.gov.br/",
+  "http://www.facebook.com/ibgeoficial",
+  "https://instagram.com/ibgeoficial",
+  "https://www.tiktok.com/@ibgeoficial",
+  "https://twitter.com/ibgecomunica",
+  "http://www.youtube.com/ibgeoficial"
+ ],
+ "lista https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/malha_com_atributos/setores/gpkg/": [
+  "https://www.ibge.gov.br/",
+  "/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/malha_com_atributos/setores/",
+  "BR/",
+  "UF/",
+  "https://www.ibge.gov.br/",
+  "http://www.facebook.com/ibgeoficial",
+  "https://instagram.com/ibgeoficial",
+  "https://www.tiktok.com/@ibgeoficial",
+  "https://twitter.com/ibgecomunica",
+  "http://www.youtube.com/ibgeoficial"
+ ],
+ "lista https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/setores/gpkg/UF/SP/": [
+  "https://www.ibge.gov.br/",
+  "/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/setores/gpkg/UF/",
+  "SP_setores_CD2022.gpkg",
+  "https://www.ibge.gov.br/",
+  "http://www.facebook.com/ibgeoficial",
+  "https://instagram.com/ibgeoficial",
+  "https://www.tiktok.com/@ibgeoficial",
+  "https://twitter.com/ibgecomunica",
+  "http://www.youtube.com/ibgeoficial"
+ ],
+ "lista https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/setores/gpkg/UF/RJ/": [
+  "https://www.ibge.gov.br/",
+  "/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/setores/gpkg/UF/",
+  "RJ_setores_CD2022.gpkg",
+  "https://www.ibge.gov.br/",
+  "http://www.facebook.com/ibgeoficial",
+  "https://instagram.com/ibgeoficial",
+  "https://www.tiktok.com/@ibgeoficial",
+  "https://twitter.com/ibgecomunica",
+  "http://www.youtube.com/ibgeoficial"
+ ],
+ "lista https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/Agregados_por_Setor_csv/": [
+  "https://www.ibge.gov.br/",
+  "/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/",
+  "Agregados_por_setores_alfabetizacao_BR.zip",
+  "Agregados_por_setores_basico_BR_20260520.zip",
+  "Agregados_por_setores_caracteristicas_domicilio1_BR_20261021.zip",
+  "Agregados_por_setores_caracteristicas_domicilio2_BR_20250417.zip",
+  "Agregados_por_setores_caracteristicas_domicilio3_BR_20250417.zip",
+  "Agregados_por_setores_cor_ou_raca_BR.zip",
+  "Agregados_por_setores_demografia_BR.zip",
+  "Agregados_por_setores_domicilios_indigenas_BR.zip",
+  "Agregados_por_setores_domicilios_quilombolas_BR.zip",
+  "Agregados_por_setores_obitos_BR.zip",
+  "Agregados_por_setores_parentesco_BR.zip",
+  "Agregados_por_setores_pessoas_indigenas_BR.zip",
+  "Agregados_por_setores_pessoas_quilombolas_BR.zip",
+  "https://www.ibge.gov.br/",
+  "http://www.facebook.com/ibgeoficial",
+  "https://instagram.com/ibgeoficial",
+  "https://www.tiktok.com/@ibgeoficial",
+  "https://twitter.com/ibgecomunica",
+  "http://www.youtube.com/ibgeoficial"
+ ],
+ "lista https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_Rendimento_do_Responsavel/": [
+  "https://www.ibge.gov.br/",
+  "/Censos/Censo_Demografico_2022/",
+  "Agregados_por_bairros_renda_responsavel_BR_20260508_csv.zip",
+  "Agregados_por_bairros_renda_responsavel_BR_20260508_xlsx.zip",
+  "Agregados_por_distritos_renda_responsavel_BR_20260508_csv.zip",
+  "Agregados_por_distritos_renda_responsavel_BR_20260508_xlsx.zip",
+  "Agregados_por_municipios_renda_responsavel_BR_20260508_csv.zip",
+  "Agregados_por_municipios_renda_responsavel_BR_20260508_xlsx.zip",
+  "Agregados_por_setores_renda_responsavel_BR_20260508_csv.zip",
+  "Agregados_por_setores_renda_responsavel_BR_20260508_xlsx.zip",
+  "Agregados_por_subdistritos_renda_responsavel_BR_20260508_csv.zip",
+  "Agregados_por_subdistritos_renda_responsavel_BR_20260508_xlsx.zip",
+  "dicionario_de_dados_renda_responsavel_20260508.xlsx",
+  "https://www.ibge.gov.br/",
+  "http://www.facebook.com/ibgeoficial",
+  "https://instagram.com/ibgeoficial",
+  "https://www.tiktok.com/@ibgeoficial",
+  "https://twitter.com/ibgecomunica",
+  "http://www.youtube.com/ibgeoficial"
+ ],
+ "renda bytes": 9370011,
+ "renda arquivos": [
+  "Agregados_por_setores_renda_responsavel_BR.csv"
+ ],
+ "renda Agregados_por_setores_renda_responsavel_BR.csv": [
+  "\"CD_SETOR\";\"V06001\";\"V06002\";\"V06003\";\"V06004\";\"V06005\";\"V06006\"",
+  "\"355030801000001\";\"289\";\"682\";\"1.65\";\"4603.86\";\"23609785.51\";\"3000\"",
+  "\"355030801000002\";\"599\";\"1374\";\"1.29\";\"6038.76\";\"33212559.56\";\"5000\"",
+  "\"355030801000003\";\"205\";\"548\";\"1.58\";\"3174.71\";\"6008193.27\";\"2500\"",
+  "\"355030801000004\";\"221\";\"526\";\"1.55\";\"3097.64\";\"8323926.62\";\"2400\""
+ ],
+ "basico bytes": 15418417,
+ "basico arquivos": [
+  "Agregados_por_setores_basico_BR.csv"
+ ],
+ "basico Agregados_por_setores_basico_BR.csv": [
+  "\"CD_SETOR\";\"SITUACAO\";\"CD_SIT\";\"CD_TIPO\";\"AREA_KM2\";\"CD_REGIAO\";\"NM_REGIAO\";\"CD_UF\";\"NM_UF\";\"CD_MUN\";\"NM_MUN\";\"CD_DIST\";\"NM_DIST\";\"CD_SUBDIST\";\"NM_SUBDIST\";\"CD_BAIRRO\";\"NM_BAIRRO\";\"CD_NU\";\"NM_NU\";\"CD_FCU\";\"NM_FCU\";\"CD_AGLOM\";\"NM_AGLOM\";\"CD_RGINT\";\"NM_RGINT\";\"CD_RGI\";\"NM_RGI\";\"CD_CONCURB\";\"NM_CONCURB\";\"v0001\";\"v0002\";\"v0003\";\"v0004\";\"v0005\";\"v0006\";\"v0007\";\"v0008\";\"v0009\"",
+  "\"355030801000001\";\"Urbana\";\"1\";\"0\";\"0,0717967\";\"3\";\"Sudeste\";\"35\";\"São Paulo\";\"3550308\";\"São Paulo\";\"355030801\";\"Água Rasa\";\"35503080100\";\"\";\".\";\"\";\".\";\"\";\".\";\"\";\".\";\"\";\"3501\";\"São Paulo\";\"350001\";\"São Paulo\";\"3550308\";\"São Paulo/SP\";\"682\";\"329\";\"329\";\"0\";\"2,4\";\"0,0381\";\"289\";\"2\";\"38\"",
+  "\"355030801000002\";\"Urbana\";\"1\";\"0\";\"0,0719018\";\"3\";\"Sudeste\";\"35\";\"São Paulo\";\"3550308\";\"São Paulo\";\"355030801\";\"Água Rasa\";\"35503080100\";\"\";\".\";\"\";\".\";\"\";\".\";\"\";\".\";\"\";\"3501\";\"São Paulo\";\"350001\";\"São Paulo\";\"3550308\";\"São Paulo/SP\";\"1374\";\"1011\";\"1011\";\"0\";\"2,3\";\"0,0150\";\"599\";\"11\";\"401\"",
+  "\"355030801000003\";\"Urbana\";\"1\";\"0\";\"0,0556812\";\"3\";\"Sudeste\";\"35\";\"São Paulo\";\"3550308\";\"São Paulo\";\"355030801\";\"Água Rasa\";\"35503080100\";\"\";\".\";\"\";\".\";\"\";\".\";\"\";\".\";\"\";\"3501\";\"São Paulo\";\"350001\";\"São Paulo\";\"3550308\";\"São Paulo/SP\";\"557\";\"239\";\"238\";\"1\";\"2,7\";\"0,0927\";\"205\";\"0\";\"33\"",
+  "\"355030801000004\";\"Urbana\";\"1\";\"0\";\"0,0649050\";\"3\";\"Sudeste\";\"35\";\"São Paulo\";\"3550308\";\"São Paulo\";\"355030801\";\"Água Rasa\";\"35503080100\";\"\";\".\";\"\";\".\";\"\";\".\";\"\";\".\";\"\";\"3501\";\"São Paulo\";\"350001\";\"São Paulo\";\"3550308\";\"São Paulo/SP\";\"526\";\"245\";\"245\";\"0\";\"2,4\";\"0,0136\";\"221\";\"0\";\"24\""
+ ],
+ "entorno bytes": 13000482,
+ "entorno arquivos": [
+  "Agregados_por_setores_entorno_moradores_BR.csv"
+ ],
+ "entorno Agregados_por_setores_entorno_moradores_BR.csv": [
+  "\"CD_setor\";\"V05200\";\"V05201\";\"V05202\";\"V05203\";\"V05204\";\"V05205\";\"V05206\";\"V05207\";\"V05208\";\"V05209\";\"V05210\";\"V05211\";\"V05212\";\"V05213\";\"V05214\";\"V05215\";\"V05216\";\"V05217\";\"V05218\";\"V05219\";\"V05220\";\"V05221\";\"V05222\";\"V05223\";\"V05224\";\"V05225\";\"V05226\";\"V05227\";\"V05228\";\"V05229\";\"V05230\";\"V05231\";\"V05232\";\"V05233\";\"V05234\"",
+  "\"355030801000001\";\"682\";\"626\";\"56\";\"0\";\"0\";\"0\";\"682\";\"0\";\"0\";\"217\";\"465\";\"0\";\"682\";\"0\";\"0\";\"46\";\"636\";\"0\";\"80\";\"602\";\"0\";\"682\";\"0\";\"0\";\"682\";\"0\";\"0\";\"199\";\"483\";\"0\";\"239\";\"169\";\"0\";\"274\";\"0\"",
+  "\"355030801000002\";\"1374\";\"1374\";\"0\";\"0\";\"0\";\"0\";\"1374\";\"0\";\"0\";\"1287\";\"87\";\"0\";\"1374\";\"0\";\"0\";\"57\";\"1317\";\"0\";\"0\";\"1374\";\"0\";\"1374\";\"0\";\"0\";\"1374\";\"0\";\"0\";\"0\";\"1374\";\"0\";\"229\";\"186\";\"266\";\"693\";\"0\"",
+  "\"355030801000003\";\"548\";\"548\";\"0\";\"0\";\"0\";\"0\";\"548\";\"0\";\"0\";\"511\";\"37\";\"0\";\"548\";\"0\";\"0\";\"11\";\"537\";\"0\";\"0\";\"548\";\"0\";\"548\";\"0\";\"0\";\"548\";\"0\";\"0\";\"0\";\"548\";\"0\";\"67\";\"57\";\"6\";\"418\";\"0\"",
+  "\"355030801000004\";\"526\";\"507\";\"19\";\"0\";\"0\";\"0\";\"526\";\"0\";\"0\";\"277\";\"249\";\"0\";\"526\";\"0\";\"0\";\"390\";\"136\";\"0\";\"0\";\"526\";\"0\";\"526\";\"0\";\"0\";\"526\";\"0\";\"0\";\"147\";\"379\";\"0\";\"27\";\"43\";\"103\";\"353\";\"0\""
+ ]
+}
