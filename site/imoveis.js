@@ -57,7 +57,7 @@
         var d = x[0], esc = function (s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); };
         html += '<tr' + (i >= 30 && !todos ? ' class="mais" hidden' : (i >= 30 ? ' class="mais"' : '')) + '><td class="num">' + (i + 1) +
           '</td><td><a href="' + d[1] + '">' + esc(d[0]) + '</a></td><td class="r num"><b>' + nf(x[1]) +
-          '</b></td><td class="r num">R$ ' + nf(d[2]) + '</td></tr>';
+          '</b></td>' + (d.length > 4 ? '<td class="r num">R$ ' + nf(d[4]) + '</td><td class="r num m-esc">R$ ' : '<td class="r num">R$ ') + nf(d[2]) + '</td></tr>';
       });
       corpo.innerHTML = html;
       var f = document.querySelector('[data-filtro="tab-rank"]');

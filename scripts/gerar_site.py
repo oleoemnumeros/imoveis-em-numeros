@@ -501,13 +501,16 @@ ITENS_ENTORNO = [  # categoria, rótulo, tipo ("n" = quantos num raio de 1 km; "
 ]
 
 
+# Para morar, basta ter o suficiente perto: a partir daqui (a até 1 km), mais não melhora o bairro no ranking.
+BASTA = {"escolas": 3, "saude": 2, "mercados": 2, "farmacias": 2, "restaurantes": 5, "parques": 2, "onibus": 5}
+
 PESOS_PADRAO = {"escolas": 3, "saude": 2, "mercados": 2, "farmacias": 1, "restaurantes": 1, "parques": 2,
-                "onibus": 1, "estacoes": 3, "shoppings": 1, "valor": 3}
-RANKING = False  # desligado: estrutura + preço não bastam para um ranking bom; volta com mais dados (segurança etc.)
-PARTE_VALOR = 0.222  # cada ponto do controle "valorização" = 22% da nota (3 = 67%); o resto é a estrutura
+                "onibus": 1, "estacoes": 2, "shoppings": 1, "renda": 3}
+RANKING = True
+PARTE_RENDA = 0.2167  # cada ponto do controle "renda" = ~22% da nota (3 = 65%); o resto é a estrutura
 ROTULO_CURTO = {"escolas": "Escolas e creches", "saude": "Saúde", "mercados": "Supermercados", "farmacias": "Farmácias",
                 "restaurantes": "Restaurantes e bares", "parques": "Parques e praças", "onibus": "Pontos de ônibus",
-                "estacoes": "Metrô, trem ou BRT", "shoppings": "Shoppings", "valor": "Valorização (m² mais caro)"}
+                "estacoes": "Metrô, trem ou BRT", "shoppings": "Shoppings", "renda": "Renda dos moradores"}
 
 
 def _dist(a, b):
@@ -515,6 +518,49 @@ def _dist(a, b):
     dx = (a[0] - b[0]) * 111320 * math.cos(math.radians(a[1]))
     dy = (a[1] - b[1]) * 110540
     return math.hypot(dx, dy)
+
+
+GEO = {}  # cidade: (centros, contornos) dos bairros, preenchido por calcular_entorno
+CENSO = RAIZ / "data" / "censo"
+
+
+def calcular_censo(s, c) -> dict:
+    """Renda dos moradores por bairro (Censo 2022): soma os setores censitários cujo ponto cai dentro do
+    contorno do bairro; sem contorno, os setores a até 700 m do ponto do bairro.
+    {chave: {"renda": média mensal dos responsáveis, "pessoas": moradores (só com contorno), "p": percentil}}
+    e "_cidade": renda da cidade toda."""
+    f = CENSO / f"{s}.json"
+    if not f.exists() or s not in GEO:
+        return {}
+    import numpy as np
+    d = json.loads(f.read_text(encoding="utf-8"))
+    A = np.array([[x[0], x[1], x[2], x[4] or 0, x[5] or 0] for x in d["setores"]], dtype=float)
+    centros, poligonos = GEO[s]
+    out = {}
+    for k, ctr in centros.items():
+        aneis = poligonos.get(k)
+        if aneis:
+            xs = [x for a in aneis for x, _ in a]
+            ys = [y for a in aneis for _, y in a]
+            sel = np.where((A[:, 0] >= min(xs)) & (A[:, 0] <= max(xs)) & (A[:, 1] >= min(ys)) & (A[:, 1] <= max(ys)))[0]
+            idx = [i for i in sel if _dentro((A[i, 0], A[i, 1]), aneis)]
+        else:
+            kx = 111320 * np.cos(np.radians(ctr[1]))
+            dd = ((A[:, 0] - ctr[0]) * kx) ** 2 + ((A[:, 1] - ctr[1]) * 110540) ** 2
+            idx = list(np.where(dd <= 700 ** 2)[0])
+        if not idx:
+            continue
+        B = A[idx]
+        resp = B[:, 3].sum()
+        if resp < 150:  # poucos domicílios: média instável
+            continue
+        out[k] = {"renda": float((B[:, 3] * B[:, 4]).sum() / resp), "pessoas": int(B[:, 2].sum()) if aneis else None}
+    vals = sorted(v["renda"] for v in out.values())
+    for v in out.values():
+        menos = sum(1 for x in vals if x < v["renda"])
+        v["p"] = menos / max(len(vals) - 1, 1)
+    out["_cidade"] = float((A[:, 3] * A[:, 4]).sum() / A[:, 3].sum())
+    return out
 
 
 def calcular_entorno(s, c, mapa) -> dict:
@@ -544,6 +590,7 @@ def calcular_entorno(s, c, mapa) -> dict:
     for k in c["bairros"]:
         if k not in centros and k in lugares:
             centros[k] = lugares[k]
+    GEO[s] = (centros, poligonos)
     if len(centros) < 10:
         return {}
     # Pontos de amostra espalhados pelo bairro (uma grade de ~300 m dentro do contorno). Para cada item,
@@ -551,7 +598,7 @@ def calcular_entorno(s, c, mapa) -> dict:
     # bairro grande não depende de um único "centro". Sem contorno, só o ponto do bairro.
     import numpy as np
     arr = {cat: np.array([(p[0], p[1]) for p in cats[cat]], dtype=float) for cat, _, _ in ITENS_ENTORNO if cats.get(cat)}
-    brutos = {}
+    brutos, sufs = {}, {}
     for k, ctr in centros.items():
         aneis = poligonos.get(k)
         amostra = _amostra(aneis, ctr) if aneis else [ctr]
@@ -559,7 +606,7 @@ def calcular_entorno(s, c, mapa) -> dict:
         kx = 111320 * np.cos(np.radians(ctr[1]))
         x0, x1 = S[:, 0].min() - 0.011, S[:, 0].max() + 0.011
         y0, y1 = S[:, 1].min() - 0.01, S[:, 1].max() + 0.01
-        r = {}
+        r, suf = {}, {}
         for cat, _, tipo in ITENS_ENTORNO:
             P = arr.get(cat)
             if P is None:
@@ -575,6 +622,7 @@ def calcular_entorno(s, c, mapa) -> dict:
                 por_ponto = np.zeros(len(S))
             if tipo == "n":
                 r[cat] = (float(por_ponto.mean()), None, "")
+                suf[cat] = float(np.minimum(por_ponto / BASTA[cat], 1).mean())
                 continue
             # estações e shoppings: quais ficam no bairro (pelo nome, sem repetir a mesma marcada em vários
             # pontos) e que parte do bairro fica a até 1 km de um deles (é isso que entra na comparação)
@@ -595,13 +643,15 @@ def calcular_entorno(s, c, mapa) -> dict:
                     nomes.append(nm)
             info = {"nomes": nomes, "modo": modo, "qtd": len(nomes) if nomes else len(dentro),
                     "cobre": float((por_ponto > 0).mean())}
+            suf[cat] = info["cobre"]
             if not dentro:
                 bons = [p for p in pts if _nome_ok(limpa_nome(p[2] if len(p) > 2 else ""))] or pts
                 melhor = min(bons, key=lambda p: _dist(ctr, p))
                 info["mais_proxima"] = limpa_nome(melhor[2] if len(melhor) > 2 else "")
             r[cat] = (info["cobre"], None, info)
         brutos[k] = r
-    out = {k: {} for k in brutos}
+        sufs[k] = suf
+    out = {k: {"_suf": sufs[k]} for k in brutos}
     for cat, _, tipo in ITENS_ENTORNO:
         grupos = {}
         for k in brutos:
@@ -958,7 +1008,7 @@ class Site:
 <div class="card"><h2>Dinheiro movimentado</h2>{grafico_valor(meses, ci['valor'], f'Valor movimentado por mês {em_(nome)}')}</div>
 </section>
 {self.mapas[s].cidade_html()}
-{f'<section class="card aviso"><div><h2>Melhores bairros para morar {esc(em_(nome))}</h2><p>Ranking de {n_rank} bairros pela estrutura perto de casa e pela valorização do imóvel. Você escolhe o peso de cada item.</p></div><a class="btn" href="{u(f"/{s}/melhores-bairros/")}">Ver o ranking</a></section>' if n_rank else ''}
+{f'<section class="card aviso"><div><h2>Melhores bairros para morar {esc(em_(nome))}</h2><p>Ranking de {n_rank} bairros pela renda dos moradores (Censo 2022) e pela estrutura perto de casa. Você escolhe o peso de cada item.</p></div><a class="btn" href="{u(f"/{s}/melhores-bairros/")}">Ver o ranking</a></section>' if n_rank else ''}
 {curva}
 <section class="card" id="bairros"><h2>Todos os bairros {esc(de_(nome))}</h2>
 <input class="filtro" type="search" placeholder="Filtrar bairro" aria-label="Filtrar bairro" data-filtro="tab-bairros">
@@ -982,31 +1032,34 @@ class Site:
 
     # ------------------------------------------------------------ ranking
     def ranking(self, s, c) -> int:
-        """Melhores bairros para morar: média ponderada da posição de cada item do entorno contra os outros
-        bairros (0 a 100). Pesos padrão em PESOS_PADRAO; a página deixa a pessoa mudar os pesos."""
+        """Melhores bairros para morar: renda dos moradores (Censo 2022, posição entre os bairros da cidade)
+        + estrutura perto de casa medida como "tem o suficiente?" (0 a 100%, sem premiar excesso).
+        Pesos padrão em PESOS_PADRAO; a página deixa a pessoa mudar os pesos."""
         ent = self.entorno.get(s, {})
-        cats = [cat for cat, _, _ in ITENS_ENTORNO if any(cat in ent.get(k, {}) for k in ent)]
-        if len(cats) < 5:
+        cen = self.censo.get(s, {})
+        cats = [cat for cat, _, _ in ITENS_ENTORNO if any(cat in ent.get(k, {}).get("_suf", {}) for k in ent)]
+        if len(cats) < 5 or not cen:
             return 0
         eleg = [(k, b) for k, b in c["bairros"].items()
-                if b.get("n12", 0) >= 30 and b.get("m2_12") and all(cat in ent.get(k, {}) for cat in cats)]
+                if b.get("n12", 0) >= 30 and b.get("m2_12") and k in cen
+                and all(cat in ent.get(k, {}).get("_suf", {}) for cat in cats)]
         if len(eleg) < 15:
             return 0
-        m2s = sorted(b["m2_12"] for _, b in eleg)
-        def p_valor(v):  # mais caro = mais perto de 1
-            menos = sum(1 for x in m2s if x < v) + 0.5 * (sum(1 for x in m2s if x == v) - 1)
-            return menos / max(len(m2s) - 1, 1)
-        chaves = cats + ["valor"]
+        # renda: posição só entre os bairros que entram no ranking
+        rs = sorted(cen[k]["renda"] for k, _ in eleg)
+        def p_renda(v):
+            return (sum(1 for x in rs if x < v) + 0.5 * (sum(1 for x in rs if x == v) - 1)) / max(len(rs) - 1, 1)
+        chaves = cats + ["renda"]
         linhas = []
         for k, b in eleg:
-            ps = [ent[k][cat][1] for cat in cats] + [p_valor(b["m2_12"])]
+            ps = [ent[k]["_suf"][cat] for cat in cats] + [p_renda(cen[k]["renda"])]
             linhas.append({"k": k, "nome": nome_bonito(b["nome"]), "url": u(f"/{s}/{slug(b['nome'])}/"),
-                           "m2": b["m2_12"], "p": [round(x, 3) for x in ps]})
+                           "m2": b["m2_12"], "renda": cen[k]["renda"], "p": [round(x, 3) for x in ps]})
         pesos = [PESOS_PADRAO[ch] for ch in chaves]
         def nota(p, w):
             we, wv = w[:-1], w[-1]
             estr = sum(a * b for a, b in zip(we, p[:-1])) / sum(we) if sum(we) else 0
-            v = min(wv * PARTE_VALOR, 1) if sum(we) else 1
+            v = min(wv * PARTE_RENDA, 1) if sum(we) else 1
             return ((1 - v) * estr + v * p[-1]) * 100
         for ln in linhas:
             ln["nota"] = nota(ln["p"], pesos)
@@ -1017,40 +1070,43 @@ class Site:
         for i, ln in enumerate(linhas):
             extra = ' class="mais" hidden' if i >= 30 else ""
             tab.append(f'<tr{extra}><td class="num">{i + 1}</td><td><a href="{ln["url"]}">{esc(ln["nome"])}</a></td>'
-                       f'<td class="r num"><b>{nf(ln["nota"])}</b></td><td class="r num">R$ {nf(ln["m2"])}</td></tr>')
+                       f'<td class="r num"><b>{nf(ln["nota"])}</b></td><td class="r num">R$ {nf(ln["renda"])}</td>'
+                       f'<td class="r num m-esc">R$ {nf(ln["m2"])}</td></tr>')
         ctl = "".join(
             f'<label class="peso"><span>{esc(ROTULO_CURTO[ch])}</span>'
             f'<input type="range" min="0" max="3" step="1" value="{PESOS_PADRAO[ch]}" data-i="{i}" aria-label="Peso de {esc(ROTULO_CURTO[ch])}">'
             f'<output>{PESOS_PADRAO[ch]}</output></label>' for i, ch in enumerate(chaves))
-        dados = json.dumps([[ln["nome"], ln["url"], ln["m2"], ln["p"]] for ln in linhas], ensure_ascii=False, separators=(",", ":"))
+        dados = json.dumps([[ln["nome"], ln["url"], ln["m2"], ln["p"], round(ln["renda"])] for ln in linhas],
+                           ensure_ascii=False, separators=(",", ":"))
         top3 = ", ".join(ln["nome"] for ln in linhas[:3])
+        basta = "; ".join(f"{ROTULO_CURTO[c2].lower()}: {n}" for c2, n in BASTA.items())
         corpo = f"""<section class="hero">
 <span class="kicker">{esc(nome)} · ranking</span>
 <h1>Melhores bairros para morar {esc(em_(nome))}</h1>
-<p class="lead">{len(linhas)} bairros ordenados pela estrutura perto de casa (escola, saúde, mercado, transporte, parque e comércio) e pela valorização do imóvel. No peso padrão, os três primeiros são <strong>{esc(top3)}</strong>. Mude os pesos e o ranking muda na hora.</p>
+<p class="lead">{len(linhas)} bairros ordenados pela renda dos moradores, do Censo 2022 do IBGE, e pela estrutura perto de casa: escola, saúde, mercado, parque e transporte. No peso padrão, os três primeiros são <strong>{esc(top3)}</strong>. Mude os pesos e o ranking muda na hora.</p>
 </section>
 <section class="card"><h2>O que pesa mais para você?</h2>
-<p class="small">0 = não conta; 3 = conta muito. Zere a valorização para ver só a estrutura a pé.</p>
+<p class="small">0 = não conta; 3 = conta muito.</p>
 <div class="pesos" id="pesos">{ctl}</div>
 <button class="btn sec" type="button" id="pesos-reset">Voltar ao padrão</button></section>
 <section class="card"><h2>Ranking</h2>
 <input class="filtro" type="search" placeholder="Achar um bairro" aria-label="Achar um bairro" data-filtro="tab-rank" data-col="1">
-<div class="tw"><table id="tab-rank" data-rank='{esc(dados)}' data-pesos='{json.dumps(pesos)}' data-parte="{PARTE_VALOR}"><thead><tr><th>#</th><th>Bairro</th><th class="r">Pontos</th><th class="r">m² mediano</th></tr></thead>
+<div class="tw"><table id="tab-rank" data-rank='{esc(dados)}' data-pesos='{json.dumps(pesos)}' data-parte="{PARTE_RENDA}"><thead><tr><th>#</th><th>Bairro</th><th class="r">Pontos</th><th class="r">Renda média</th><th class="r m-esc">m² mediano</th></tr></thead>
 <tbody>{"".join(tab)}</tbody></table></div>
 <button class="btn sec" type="button" data-mais="tab-rank">Mostrar os {len(linhas)} bairros</button></section>
 <section class="card"><h2>Como a conta é feita</h2>
 <ul>
-<li>Para cada item, o bairro recebe de 0 a 100 conforme a posição dele entre os bairros da cidade: 100 é o melhor, 50 é o do meio. A conta de cada item é a que aparece na página do bairro, em "O que tem em volta".</li>
-<li>A estrutura é a média desses valores, com os pesos acima.</li>
-<li><b>Valorização:</b> a posição do bairro pelo m² mediano das vendas reais (o mais caro vale 100). É quanto as pessoas aceitam pagar para morar ali, e isso embute o que não tem dado aberto por bairro, como segurança, sossego e fama. No padrão (3), ela vale 67% dos pontos e a estrutura, 33%; cada ponto a menos tira 22% dela.</li>
-<li>Entram os bairros com pelo menos 30 vendas em 12 meses e com todos os itens calculados.</li>
-<li><b>O que não entra diretamente:</b> segurança, barulho, trânsito e qualidade das escolas. Não há dado aberto por bairro que permita comparar isso de forma justa; só aparecem através do preço.</li>
-<li>Fonte da estrutura: © colaboradores do <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>. Preço: {esc(c['fonte'])}.</li>
+<li><b>Renda dos moradores:</b> renda média mensal de quem chefia os domicílios do bairro, no Censo 2022 do IBGE (divulgada em 2025). Somamos os setores censitários que ficam dentro do bairro. Entra pela posição do bairro na cidade: o de maior renda vale 100. Ela resume muito do que não tem dado aberto por bairro, como segurança e conservação das ruas.</li>
+<li><b>Estrutura perto de casa:</b> para pontos espalhados pelo bairro, vemos se há o suficiente a até 1 km ({esc(basta)}; metrô, trem ou BRT e shopping: pelo menos um). Passando disso, mais não conta: dez padarias não fazem um bairro melhor que três. Vale de 0 a 100%.</li>
+<li>No padrão (renda com peso 3), a renda vale 65% dos pontos e a estrutura, 35%. Cada ponto a menos no controle da renda tira 22% dela.</li>
+<li>Entram os bairros com pelo menos 30 vendas em 12 meses, com renda calculada e com todos os itens de estrutura.</li>
+<li><b>O que não entra diretamente:</b> segurança, barulho e qualidade das escolas, por falta de dado aberto comparável por bairro.</li>
+<li>Fontes: IBGE, Censo Demográfico 2022; © colaboradores do <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>; preço: {esc(c['fonte'])}.</li>
 </ul></section>"""
         self.busca.append([f"Melhores bairros para morar {em_(nome)}", f"/{s}/melhores-bairros/", "Ranking"])
-        self.pagina(f"/{s}/melhores-bairros/", f"Melhores bairros para morar {em_(nome)}: ranking com dados reais",
-                    f"Ranking de {len(linhas)} bairros {de_(nome)} por escola, saúde, mercado, transporte, parques e valorização do imóvel. "
-                    f"Escolha o peso de cada item e veja o preço real do m².",
+        self.pagina(f"/{s}/melhores-bairros/", f"Melhores bairros para morar {em_(nome)}: ranking com dados do IBGE",
+                    f"Ranking de {len(linhas)} bairros {de_(nome)} pela renda dos moradores (Censo 2022) e pela estrutura perto de casa: "
+                    f"escola, saúde, mercado, parque e transporte. Escolha o peso de cada item.",
                     corpo, ativo=f"/{s}/", migalhas=[(f"/{s}/", nome), (None, "Melhores bairros")], media=bool(c.get("agregado")))
         return len(linhas)
 
@@ -1079,6 +1135,15 @@ class Site:
         faixa = (f" Metade das vendas ficou entre <strong>R$ {nf(q[1])}</strong> e <strong>R$ {nf(q[3])}</strong> por m²." if q else "")
         m2_mm = media_movel(b["m2"])
         extras = []
+        cen = self.censo.get(s, {})
+        if chave_k in cen and cen.get("_cidade"):
+            rz = cen[chave_k]["renda"] / cen["_cidade"]
+            comp_r = (f"{nf(rz, 1)} vez{'es' if rz >= 1.95 else ''} a da cidade" if rz >= 1.15 else
+                      ("parecida com a da cidade" if rz > 0.87 else f"{pct(1 - rz, 0)} abaixo da cidade"))
+            pop = cen[chave_k].get("pessoas")
+            extras.append(f"<li><b>R$ {nf(cen[chave_k]['renda'])}</b> por mês é a renda média de quem chefia os domicílios"
+                          f"{' do bairro' if pop else ' da região do bairro'}, {comp_r} (R$ {nf(cen['_cidade'])})"
+                          f"{f'; {nf(pop)} moradores' if pop else ''}. Fonte: IBGE, Censo 2022.</li>")
         tp = b.get("tipos") or {}
         if tp:
             tot = sum(tp.values())
@@ -1189,6 +1254,7 @@ class Site:
         self.inicio()
         self.mapas = {s: Mapa(s, c) for s, c in self.cidades.items()}
         self.entorno = {s: calcular_entorno(s, c, self.mapas[s]) for s, c in self.cidades.items()}
+        self.censo = {s: calcular_censo(s, c) for s, c in self.cidades.items()}
         self.posicoes = {}
         for s, c in self.cidades.items():
             self.cidade(s, c)
