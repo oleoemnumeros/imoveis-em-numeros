@@ -17,9 +17,21 @@
     if (!tab) return;
     inp.addEventListener("input", function () {
       var q = semAcento(inp.value.trim());
+      var todos = tab.getAttribute("data-todos") === "1";
       Array.prototype.forEach.call(tab.tBodies[0].rows, function (tr) {
-        tr.hidden = q && semAcento(tr.cells[0].textContent).indexOf(q) < 0;
+        if (q) tr.hidden = semAcento(tr.cells[0].textContent).indexOf(q) < 0;
+        else tr.hidden = !todos && tr.classList.contains("mais");
       });
+    });
+  });
+
+  // "Mostrar todos os bairros"
+  Array.prototype.forEach.call(document.querySelectorAll("[data-mais]"), function (bt) {
+    var tab = document.getElementById(bt.getAttribute("data-mais"));
+    bt.addEventListener("click", function () {
+      tab.setAttribute("data-todos", "1");
+      Array.prototype.forEach.call(tab.querySelectorAll("tr.mais"), function (tr) { tr.hidden = false; });
+      bt.hidden = true;
     });
   });
 

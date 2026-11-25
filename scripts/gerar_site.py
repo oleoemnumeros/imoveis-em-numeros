@@ -445,12 +445,13 @@ class Site:
         ]) + "</div>"
 
         linhas = []
-        for k, b in bairros:
+        for i_b, (k, b) in enumerate(bairros):
             bs = slug(b["nome"])
+            extra = ' class="mais" hidden' if i_b >= 40 else ""
             vb = var(b.get("m2_12"), b.get("m2_12_ant")) if (b.get("n12", 0) >= 30 and b.get("n12_ant", 0) >= 30) else None
-            linhas.append(f'<tr><td><a href="{u(f"/{s}/{bs}/")}">{esc(nome_bonito(b["nome"]))}</a></td>'
+            linhas.append(f'<tr{extra}><td><a href="{u(f"/{s}/{bs}/")}">{esc(nome_bonito(b["nome"]))}</a></td>'
                           f'<td class="r num">{nf(b.get("m2_12"))}</td><td class="r num">{seta(vb)}</td>'
-                          f'<td class="r num">{nf(b["n12"])}</td><td class="r num">{brl_curto(b.get("ticket12"))}</td></tr>')
+                          f'<td class="r num">{nf(b["n12"])}</td><td class="r num m-esc">{brl_curto(b.get("ticket12"))}</td></tr>')
             self.busca.append([f"{nome_bonito(b['nome'])} ({nome})", f"/{s}/{bs}/", "Bairro"])
 
         def top(lista, chave_ord, fmt, n=8, rev=True):
@@ -505,8 +506,9 @@ class Site:
 {curva}
 <section class="card" id="bairros"><h2>Todos os bairros {esc(de_(nome))}</h2>
 <input class="filtro" type="search" placeholder="Filtrar bairro" aria-label="Filtrar bairro" data-filtro="tab-bairros">
-<div class="tw"><table id="tab-bairros"><thead><tr><th>Bairro</th><th class="r">m² mediano</th><th class="r">Em 1 ano</th><th class="r">Vendas (12 meses)</th><th class="r">Preço mediano</th></tr></thead>
+<div class="tw"><table id="tab-bairros"><thead><tr><th>Bairro</th><th class="r">m² mediano</th><th class="r">Em 1 ano</th><th class="r">Vendas (12 meses)</th><th class="r m-esc">Preço mediano</th></tr></thead>
 <tbody>{"".join(linhas)}</tbody></table></div>
+{f'<button class="btn sec" type="button" data-mais="tab-bairros">Mostrar os {len(bairros)} bairros</button>' if len(bairros) > 40 else ''}
 <p class="small">Últimos 12 meses. Entram os bairros com pelo menos 20 vendas desde {mes_nome(meses[0])}. A variação só aparece com 30 vendas ou mais em cada período.</p></section>
 {ranks}
 {tipo_html}
