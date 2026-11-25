@@ -317,8 +317,7 @@ def casar_bairros(mapa_bairros, dados_bairros):
     return par
 
 
-PADRAO_SD = ('<defs><pattern id="sd" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">'
-             '<rect width="6" height="6" fill="#F7F7F9"/><line x1="0" y1="0" x2="0" y2="6" stroke="#D5D5DD" stroke-width="2"/></pattern></defs>')
+PADRAO_SD = ""
 
 
 class Mapa:
@@ -397,7 +396,7 @@ class Mapa:
         """itens: (x, y, texto, classe). Põe o nome ao lado do ponto, sem sobrepor outro nome."""
         postos, out = [], []
         for x, y, t, cls in itens:
-            w, h = len(t) * fs * 0.56, fs * 1.2
+            w, h = len(t) * fs * 0.5, fs * 1.2
             for dx, dy, anc in ((fs * 0.6, fs * 0.35, "start"), (-fs * 0.6, fs * 0.35, "end"),
                                 (0, -fs * 0.7, "middle"), (0, fs * 1.4, "middle")):
                 x0 = x + dx if anc == "start" else x + dx - w if anc == "end" else x - w / 2
@@ -407,7 +406,10 @@ class Mapa:
                 if any(not (caixa[2] < p[0] or caixa[0] > p[2] or caixa[3] < p[1] or caixa[1] > p[3]) for p in postos):
                     continue
                 postos.append(caixa)
-                out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{fs * 0.22:.1f}" class="pt"/>'
+                pad = fs * 0.25
+                out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{fs * 0.24:.1f}" class="pt"/>'
+                           f'<rect x="{caixa[0] - pad:.1f}" y="{caixa[1] - pad * 0.4:.1f}" width="{w + 2 * pad:.1f}" height="{h + pad * 0.4:.1f}" '
+                           f'rx="{fs * 0.3:.1f}" class="et {cls}"/>'
                            f'<text x="{x + dx:.1f}" y="{y + dy:.1f}" text-anchor="{anc}" font-size="{fs:.1f}" class="{cls}">{esc(t)}</text>')
                 break
         return "".join(out)
@@ -420,16 +422,27 @@ class Mapa:
         com = [k for k in self.por_dado if self.dados[k].get("m2_12")]
         mais_vendas = sorted(com, key=lambda k: -self.dados[k]["n12"])[:5]
         caros = [k for k in sorted(com, key=lambda k: -self.dados[k]["m2_12"]) if self.dados[k]["n12"] >= 30 and k not in mais_vendas][:5]
-        itens = []
-        for k in mais_vendas + caros:
+        # marcadores numerados (no celular, nome escrito em cima do mapa fica ilegível); a lista vem embaixo
+        marcas, lista = [], []
+        fs = 17
+        for i, k in enumerate(mais_vendas + caros, 1):
             b = max(self.por_dado[k], key=lambda b: (b["bb"][2] - b["bb"][0]) * (b["bb"][3] - b["bb"][1]))
-            itens.append((b["cxy"][0], b["cxy"][1], nome_bonito(self.dados[k]["nome"]), "rot-c" if k in caros else "rot-v"))
-        rot = self.rotulos(itens, 19, (self.W, self.H))
+            x, y = b["cxy"]
+            cls = "rot-c" if k in caros else "rot-v"
+            marcas.append(f'<g class="num-m {cls}"><circle cx="{x:.1f}" cy="{y:.1f}" r="{fs * 0.78:.1f}"/>'
+                          f'<text x="{x:.1f}" y="{y + fs * 0.36:.1f}" text-anchor="middle" font-size="{fs:.0f}">{i}</text></g>')
+            dd = self.dados[k]
+            lista.append(f'<li class="{cls}"><b>{i}</b><a href="{u(f"/{self.s}/{slug(dd["nome"])}/")}">{esc(nome_bonito(dd["nome"]))}</a>'
+                         f'<span>R$ {nf(dd["m2_12"])}/m² · {nf(dd["n12"])} vendas</span></li>')
+        rot = "".join(marcas)
+        lista_html = (f'<div class="mapa-lista"><div><h3>Mais vendas</h3><ol>{"".join(lista[:len(mais_vendas)])}</ol></div>'
+                      f'<div><h3>Mais caros</h3><ol>{"".join(lista[len(mais_vendas):])}</ol></div></div>') if lista else ""
         nome = self.c["nome"]
         return f"""<section class="card" id="mapa"><h2>Mapa do preço do m² {esc(em_(nome))}</h2>
-<p class="small">Quanto mais escuro, mais caro o metro quadrado (mediana dos últimos 12 meses). Com nome: os 5 bairros com mais vendas e os 5 mais caros. Toque num bairro para abrir a página dele.</p>
+<p class="small">Quanto mais escuro, mais caro o metro quadrado (mediana dos últimos 12 meses). Os números marcam os 5 bairros com mais vendas e os 5 mais caros. Toque num bairro para abrir a página dele.</p>
 <div class="mapa-m2"><svg viewBox="0 0 {self.W} {self.H:.0f}" role="img" aria-label="Mapa do preço do metro quadrado por bairro {esc(em_(nome))}">{PADRAO_SD}{"".join(partes)}<g class="rotulos">{rot}</g></svg></div>
 {self.legenda()}
+{lista_html}
 {self.credito(f" {sum(1 for b in self.areas if b['k'] in self.par)} de {len(self.areas)} áreas com dados.")}</section>"""
 
     def bairro_html(self, k) -> str:
@@ -532,6 +545,7 @@ class Site:
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="only light">
 <title>{esc(titulo)}</title>
 <meta name="description" content="{esc(descricao)}">
 {robots}
