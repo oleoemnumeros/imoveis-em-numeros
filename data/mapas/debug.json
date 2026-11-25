@@ -1,0 +1,74 @@
+{
+ "fortaleza": {
+  "erro": "RuntimeError('https://overpass-api.de/api/interpreter HTTP 502: # 502 Gateway Timeout\\n\\nThis Overpass API server is currently at capacity. All query workers are busy\\nand the request queue is full.\\n\\n## What to do\\n\\nRetry your request using exponential backoff: wait a')"
+ },
+ "recife": {
+  "10": {
+   "poligonos": 96,
+   "combinam": 68
+  },
+  "escolhido": "10",
+  "sem_par_no_itbi": [
+   "ALDEIA",
+   "ALTO DO MANDU",
+   "ALTO JOSE BONIFACIO",
+   "ALTO SANTA TERESINHA",
+   "BAIRRO DO RECIFE",
+   "BEBERIBE",
+   "BOMBA DO HEMETERIO",
+   "BRASILIA TEIMOSA",
+   "BREJO DA GUABIRABA",
+   "BREJO DE BEBERIBE",
+   "CACOTE",
+   "CIDADE UNIVERSITARIA",
+   "COQUEIRAL",
+   "CORREGO DO JENIPAPO",
+   "DOIS IRMAOS",
+   "JIQUIA",
+   "JOANA BEZERRA",
+   "MANGUEIRA",
+   "MORRO DA CONCEICAO",
+   "MUSTARDINHA",
+   "NOVA DESCOBERTA",
+   "PARATIBE",
+   "PAU FERRO",
+   "PEIXINHOS",
+   "POCO DA PANELA",
+   "SANTO ANTONIO",
+   "SITIO DOS PINTOS",
+   "TOTO"
+  ]
+ },
+ "porto-alegre": {
+  "10": {
+   "poligonos": 94,
+   "combinam": 71
+  },
+  "escolhido": "10",
+  "sem_par_no_itbi": [
+   "ABERTA DOS MORROS",
+   "AGRONOMIA",
+   "ANCHIETA",
+   "ARQUIPELAGO",
+   "BOA VISTA DO SUL",
+   "CASCATA",
+   "CENTRO HISTORICO",
+   "CHACARA DAS PEDRAS",
+   "CORONEL APARICIO BORGES",
+   "EXTREMA",
+   "JARDIM LEOPOLDINA",
+   "JARDIM SAO PEDRO",
+   "LAGEADO",
+   "LAMI",
+   "LOMBA DO PINHEIRO",
+   "MOINHOS DE VENTO",
+   "MONTSERRAT",
+   "PARQUE SANTA FE",
+   "PASSO DAS PEDRAS",
+   "PITINGA",
+   "SANTA MARIA GORETTI",
+   "SANTA ROSA DE LIMA",
+   "SAO CAETANO"
+  ]
+ }
+}
