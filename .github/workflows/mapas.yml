@@ -9,6 +9,10 @@ on:
         description: "Baixar de novo todas as cidades"
         type: boolean
         default: false
+      forcar_entorno:
+        description: "Baixar de novo só o que tem em volta (escolas, transporte...)"
+        type: boolean
+        default: false
   push:
     branches: [main]
     paths:
@@ -43,7 +47,7 @@ jobs:
         continue-on-error: true
         timeout-minutes: 60
         env:
-          FORCAR: ${{ (github.event_name == 'workflow_dispatch' && inputs.forcar) && '1' || '0' }}
+          FORCAR: ${{ (github.event_name == 'workflow_dispatch' && (inputs.forcar || inputs.forcar_entorno)) && '1' || '0' }}
         run: python -u scripts/atualizar_entorno.py
       - name: Salvar e publicar o site de novo
         if: always()

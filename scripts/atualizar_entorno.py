@@ -18,6 +18,7 @@ import sys
 import time
 from pathlib import Path
 
+import re
 import requests
 from shapely.geometry import shape
 
@@ -56,12 +57,14 @@ def categoria(t: dict) -> str | None:
         return "parques"
     if a in ("restaurant", "cafe", "bar", "pub", "fast_food"):
         return "restaurantes"
-    # metrô, trem, VLT e estações de BRT; rodoviárias e terminais de ônibus comuns ficam de fora
-    if (t.get("railway") in ("station", "halt") and t.get("station") != "funicular") \
-            or (t.get("public_transport") == "station" and t.get("bus") == "yes" and a != "bus_station"
-                and ("brt" in (t.get("name", "") + t.get("network", "")).lower() or t.get("highway") == "bus_stop"
-                     or "move" in t.get("network", "").lower())):
+    # metrô, trem, VLT e estações de BRT (Rio: TransOeste, TransCarioca, TransOlímpica, TransBrasil;
+    # BH: MOVE); rodoviárias e terminais de ônibus comuns ficam de fora
+    if t.get("railway") in ("station", "halt") and t.get("station") != "funicular":
         return "estacoes"
+    if t.get("public_transport") == "station" or a == "bus_station":
+        txt = " ".join(t.get(c, "") for c in ("name", "network", "operator", "official_name")).lower()
+        if re.search(r"\bbrt\b|\bmove\b|trans ?(oeste|carioca|ol[ií]mpica|brasil)", txt) and "aeroporto" not in txt:
+            return "estacoes"
     if t.get("highway") == "bus_stop":
         return "onibus"
     return None

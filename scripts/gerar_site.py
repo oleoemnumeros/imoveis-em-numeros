@@ -535,52 +535,59 @@ def calcular_entorno(s, c, mapa) -> dict:
             centros[k] = lugares[k]
     if len(centros) < 10:
         return {}
-    # grade simples para não comparar cada bairro com todos os pontos
-    def grade(pts):
-        g = {}
-        for p in pts:
-            g.setdefault((int(p[0] * 50), int(p[1] * 50)), []).append(p)
-        return g
-    grades = {cat: grade(cats[cat]) for cat, _, t in ITENS_ENTORNO if t == "n" and cats.get(cat)}
+    # Pontos de amostra espalhados pelo bairro (uma grade de ~300 m dentro do contorno). Para cada item,
+    # contamos o que há a até 1 km de cada ponto e tiramos a média: o tamanho do bairro não pesa, e um
+    # bairro grande não depende de um único "centro". Sem contorno, só o ponto do bairro.
+    import numpy as np
+    arr = {cat: np.array([(p[0], p[1]) for p in cats[cat]], dtype=float) for cat, _, _ in ITENS_ENTORNO if cats.get(cat)}
     brutos = {}
     for k, ctr in centros.items():
+        aneis = poligonos.get(k)
+        amostra = _amostra(aneis, ctr) if aneis else [ctr]
+        S = np.array(amostra, dtype=float)
+        kx = 111320 * np.cos(np.radians(ctr[1]))
+        x0, x1 = S[:, 0].min() - 0.011, S[:, 0].max() + 0.011
+        y0, y1 = S[:, 1].min() - 0.01, S[:, 1].max() + 0.01
         r = {}
-        gx, gy = int(ctr[0] * 50), int(ctr[1] * 50)
         for cat, _, tipo in ITENS_ENTORNO:
-            pts = cats.get(cat)
-            if not pts:
+            P = arr.get(cat)
+            if P is None:
                 continue
-            if tipo == "n":
-                g = grades[cat]
-                n = 0
-                for i in range(gx - 1, gx + 2):
-                    for j in range(gy - 1, gy + 2):
-                        n += sum(1 for p in g.get((i, j), ()) if _dist(ctr, p) <= 1000)
-                r[cat] = (n, None, "")
+            sel = (P[:, 0] >= x0) & (P[:, 0] <= x1) & (P[:, 1] >= y0) & (P[:, 1] <= y1)
+            Q = P[sel]
+            if len(Q):
+                dx = (S[:, 0:1] - Q[None, :, 0]) * kx
+                dy = (S[:, 1:2] - Q[None, :, 1]) * 110540
+                perto = (dx * dx + dy * dy) <= 1000 * 1000
+                por_ponto = perto.sum(axis=1)
             else:
-                # quantas e quais, pelo nome (a mesma estação costuma estar marcada em vários pontos).
-                # Com contorno: as que ficam DENTRO do bairro. Sem contorno: a até 1 km do ponto do bairro.
-                aneis = poligonos.get(k)
-                if aneis:
-                    dentro = [p for p in pts if _dentro(p, aneis)]
-                    modo = "dentro"
-                else:
-                    dentro = [p for p in pts if _dist(ctr, p) <= 1000]
-                    modo = "1km"
-                dentro.sort(key=lambda p: _dist(ctr, p))
-                nomes, vistos = [], set()
-                for p in dentro:
-                    nm = limpa_nome(p[2] if len(p) > 2 else "")
-                    ch = chave_bairro_site(nm) if nm else None
-                    if ch and ch not in vistos:
-                        vistos.add(ch)
-                        nomes.append(nm)
-                qtd = len(nomes) if nomes else len(dentro)
-                info = {"nomes": nomes, "modo": modo}
-                if not dentro:
-                    melhor = min(pts, key=lambda p: _dist(ctr, p))
-                    info["mais_proxima"] = limpa_nome(melhor[2] if len(melhor) > 2 else "")
-                r[cat] = (qtd, None, info)
+                por_ponto = np.zeros(len(S))
+            if tipo == "n":
+                r[cat] = (float(por_ponto.mean()), None, "")
+                continue
+            # estações e shoppings: quais ficam no bairro (pelo nome, sem repetir a mesma marcada em vários
+            # pontos) e que parte do bairro fica a até 1 km de um deles (é isso que entra na comparação)
+            pts = cats[cat]
+            if aneis:
+                dentro = [p for p in pts if _dentro(p, aneis)]
+                modo = "dentro"
+            else:
+                dentro = [p for p in pts if _dist(ctr, p) <= 1000]
+                modo = "1km"
+            dentro.sort(key=lambda p: _dist(ctr, p))
+            nomes, vistos = [], set()
+            for p in dentro:
+                nm = limpa_nome(p[2] if len(p) > 2 else "")
+                ch = chave_bairro_site(nm) if nm else None
+                if ch and ch not in vistos:
+                    vistos.add(ch)
+                    nomes.append(nm)
+            info = {"nomes": nomes, "modo": modo, "qtd": len(nomes) if nomes else len(dentro),
+                    "cobre": float((por_ponto > 0).mean())}
+            if not dentro:
+                melhor = min(pts, key=lambda p: _dist(ctr, p))
+                info["mais_proxima"] = limpa_nome(melhor[2] if len(melhor) > 2 else "")
+            r[cat] = (info["cobre"], None, info)
         brutos[k] = r
     out = {k: {} for k in brutos}
     for cat, _, tipo in ITENS_ENTORNO:
@@ -599,6 +606,28 @@ def calcular_entorno(s, c, mapa) -> dict:
             atras = sum(1 for x in vals if x < v) + 0.5 * (sum(1 for x in vals if x == v) - 1)
             out[k][cat] = (v, atras / max(len(vals) - 1, 1), nome)
     return out
+
+
+def _amostra(aneis, ctr, alvo=300):
+    """Grade de pontos dentro do contorno, de ~300 m (mais espaçada em bairros enormes)."""
+    import math
+    xs = [x for a in aneis for x, _ in a]
+    ys = [y for a in aneis for _, y in a]
+    kx = math.cos(math.radians(ctr[1]))
+    larg = (max(xs) - min(xs)) * 111320 * kx
+    alt = (max(ys) - min(ys)) * 110540
+    passo = max(300.0, math.sqrt(larg * alt / alvo))
+    dx, dy = passo / (111320 * kx), passo / 110540
+    pts = []
+    y = min(ys) + dy / 2
+    while y < max(ys):
+        x = min(xs) + dx / 2
+        while x < max(xs):
+            if _dentro((x, y), aneis):
+                pts.append((x, y))
+            x += dx
+        y += dy
+    return pts or [ctr]
 
 
 def _dentro(p, aneis) -> bool:
@@ -639,7 +668,7 @@ def entorno_html(ind: dict, nome_b: str, nome_c: str, s: str) -> str:
             continue
         v, p, nome = ind[cat]
         if tipo == "n":
-            val = nf(v)
+            val = nf(round(v))
             if p >= 0.999:
                 comp = "o maior número entre os bairros"
             elif p <= 0.001:
@@ -648,31 +677,45 @@ def entorno_html(ind: dict, nome_b: str, nome_c: str, s: str) -> str:
                 comp = f"mais que {min(int(p * 100), 99)}% dos bairros" if p >= 0.5 else f"menos que {min(int((1 - p) * 100), 99)}% dos bairros"
         else:
             info = nome or {}
-            val = nf(v)
+            val = nf(info.get("qtd", 0))
+            fem = cat != "shoppings"
+            um = "uma estação" if fem else "um shopping"
             if info.get("nomes"):
                 ns = info["nomes"]
                 lista = ", ".join(ns[:4]) + (f" e mais {len(ns) - 4}" if len(ns) > 4 else "")
                 rot = f"{rot}<small>{esc(lista)}</small>"
             elif info.get("mais_proxima"):
-                onde = "dentro do bairro" if info.get("modo") == "dentro" else "a até 1 km"
-                rot = f"{rot}<small>Nenhum {onde}; o mais próximo é o {esc(info['mais_proxima'])}</small>" if cat == "shoppings" \
-                    else f"{rot}<small>Nenhuma {onde}; a mais próxima é {esc(info['mais_proxima'])}</small>"
-            if p >= 0.999:
-                comp = "o maior número entre os bairros"
-            elif v == 0:
-                comp = "como a maioria dos bairros" if p >= 0.25 else "menos que a maioria dos bairros"
+                onde = "no bairro" if info.get("modo") == "dentro" else "a até 1 km"
+                rot = f"{rot}<small>Nenhuma {onde}; a mais próxima é {esc(info['mais_proxima'])}</small>" if fem \
+                    else f"{rot}<small>Nenhum {onde}; o mais próximo é o {esc(info['mais_proxima'])}</small>"
+            if v <= 0:
+                rank = "como a maioria dos bairros" if p >= 0.25 else "menos que a maioria dos bairros"
+            elif p >= 0.5:
+                rank = f"mais que {min(int(p * 100), 99)}% dos bairros"
             else:
-                comp = f"mais que {min(int(p * 100), 99)}% dos bairros" if p >= 0.5 else f"menos que {min(int((1 - p) * 100), 99)}% dos bairros"
+                rank = f"menos que {min(int((1 - p) * 100), 99)}% dos bairros"
+            if info.get("modo") == "dentro":
+                pct = round(v * 100)
+                cob = f"nenhuma parte do bairro fica a até 1 km de {um}" if pct == 0 else \
+                      (f"todo o bairro fica a até 1 km de {um}" if pct >= 100 else f"{pct}% do bairro fica a até 1 km de {um}")
+                comp = f"{cob} · {rank}"
+            else:
+                comp = rank
         linhas.append(f'<li><div class="en-t"><span>{rot}</span><b class="num">{val}</b></div>'
                       f'<div class="en-b"><i style="width:{max(p * 100, 2):.0f}%"></i></div><span class="en-c">{comp}</span></li>')
     if not linhas:
         return ""
     dentro = any(isinstance(ind[c][2], dict) and ind[c][2].get("modo") == "dentro" for c in ("estacoes", "shoppings") if c in ind)
-    qual = " (estações e shoppings: os que ficam dentro do bairro)" if dentro else ""
+    if dentro:
+        intro = ("Contamos o que há a até 1 km de vários pontos espalhados pelo bairro e tiramos a média, para um bairro "
+                 "grande não levar vantagem só por ser grande. Em estações e shoppings, os nomes são os que ficam dentro "
+                 "do bairro, e a comparação é por quanto do bairro fica a até 1 km de um deles.")
+    else:
+        intro = "Quantos há a até 1 km do ponto do bairro (estações e shoppings: quantos e quais)."
     return f"""<section class="card" id="entorno"><h2>O que tem em volta de {esc(nome_b)}</h2>
-<p class="small">Quantos há a até 1 km do centro do bairro{qual}, comparado com os outros bairros {esc(de_(nome_c))}. Quanto mais cheia a barra, melhor o bairro está nesse item.</p>
+<p class="small">{intro} Comparado com os outros bairros {esc(de_(nome_c))}: quanto mais cheia a barra, melhor o bairro está nesse item.</p>
 <ul class="entorno">{"".join(linhas)}</ul>
-<p class="small">Fonte: © colaboradores do <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>, mapa colaborativo: pode faltar algum estabelecimento, mas a falta tende a ser parecida entre bairros da mesma cidade. Centro do bairro = ponto central do contorno no mapa{"" if dentro else " (sem contorno no mapa, usamos o ponto que o OpenStreetMap marca com o nome do bairro)"}.</p></section>"""
+<p class="small">Fonte: © colaboradores do <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>, mapa colaborativo: pode faltar algum estabelecimento, mas a falta tende a ser parecida entre bairros da mesma cidade.{"" if dentro else " Este bairro não tem contorno no mapa; usamos o ponto que o OpenStreetMap marca com o nome dele."}</p></section>"""
 
 
 # ---------------------------------------------------------------- página
