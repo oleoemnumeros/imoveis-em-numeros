@@ -19,7 +19,8 @@
       var q = semAcento(inp.value.trim());
       var todos = tab.getAttribute("data-todos") === "1";
       Array.prototype.forEach.call(tab.tBodies[0].rows, function (tr) {
-        if (q) tr.hidden = semAcento(tr.cells[0].textContent).indexOf(q) < 0;
+        var col = +(inp.getAttribute("data-col") || 0);
+        if (q) tr.hidden = semAcento(tr.cells[col].textContent).indexOf(q) < 0;
         else tr.hidden = !todos && tr.classList.contains("mais");
       });
     });
@@ -34,6 +35,37 @@
       bt.hidden = true;
     });
   });
+
+  // ranking com pesos escolhidos pela pessoa
+  var tab = document.getElementById("tab-rank"), caixa = document.getElementById("pesos");
+  if (tab && caixa) {
+    var dados = JSON.parse(tab.getAttribute("data-rank")), padrao = JSON.parse(tab.getAttribute("data-pesos"));
+    var ins = caixa.querySelectorAll("input[type=range]"), corpo = tab.tBodies[0];
+    var bt = document.querySelector('[data-mais="tab-rank"]');
+    function refaz() {
+      var w = Array.prototype.map.call(ins, function (i) { i.nextElementSibling.textContent = i.value; return +i.value; });
+      var tot = w.reduce(function (a, b) { return a + b; }, 0) || 1;
+      var lin = dados.map(function (d) {
+        var s = 0; for (var i = 0; i < w.length; i++) s += w[i] * d[3][i];
+        return [d, s / tot * 100];
+      }).sort(function (a, b) { return b[1] - a[1]; });
+      var todos = tab.getAttribute("data-todos") === "1", html = "";
+      lin.forEach(function (x, i) {
+        var d = x[0], esc = function (s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); };
+        html += '<tr' + (i >= 30 && !todos ? ' class="mais" hidden' : (i >= 30 ? ' class="mais"' : '')) + '><td class="num">' + (i + 1) +
+          '</td><td><a href="' + d[1] + '">' + esc(d[0]) + '</a></td><td class="r num"><b>' + nf(x[1]) +
+          '</b></td><td class="r num">R$ ' + nf(d[2]) + '</td></tr>';
+      });
+      corpo.innerHTML = html;
+      var f = document.querySelector('[data-filtro="tab-rank"]');
+      if (f && f.value) f.dispatchEvent(new Event("input"));
+    }
+    Array.prototype.forEach.call(ins, function (i) { i.addEventListener("input", refaz); });
+    document.getElementById("pesos-reset").addEventListener("click", function () {
+      Array.prototype.forEach.call(ins, function (i, n) { i.value = padrao[n]; });
+      refaz();
+    });
+  }
 
   // posição aproximada de um valor na distribuição, pelos quantis 10/25/50/75/90
   function percentil(q, v) {

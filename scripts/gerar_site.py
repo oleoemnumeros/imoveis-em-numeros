@@ -501,6 +501,13 @@ ITENS_ENTORNO = [  # categoria, rótulo, tipo ("n" = quantos num raio de 1 km; "
 ]
 
 
+PESOS_PADRAO = {"escolas": 2, "saude": 2, "mercados": 2, "farmacias": 1, "restaurantes": 1, "parques": 2,
+                "onibus": 1, "estacoes": 2, "shoppings": 1, "preco": 0}
+ROTULO_CURTO = {"escolas": "Escolas e creches", "saude": "Saúde", "mercados": "Supermercados", "farmacias": "Farmácias",
+                "restaurantes": "Restaurantes e bares", "parques": "Parques e praças", "onibus": "Pontos de ônibus",
+                "estacoes": "Metrô, trem ou BRT", "shoppings": "Shoppings", "preco": "Preço do m² mais baixo"}
+
+
 def _dist(a, b):
     import math
     dx = (a[0] - b[0]) * 111320 * math.cos(math.radians(a[1]))
@@ -667,7 +674,7 @@ def chave_bairro_site(nome):
     return importlib.import_module("atualizar").chave_bairro(nome)
 
 
-def entorno_html(ind: dict, nome_b: str, nome_c: str, s: str) -> str:
+def entorno_html(ind: dict, nome_b: str, nome_c: str, s: str, pos=None, url_rank="") -> str:
     if not ind:
         return ""
     poli = any(isinstance(ind[c][2], dict) and ind[c][2].get("modo") == "dentro" for c in ("estacoes", "shoppings") if c in ind)
@@ -725,6 +732,7 @@ def entorno_html(ind: dict, nome_b: str, nome_c: str, s: str) -> str:
     return f"""<section class="card" id="entorno"><h2>O que tem em volta de {esc(nome_b)}</h2>
 <p class="small">{intro} Comparado com os outros bairros {esc(de_(nome_c))}: quanto mais cheia a barra, melhor o bairro está nesse item.</p>
 <ul class="entorno">{"".join(linhas)}</ul>
+{f'<p class="rank-pos">No ranking de estrutura perto de casa, <b>{pos[0]}º de {pos[1]} bairros</b> {esc(de_(nome_c))}. <a href="{url_rank}">Ver o ranking</a></p>' if pos else ''}
 <p class="small">Fonte: © colaboradores do <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>, mapa colaborativo: pode faltar algum estabelecimento, mas a falta tende a ser parecida entre bairros da mesma cidade.{"" if dentro else " Este bairro não tem contorno no mapa; usamos o ponto que o OpenStreetMap marca com o nome dele."}</p></section>"""
 
 
@@ -879,6 +887,7 @@ class Site:
         vn = var(ci.get("n12"), ci.get("n12_ant"))
         bairros = sorted(c["bairros"].items(), key=lambda kv: -kv[1]["n12"])
         nome = c["nome"]
+        n_rank = self.ranking(s, c)
 
         tiles = '<div class="tiles">' + "".join([
             tile("m² mediano (12 meses)", f"R$ {nf(ci.get('m2_12'))}", (seta(vm) + " em 1 ano") if vm is not None else ""),
@@ -947,6 +956,7 @@ class Site:
 <div class="card"><h2>Dinheiro movimentado</h2>{grafico_valor(meses, ci['valor'], f'Valor movimentado por mês {em_(nome)}')}</div>
 </section>
 {self.mapas[s].cidade_html()}
+{f'<section class="card aviso"><div><h2>Melhores bairros para morar {esc(em_(nome))}</h2><p>Ranking de {n_rank} bairros pela estrutura perto de casa: escola, saúde, mercado, transporte, parque. Você escolhe o peso de cada item.</p></div><a class="btn" href="{u(f"/{s}/melhores-bairros/")}">Ver o ranking</a></section>' if n_rank else ''}
 {curva}
 <section class="card" id="bairros"><h2>Todos os bairros {esc(de_(nome))}</h2>
 <input class="filtro" type="search" placeholder="Filtrar bairro" aria-label="Filtrar bairro" data-filtro="tab-bairros">
@@ -967,6 +977,74 @@ class Site:
                     corpo, ativo=f"/{s}/", migalhas=[(None, nome)], media=bool(c.get("agregado")))
         for k, b in bairros:
             self.bairro(s, c, b, k)
+
+    # ------------------------------------------------------------ ranking
+    def ranking(self, s, c) -> int:
+        """Melhores bairros para morar: média ponderada da posição de cada item do entorno contra os outros
+        bairros (0 a 100). Pesos padrão em PESOS_PADRAO; a página deixa a pessoa mudar os pesos."""
+        ent = self.entorno.get(s, {})
+        cats = [cat for cat, _, _ in ITENS_ENTORNO if any(cat in ent.get(k, {}) for k in ent)]
+        if len(cats) < 5:
+            return 0
+        eleg = [(k, b) for k, b in c["bairros"].items()
+                if b.get("n12", 0) >= 30 and b.get("m2_12") and all(cat in ent.get(k, {}) for cat in cats)]
+        if len(eleg) < 15:
+            return 0
+        m2s = sorted(b["m2_12"] for _, b in eleg)
+        def p_preco(v):  # mais barato = mais perto de 1
+            menos = sum(1 for x in m2s if x < v) + 0.5 * (sum(1 for x in m2s if x == v) - 1)
+            return 1 - menos / max(len(m2s) - 1, 1)
+        chaves = cats + ["preco"]
+        linhas = []
+        for k, b in eleg:
+            ps = [ent[k][cat][1] for cat in cats] + [p_preco(b["m2_12"])]
+            linhas.append({"k": k, "nome": nome_bonito(b["nome"]), "url": u(f"/{s}/{slug(b['nome'])}/"),
+                           "m2": b["m2_12"], "p": [round(x, 3) for x in ps]})
+        pesos = [PESOS_PADRAO[ch] for ch in chaves]
+        for ln in linhas:
+            ln["nota"] = sum(w * x for w, x in zip(pesos, ln["p"])) / sum(pesos) * 100
+        linhas.sort(key=lambda ln: -ln["nota"])
+        self.posicoes[s] = {ln["k"]: (i + 1, len(linhas)) for i, ln in enumerate(linhas)}
+        nome = c["nome"]
+        tab = []
+        for i, ln in enumerate(linhas):
+            extra = ' class="mais" hidden' if i >= 30 else ""
+            tab.append(f'<tr{extra}><td class="num">{i + 1}</td><td><a href="{ln["url"]}">{esc(ln["nome"])}</a></td>'
+                       f'<td class="r num"><b>{nf(ln["nota"])}</b></td><td class="r num">R$ {nf(ln["m2"])}</td></tr>')
+        ctl = "".join(
+            f'<label class="peso"><span>{esc(ROTULO_CURTO[ch])}</span>'
+            f'<input type="range" min="0" max="3" step="1" value="{PESOS_PADRAO[ch]}" data-i="{i}" aria-label="Peso de {esc(ROTULO_CURTO[ch])}">'
+            f'<output>{PESOS_PADRAO[ch]}</output></label>' for i, ch in enumerate(chaves))
+        dados = json.dumps([[ln["nome"], ln["url"], ln["m2"], ln["p"]] for ln in linhas], ensure_ascii=False, separators=(",", ":"))
+        top3 = ", ".join(ln["nome"] for ln in linhas[:3])
+        corpo = f"""<section class="hero">
+<span class="kicker">{esc(nome)} · ranking</span>
+<h1>Melhores bairros para morar {esc(em_(nome))}</h1>
+<p class="lead">{len(linhas)} bairros ordenados pela estrutura perto de casa: escola, saúde, mercado, transporte, parque e comércio. No peso padrão, os três primeiros são <strong>{esc(top3)}</strong>. Mude os pesos e o ranking muda na hora.</p>
+</section>
+<section class="card"><h2>O que pesa mais para você?</h2>
+<p class="small">0 = não conta; 3 = conta muito. Ligue o preço para achar bairros com boa estrutura e m² mais barato.</p>
+<div class="pesos" id="pesos">{ctl}</div>
+<button class="btn sec" type="button" id="pesos-reset">Voltar ao padrão</button></section>
+<section class="card"><h2>Ranking</h2>
+<input class="filtro" type="search" placeholder="Achar um bairro" aria-label="Achar um bairro" data-filtro="tab-rank" data-col="1">
+<div class="tw"><table id="tab-rank" data-rank='{esc(dados)}' data-pesos='{json.dumps(pesos)}'><thead><tr><th>#</th><th>Bairro</th><th class="r">Pontos</th><th class="r">m² mediano</th></tr></thead>
+<tbody>{"".join(tab)}</tbody></table></div>
+<button class="btn sec" type="button" data-mais="tab-rank">Mostrar os {len(linhas)} bairros</button></section>
+<section class="card"><h2>Como a conta é feita</h2>
+<ul>
+<li>Para cada item, o bairro recebe de 0 a 100 conforme a posição dele entre os bairros da cidade: 100 é o melhor, 50 é o do meio. A conta de cada item é a que aparece na página do bairro, em "O que tem em volta".</li>
+<li>Os pontos são a média desses valores, com os pesos acima.</li>
+<li>Entram os bairros com pelo menos 30 vendas em 12 meses e com todos os itens calculados.</li>
+<li><b>O que não entra:</b> segurança, barulho, trânsito e qualidade das escolas. Não há dado aberto por bairro que permita comparar isso de forma justa. Pontos altos querem dizer muita coisa perto de casa, não necessariamente tranquilidade.</li>
+<li>Fonte da estrutura: © colaboradores do <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>. Preço: {esc(c['fonte'])}.</li>
+</ul></section>"""
+        self.busca.append([f"Melhores bairros para morar {em_(nome)}", f"/{s}/melhores-bairros/", "Ranking"])
+        self.pagina(f"/{s}/melhores-bairros/", f"Melhores bairros para morar {em_(nome)}: ranking por estrutura",
+                    f"Ranking de {len(linhas)} bairros {de_(nome)} por escola, saúde, mercado, transporte e parques perto de casa. "
+                    f"Escolha o peso de cada item e veja o preço real do m².",
+                    corpo, ativo=f"/{s}/", migalhas=[(f"/{s}/", nome), (None, "Melhores bairros")], media=bool(c.get("agregado")))
+        return len(linhas)
 
     # ------------------------------------------------------------ bairro
     def bairro(self, s, c, b, chave_k):
@@ -1031,7 +1109,7 @@ class Site:
 <div class="card"><h2>Preço do m² mês a mês</h2>{grafico_m2(meses, m2_mm, f'Metro quadrado mediano em {nb}, média móvel de 3 meses')}
 <p class="small">Média móvel de 3 meses; meses com menos de 5 vendas ficam de fora.</p></div>
 </section>
-{entorno_html(self.entorno.get(s, {}).get(chave_k, {}), nb, nome_c, s)}
+{entorno_html(self.entorno.get(s, {}).get(chave_k, {}), nb, nome_c, s, self.posicoes.get(s, {}).get(chave_k), u(f"/{s}/melhores-bairros/"))}
 {extras_html}
 {faq}
 <section class="card"><h2>Sobre estes números</h2>
@@ -1103,6 +1181,7 @@ class Site:
         self.inicio()
         self.mapas = {s: Mapa(s, c) for s, c in self.cidades.items()}
         self.entorno = {s: calcular_entorno(s, c, self.mapas[s]) for s, c in self.cidades.items()}
+        self.posicoes = {}
         for s, c in self.cidades.items():
             self.cidade(s, c)
         self.sobre()

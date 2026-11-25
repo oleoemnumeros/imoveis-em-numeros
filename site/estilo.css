@@ -380,6 +380,14 @@ ul.entorno li{padding:10px 0;border-top:1px solid var(--line2);display:flex;flex
 .en-b i{display:block;height:8px;border-radius:99px;background:var(--acc)}
 .en-c{font-size:13px;color:var(--muted)}
 
+/* ranking */
+.pesos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:6px 28px;margin:6px 0 14px}
+.peso{display:grid;grid-template-columns:1fr 120px 18px;align-items:center;gap:10px;padding:6px 0;font-size:15px}
+.peso input{width:100%;accent-color:var(--acc)}
+.peso output{font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+#tab-rank td:first-child{color:var(--muted);width:34px}
+.rank-pos{margin:14px 0 4px;padding:10px 14px;border-radius:10px;background:var(--acc-l);font-size:15px}
+
 /* Tema escuro de verdade: com ele declarado, o navegador do celular não "escurece" o site por conta própria
    (era isso que deixava as barras quase invisíveis). */
 @media (prefers-color-scheme: dark){
