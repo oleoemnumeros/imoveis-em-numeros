@@ -762,6 +762,13 @@ def main():
             log(f"  ERRO rio: {e!r}")
             DBG.setdefault("rio", {})["erro"] = repr(e)[:500]
             falhas.append("rio-de-janeiro")
+    if not DBG:
+        return 0  # nenhuma cidade pedida (ex.: só republicar o site)
+    if DEBUG.exists() and so:
+        antigo = json.loads(DEBUG.read_text(encoding="utf-8"))
+        antigo.update(DBG)
+        DBG.clear()
+        DBG.update(antigo)
     DBG["gerado_em"] = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     DEBUG.write_text(json.dumps(DBG, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
     if falhas:

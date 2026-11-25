@@ -1,0 +1,51 @@
+name: Contornos dos bairros (OpenStreetMap)
+
+on:
+  workflow_dispatch:
+    inputs:
+      forcar:
+        description: "Baixar de novo todas as cidades"
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths:
+      - "scripts/atualizar_mapas.py"
+      - ".github/workflows/mapas.yml"
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: mapas
+  cancel-in-progress: false
+
+jobs:
+  mapas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests==2.32.3 shapely==2.0.6 osm2geojson==0.2.5
+      - name: Baixar contornos
+        env:
+          FORCAR: ${{ (github.event_name == 'workflow_dispatch' && inputs.forcar) && '1' || '0' }}
+        run: python -u scripts/atualizar_mapas.py
+      - name: Salvar e publicar o site de novo
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "Imóveis em Números (robô)"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/mapas
+          if ! git diff --cached --quiet; then
+            git commit -m "Contornos dos bairros: $(date -u +%Y-%m-%d)"
+            git pull --rebase -q || true
+            git push
+            gh workflow run atualizar.yml -f cidades=nenhuma || true
+          fi

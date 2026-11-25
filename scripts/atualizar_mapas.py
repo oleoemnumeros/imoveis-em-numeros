@@ -32,17 +32,19 @@ UA = {"User-Agent": "ImoveisEmNumeros/1.0 (+https://imoveisemnumeros.com.br)"}
 
 def overpass(q: str) -> dict:
     ult = None
-    for t in range(6):
+    for t in range(4):
         url = OVERPASS[t % len(OVERPASS)]
+        log(f"  {time.strftime('%H:%M:%S')} consultando {url}")
         try:
-            r = requests.post(url, data={"data": q}, headers=UA, timeout=300)
+            r = requests.post(url, data={"data": q}, headers=UA, timeout=200)
+            log(f"  {time.strftime('%H:%M:%S')} HTTP {r.status_code}, {len(r.content)} bytes")
             if r.status_code == 200:
                 return r.json()
             ult = RuntimeError(f"{url} HTTP {r.status_code}: {r.text[:200]}")
         except requests.RequestException as e:
             ult = e
         log(f"  overpass falhou ({ult}); nova tentativa")
-        time.sleep(20 * (t + 1))
+        time.sleep(15)
     raise ult
 
 
@@ -83,9 +85,15 @@ def main():
             continue
         log(f"== {slug}")
         try:
-            q = (f'[out:json][timeout:280];area["wikidata"="{qid}"]->.a;'
-                 f'relation(area.a)["boundary"="administrative"]["admin_level"~"^(9|10)$"];out geom;')
-            els = overpass(q)["elements"]
+            els = []
+            for nivel in ("10", "9"):
+                q = (f'[out:json][timeout:180];area["wikidata"="{qid}"]->.a;'
+                     f'relation(area.a)["boundary"="administrative"]["admin_level"="{nivel}"];out geom;')
+                novos = overpass(q)["elements"]
+                log(f"  nível {nivel}: {len(novos)} relações")
+                els += novos
+                if nivel == "10" and len(novos) >= 30:
+                    break
             nomes_itbi = set()
             f = DADOS / f"{slug}.json"
             if f.exists():
@@ -114,6 +122,7 @@ def main():
                 if aneis:
                     c = g.representative_point()
                     saida.append({"nome": nome, "k": chave_bairro(nome), "p": aneis, "c": [round(c.x, 5), round(c.y, 5)]})
+            log(f"  {time.strftime('%H:%M:%S')} gravando")
             arq.write_text(json.dumps({"nivel": int(melhor), "fonte": "OpenStreetMap", "bairros": saida},
                                       ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
             info["escolhido"] = melhor
