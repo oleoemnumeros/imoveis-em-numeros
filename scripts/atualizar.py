@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import csv
 import datetime as dt
+import itertools
 import io
 import json
 import math
@@ -104,6 +105,10 @@ ABREV = {"JD": "JARDIM", "JDM": "JARDIM", "VL": "VILA", "V": "VILA", "PQ": "PARQ
          "HAB": "HABITACIONAL", "LOT": "LOTEAMENTO", "ALT": "ALTO", "IND": "INDUSTRIAL"}
 
 
+NAO_BAIRRO = re.compile(r"^(TORRE|TORRES|BLOCO|BL|ED|EDIF|EDIFICIO|COND|CONDOMINIO|CD|RESIDENCIAL|RES|APTO|APT|AP|CASA|SALA|"
+                        r"LOTE|QUADRA|QD|TERREO|UNIDADE|UNID|VAGA|LOJA|CONJUNTO RESIDENCIAL|SEM BAIRRO|NAO INFORMADO)\b")
+
+
 def chave_bairro(s: str) -> str:
     k = chave(s)
     if not k:
@@ -168,6 +173,7 @@ def sao_paulo() -> Base:
     links = sorted(set(re.findall(r'href="([^"]+\.xlsx[^"]*)"', r.text, flags=re.I)))
     links = [urljoin(r.url, l.replace("&amp;", "&")) for l in links]
     vistos = set()
+    cab_ant = None
     for url in links:
         anos = re.findall(r"20\d\d", url.replace("%28", "(").replace("%29", ")"))
         # os nomes antigos trazem o ano; os novos trazem a data da publicação (ddmmaaaa)
@@ -191,10 +197,21 @@ def sao_paulo() -> Base:
             vistos.add(mes)
             it = ws.iter_rows(values_only=True)
             cab = []
+            primeira = None
             for _ in range(6):  # algumas abas têm título antes do cabeçalho
-                cab = [chave(str(c or "")) for c in (next(it, None) or [])]
+                linha = next(it, None) or []
+                cab = [chave(str(c or "")) for c in linha]
                 if any(c.startswith("NATUREZA") for c in cab):
                     break
+                if primeira is None and linha and str(linha[0] or "").strip().isdigit():
+                    primeira = linha  # aba sem cabeçalho: os dados começam na 1ª linha
+                    break
+            if primeira is not None and cab_ant:
+                cab = cab_ant
+                it = itertools.chain([primeira], it)
+                b.dbg["aba_sem_cabecalho_reaproveitado"] += 1
+            elif any(c.startswith("NATUREZA") for c in cab):
+                cab_ant = cab
 
             def col(*nomes):
                 for n in nomes:
@@ -250,24 +267,37 @@ def sao_paulo() -> Base:
                       base=num(row[i_base]) if i_base is not None else None,
                       venal=num(row[i_venal]) if i_venal is not None else None,
                       fin=fin[:1] if fin else "",
-                      cep=str(row[i_cep] or "").strip()[:5] if i_cep is not None else "",
+                      cep=re.sub(r"\D", "", str(row[i_cep] or "")).zfill(8) if i_cep is not None and row[i_cep] else "",
                       ano=num(row[i_acc]) if i_acc is not None else None,
                       padrao=str(row[i_pad] or "").strip() if i_pad is not None else "")
             log(f"    {ws.title}: {n} linhas")
         wb.close()
-    # bairro em branco: usa o bairro mais comum do mesmo CEP (5 dígitos) entre as vendas que têm bairro
-    por_cep = defaultdict(Counter)
+    # o campo "Bairro" de SP é digitado na declaração: vem em branco, com nome de prédio ("TORRE 1",
+    # "ED TRIO PERDIZES", "COND ...") ou abreviado. Nesses casos vale o bairro mais comum do mesmo CEP
+    # (8 dígitos; se não houver, os 5 primeiros) entre as vendas com bairro válido.
+    def valido(k):
+        return bool(k) and not NAO_BAIRRO.match(k) and not re.fullmatch(r"[0-9 ]+", k) and len(k) >= 3
+    por8, por5, ocorr = defaultdict(Counter), defaultdict(Counter), Counter()
     for k, nome, mes, val, area, tipo, ex in b.v:
-        if k and ex.get("cep"):
-            por_cep[ex["cep"]][(k, nome)] += 1
+        if valido(k):
+            ocorr[k] += 1
+    for k, nome, mes, val, area, tipo, ex in b.v:
+        if valido(k) and ocorr[k] >= 30 and ex.get("cep"):
+            por8[ex["cep"]][(k, nome)] += 1
+            por5[ex["cep"][:5]][(k, nome)] += 1
     novos = []
     for item in b.v:
         k, nome, mes, val, area, tipo, ex = item
-        if not k and ex.get("cep") and por_cep.get(ex["cep"]):
-            (k2, nome2), _ = por_cep[ex["cep"]].most_common(1)[0]
-            item = (k2, nome2, mes, val, area, tipo, ex)
-            b.dbg["bairro_pelo_cep"] += 1
-        novos.append(item)
+        if not valido(k) or ocorr[k] < 30:
+            cep = ex.get("cep") or ""
+            alvo = por8.get(cep) or por5.get(cep[:5])
+            if alvo:
+                (k, nome), _ = alvo.most_common(1)[0]
+                b.dbg["bairro_pelo_cep"] += 1
+            else:
+                k, nome = "", ""
+                b.dbg["bairro_desconhecido"] += 1
+        novos.append((k, nome, mes, val, area, tipo, ex))
     b.v = novos
     return b
 
@@ -476,13 +506,30 @@ def r0(x):
     return None if x is None else round(x)
 
 
+def faixa_meses(ms):
+    """Todos os meses entre o primeiro e o último (mês sem dado fica com zero, não some do gráfico)."""
+    if not ms:
+        return []
+    a, m = map(int, ms[0].split("-"))
+    fim = ms[-1]
+    out = []
+    while True:
+        k = f"{a:04d}-{m:02d}"
+        out.append(k)
+        if k >= fim:
+            return out
+        m += 1
+        if m > 12:
+            a, m = a + 1, 1
+
+
 def agregar(b: Base, meta: dict) -> dict:
     vendas = b.v
     m2 = [v[3] / v[4] for v in vendas]
     lo, hi = quantis(m2, [0.01, 0.99]) if m2 else (0, 0)
     vendas = [v for v in vendas if lo <= v[3] / v[4] <= hi]
     b.dbg["m2_extremo_descartado"] = len(b.v) - len(vendas)
-    meses = sorted({v[2] for v in vendas})
+    meses = faixa_meses(sorted({v[2] for v in vendas}))
     ultimo = meses[-1] if meses else None
     # último mês só entra se tiver pelo menos 60% da mediana dos meses (arquivo do mês ainda incompleto)
     cont = Counter(v[2] for v in vendas)
@@ -554,11 +601,26 @@ def agregar(b: Base, meta: dict) -> dict:
         r = resumo(lista)
         r["nome"] = nomes[k].most_common(1)[0][0]
         bairros[k] = r
+    # mês com falha na base (muito abaixo dos vizinhos, como dez/2025 no Recife): fica em branco, não como queda
+    cidade = resumo(vendas)
+    falhos = []
+    for i in range(len(meses) - 1):
+        viz = [cidade["n"][j] for j in range(max(0, i - 3), min(len(meses), i + 4)) if j != i]
+        if viz and cidade["n"][i] < 0.35 * statistics.median(viz):
+            falhos.append(i)
     res = dict(meta)
-    res.update({"meses": meses, "ultimo_mes": ultimo, "cidade": resumo(vendas),
+    res.update({"meses": meses, "ultimo_mes": ultimo, "cidade": cidade,
                 "por_tipo": {t: resumo([v for v in vendas if v[5] == t]) for t in ("apto", "casa")},
                 "bairros": bairros,
                 "gerado_em": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")})
+    if falhos:
+        res["meses_falhos"] = [meses[i] for i in falhos]
+        b.dbg["meses_falhos"] = res["meses_falhos"]
+        for r in [res["cidade"], *res["por_tipo"].values(), *res["bairros"].values()]:
+            for i in falhos:
+                for campo in ("n", "valor", "m2"):
+                    if campo in r:
+                        r[campo][i] = None
     b.dbg["vendas_no_site"] = len(vendas)
     b.dbg["bairros_no_site"] = len(bairros)
     b.dbg["bairros_total"] = len(por_bairro)
@@ -591,7 +653,7 @@ def agregar_rio(dados: dict, meta: dict) -> dict:
         vm = r.get("média_valor_transação") or 0
         am = r.get("média_área_construída") or 0
         linhas.append((chave_bairro(r.get("bairro") or ""), (r.get("bairro") or "").strip(), mes, n, vm, am))
-    meses = sorted({x[2] for x in linhas})
+    meses = faixa_meses(sorted({x[2] for x in linhas}))
     idx = {m: i for i, m in enumerate(meses)}
     doze = set(meses[-12:])
 
