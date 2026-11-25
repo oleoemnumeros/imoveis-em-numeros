@@ -1,0 +1,1063 @@
+{
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/": [
+  "Agregados_por_Bairro_csv/",
+  "Agregados_por_Bairro_xlsx/",
+  "Agregados_por_Distrito_csv/",
+  "Agregados_por_Distrito_xlsx/",
+  "Agregados_por_Municipio_csv/",
+  "Agregados_por_Municipio_xlsx/",
+  "Agregados_por_Setor_csv/",
+  "Agregados_por_Setor_xlsx/",
+  "Agregados_por_SubDistrito_csv/",
+  "Agregados_por_SubDistrito_xlsx/",
+  "dicionario_de_dados_agregados_por_setores_censitarios_20261113.xlsx",
+  "malha_com_atributos/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/Agregados_por_Bairro_csv/": [
+  "Agregados_por_bairros_alfabetizacao_BR.zip",
+  "Agregados_por_bairros_basico_BR_20260520.zip",
+  "Agregados_por_bairros_caracteristicas_domicilio1_BR_20261021.zip",
+  "Agregados_por_bairros_caracteristicas_domicilio2_BR_20250417.zip",
+  "Agregados_por_bairros_caracteristicas_domicilio3_BR_20250417.zip",
+  "Agregados_por_bairros_cor_ou_raca_BR.zip",
+  "Agregados_por_bairros_demografia_BR.zip",
+  "Agregados_por_bairros_domicilios_indigenas_BR.zip",
+  "Agregados_por_bairros_domicilios_quilombolas_BR.zip",
+  "Agregados_por_bairros_obitos_BR.zip",
+  "Agregados_por_bairros_parentesco_BR.zip",
+  "Agregados_por_bairros_pessoas_indigenas_BR.zip",
+  "Agregados_por_bairros_pessoas_quilombolas_BR.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/Agregados_por_Bairro_xlsx/": [
+  "Agregados_por_bairros_alfabetizacao_BR.zip",
+  "Agregados_por_bairros_basico_BR_20260520.zip",
+  "Agregados_por_bairros_caracteristicas_domicilio1_BR_20261021.zip",
+  "Agregados_por_bairros_caracteristicas_domicilio2_BR_20250417.zip",
+  "Agregados_por_bairros_caracteristicas_domicilio3_BR_20250417.zip",
+  "Agregados_por_bairros_cor_ou_raca_BR.zip",
+  "Agregados_por_bairros_demografia_BR.zip",
+  "Agregados_por_bairros_domicilios_indigenas_BR.zip",
+  "Agregados_por_bairros_domicilios_quilombolas_BR.zip",
+  "Agregados_por_bairros_obitos_BR.zip",
+  "Agregados_por_bairros_parentesco_BR.zip",
+  "Agregados_por_bairros_pessoas_indigenas_BR.zip",
+  "Agregados_por_bairros_pessoas_quilombolas_BR.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/Agregados_por_Distrito_csv/": [
+  "Agregados_por_distritos_alfabetizacao_BR.zip",
+  "Agregados_por_distritos_basico_BR_20260520.zip",
+  "Agregados_por_distritos_caracteristicas_domicilio1_BR_20261021.zip",
+  "Agregados_por_distritos_caracteristicas_domicilio2_BR_20250417.zip",
+  "Agregados_por_distritos_caracteristicas_domicilio3_BR_20250417.zip",
+  "Agregados_por_distritos_cor_ou_raca_BR.zip",
+  "Agregados_por_distritos_demografia_BR.zip",
+  "Agregados_por_distritos_domicilios_indigenas_BR.zip",
+  "Agregados_por_distritos_domicilios_quilombolas_BR.zip",
+  "Agregados_por_distritos_obitos_BR.zip",
+  "Agregados_por_distritos_parentesco_BR.zip",
+  "Agregados_por_distritos_pessoas_indigenas_BR.zip",
+  "Agregados_por_distritos_pessoas_quilombolas_BR.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/Agregados_por_Distrito_xlsx/": [
+  "Agregados_por_distritos_alfabetizacao_BR.zip",
+  "Agregados_por_distritos_basico_BR_20260520.zip",
+  "Agregados_por_distritos_caracteristicas_domicilio1_BR_20261021.zip",
+  "Agregados_por_distritos_caracteristicas_domicilio2_BR_20250417.zip",
+  "Agregados_por_distritos_caracteristicas_domicilio3_BR_20250417.zip",
+  "Agregados_por_distritos_cor_ou_raca_BR.zip",
+  "Agregados_por_distritos_demografia_BR.zip",
+  "Agregados_por_distritos_domicilios_indigenas_BR.zip",
+  "Agregados_por_distritos_domicilios_quilombolas_BR.zip",
+  "Agregados_por_distritos_obitos_BR.zip",
+  "Agregados_por_distritos_parentesco_BR.zip",
+  "Agregados_por_distritos_pessoas_indigenas_BR.zip",
+  "Agregados_por_distritos_pessoas_quilombolas_BR.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/Agregados_por_Municipio_csv/": [
+  "Agregados_por_municipios_alfabetizacao_BR.zip",
+  "Agregados_por_municipios_basico_BR_20260520.zip",
+  "Agregados_por_municipios_caracteristicas_domicilio1_BR_20261021.zip",
+  "Agregados_por_municipios_caracteristicas_domicilio2_BR_20250417.zip",
+  "Agregados_por_municipios_caracteristicas_domicilio3_BR_20250417.zip",
+  "Agregados_por_municipios_cor_ou_raca_BR.zip",
+  "Agregados_por_municipios_demografia_BR.zip",
+  "Agregados_por_municipios_domicilios_indigenas_BR.zip",
+  "Agregados_por_municipios_domicilios_quilombolas_BR.zip",
+  "Agregados_por_municipios_obitos_BR.zip",
+  "Agregados_por_municipios_parentesco_BR.zip",
+  "Agregados_por_municipios_pessoas_indigenas_BR.zip",
+  "Agregados_por_municipios_pessoas_quilombolas_BR.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/Agregados_por_Municipio_xlsx/": [
+  "Agregados_por_municipios_alfabetizacao_BR.zip",
+  "Agregados_por_municipios_basico_BR_20260520.zip",
+  "Agregados_por_municipios_caracteristicas_domicilio1_BR_20261021.zip",
+  "Agregados_por_municipios_caracteristicas_domicilio2_BR_20250417.zip",
+  "Agregados_por_municipios_caracteristicas_domicilio3_BR_20250417.zip",
+  "Agregados_por_municipios_cor_ou_raca_BR.zip",
+  "Agregados_por_municipios_demografia_BR.zip",
+  "Agregados_por_municipios_domicilios_indigenas_BR.zip",
+  "Agregados_por_municipios_domicilios_quilombolas_BR.zip",
+  "Agregados_por_municipios_obitos_BR.zip",
+  "Agregados_por_municipios_parentesco_BR.zip",
+  "Agregados_por_municipios_pessoas_indigenas_BR.zip",
+  "Agregados_por_municipios_pessoas_quilombolas_BR.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/Agregados_por_Setor_csv/": [
+  "Agregados_por_setores_alfabetizacao_BR.zip",
+  "Agregados_por_setores_basico_BR_20260520.zip",
+  "Agregados_por_setores_caracteristicas_domicilio1_BR_20261021.zip",
+  "Agregados_por_setores_caracteristicas_domicilio2_BR_20250417.zip",
+  "Agregados_por_setores_caracteristicas_domicilio3_BR_20250417.zip",
+  "Agregados_por_setores_cor_ou_raca_BR.zip",
+  "Agregados_por_setores_demografia_BR.zip",
+  "Agregados_por_setores_domicilios_indigenas_BR.zip",
+  "Agregados_por_setores_domicilios_quilombolas_BR.zip",
+  "Agregados_por_setores_obitos_BR.zip",
+  "Agregados_por_setores_parentesco_BR.zip",
+  "Agregados_por_setores_pessoas_indigenas_BR.zip",
+  "Agregados_por_setores_pessoas_quilombolas_BR.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/Agregados_por_Setor_xlsx/": [
+  "Agregados_por_setores_alfabetizacao_BR.zip",
+  "Agregados_por_setores_basico_BR_20260520.zip",
+  "Agregados_por_setores_caracteristicas_domicilio1_BR_20261021.zip",
+  "Agregados_por_setores_caracteristicas_domicilio2_BR_20250417.zip",
+  "Agregados_por_setores_caracteristicas_domicilio3_BR_20250417.zip",
+  "Agregados_por_setores_cor_ou_raca_BR.zip",
+  "Agregados_por_setores_demografia_BR.zip",
+  "Agregados_por_setores_domicilios_indigenas_BR.zip",
+  "Agregados_por_setores_domicilios_quilombolas_BR.zip",
+  "Agregados_por_setores_obitos_BR.zip",
+  "Agregados_por_setores_parentesco_BR.zip",
+  "Agregados_por_setores_pessoas_indigenas_BR.zip",
+  "Agregados_por_setores_pessoas_quilombolas_BR.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/Agregados_por_SubDistrito_csv/": [
+  "Agregados_por_subdistritos_alfabetizacao_BR.zip",
+  "Agregados_por_subdistritos_basico_BR_20260520.zip",
+  "Agregados_por_subdistritos_caracteristicas_domicilio1_BR_20261021.zip",
+  "Agregados_por_subdistritos_caracteristicas_domicilio2_BR_20250417.zip",
+  "Agregados_por_subdistritos_caracteristicas_domicilio3_BR_20250417.zip",
+  "Agregados_por_subdistritos_cor_ou_raca_BR.zip",
+  "Agregados_por_subdistritos_demografia_BR.zip",
+  "Agregados_por_subdistritos_domicilios_indigenas_BR.zip",
+  "Agregados_por_subdistritos_domicilios_quilombolas_BR.zip",
+  "Agregados_por_subdistritos_obitos_BR.zip",
+  "Agregados_por_subdistritos_parentesco_BR.zip",
+  "Agregados_por_subdistritos_pessoas_indigenas_BR.zip",
+  "Agregados_por_subdistritos_pessoas_quilombolas_BR.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/Agregados_por_SubDistrito_xlsx/": [
+  "Agregados_por_subdistritos_alfabetizacao_BR.zip",
+  "Agregados_por_subdistritos_basico_BR_20260520.zip",
+  "Agregados_por_subdistritos_caracteristicas_domicilio1_BR_20261021.zip",
+  "Agregados_por_subdistritos_caracteristicas_domicilio2_BR_20250417.zip",
+  "Agregados_por_subdistritos_caracteristicas_domicilio3_BR_20250417.zip",
+  "Agregados_por_subdistritos_cor_ou_raca_BR.zip",
+  "Agregados_por_subdistritos_demografia_BR.zip",
+  "Agregados_por_subdistritos_domicilios_indigenas_BR.zip",
+  "Agregados_por_subdistritos_domicilios_quilombolas_BR.zip",
+  "Agregados_por_subdistritos_obitos_BR.zip",
+  "Agregados_por_subdistritos_parentesco_BR.zip",
+  "Agregados_por_subdistritos_pessoas_indigenas_BR.zip",
+  "Agregados_por_subdistritos_pessoas_quilombolas_BR.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/malha_com_atributos/": [
+  "Dicionario_de_dados_malha_agregados.ods",
+  "Dicionario_de_dados_malha_agregados.xlsx",
+  "bairros/",
+  "distritos/",
+  "setores/",
+  "setores_Indigenas/",
+  "setores_Quilombolas/",
+  "subdistritos/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/malha_com_atributos/bairros/": [
+  "gpkg/",
+  "shp/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/malha_com_atributos/distritos/": [
+  "gpkg/",
+  "shp/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/malha_com_atributos/setores/": [
+  "csv/",
+  "gpkg/",
+  "shp/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/malha_com_atributos/setores_Indigenas/": [
+  "GPKG/",
+  "SHP/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/malha_com_atributos/setores_Quilombolas/": [
+  "GPKG/",
+  "SHP/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios/malha_com_atributos/subdistritos/": [
+  "gpkg/",
+  "shp/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_Rendimento_do_Responsavel/": [
+  "Agregados_por_bairros_renda_responsavel_BR_20260508_csv.zip",
+  "Agregados_por_bairros_renda_responsavel_BR_20260508_xlsx.zip",
+  "Agregados_por_distritos_renda_responsavel_BR_20260508_csv.zip",
+  "Agregados_por_distritos_renda_responsavel_BR_20260508_xlsx.zip",
+  "Agregados_por_municipios_renda_responsavel_BR_20260508_csv.zip",
+  "Agregados_por_municipios_renda_responsavel_BR_20260508_xlsx.zip",
+  "Agregados_por_setores_renda_responsavel_BR_20260508_csv.zip",
+  "Agregados_por_setores_renda_responsavel_BR_20260508_xlsx.zip",
+  "Agregados_por_subdistritos_renda_responsavel_BR_20260508_csv.zip",
+  "Agregados_por_subdistritos_renda_responsavel_BR_20260508_xlsx.zip",
+  "dicionario_de_dados_renda_responsavel_20260508.xlsx"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/": [
+  "Area_efetivamente_domiciliada_e_densidade_ajustada_dos_Setores_Censitarios.ods",
+  "Area_efetivamente_domiciliada_e_densidade_ajustada_dos_Setores_Censitarios.xlsx",
+  "Descricoes_limites_Setores_Censitarios_20251010.zip",
+  "Dicionario_de_dados_malha_agregados.ods",
+  "Dicionario_de_dados_malha_agregados.xlsx",
+  "Historico_formacao_Setores_Censitarios_2010_2022.ods",
+  "Historico_formacao_Setores_Censitarios_2010_2022.xlsx",
+  "Leia_me_Area_efetivamente_ocupada.pdf",
+  "Leia_me_Comparabilidade_2010_2022.pdf",
+  "bairros/",
+  "distritos/",
+  "setores/",
+  "subdistritos/",
+  "tabelas_complementares/"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/bairros/": [
+  "gpkg/",
+  "shp/"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/bairros/gpkg/": [
+  "BR/",
+  "UF/"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/bairros/gpkg/BR/": [
+  "BR_bairros_CD2022.gpkg"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/bairros/gpkg/UF/": [
+  "AC/",
+  "AL/",
+  "AM/",
+  "AP/",
+  "BA/",
+  "CE/",
+  "ES/",
+  "GO/",
+  "MA/",
+  "MG/",
+  "MS/",
+  "MT/",
+  "PA/",
+  "PB/",
+  "PE/",
+  "PI/",
+  "PR/",
+  "RJ/",
+  "RN/",
+  "RO/",
+  "RR/",
+  "RS/",
+  "SC/",
+  "SE/",
+  "SP/"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/bairros/shp/": [
+  "BR/",
+  "UF/"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/bairros/shp/BR/": [
+  "BR_bairros_CD2022.zip"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/bairros/shp/UF/": [
+  "AC_bairros_CD2022.zip",
+  "AL_bairros_CD2022.zip",
+  "AM_bairros_CD2022.zip",
+  "AP_bairros_CD2022.zip",
+  "BA_bairros_CD2022.zip",
+  "CE_bairros_CD2022.zip",
+  "ES_bairros_CD2022.zip",
+  "GO_bairros_CD2022.zip",
+  "MA_bairros_CD2022.zip",
+  "MG_bairros_CD2022.zip",
+  "MS_bairros_CD2022.zip",
+  "MT_bairros_CD2022.zip",
+  "PA_bairros_CD2022.zip",
+  "PB_bairros_CD2022.zip",
+  "PE_bairros_CD2022.zip",
+  "PI_bairros_CD2022.zip",
+  "PR_bairros_CD2022.zip",
+  "RJ_bairros_CD2022.zip",
+  "RN_bairros_CD2022.zip",
+  "RO_bairros_CD2022.zip",
+  "RR_bairros_CD2022.zip",
+  "RS_bairros_CD2022.zip",
+  "SC_bairros_CD2022.zip",
+  "SE_bairros_CD2022.zip",
+  "SP_bairros_CD2022.zip"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/distritos/": [
+  "gpkg/",
+  "shp/"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/distritos/gpkg/": [
+  "BR/",
+  "UF/"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/distritos/gpkg/BR/": [
+  "BR_distritos_CD2022.gpkg"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/distritos/gpkg/UF/": [
+  "AC/",
+  "AL/",
+  "AM/",
+  "AP/",
+  "BA/",
+  "CE/",
+  "DF/",
+  "ES/",
+  "GO/",
+  "MA/",
+  "MG/",
+  "MS/",
+  "MT/",
+  "PA/",
+  "PB/",
+  "PE/",
+  "PI/",
+  "PR/",
+  "RJ/",
+  "RN/",
+  "RO/",
+  "RR/",
+  "RS/",
+  "SC/",
+  "SE/",
+  "SP/",
+  "TO/"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/distritos/shp/": [
+  "BR/",
+  "UF/"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/distritos/shp/BR/": [
+  "BR_distritos_CD2022.cpg",
+  "BR_distritos_CD2022.dbf",
+  "BR_distritos_CD2022.prj",
+  "BR_distritos_CD2022.shp",
+  "BR_distritos_CD2022.shx",
+  "BR_distritos_CD2022.zip"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/distritos/shp/UF/": [
+  "AC_distritos_CD2022.zip",
+  "AL_distritos_CD2022.zip",
+  "AM_distritos_CD2022.zip",
+  "AP_distritos_CD2022.zip",
+  "BA_distritos_CD2022.zip",
+  "CE_distritos_CD2022.zip",
+  "DF_distritos_CD2022.zip",
+  "ES_distritos_CD2022.zip",
+  "GO_distritos_CD2022.zip",
+  "MA_distritos_CD2022.zip",
+  "MG_distritos_CD2022.zip",
+  "MS_distritos_CD2022.zip",
+  "MT_distritos_CD2022.zip",
+  "PA_distritos_CD2022.zip",
+  "PB_distritos_CD2022.zip",
+  "PE_distritos_CD2022.zip",
+  "PI_distritos_CD2022.zip",
+  "PR_distritos_CD2022.zip",
+  "RJ_distritos_CD2022.zip",
+  "RN_distritos_CD2022.zip",
+  "RO_distritos_CD2022.zip",
+  "RR_distritos_CD2022.zip",
+  "RS_distritos_CD2022.zip",
+  "SC_distritos_CD2022.zip",
+  "SE_distritos_CD2022.zip",
+  "SP_distritos_CD2022.zip",
+  "TO_distritos_CD2022.zip"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/setores/": [
+  "gpkg/",
+  "kml/",
+  "shp/"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/setores/gpkg/": [
+  "BR/",
+  "UF/"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/setores/gpkg/BR/": [
+  "BR_setores_CD2022.gpkg"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/setores/gpkg/UF/": [
+  "AC/",
+  "AL/",
+  "AM/",
+  "AP/",
+  "BA/",
+  "CE/",
+  "DF/",
+  "ES/",
+  "GO/",
+  "MA/",
+  "MG/",
+  "MS/",
+  "MT/",
+  "PA/",
+  "PB/",
+  "PE/",
+  "PI/",
+  "PR/",
+  "RJ/",
+  "RN/",
+  "RO/",
+  "RR/",
+  "RS/",
+  "SC/",
+  "SE/",
+  "SP/",
+  "TO/"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/setores/kml/": [
+  "11_RO.zip",
+  "12_AC.zip",
+  "13_AM.zip",
+  "14_RR.zip",
+  "15_PA.zip",
+  "16_AP.zip",
+  "17_TO.zip",
+  "21_MA.zip",
+  "22_PI.zip",
+  "23_CE.zip",
+  "24_RN.zip",
+  "25_PB.zip",
+  "26_PE.zip",
+  "27_AL.zip",
+  "28_SE.zip",
+  "29_BA.zip",
+  "31_MG.zip",
+  "32_ES.zip",
+  "33_RJ.zip",
+  "35_SP.zip",
+  "41_PR.zip",
+  "42_SC.zip",
+  "43_RS.zip",
+  "50_MS.zip",
+  "51_MT.zip",
+  "52_GO.zip",
+  "53_DF.zip"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/setores/shp/": [
+  "BR/",
+  "UF/"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/setores/shp/BR/": [
+  "BR_setores_CD2022.zip"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/setores/shp/UF/": [
+  "AC_setores_CD2022.zip",
+  "AL_setores_CD2022.zip",
+  "AM_setores_CD2022.zip",
+  "AP_setores_CD2022.zip",
+  "BA_setores_CD2022.zip",
+  "CE_setores_CD2022.zip",
+  "DF_setores_CD2022.zip",
+  "ES_setores_CD2022.zip",
+  "GO_setores_CD2022.zip",
+  "MA_setores_CD2022.zip",
+  "MG_setores_CD2022.zip",
+  "MS_setores_CD2022.zip",
+  "MT_setores_CD2022.zip",
+  "PA_setores_CD2022.zip",
+  "PB_setores_CD2022.zip",
+  "PE_setores_CD2022.zip",
+  "PI_setores_CD2022.zip",
+  "PR_setores_CD2022.zip",
+  "RJ_setores_CD2022.zip",
+  "RN_setores_CD2022.zip",
+  "RO_setores_CD2022.zip",
+  "RR_setores_CD2022.zip",
+  "RS_setores_CD2022.zip",
+  "SC_setores_CD2022.zip",
+  "SE_setores_CD2022.zip",
+  "SP_setores_CD2022.zip",
+  "TO_setores_CD2022.zip"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/subdistritos/": [
+  "gpkg/",
+  "shp/"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/subdistritos/gpkg/": [
+  "BR/",
+  "UF/"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/subdistritos/gpkg/BR/": [
+  "BR_subdistritos_CD2022.gpkg"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/subdistritos/gpkg/UF/": [
+  "AL/",
+  "AM/",
+  "AP/",
+  "BA/",
+  "CE/",
+  "DF/",
+  "ES/",
+  "GO/",
+  "MA/",
+  "MG/",
+  "MS/",
+  "MT/",
+  "PA/",
+  "PB/",
+  "PE/",
+  "PI/",
+  "PR/",
+  "RJ/",
+  "RN/",
+  "RO/",
+  "RR/",
+  "RS/",
+  "SC/",
+  "SE/",
+  "SP/",
+  "TO/"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/subdistritos/shp/": [
+  "BR/",
+  "UF/"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/subdistritos/shp/BR/": [
+  "BR_subdistritos_CD2022.zip"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/subdistritos/shp/UF/": [
+  "AC_subdistritos_CD2022.zip",
+  "AL_subdistritos_CD2022.zip",
+  "AM_subdistritos_CD2022.zip",
+  "AP_subdistritos_CD2022.zip",
+  "BA_subdistritos_CD2022.zip",
+  "CE_subdistritos_CD2022.zip",
+  "DF_subdistritos_CD2022.zip",
+  "ES_subdistritos_CD2022.zip",
+  "GO_subdistritos_CD2022.zip",
+  "MA_subdistritos_CD2022.zip",
+  "MG_subdistritos_CD2022.zip",
+  "MS_subdistritos_CD2022.zip",
+  "MT_subdistritos_CD2022.zip",
+  "PA_subdistritos_CD2022.zip",
+  "PB_subdistritos_CD2022.zip",
+  "PE_subdistritos_CD2022.zip",
+  "PI_subdistritos_CD2022.zip",
+  "PR_subdistritos_CD2022.zip",
+  "RJ_subdistritos_CD2022.zip",
+  "RN_subdistritos_CD2022.zip",
+  "RO_subdistritos_CD2022.zip",
+  "RR_subdistritos_CD2022.zip",
+  "RS_subdistritos_CD2022.zip",
+  "SC_subdistritos_CD2022.zip",
+  "SE_subdistritos_CD2022.zip",
+  "SP_subdistritos_CD2022.zip",
+  "TO_subdistritos_CD2022.zip"
+ ],
+ "https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_de_setores_censitarios__divisoes_intramunicipais/censo_2022/tabelas_complementares/": [
+  "Populacao_residente_por_bairros_sexo_idade.xlsx",
+  "Populacao_residente_por_situacao_do_domicilio_UF.xlsx",
+  "Populacao_residente_por_situacao_do_domicilio_municipios.xlsx"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/": [
+  "Agregados_por_Setores_Censitarios/",
+  "Agregados_por_Setores_Censitarios_Caracteristicas_urbanisticas_do_entorno_dos_domicilios/",
+  "Agregados_por_Setores_Censitarios_Domicilios_Coletivos/",
+  "Agregados_por_Setores_Censitarios_Registro_de_Nascimento/",
+  "Agregados_por_Setores_Censitarios_Rendimento_do_Responsavel/",
+  "Agregados_por_Setores_Censitarios_preliminares/",
+  "Dados_percentuais_das_Caracteristicas_urbanisticas_do_entorno_dos_domicilios/",
+  "Etnias_e_Linguas_Indigenas_principais_caracteristicas_sociodemograficas_Resultados_do_universo/",
+  "Favelas_e_comunidades_urbanas_Caracteristicas_do_entorno/",
+  "Favelas_e_comunidades_urbanas_Resultados_do_universo/",
+  "Indigenas_Primeiros_resultados_do_universo/",
+  "Indigenas_alfabetizacao_registros_de_nascimento_caracteristicas_dos_domicilios_Resultados_do_universo/",
+  "Indigenas_principais_caracteristicas_pessoas_domicilios_urbana_rural_Resultados_do_universo/",
+  "Microdados_e_Areas_de_Ponderacao/",
+  "Mulheres/",
+  "Populacao_e_domicilios_Primeiros_resultados/",
+  "Populacao_por_cor_ou_raca_Resultados_do_universo/",
+  "Previa_da_Populacao/",
+  "Quilombolas_Primeiros_resultados_do_universo/",
+  "Quilombolas_alfabetizacao_e_caracteristicas_dos_domic%c3%adlios_Resultados_do_universo/",
+  "Quilombolas_alfabetizacao_e_caracteristicas_dos_domicilios_Resultados_do_universo/",
+  "Quilombolas_e_Indigenas_por_sexo_e_idade_Resultados_do_universo/",
+  "Quilombolas_principais_caracteristicas_das_pessoas_e_dos_domicilios_Resultados_do_universo/",
+  "Religioes/",
+  "Unidades_de_Conservacao/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_Caracteristicas_urbanisticas_do_entorno_dos_domicilios/": [
+  "Agregados_por_Bairro_csv/",
+  "Agregados_por_Bairro_xlsx/",
+  "Agregados_por_Distrito_csv/",
+  "Agregados_por_Distrito_xlsx/",
+  "Agregados_por_Municipio_csv/",
+  "Agregados_por_Municipio_xlsx/",
+  "Agregados_por_Setor_csv/",
+  "Agregados_por_Setor_xlsx/",
+  "Agregados_por_SubDistrito_csv/",
+  "Agregados_por_SubDistrito_xlsx/",
+  "dicionarios_de_dados_entorno.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_Caracteristicas_urbanisticas_do_entorno_dos_domicilios/Agregados_por_Bairro_csv/": [
+  "Agregados_por_bairros_entorno_domic%c3%adlios_BR.zip",
+  "Agregados_por_bairros_entorno_faces_BR.zip",
+  "Agregados_por_bairros_entorno_moradores_BR.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_Caracteristicas_urbanisticas_do_entorno_dos_domicilios/Agregados_por_Bairro_xlsx/": [
+  "Agregados_por_bairros_entorno_domic%c3%adlios.zip",
+  "Agregados_por_bairros_entorno_faces.zip",
+  "Agregados_por_bairros_entorno_moradores.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_Caracteristicas_urbanisticas_do_entorno_dos_domicilios/Agregados_por_Distrito_csv/": [
+  "Agregados_por_distritos_entorno_domic%c3%adlios_BR.zip",
+  "Agregados_por_distritos_entorno_faces_BR.zip",
+  "Agregados_por_distritos_entorno_moradores_BR.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_Caracteristicas_urbanisticas_do_entorno_dos_domicilios/Agregados_por_Distrito_xlsx/": [
+  "Agregados_por_distritos_entorno_domic%c3%adlios.zip",
+  "Agregados_por_distritos_entorno_faces.zip",
+  "Agregados_por_distritos_entorno_moradores.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_Caracteristicas_urbanisticas_do_entorno_dos_domicilios/Agregados_por_Municipio_csv/": [
+  "Agregados_por_municipios_entorno_domic%c3%adlios_BR.zip",
+  "Agregados_por_municipios_entorno_faces_BR.zip",
+  "Agregados_por_municipios_entorno_moradores_BR.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_Caracteristicas_urbanisticas_do_entorno_dos_domicilios/Agregados_por_Municipio_xlsx/": [
+  "Agregados_por_municipios_entorno_domic%c3%adlios.zip",
+  "Agregados_por_municipios_entorno_faces.zip",
+  "Agregados_por_municipios_entorno_moradores.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_Caracteristicas_urbanisticas_do_entorno_dos_domicilios/Agregados_por_Setor_csv/": [
+  "Agregados_por_setores_entorno_domic%c3%adlios_BR.zip",
+  "Agregados_por_setores_entorno_faces_BR.zip",
+  "Agregados_por_setores_entorno_moradores_BR.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_Caracteristicas_urbanisticas_do_entorno_dos_domicilios/Agregados_por_Setor_xlsx/": [
+  "Agregados_por_setores_entorno_domic%c3%adlios.zip",
+  "Agregados_por_setores_entorno_faces.zip",
+  "Agregados_por_setores_entorno_moradores.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_Caracteristicas_urbanisticas_do_entorno_dos_domicilios/Agregados_por_SubDistrito_csv/": [
+  "Agregados_por_subdistritos_entorno_domic%c3%adlios_BR.zip",
+  "Agregados_por_subdistritos_entorno_faces_BR.zip",
+  "Agregados_por_subdistritos_entorno_moradores_BR.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_Caracteristicas_urbanisticas_do_entorno_dos_domicilios/Agregados_por_SubDistrito_xlsx/": [
+  "Agregados_por_subdistritos_entorno_domic%c3%adlios.zip",
+  "Agregados_por_subdistritos_entorno_faces.zip",
+  "Agregados_por_subdistritos_entorno_moradores.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_Domicilios_Coletivos/": [
+  "Agregados_por_bairros_Coletivo_BR_csv_20261113.zip",
+  "Agregados_por_bairros_Coletivo_BR_xlsx_20261113.zip",
+  "Agregados_por_distritos_Coletivo_BR_csv_20261113.zip",
+  "Agregados_por_distritos_Coletivo_BR_xlsx_20261113.zip",
+  "Agregados_por_municipios_Coletivo_BR_csv_20261113.zip",
+  "Agregados_por_municipios_Coletivo_BR_xlsx_20261113.zip",
+  "Agregados_por_setores_Coletivo_BR_csv_20261113.zip",
+  "Agregados_por_setores_Coletivo_BR_xlsx_20261113.zip",
+  "Agregados_por_subdistritos_Coletivo_BR_csv_20261113.zip",
+  "Agregados_por_subdistritos_Coletivo_BR_xlsx_20261113.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_Registro_de_Nascimento/": [
+  "Registro_de_nascimento_por_setor.csv",
+  "Registro_de_nascimento_por_setor.xlsx"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_preliminares/": [
+  "agregados_por_setores_csv/",
+  "agregados_por_setores_xlsx/",
+  "arquivos_complementares/",
+  "malha_com_atributos/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_preliminares/agregados_por_setores_csv/": [
+  "BR/",
+  "UF/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_preliminares/agregados_por_setores_xlsx/": [
+  "BR/",
+  "UF/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_preliminares/arquivos_complementares/": [
+  "Agregados_preliminares_por_distritos_BR.xlsx",
+  "Agregados_preliminares_por_municipios_BR.xlsx",
+  "Agregados_preliminares_por_subdistritos_BR.xlsx",
+  "Dicionario_de_dados_agregados_preliminares.xlsx",
+  "Tabela1_Totais_Gerais.xlsx"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Agregados_por_Setores_Censitarios_preliminares/malha_com_atributos/": [
+  "distritos/",
+  "setores/",
+  "subdistritos/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Dados_percentuais_das_Caracteristicas_urbanisticas_do_entorno_dos_domicilios/": [
+  "br_setores_entorno_cd2022(in).csv",
+  "br_setores_entorno_cd2022.gpkg"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Etnias_e_Linguas_Indigenas_principais_caracteristicas_sociodemograficas_Resultados_do_universo/": [
+  "Apendices/",
+  "Cartogramas/",
+  "Tabelas_complementares/",
+  "Tabelas_selecionadas/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Etnias_e_Linguas_Indigenas_principais_caracteristicas_sociodemograficas_Resultados_do_universo/Apendices/": [
+  "ods/",
+  "xlsx/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Etnias_e_Linguas_Indigenas_principais_caracteristicas_sociodemograficas_Resultados_do_universo/Cartogramas/": [
+  "jpg/",
+  "pdf/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Etnias_e_Linguas_Indigenas_principais_caracteristicas_sociodemograficas_Resultados_do_universo/Tabelas_complementares/": [
+  "ods/",
+  "ods%20temp/",
+  "xlsx/",
+  "xlsx%20temp/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Etnias_e_Linguas_Indigenas_principais_caracteristicas_sociodemograficas_Resultados_do_universo/Tabelas_selecionadas/": [
+  "ods/",
+  "xlsx/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Favelas_e_comunidades_urbanas_Caracteristicas_do_entorno/": [
+  "FCU_Entorno_Cobertura_das_FCUs_moradores_em_DPPO.xlsx"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Favelas_e_comunidades_urbanas_Resultados_do_universo/": [
+  "Anexos/",
+  "arquivos_vetoriais/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Favelas_e_comunidades_urbanas_Resultados_do_universo/Anexos/": [
+  "FavelasComunidadesUrbanas_Apresentacao_20250417.pdf",
+  "FavelaseComunidadesUrbanas2022Setores_20250417.ods",
+  "FavelaseComunidadesUrbanas2022Setores_20250417.xlsx"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Favelas_e_comunidades_urbanas_Resultados_do_universo/arquivos_vetoriais/": [
+  "FCUs_Brasil_cartograma_shp.zip",
+  "FCUs_nao_setorizadas_kml_20260410.zip",
+  "FCUs_nao_setorizadas_shp_20260410.zip",
+  "concentracoes_urbanas_kml.zip",
+  "concentracoes_urbanas_shp.zip",
+  "poligonos_FCUs.kml",
+  "poligonos_FCUs_shp.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Indigenas_Primeiros_resultados_do_universo/": [
+  "Apendices_da_publicacao_2a_apuracao_20231222/",
+  "Arquivos_geoespaciais_vetoriais_2a_apuracao_20231222/",
+  "Cartogramas_2a_apuracao_20231222/",
+  "Historico_dos_resultados_da_1a_apuracao_20230809/",
+  "Mapas_2a_apuracao_20231222/",
+  "Tabelas_selecionadas_2a_apuracao_20231222/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Indigenas_Primeiros_resultados_do_universo/Apendices_da_publicacao_2a_apuracao_20231222/": [
+  "apendice_01_Pessoas_residentes_TI_Brasil_2010_e_2022_20231222.ods",
+  "apendice_01_Pessoas_residentes_TI_Brasil_2010_e_2022_20231222.xlsx",
+  "apendice_02_Pessoas_residentes_TI_UF_Brasil_2010_2022_20231222.ods",
+  "apendice_02_Pessoas_residentes_TI_UF_Brasil_2010_2022_20231222.xlsx",
+  "apendice_03_TIs_incluidas_20231222.ods",
+  "apendice_03_TIs_incluidas_20231222.xlsx",
+  "apendice_04_TIs_UF_incluidas_20231222.ods",
+  "apendice_04_TIs_UF_incluidas_20231222.xlsx",
+  "apendice_05_TIs_comparaveis_20231222.ods",
+  "apendice_05_TIs_comparaveis_20231222.xlsx",
+  "apendice_06_TIs_UF_comparaveis_20231222.ods",
+  "apendice_06_TIs_UF_comparaveis_20231222.xlsx"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Indigenas_Primeiros_resultados_do_universo/Arquivos_geoespaciais_vetoriais_2a_apuracao_20231222/": [
+  "BR_TIs_2a_apuracao_20231222.zip",
+  "BR_TIs_UF_2a_apuracao_20231222.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Indigenas_Primeiros_resultados_do_universo/Cartogramas_2a_apuracao_20231222/": [
+  "Cartograma_01_TIs_20231222.pdf",
+  "Cartograma_02_Pessoas_Indigenas_2022_20231222.pdf",
+  "Cartograma_03_Pessoas_Indigenas_2010_20231222.pdf",
+  "Cartograma_04_Domicilios_com_pelo_menos_uma_pessoa_indigena%202022_20231222.pdf",
+  "Cartograma_05_Pessoas_Indigenas_em_Terras_Indigenas_2022_20231222.pdf",
+  "Cartograma_06_Pessoas_Indigenas_em_Terras_Indigenas_2010_20231222.pdf",
+  "Cartograma_07_Pessoas_Indigenas_2010_2022_20231222.pdf"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Indigenas_Primeiros_resultados_do_universo/Historico_dos_resultados_da_1a_apuracao_20230809/": [
+  "tabela_01_Populacao_residente_total_e_indigena_por_localizacao_do_domicilio_GR_2022.ods",
+  "tabela_01_Populacao_residente_total_e_indigena_por_localizacao_do_domicilio_GR_2022.xlsx",
+  "tabela_02_Populacao_residente_total_e_indigena_por_localizacao_do_domicilio_UF_2022.ods",
+  "tabela_02_Populacao_residente_total_e_indigena_por_localizacao_do_domicilio_UF_2022.xlsx",
+  "tabela_03_Pessoas_indigenas_por_localizacao_do_domicilio_em_Terras_Indigenas_oficialmente_delimitadas_UF_2022.ods",
+  "tabela_03_Pessoas_indigenas_por_localizacao_do_domicilio_em_Terras_Indigenas_oficialmente_delimitadas_UF_2022.xlsx",
+  "tabela_04_Domicilios_BR_GR_UF_Indigenas_2022.ods",
+  "tabela_04_Domicilios_BR_GR_UF_Indigenas_2022.xlsx",
+  "tabela_05_Domicilios_BR_GR_UF_Indigenas_dentro_de_TI_2022.ods",
+  "tabela_05_Domicilios_BR_GR_UF_Indigenas_dentro_de_TI_2022.xlsx",
+  "tabela_06_Domicilios_BR_GR_UF_Indigenas_fora_de_TI_2022.ods",
+  "tabela_06_Domicilios_BR_GR_UF_Indigenas_fora_de_TI_2022.xlsx",
+  "tabela_07_Domicilios_BR_GR_UF_Indigenas_CD2010.ods",
+  "tabela_07_Domicilios_BR_GR_UF_Indigenas_CD2010.xlsx",
+  "tabela_08_Domicilios_BR_GR_UF_Indigenas_CD2010_em_TI.ods",
+  "tabela_08_Domicilios_BR_GR_UF_Indigenas_CD2010_em_TI.xlsx",
+  "tabela_09_Domicilios_BR_GR_UF_Indigenas_CD2010_fora_de_TI.ods",
+  "tabela_09_Domicilios_BR_GR_UF_Indigenas_CD2010_fora_de_TI.xlsx"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Indigenas_Primeiros_resultados_do_universo/Mapas_2a_apuracao_20231222/": [
+  "Brasil_Indigena_CD2022_mural_5M_20231222.pdf"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Indigenas_Primeiros_resultados_do_universo/Tabelas_selecionadas_2a_apuracao_20231222/": [
+  "tabela_01_Populacao_residente_total_e_indigena_por_localizacao_do_domicilio_GR_2022_20231222.ods",
+  "tabela_01_Populacao_residente_total_e_indigena_por_localizacao_do_domicilio_GR_2022_20231222.xlsx",
+  "tabela_02_Populacao_residente_total_e_indigena_por_localizacao_do_domicilio_UF_2022_20231222.ods",
+  "tabela_02_Populacao_residente_total_e_indigena_por_localizacao_do_domicilio_UF_2022_20231222.xlsx",
+  "tabela_03_Pessoas_indigenas_por_localizacao_do_domicilio_em_Terras_Indigenas_oficialmente_delimitadas_UF_2022_20231222_20231222.ods",
+  "tabela_03_Pessoas_indigenas_por_localizacao_do_domicilio_em_Terras_Indigenas_oficialmente_delimitadas_UF_2022_20231222_20231222.xlsx",
+  "tabela_04_Domicilios_BR_GR_UF_Indigenas_2022_20231222.ods",
+  "tabela_04_Domicilios_BR_GR_UF_Indigenas_2022_20231222.xlsx",
+  "tabela_05_Domicilios_BR_GR_UF_Indigenas_dentro_de_TI_2022_20231222.ods",
+  "tabela_05_Domicilios_BR_GR_UF_Indigenas_dentro_de_TI_2022_20231222.xlsx",
+  "tabela_06_Domicilios_BR_GR_UF_Indigenas_fora_de_TI_2022_20231222.ods",
+  "tabela_06_Domicilios_BR_GR_UF_Indigenas_fora_de_TI_2022_20231222.xlsx",
+  "tabela_07_Domicilios_BR_GR_UF_Indigenas_CD2010_20231222.ods",
+  "tabela_07_Domicilios_BR_GR_UF_Indigenas_CD2010_20231222.xlsx",
+  "tabela_08_Domicilios_BR_GR_UF_Indigenas_CD2010_em_TI_20231222.ods",
+  "tabela_08_Domicilios_BR_GR_UF_Indigenas_CD2010_em_TI_20231222.xlsx",
+  "tabela_09_Domicilios_BR_GR_UF_Indigenas_CD2010_fora_de_TI_20231222.ods",
+  "tabela_09_Domicilios_BR_GR_UF_Indigenas_CD2010_fora_de_TI_20231222.xlsx"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Indigenas_alfabetizacao_registros_de_nascimento_caracteristicas_dos_domicilios_Resultados_do_universo/": [
+  "Apendices/",
+  "Cartogramas/",
+  "Tabelas_de_resultados/",
+  "Tabelas_selecionadas/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Indigenas_alfabetizacao_registros_de_nascimento_caracteristicas_dos_domicilios_Resultados_do_universo/Apendices/": [
+  "ods/",
+  "xlsx/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Indigenas_alfabetizacao_registros_de_nascimento_caracteristicas_dos_domicilios_Resultados_do_universo/Cartogramas/": [
+  "jpg/",
+  "pdf/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Indigenas_alfabetizacao_registros_de_nascimento_caracteristicas_dos_domicilios_Resultados_do_universo/Tabelas_de_resultados/": [
+  "ods/",
+  "xlsx/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Indigenas_alfabetizacao_registros_de_nascimento_caracteristicas_dos_domicilios_Resultados_do_universo/Tabelas_selecionadas/": [
+  "ods/",
+  "xlsx/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Indigenas_principais_caracteristicas_pessoas_domicilios_urbana_rural_Resultados_do_universo/": [
+  "Apendices/",
+  "Cartogramas/",
+  "Tabelas_de_resultados/",
+  "Tabelas_selecionadas/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Indigenas_principais_caracteristicas_pessoas_domicilios_urbana_rural_Resultados_do_universo/Apendices/": [
+  "indice_de_apendices.txt",
+  "ods/",
+  "xlsx/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Indigenas_principais_caracteristicas_pessoas_domicilios_urbana_rural_Resultados_do_universo/Cartogramas/": [
+  "indice_de_cartogramas.txt",
+  "jpg/",
+  "pdf/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Indigenas_principais_caracteristicas_pessoas_domicilios_urbana_rural_Resultados_do_universo/Tabelas_de_resultados/": [
+  "indice_de_tabelas.txt",
+  "ods/",
+  "xlsx/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Indigenas_principais_caracteristicas_pessoas_domicilios_urbana_rural_Resultados_do_universo/Tabelas_selecionadas/": [
+  "indice_de_tabelas.txt",
+  "ods/",
+  "xlsx/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Microdados_e_Areas_de_Ponderacao/": [
+  "1_Atualizacoes_20260914.pdf",
+  "Areas_de_Ponderacao/",
+  "Documentacao/",
+  "Microdados_de_acesso_Publico/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Microdados_e_Areas_de_Ponderacao/Areas_de_Ponderacao/": [
+  "tabelas_ods_20261123.zip",
+  "tabelas_xlsx_20261123.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Microdados_e_Areas_de_Ponderacao/Documentacao/": [
+  "%c3%81reas%20de%20pondera%c3%a7%c3%a3o/",
+  "Bancos%20de%20descritores/",
+  "Divis%c3%a3o%20territorial/",
+  "Instrumentos%20de%20coleta/",
+  "Layout%20e%20dicion%c3%a1rio/",
+  "Leia-me.pdf",
+  "Notas%20metodol%c3%b3gicas/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Microdados_e_Areas_de_Ponderacao/Microdados_de_acesso_Publico/": [
+  "csv/",
+  "txt/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Mulheres/": [
+  "Tabela_1_Frequencia_escolar.xlsx",
+  "Tabela_2_Nivel_de_instrucao.xlsx",
+  "Tabela_3_Areas_gerais_de_formacao_na_graduacao.xlsx",
+  "Tabela_4_Nivel_de_instrucao_e_existencia_de_deficiencia.xlsx",
+  "Tabela_5_Situacao_de_ocupacao.xlsx",
+  "Tabela_6_Grupos_de_base_da_ocupacao.xlsx",
+  "Tabela_7_Rendimento_por_grandes_grupos_de_ocupacao.xlsx",
+  "Tabela_8_Local_de_trabalho.xlsx",
+  "Tabela_9_Tempo_de_deslocamento_para_o_trabalho.xlsx",
+  "Tabela_10_Mulheres_com_filhos_nascidos_vivos.xlsx",
+  "Tabela_11_Domicilios_sem_presenca_de_conjuge_e_com_filhos.xlsx",
+  "Tabela_12_Nivel_de_ocupacao_e_deficiencia.xlsx",
+  "Tabela_13_Meio_de_transporte.xlsx",
+  "Tabela_14_Conjuge_e_deficiencia.xlsx",
+  "Tabela_15_Maquina_de_lavar_roupa_e_internet.xlsx",
+  "Tabela_16_Caracteristicas_domicilio_e_territorio.xlsx",
+  "Tabela_17_Idade_e_caracteristicas_do_territorio.xlsx"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Populacao_e_domicilios_Primeiros_resultados/": [
+  "Anexos/",
+  "Historico_dos_resultados_da_1a_apuracao_20230628/",
+  "Resultados_da_2a_apuracao_20231027/",
+  "Tabelas_completas_de_resultados_20231027.txt"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Populacao_e_domicilios_Primeiros_resultados/Anexos/": [
+  "CD2022_Composicao_Concentracoes_Urbanas.ods",
+  "CD2022_Composicao_Concentracoes_Urbanas.xlsx",
+  "CD2022_Composicao_Regioes_Geograficas_Imediatas.ods",
+  "CD2022_Composicao_Regioes_Geograficas_Imediatas.xlsx",
+  "CD2022_Composicao_Regioes_Geograficas_Intermediarias.ods",
+  "CD2022_Composicao_Regioes_Geograficas_Intermediarias.xlsx",
+  "CD2022_Municipios_com_limites_atualizados_na_malha_municipal_2022.ods",
+  "CD2022_Municipios_com_limites_atualizados_na_malha_municipal_2022.xlsx"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Populacao_e_domicilios_Primeiros_resultados/Historico_dos_resultados_da_1a_apuracao_20230628/": [
+  "ods/",
+  "xlsx/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Populacao_e_domicilios_Primeiros_resultados/Resultados_da_2a_apuracao_20231027/": [
+  "CD2022_Populacao_2010_Compatibilizada_20231222.ods",
+  "CD2022_Populacao_2010_Compatibilizada_20231222.xlsx",
+  "CD2022_Populacao_Coletada_Imputada_e_Total_Municipio_e_UF_20231222.ods",
+  "CD2022_Populacao_Coletada_Imputada_e_Total_Municipio_e_UF_20231222.xlsx",
+  "POP2022_Municipios_Primeiros_Resultados_20231222.pdf"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Populacao_por_cor_ou_raca_Resultados_do_universo/": [
+  "Cartogramas/",
+  "Mapas/",
+  "Tabelas_selecionadas/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Populacao_por_cor_ou_raca_Resultados_do_universo/Cartogramas/": [
+  "1_Cor_ou_raca_predominante_2022.pdf",
+  "2_Pessoas_cor_ou_raca_Branca_2022.pdf",
+  "3_Pessoas_cor_ou_raca_Preta_2022.pdf",
+  "4_Pessoas_cor_ou_raca_Amarela_2022.pdf",
+  "5_Pessoas_cor_ou_raca_Parda_2022.pdf",
+  "6_Pessoas_Indigenas_2022.pdf"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Populacao_por_cor_ou_raca_Resultados_do_universo/Mapas/": [
+  "Brasil_CorRacaPredominante_CD2022.pdf"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Populacao_por_cor_ou_raca_Resultados_do_universo/Tabelas_selecionadas/": [
+  "ods/",
+  "xlsx/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Previa_da_Populacao/": [
+  "AC_POP2022.pdf",
+  "AL_POP2022.pdf",
+  "AM_POP2022.pdf",
+  "AP_POP2022.pdf",
+  "BA_POP2022.pdf",
+  "CE_POP2022.pdf",
+  "DF_POP2022.pdf",
+  "ES_POP2022.pdf",
+  "GO_POP2022.pdf",
+  "MA_POP2022.pdf",
+  "MG_POP2022.pdf",
+  "MS_POP2022.pdf",
+  "MT_POP2022.pdf",
+  "Nota_Metodologica_Previa_Populacao_Municipios_CD2022.pdf",
+  "PA_POP2022.pdf",
+  "PB_POP2022.pdf",
+  "PE_POP2022.pdf",
+  "PI_POP2022.pdf",
+  "POP2022_Brasil_e_UFs.pdf",
+  "POP2022_Brasil_e_UFs.xls",
+  "POP2022_Municipios_20230622.pdf",
+  "POP2022_Municipios_20230622.xls",
+  "PR_POP2022.pdf",
+  "RJ_POP2022.pdf",
+  "RN_POP2022.pdf",
+  "RO_POP2022.pdf",
+  "RR_POP2022.pdf",
+  "RS_POP2022.pdf",
+  "SC_POP2022.pdf",
+  "SE_POP2022.pdf",
+  "SP_POP2022.pdf",
+  "TO_POP2022.pdf"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Quilombolas_Primeiros_resultados_do_universo/": [
+  "Apendices_da_publicacao_2a_apuracao_20231222/",
+  "Arquivos_geoespaciais_vetoriais_2a_apuracao_20231222/",
+  "Cartogramas_2a_apuracao_20231222/",
+  "Historico_dos_resultados_da_1a_apuracao_20230727/",
+  "Mapas_2a_apuracao_20231222/",
+  "Tabelas_selecionadas_2a_apuracao_20231222/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Quilombolas_Primeiros_resultados_do_universo/Apendices_da_publicacao_2a_apuracao_20231222/": [
+  "Apendice_publicacao_1_TQ_20231222.ods",
+  "Apendice_publicacao_1_TQ_20231222.xlsx",
+  "Apendice_publicacao_2_TQ_20231222.ods",
+  "Apendice_publicacao_2_TQ_20231222.xlsx",
+  "Apendice_publicacao_3_TQs_nao_disponiveis_20231222.ods",
+  "Apendice_publicacao_3_TQs_nao_disponiveis_20231222.xlsx"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Quilombolas_Primeiros_resultados_do_universo/Arquivos_geoespaciais_vetoriais_2a_apuracao_20231222/": [
+  "BR_TQ_2a_apuracao_20231222.zip",
+  "BR_TQ_UF_2a_apuracao_20231222.zip"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Quilombolas_Primeiros_resultados_do_universo/Cartogramas_2a_apuracao_20231222/": [
+  "Cartograma_01_TQs_oficialmente_delimitados_2022_20231222.pdf",
+  "Cartograma_02_Pessoas_quilombolas_2022_20231222.pdf",
+  "Cartograma_03_Domicilios_com_pelo_menos_uma_pessoa_quilombola_2022_20231222.pdf",
+  "Cartograma_04_Pessoas_quilombolas_em_Territorios_Quilombolas_2022_20231222.pdf"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Quilombolas_Primeiros_resultados_do_universo/Historico_dos_resultados_da_1a_apuracao_20230727/": [
+  "tabela_01_populacao_quilombola_BR_GR.ods",
+  "tabela_01_populacao_quilombola_BR_GR.xlsx",
+  "tabela_02_populacao_quilombola_UF.ods",
+  "tabela_02_populacao_quilombola_UF.xlsx",
+  "tabela_03_domicilios_BR_GR_UF.ods",
+  "tabela_03_domicilios_BR_GR_UF.xlsx",
+  "tabela_04_pessoas_quilombolas_teritorios.ods",
+  "tabela_04_pessoas_quilombolas_teritorios.xlsx"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Quilombolas_Primeiros_resultados_do_universo/Mapas_2a_apuracao_20231222/": [
+  "Brasil_Quilombola_CD2022_5M_20231222.pdf"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Quilombolas_Primeiros_resultados_do_universo/Tabelas_selecionadas_2a_apuracao_20231222/": [
+  "tabela_01_populacao_quilombola_BR_GR_20231222.ods",
+  "tabela_01_populacao_quilombola_BR_GR_20231222.xlsx",
+  "tabela_02_populacao_quilombola_UF_20231222.ods",
+  "tabela_02_populacao_quilombola_UF_20231222.xlsx",
+  "tabela_03_domicilios_BR_GR_UF_20231222.ods",
+  "tabela_03_domicilios_BR_GR_UF_20231222.xlsx",
+  "tabela_04_pessoas_quilombolas_teritorios_20231222.ods",
+  "tabela_04_pessoas_quilombolas_teritorios_20231222.xlsx"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Quilombolas_alfabetizacao_e_caracteristicas_dos_domic%c3%adlios_Resultados_do_universo/": [
+  "Apendices/",
+  "Cartogramas/",
+  "Tabelas_de_resultados/",
+  "Tabelas_selecionadas/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Quilombolas_alfabetizacao_e_caracteristicas_dos_domic%c3%adlios_Resultados_do_universo/Apendices/": [
+  "ods/",
+  "xlsx/"
+ ],
+ "https://ftp.ibge.gov.br/Censos/Censo_Demografico_2022/Quilombolas_alfabetizacao_e_caracteristicas_dos_domic%c3%adlios_Resultados_do_universo/Cartogramas/": [
+  "indice_de_cartogramas.txt",
+  "jpg/",
+  "pdf/"
+ ]
+}
