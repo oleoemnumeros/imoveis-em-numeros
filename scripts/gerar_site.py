@@ -594,17 +594,29 @@ def entorno_html(ind: dict, nome_b: str, nome_c: str, s: str) -> str:
         v, p, nome = ind[cat]
         if tipo == "n":
             val = nf(v)
-            comp = f"mais que {pct(p, 0)} dos bairros" if p >= 0.5 else f"menos que {pct(1 - p, 0)} dos bairros"
+            if p >= 0.999:
+                comp = "o maior número entre os bairros"
+            elif p <= 0.001:
+                comp = "o menor número entre os bairros"
+            else:
+                comp = f"mais que {min(int(p * 100), 99)}% dos bairros" if p >= 0.5 else f"menos que {min(int((1 - p) * 100), 99)}% dos bairros"
         else:
-            val = (f"{nf(v / 1000, 1)} km" if v >= 1000 else f"{nf(round(v / 50) * 50)} m") + (f" <span class='s'>{esc(nome)}</span>" if nome else "")
-            comp = f"mais perto que {pct(p, 0)} dos bairros" if p >= 0.5 else f"mais longe que {pct(1 - p, 0)} dos bairros"
-        barra = f'<div class="meter"><div class="bar"><i style="width:{p * 100:.0f}%"></i></div></div>'
-        linhas.append(f'<tr><td class="wrap">{rot}</td><td class="r num">{val}</td><td class="wrap">{barra}<span class="s">{comp}</span></td></tr>')
+            val = (f"{nf(v / 1000, 1)} km" if v >= 1000 else f"{nf(round(v / 50) * 50)} m")
+            if nome:
+                rot = f"{rot}<small>{esc(nome)}</small>"
+            if p >= 0.999:
+                comp = "o bairro mais perto"
+            elif p <= 0.001:
+                comp = "o bairro mais longe"
+            else:
+                comp = f"mais perto que {min(int(p * 100), 99)}% dos bairros" if p >= 0.5 else f"mais longe que {min(int((1 - p) * 100), 99)}% dos bairros"
+        linhas.append(f'<li><div class="en-t"><span>{rot}</span><b class="num">{val}</b></div>'
+                      f'<div class="en-b"><i style="width:{max(p * 100, 2):.0f}%"></i></div><span class="en-c">{comp}</span></li>')
     if not linhas:
         return ""
     return f"""<section class="card" id="entorno"><h2>O que tem em volta de {esc(nome_b)}</h2>
-<p class="small">Contagem num raio de 1 km do centro do bairro, comparada com os outros bairros {esc(de_(nome_c))}. A barra mostra quantos bairros ficam atrás.</p>
-<div class="tw"><table class="entorno"><thead><tr><th>Item</th><th class="r">Até 1 km</th><th>Comparação com os bairros {esc(de_(nome_c))}</th></tr></thead><tbody>{"".join(linhas)}</tbody></table></div>
+<p class="small">Quantos há num raio de 1 km do centro do bairro (ou a distância do mais próximo), comparado com os outros bairros {esc(de_(nome_c))}. Quanto mais cheia a barra, melhor o bairro está nesse item.</p>
+<ul class="entorno">{"".join(linhas)}</ul>
 <p class="small">Fonte: © colaboradores do <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>, mapa colaborativo: pode faltar algum estabelecimento, mas a falta tende a ser parecida entre bairros da mesma cidade. Centro do bairro = ponto central do contorno no mapa{" (em São Paulo, o ponto que o OpenStreetMap marca com o nome do bairro)" if s == "sao-paulo" else ""}.</p></section>"""
 
 

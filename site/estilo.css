@@ -370,3 +370,12 @@ h2[id],section[id]{scroll-margin-top:96px}
 table.entorno td .meter{max-width:220px}
 table.entorno td .s{font-size:13px;color:var(--muted);display:block}
 table.entorno td.r .s{display:block;font-size:12px;max-width:180px;white-space:normal;margin-left:auto}
+ul.entorno{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:4px 28px}
+ul.entorno li{padding:10px 0;border-top:1px solid var(--line2);display:flex;flex-direction:column;gap:5px}
+.en-t{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.en-t span{font-weight:600}
+.en-t small{display:block;font-weight:400;font-size:13px;color:var(--muted)}
+.en-t b{font-family:var(--display);font-size:18px;white-space:nowrap}
+.en-b{height:8px;border-radius:99px;background:var(--line2)}
+.en-b i{display:block;height:8px;border-radius:99px;background:var(--acc)}
+.en-c{font-size:13px;color:var(--muted)}
