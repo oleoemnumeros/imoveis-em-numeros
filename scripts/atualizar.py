@@ -203,7 +203,8 @@ def sao_paulo() -> Base:
                 cab = [chave(str(c or "")) for c in linha]
                 if any(c.startswith("NATUREZA") for c in cab):
                     break
-                if primeira is None and linha and str(linha[0] or "").strip().isdigit():
+                if primeira is None and linha and (isinstance(linha[0], (int, float))
+                                                   or re.fullmatch(r"\d+(\.0)?", str(linha[0] or "").strip())):
                     primeira = linha  # aba sem cabeçalho: os dados começam na 1ª linha
                     break
             if primeira is not None and cab_ant:
