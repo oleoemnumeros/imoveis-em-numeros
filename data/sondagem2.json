@@ -1,0 +1,3145 @@
+{
+ "gerado_em": "2026-11-25T09:21:13Z",
+ "sao_paulo": [
+  {
+   "url": "https://prefeitura.sp.gov.br/web/fazenda/w/acesso_a_informacao/31501",
+   "status": 200,
+   "final": "https://prefeitura.sp.gov.br/web/fazenda/w/acesso_a_informacao/31501",
+   "server": null,
+   "links": [
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2803112026%29 ODS.ods",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2803112026%29.xlsx",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2828012026%29 ODS.ods",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2828012026%29 XLS.xlsx",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS-DE-ITBI-PAGAS-2024-ODS.ods",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS-DE-ITBI-PAGAS-2024.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/GUIAS-DE-ITBI-PAGAS-2023-ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/GUIAS_DE_ITBI_PAGAS_12-2022.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2006_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2007_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2008_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2009_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2010_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2011_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2012_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2013_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2014_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2015_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2016_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2017_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2018_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/XLSX/GUIAS-DE-ITBI-PAGAS-2023.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/XLSX/GUIAS_DE_ITBI_PAGAS_12-2022.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2019).xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2019)_ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2020).xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2020)_ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2021).xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2021)_ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2006.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2007.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2008.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2009.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2010.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2011.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2012.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2013.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2014.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2015.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2016.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2017.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2018.xlsx"
+   ]
+  },
+  {
+   "url": "https://prefeitura.sp.gov.br/fazenda/w/acesso_a_informacao/31501",
+   "status": 200,
+   "final": "https://prefeitura.sp.gov.br/fazenda/w/acesso_a_informacao/31501",
+   "server": null,
+   "links": [
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2803112026%29 ODS.ods",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2803112026%29.xlsx",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2828012026%29 ODS.ods",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2828012026%29 XLS.xlsx",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS-DE-ITBI-PAGAS-2024-ODS.ods",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS-DE-ITBI-PAGAS-2024.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/GUIAS-DE-ITBI-PAGAS-2023-ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/GUIAS_DE_ITBI_PAGAS_12-2022.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2006_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2007_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2008_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2009_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2010_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2011_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2012_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2013_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2014_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2015_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2016_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2017_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2018_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/XLSX/GUIAS-DE-ITBI-PAGAS-2023.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/XLSX/GUIAS_DE_ITBI_PAGAS_12-2022.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2019).xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2019)_ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2020).xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2020)_ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2021).xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2021)_ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2006.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2007.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2008.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2009.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2010.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2011.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2012.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2013.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2014.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2015.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2016.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2017.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2018.xlsx"
+   ]
+  },
+  {
+   "url": "https://capital.sp.gov.br/web/fazenda/w/acesso_a_informacao/31501",
+   "status": 200,
+   "final": "https://prefeitura.sp.gov.br/web/fazenda/w/acesso_a_informacao/31501",
+   "server": null,
+   "links": [
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2803112026%29 ODS.ods",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2803112026%29.xlsx",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2828012026%29 ODS.ods",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2828012026%29 XLS.xlsx",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS-DE-ITBI-PAGAS-2024-ODS.ods",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS-DE-ITBI-PAGAS-2024.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/GUIAS-DE-ITBI-PAGAS-2023-ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/GUIAS_DE_ITBI_PAGAS_12-2022.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2006_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2007_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2008_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2009_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2010_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2011_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2012_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2013_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2014_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2015_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2016_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2017_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2018_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/XLSX/GUIAS-DE-ITBI-PAGAS-2023.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/XLSX/GUIAS_DE_ITBI_PAGAS_12-2022.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2019).xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2019)_ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2020).xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2020)_ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2021).xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2021)_ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2006.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2007.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2008.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2009.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2010.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2011.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2012.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2013.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2014.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2015.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2016.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2017.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2018.xlsx"
+   ]
+  },
+  {
+   "url": "https://www.prefeitura.sp.gov.br/cidade/secretarias/fazenda/acesso_a_informacao/index.php?p=31501",
+   "status": 200,
+   "final": "https://prefeitura.sp.gov.br:443/fazenda/w/acesso_a_informacao/31501",
+   "server": null,
+   "links": [
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2803112026%29 ODS.ods",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2803112026%29.xlsx",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2828012026%29 ODS.ods",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2828012026%29 XLS.xlsx",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS-DE-ITBI-PAGAS-2024-ODS.ods",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS-DE-ITBI-PAGAS-2024.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/GUIAS-DE-ITBI-PAGAS-2023-ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/GUIAS_DE_ITBI_PAGAS_12-2022.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2006_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2007_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2008_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2009_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2010_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2011_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2012_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2013_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2014_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2015_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2016_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2017_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2018_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/XLSX/GUIAS-DE-ITBI-PAGAS-2023.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/XLSX/GUIAS_DE_ITBI_PAGAS_12-2022.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2019).xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2019)_ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2020).xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2020)_ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2021).xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2021)_ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2006.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2007.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2008.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2009.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2010.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2011.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2012.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2013.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2014.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2015.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2016.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2017.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2018.xlsx"
+   ]
+  },
+  {
+   "url": "http://prefeitura.sp.gov.br/web/fazenda/w/acesso_a_informacao/31501",
+   "status": 200,
+   "final": "https://prefeitura.sp.gov.br:443/web/fazenda/w/acesso_a_informacao/31501",
+   "server": null,
+   "links": [
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2803112026%29 ODS.ods",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2803112026%29.xlsx",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2828012026%29 ODS.ods",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2828012026%29 XLS.xlsx",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS-DE-ITBI-PAGAS-2024-ODS.ods",
+    "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS-DE-ITBI-PAGAS-2024.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/GUIAS-DE-ITBI-PAGAS-2023-ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/GUIAS_DE_ITBI_PAGAS_12-2022.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2006_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2007_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2008_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2009_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2010_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2011_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2012_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2013_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2014_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2015_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2016_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2017_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/ODS/guias_de_itbi_pagas_2018_ods.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/XLSX/GUIAS-DE-ITBI-PAGAS-2023.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/XLSX/GUIAS_DE_ITBI_PAGAS_12-2022.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2019).xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2019)_ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2020).xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2020)_ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2021).xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/ITBI_Setembro_2022/GUIAS_DE_ITBI_PAGAS_(2021)_ODS.ods",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2006.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2007.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2008.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2009.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2010.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2011.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2012.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2013.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2014.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2015.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2016.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2017.xlsx",
+    "https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/guias_de_itbi_pagas_2018.xlsx"
+   ]
+  }
+ ],
+ "sao_paulo_arquivo": {
+  "url": "https://prefeitura.sp.gov.br/cidade/secretarias/upload/fazenda/arquivos/itbi/GUIAS DE ITBI PAGAS %2803112026%29.xlsx",
+  "status": 200,
+  "bytes": 35700590,
+  "abas": {
+   "JAN-2026": {
+    "linhas": 14735,
+    "primeiras": [
+     [
+      "N° do Cadastro (SQL)",
+      "Nome do Logradouro",
+      "Número",
+      "Complemento",
+      "Bairro",
+      "Referência",
+      "CEP",
+      "Natureza de Transação",
+      "Valor de Transação (declarado pelo contribuinte)",
+      "Data de Transação",
+      "Valor Venal de Referência",
+      "Proporção Transmitida (%)",
+      "Valor Venal de Referência (proporcional)",
+      "Base de Cálculo adotada",
+      "Tipo de Financiamento",
+      "Valor Financiado",
+      "Cartório de Registro",
+      "Matrícula do Imóvel",
+      "Situação do SQL",
+      "Área do Terreno (m2)",
+      "Testada (m)",
+      "Fração Ideal",
+      "Área Construída (m2)",
+      "Uso (IPTU)",
+      "Descrição do uso (IPTU)",
+      "Padrão (IPTU)",
+      "Descrição do padrão (IPTU)",
+      "ACC (IPTU)"
+     ],
+     [
+      "12318300101",
+      "R SEN OTAVIO MANGABEIRA",
+      "71",
+      null,
+      "JD MORUMBI",
+      null,
+      "5662000",
+      "4.Arrematação (em leilão ou hasta pública)",
+      "428832",
+      "2025-08-29 00:00:00",
+      "0",
+      "100",
+      "0",
+      "428832",
+      null,
+      "0",
+      "18º Cartório de Registro de Imóvel",
+      "1000",
+      "Ativo Predial",
+      "828",
+      "0",
+      "1",
+      "329",
+      "10",
+      "RESIDÊNCIA",
+      "13",
+      "RESIDENCIAL HORIZONTAL ",
+      "1977"
+     ],
+     [
+      "5202800061",
+      "R TERESINA",
+      "274",
+      null,
+      "ALTO DA MOOCA",
+      null,
+      "3185010",
+      "20.Realização ou integralização de capital ",
+      "605994.39",
+      "2025-12-19 00:00:00",
+      "430066",
+      "100",
+      "430066",
+      "605994.39",
+      null,
+      "0",
+      "7º Cartório de Registro de Imóvel",
+      "25931",
+      "Ativo Predial",
+      "89",
+      "4.07",
+      "1",
+      "127",
+      "31",
+      "PRÉDIO DE ESCRITÓRIO OU CONSULTÓRIO, NÃO EM CONDOM",
+      "12",
+      "RESIDENCIAL HORIZONTAL ",
+      "1971"
+     ],
+     [
+      "5207000500",
+      "R PIRACUNUNGA",
+      "1071",
+      null,
+      "ALTO DA MOOCA",
+      "VL BERTIOGA",
+      "3187010",
+      "20.Realização ou integralização de capital ",
+      "160000",
+      "2025-12-19 00:00:00",
+      "575370",
+      "100",
+      "575370",
+      "575370",
+      null,
+      "0",
+      "7º Cartório de Registro de Imóvel",
+      "28736",
+      "Ativo Predial",
+      "219",
+      "5.35",
+      "1",
+      "74",
+      "12",
+      "RESIDÊNCIA COLETIVA, EXCLUSIVE CORTIÇO (MAIS DE UM",
+      "10",
+      "RESIDENCIAL HORIZONTAL ",
+      "1970"
+     ]
+    ]
+   },
+   "FEV-2026": {
+    "linhas": 15365,
+    "primeiras": [
+     [
+      "N° do Cadastro (SQL)",
+      "Nome do Logradouro",
+      "Número",
+      "Complemento",
+      "Bairro",
+      "Referência",
+      "CEP",
+      "Natureza de Transação",
+      "Valor de Transação (declarado pelo contribuinte)",
+      "Data de Transação",
+      "Valor Venal de Referência",
+      "Proporção Transmitida (%)",
+      "Valor Venal de Referência (proporcional)",
+      "Base de Cálculo adotada",
+      "Tipo de Financiamento",
+      "Valor Financiado",
+      "Cartório de Registro",
+      "Matrícula do Imóvel",
+      "Situação do SQL",
+      "Área do Terreno (m2)",
+      "Testada (m)",
+      "Fração Ideal",
+      "Área Construída (m2)",
+      "Uso (IPTU)",
+      "Descrição do uso (IPTU)",
+      "Padrão (IPTU)",
+      "Descrição do pardão (IPTU)",
+      "ACC (IPTU)",
+      null
+     ],
+     [
+      "8709600280",
+      "R MAL DEODORO",
+      "389",
+      "Ap 1905",
+      null,
+      null,
+      "4738000",
+      "1.Compra e venda",
+      "985616.42",
+      "2026-01-21 00:00:00",
+      "4434869",
+      "0.64",
+      "28383.1616",
+      "985616.42",
+      "1.Sistema Financeiro de Habitação",
+      "512493.35",
+      "11º Cartório de Registro de Imóvel",
+      "543554",
+      "Ativo Predial",
+      "543",
+      "18.7",
+      "1",
+      "337",
+      "81",
+      "HOSPITAL, AMBULATÓRIO, CASA DE SAÚDE E ASSEMELHADO",
+      "34",
+      "COMERCIAL HORIZONTAL",
+      "1965",
+      null
+     ],
+     [
+      "3917502844",
+      "R MONTESQUIEU",
+      "105",
+      "AP 201 E 3VGS",
+      "VILA MARIANA",
+      "COND MAISON BLANCHE",
+      "4116190",
+      "1.Compra e venda",
+      "1593000",
+      "2026-01-23 00:00:00",
+      "1686780",
+      "100",
+      "1686780",
+      "1686780",
+      "1.Sistema Financeiro de Habitação",
+      "1140000",
+      "1º Cartório de Registro de Imóvel",
+      "86408",
+      "Ativo Predial",
+      "2357",
+      "0",
+      "0.0227",
+      "262",
+      "20",
+      "APARTAMENTO EM CONDOMÍNIO (EXIGE FRAÇÃO IDEAL)",
+      "23",
+      "RESIDENCIAL VERTICAL",
+      "1999",
+      null
+     ],
+     [
+      "8805300519",
+      "R S SEBASTIAO",
+      "316",
+      "APTO 419",
+      null,
+      null,
+      "4708000",
+      "1.Compra e venda",
+      "236479.23",
+      "2026-01-21 00:00:00",
+      "4767492",
+      "0.25",
+      "11918.73",
+      "236479.23",
+      "99.SFI, Carteira Hipotecária, etc",
+      "165162.35",
+      "15º Cartório de Registro de Imóvel",
+      "323798",
+      "Ativo Predial",
+      "502",
+      "17",
+      "1",
+      "204",
+      "81",
+      "HOSPITAL, AMBULATÓRIO, CASA DE SAÚDE E ASSEMELHADO",
+      "33",
+      "COMERCIAL HORIZONTAL",
+      "1970",
+      null
+     ]
+    ]
+   },
+   "MAR-2026": {
+    "linhas": 19067,
+    "primeiras": [
+     [
+      "N° do Cadastro (SQL)",
+      "Nome do Logradouro",
+      "Número",
+      "Complemento",
+      "Bairro",
+      "Referência",
+      "CEP",
+      "Natureza de Transação",
+      "Valor de Transação (declarado pelo contribuinte)",
+      "Data de Transação",
+      "Valor Venal de Referência",
+      "Proporção Transmitida (%)",
+      "Valor Venal de Referência (proporcional)",
+      "Base de Cálculo adotada",
+      "Tipo de Financiamento",
+      "Valor Financiado",
+      "Cartório de Registro",
+      "Matrícula do Imóvel",
+      "Situação do SQL",
+      "Área do Terreno (m2)",
+      "Testada (m)",
+      "Fração Ideal",
+      "Área Construída (m2)",
+      "Uso (IPTU)",
+      "Descrição do uso (IPTU)",
+      "Padrão (IPTU)",
+      "Descrição do padrão (IPTU)",
+      "ACC (IPTU)"
+     ],
+     [
+      "6018300125",
+      "R ENEAS DE BARROS",
+      "41",
+      null,
+      "VILA SANTANA",
+      null,
+      "3613000",
+      "20.Realização ou integralização de capital ",
+      "757358",
+      "2026-01-09 00:00:00",
+      "349000",
+      "100",
+      "349000",
+      "757358",
+      null,
+      "0",
+      "12º Cartório de Registro de Imóvel",
+      "89978",
+      "Ativo Predial",
+      "186",
+      "23.25",
+      "1",
+      "182",
+      "43",
+      "OUTRAS EDIFICAÇÕES DO TIPO, COM UTILIZAÇÃO MÚLTIPL",
+      "32",
+      "COMERCIAL HORIZONTAL",
+      "1967"
+     ],
+     [
+      "4725300187",
+      "R GAL CHAGAS SANTOS",
+      "22",
+      "AP 606",
+      "SAUDE",
+      "ANT 2",
+      "4146050",
+      "1.Compra e venda",
+      "350000",
+      "2026-02-18 00:00:00",
+      "1940960",
+      "0.01",
+      "194.096",
+      "350000",
+      "2.Minha Casa Minha Vida",
+      "250000",
+      "14º Cartório de Registro de Imóvel",
+      "249082",
+      "Ativo Territorial",
+      "650",
+      "15",
+      "1",
+      "0",
+      "0",
+      "TERRENO",
+      "0",
+      "TERRENO",
+      null
+     ],
+     [
+      "14415301028",
+      "R CACHOEIRA UTUPANEMA",
+      "174",
+      "AP 73  - BLOCO B",
+      null,
+      null,
+      "8270140",
+      "20.Realização ou integralização de capital ",
+      "380000",
+      "2026-02-20 00:00:00",
+      "220573",
+      "100",
+      "220573",
+      "380000",
+      null,
+      "0",
+      "9º Cartório de Registro de Imóvel",
+      "241089",
+      "Ativo Predial",
+      "2000",
+      "40",
+      "0.0144",
+      "86",
+      "20",
+      "APARTAMENTO EM CONDOMÍNIO (EXIGE FRAÇÃO IDEAL)",
+      "21",
+      "RESIDENCIAL VERTICAL",
+      "2012"
+     ]
+    ]
+   },
+   "ABR-2026": {
+    "linhas": 20598,
+    "primeiras": [
+     [
+      "N° do Cadastro (SQL)",
+      "Nome do Logradouro",
+      "Número",
+      "Complemento",
+      "Bairro",
+      "Referência",
+      "CEP",
+      "Natureza de Transação",
+      "Valor de Transação (declarado pelo contribuinte)",
+      "Data de Transação",
+      "Valor Venal de Referência",
+      "Proporção Transmitida (%)",
+      "Valor Venal de Referência (proporcional)",
+      "Base de Cálculo adotada",
+      "Tipo de Financiamento",
+      "Valor Financiado",
+      "Cartório de Registro",
+      "Matrícula do Imóvel",
+      "Situação do SQL",
+      "Área do Terreno (m2)",
+      "Testada (m)",
+      "Fração Ideal",
+      "Área Construída (m2)",
+      "Uso (IPTU)",
+      "Descrição do uso (IPTU)",
+      "Padrão (IPTU)",
+      "Descrição do padrão (IPTU)",
+      "ACC (IPTU)"
+     ],
+     [
+      "2303701910",
+      "R CLELIA",
+      "1030",
+      "APT 627 TR B",
+      "LAPA",
+      null,
+      "5042000",
+      "1.Compra e venda",
+      "319485.19",
+      "2026-03-20 00:00:00",
+      "33248737",
+      "0.01",
+      "3324.8737",
+      "319485.19",
+      "2.Minha Casa Minha Vida",
+      "255588.15",
+      "10º Cartório de Registro de Imóvel",
+      "186127",
+      "Ativo Predial",
+      "3984",
+      "79.67",
+      "1",
+      "1656",
+      "40",
+      "LOJA",
+      "34",
+      "COMERCIAL HORIZONTAL",
+      "1979"
+     ],
+     [
+      "7629002432",
+      "R DR FLEURY SILVEIRA",
+      "300",
+      "AP1110 T A TORRE 1",
+      null,
+      "CD VIBRA CASA VERDE",
+      "2563010",
+      "1.Compra e venda",
+      "277500",
+      "2026-03-24 00:00:00",
+      "248950",
+      "100",
+      "248950",
+      "277500",
+      "1.Sistema Financeiro de Habitação",
+      "190473.47",
+      "8º Cartório de Registro de Imóvel",
+      "200526",
+      "Ativo Predial",
+      "4501",
+      "150.94",
+      "0.004",
+      "69",
+      "20",
+      "APARTAMENTO EM CONDOMÍNIO (EXIGE FRAÇÃO IDEAL)",
+      "22",
+      "RESIDENCIAL VERTICAL",
+      "2020"
+     ],
+     [
+      "2303701910",
+      "R CLELIA",
+      "1030",
+      "APT 835 TR B",
+      "LAPA",
+      null,
+      "5042000",
+      "1.Compra e venda",
+      "350000",
+      "2026-03-20 00:00:00",
+      "33248737",
+      "0.01",
+      "3324.8737",
+      "350000",
+      "2.Minha Casa Minha Vida",
+      "280000",
+      "10º Cartório de Registro de Imóvel",
+      "186181",
+      "Ativo Predial",
+      "3984",
+      "79.67",
+      "1",
+      "1656",
+      "40",
+      "LOJA",
+      "34",
+      "COMERCIAL HORIZONTAL",
+      "1979"
+     ]
+    ]
+   },
+   "MAI-2026": {
+    "linhas": 21284,
+    "primeiras": [
+     [
+      "N° do Cadastro (SQL)",
+      "Nome do Logradouro",
+      "Número",
+      "Complemento",
+      "Bairro",
+      "Referência",
+      "CEP",
+      "Natureza de Transação",
+      "Valor de Transação (declarado pelo contribuinte)",
+      "Data de Transação",
+      "Valor Venal de Referência",
+      "Proporção Transmitida (%)",
+      "Valor Venal de Referência (proporcional)",
+      "Base de Cálculo adotada",
+      "Tipo de Financiamento",
+      "Valor Financiado",
+      "Cartório de Registro",
+      "Matrícula do Imóvel",
+      "Situação do SQL",
+      "Área do Terreno (m2)",
+      "Testada (m)",
+      "Fração Ideal",
+      "Área Construída (m2)",
+      "Uso (IPTU)",
+      "Descrição do uso (IPTU)",
+      "Padrão (IPTU)",
+      "Descrição do padrão (IPTU)",
+      "ACC (IPTU)"
+     ],
+     [
+      "11015800891",
+      "R NOVA FRIBURGO",
+      "404",
+      "CASA 6",
+      null,
+      "CD NOVA FRIBURGO",
+      "3759040",
+      "1.Compra e venda",
+      "350000",
+      "2026-04-20 00:00:00",
+      "289610",
+      "100",
+      "289610",
+      "350000",
+      "1.Sistema Financeiro de Habitação",
+      "280000",
+      "12º Cartório de Registro de Imóvel",
+      "229548",
+      "Ativo Predial",
+      "400",
+      "10",
+      "0.1",
+      "87",
+      "10",
+      "RESIDÊNCIA",
+      "12",
+      "RESIDENCIAL HORIZONTAL ",
+      "2020"
+     ],
+     [
+      "103900365",
+      "AV PRESTES MAIA",
+      "454",
+      "E 456",
+      null,
+      null,
+      "1031000",
+      "20.Realização ou integralização de capital ",
+      "205515",
+      "2026-04-24 00:00:00",
+      "2242213",
+      "100",
+      "2242213",
+      "2242213",
+      null,
+      "0",
+      "5º Cartório de Registro de Imóvel",
+      "47259",
+      "Ativo Predial",
+      "134",
+      "9",
+      "1",
+      "640",
+      "43",
+      "OUTRAS EDIFICAÇÕES DO TIPO, COM UTILIZAÇÃO MÚLTIPL",
+      "42",
+      "COMERCIAL VERTICAL",
+      "1976"
+     ],
+     [
+      "2502200024",
+      "R CASIMIRO DE ABREU",
+      "86",
+      null,
+      null,
+      null,
+      "3013000",
+      "20.Realização ou integralização de capital ",
+      "39194",
+      "2026-04-24 00:00:00",
+      "1140340",
+      "100",
+      "1140340",
+      "1140340",
+      null,
+      "0",
+      "3º Cartório de Registro de Imóvel",
+      "51502",
+      "Ativo Predial",
+      "115",
+      "4.65",
+      "1",
+      "160",
+      "42",
+      "LOJA E RESIDÊNCIA (PREDOMINÂNCIA COMERCIAL)",
+      "31",
+      "COMERCIAL HORIZONTAL",
+      "1957"
+     ]
+    ]
+   },
+   "JUN-2026": {
+    "linhas": 22052,
+    "primeiras": [
+     [
+      "N° do Cadastro (SQL)",
+      "Nome do Logradouro",
+      "Número",
+      "Complemento",
+      "Bairro",
+      "Referência",
+      "CEP",
+      "Natureza de Transação",
+      "Valor de Transação (declarado pelo contribuinte)",
+      "Data de Transação",
+      "Valor Venal de Referência",
+      "Proporção Transmitida (%)",
+      "Valor Venal de Referência (proporcional)",
+      "Base de Cálculo adotada",
+      "Tipo de Financiamento",
+      "Valor Financiado",
+      "Cartório de Registro",
+      "Matrícula do Imóvel",
+      "Situação do SQL",
+      "Área do Terreno (m2)",
+      "Testada (m)",
+      "Fração Ideal",
+      "Área Construída (m2)",
+      "Uso (IPTU)",
+      "Descrição do uso (IPTU)",
+      "Padrão (IPTU)",
+      "Descrição do padrão (IPTU)",
+      "ACC (IPTU)"
+     ],
+     [
+      "4312000158",
+      "R DO LAGO",
+      "216",
+      "AP 2211 TORRE 1 ",
+      "IPIRANGA",
+      null,
+      "4280000",
+      "1.Compra e venda",
+      "437500",
+      "2026-05-20 00:00:00",
+      "1090516",
+      "0.14",
+      "1526.7224",
+      "437500",
+      "1.Sistema Financeiro de Habitação",
+      "346800.21",
+      "6º Cartório de Registro de Imóvel",
+      "256406",
+      "Ativo Predial",
+      "390",
+      "8",
+      "1",
+      "193",
+      "10",
+      "RESIDÊNCIA",
+      "12",
+      "RESIDENCIAL HORIZONTAL ",
+      "1963"
+     ],
+     [
+      "8222300105",
+      "AV ONOFRIO MILANO",
+      "99999",
+      "TC AP 105 ",
+      "JAGUARE",
+      null,
+      "5348030",
+      "1.Compra e venda",
+      "350000",
+      "2026-05-20 00:00:00",
+      "10420910",
+      "0.01",
+      "1042.091",
+      "350000",
+      "2.Minha Casa Minha Vida",
+      "158766",
+      "18º Cartório de Registro de Imóvel",
+      "254044",
+      "Ativo Territorial",
+      "7373",
+      "69.8",
+      "1",
+      "0",
+      "0",
+      "TERRENO",
+      "0",
+      "TERRENO",
+      null
+     ],
+     [
+      "15916511026",
+      "AV ALBERT BARTHOLOME",
+      "242",
+      "AP 137 E 1VG",
+      "TORRE B",
+      "VILA SONIA",
+      "5541000",
+      "1.Compra e venda",
+      "530000",
+      "2026-05-20 00:00:00",
+      "410726",
+      "100",
+      "410726",
+      "530000",
+      "1.Sistema Financeiro de Habitação",
+      "150000",
+      "18º Cartório de Registro de Imóvel",
+      "220410",
+      "Ativo Predial",
+      "11200",
+      "111.51",
+      "0.003",
+      "125",
+      "20",
+      "APARTAMENTO EM CONDOMÍNIO (EXIGE FRAÇÃO IDEAL)",
+      "22",
+      "RESIDENCIAL VERTICAL",
+      "2013"
+     ]
+    ]
+   },
+   "JUL-2026": {
+    "linhas": 22561,
+    "primeiras": [
+     [
+      "N° do Cadastro (SQL)",
+      "Nome do Logradouro",
+      "Número",
+      "Complemento",
+      "Bairro",
+      "Referência",
+      "CEP",
+      "Natureza de Transação",
+      "Valor de Transação (declarado pelo contribuinte)",
+      "Data de Transação",
+      "Valor Venal de Referência",
+      "Proporção Transmitida (%)",
+      "Valor Venal de Referência (proporcional)",
+      "Base de Cálculo adotada",
+      "Tipo de Financiamento",
+      "Valor Financiado",
+      "Cartório de Registro",
+      "Matrícula do Imóvel",
+      "Situação do SQL",
+      "Área do Terreno (m2)",
+      "Testada (m)",
+      "Fração Ideal",
+      "Área Construída (m2)",
+      "Uso (IPTU)",
+      "Descrição do uso (IPTU)",
+      "Padrão (IPTU)",
+      "Descrição do padrão (IPTU)",
+      "ACC (IPTU)"
+     ],
+     [
+      "1605704768",
+      "R PEDROSO ALVARENGA",
+      "1254",
+      "CJ 51 E 3 VGS",
+      "ITAIM BIBI",
+      "ED LEXINGTON AVENUE",
+      "4531912",
+      "33.Demais atos onerosos translativos",
+      "827982",
+      "2026-05-12 00:00:00",
+      "1839167",
+      "0.01",
+      "183.9167",
+      "827982",
+      null,
+      "0",
+      "4º Cartório de Registro de Imóvel",
+      "122380",
+      "Ativo Predial",
+      "745",
+      "17.5",
+      "0.0466",
+      "236",
+      "30",
+      "ESCRITÓRIO/CONSULTÓRIO EM CONDOMÍNIO (UNID AUTÔNOM",
+      "43",
+      "COMERCIAL VERTICAL",
+      "1990"
+     ],
+     [
+      "3600900927",
+      "AL SANTOS",
+      "200",
+      "CJ 62",
+      "E 3 VAGAS",
+      "ED VICTORIA PLAZA",
+      "1418000",
+      "33.Demais atos onerosos translativos",
+      "1583147.67",
+      "2026-05-12 00:00:00",
+      "3235069",
+      "0.01",
+      "323.5069",
+      "1583147.67",
+      null,
+      "0",
+      "1º Cartório de Registro de Imóvel",
+      "74410",
+      "Ativo Predial",
+      "840",
+      "40",
+      "0.0455",
+      "320",
+      "30",
+      "ESCRITÓRIO/CONSULTÓRIO EM CONDOMÍNIO (UNID AUTÔNOM",
+      "44",
+      "COMERCIAL VERTICAL",
+      "1995"
+     ],
+     [
+      "8743000411",
+      "R LUIZ SERAPHICO JUNIOR",
+      "326",
+      "TB AP 302 ",
+      "JARDIM HELIOMAR",
+      "SAO PAULO",
+      "4729080",
+      "1.Compra e venda",
+      "264912.02",
+      "2026-06-23 00:00:00",
+      "60419677",
+      "0.01",
+      "6041.9677",
+      "264912.02",
+      "2.Minha Casa Minha Vida",
+      "211929.61",
+      "11º Cartório de Registro de Imóvel",
+      "551700",
+      "Ativo Predial",
+      "9080",
+      "66.56",
+      "1",
+      "4733",
+      "80",
+      "HOTEL, PENSÃO OU HOSPEDARIA",
+      "33",
+      "COMERCIAL HORIZONTAL",
+      "1981"
+     ]
+    ]
+   },
+   "AGO-2026": {
+    "linhas": 20252,
+    "primeiras": [
+     [
+      "N° do Cadastro (SQL)",
+      "Nome do Logradouro",
+      "Número",
+      "Complemento",
+      "Bairro",
+      "Referência",
+      "CEP",
+      "Natureza de Transação",
+      "Valor de Transação (declarado pelo contribuinte)",
+      "Data de Transação",
+      "Valor Venal de Referência",
+      "Proporção Transmitida (%)",
+      "Valor Venal de Referência (proporcional)",
+      "Base de Cálculo adotada",
+      "Tipo de Financiamento",
+      "Valor Financiado",
+      "Cartório de Registro",
+      "Matrícula do Imóvel",
+      "Situação do SQL",
+      "Área do Terreno (m2)",
+      "Testada (m)",
+      "Fração Ideal",
+      "Área Construída (m2)",
+      "Uso (IPTU)",
+      "Descrição do uso (IPTU)",
+      "Padrão (IPTU)",
+      "Descrição do padrão (IPTU)",
+      "ACC (IPTU)"
+     ],
+     [
+      "3109001381",
+      "R SIQUEIRA BUENO",
+      "2539",
+      "AP 162 E 2VGS",
+      null,
+      "COND PALAZZO CAPRINI",
+      "3172010",
+      "1.Compra e venda",
+      "540000",
+      "2026-07-22 00:00:00",
+      "369402",
+      "100",
+      "369402",
+      "540000",
+      "1.Sistema Financeiro de Habitação",
+      "376000",
+      "7º Cartório de Registro de Imóvel",
+      "115990",
+      "Ativo Predial",
+      "976",
+      "20",
+      "0.0171",
+      "122",
+      "20",
+      "APARTAMENTO EM CONDOMÍNIO (EXIGE FRAÇÃO IDEAL)",
+      "22",
+      "RESIDENCIAL VERTICAL",
+      "2000"
+     ],
+     [
+      "17130015666",
+      "R JOAO SIMOES DE SOUZA",
+      "268",
+      "AP 91",
+      "EDIFICIO ARTE BL 2",
+      null,
+      "5734140",
+      "1.Compra e venda",
+      "535000",
+      "2026-07-24 00:00:00",
+      "336858",
+      "100",
+      "336858",
+      "535000",
+      "1.Sistema Financeiro de Habitação",
+      "472000",
+      "11º Cartório de Registro de Imóvel",
+      "391632",
+      "Ativo Predial",
+      "5237",
+      "133",
+      "0.004",
+      "101",
+      "20",
+      "APARTAMENTO EM CONDOMÍNIO (EXIGE FRAÇÃO IDEAL)",
+      "22",
+      "RESIDENCIAL VERTICAL",
+      "2012"
+     ],
+     [
+      "17130017286",
+      "R JOAO SIMOES DE SOUZA",
+      "268",
+      "VAGAS 302/303",
+      "VG DUPLA  TIPO MM",
+      null,
+      "5734140",
+      "1.Compra e venda",
+      "55000",
+      "2026-07-24 00:00:00",
+      "146540",
+      "100",
+      "146540",
+      "146540",
+      null,
+      "0",
+      "11º Cartório de Registro de Imóvel",
+      "391874",
+      "Ativo Predial",
+      "5237",
+      "133",
+      "0.0011",
+      "47",
+      "24",
+      "GARAGEM (UNIDADE AUTÔNOMA) EM EDIFÍCIO EM CONDOMÍN",
+      "22",
+      "RESIDENCIAL VERTICAL",
+      "2012"
+     ]
+    ]
+   },
+   "SET-2026": {
+    "linhas": 18784,
+    "primeiras": [
+     [
+      "N° do Cadastro (SQL)",
+      "Nome do Logradouro",
+      "Número",
+      "Complemento",
+      "Bairro",
+      "Referência",
+      "CEP",
+      "Natureza de Transação",
+      "Valor de Transação (declarado pelo contribuinte)",
+      "Data de Transação",
+      "Valor Venal de Referência",
+      "Proporção Transmitida (%)",
+      "Valor Venal de Referência (proporcional)",
+      "Base de Cálculo adotada",
+      "Tipo de Financiamento",
+      "Valor Financiado",
+      "Cartório de Registro",
+      "Matrícula do Imóvel",
+      "Situação do SQL",
+      "Área do Terreno (m2)",
+      "Testada (m)",
+      "Fração Ideal",
+      "Área Construída (m2)",
+      "Uso (IPTU)",
+      "Descrição do uso (IPTU)",
+      "Padrão (IPTU)",
+      "Descrição do padrão (IPTU)",
+      "ACC (IPTU)",
+      null
+     ],
+     [
+      "11828500347",
+      "R ANTONIO FONTOURA XAVIER",
+      "276",
+      "AP 1806",
+      "VL.PAULO SILAS",
+      null,
+      "3264050",
+      "1.Compra e venda",
+      "337000",
+      "2026-08-21 00:00:00",
+      "1129590",
+      "0.01",
+      "112.959",
+      "337000",
+      "2.Minha Casa Minha Vida",
+      "234250.2",
+      "6º Cartório de Registro de Imóvel",
+      "269515",
+      "Ativo Predial",
+      "393",
+      "10.8",
+      "1",
+      "240",
+      "10",
+      "RESIDÊNCIA",
+      "12",
+      "RESIDENCIAL HORIZONTAL ",
+      "1985",
+      null
+     ],
+     [
+      "5924200272",
+      "R ITINGUCU",
+      "1610",
+      "APTO 1102",
+      "VILA RE",
+      null,
+      "3658001",
+      "1.Compra e venda",
+      "330000",
+      "2026-08-21 00:00:00",
+      "877949",
+      "0.01",
+      "87.7949",
+      "330000",
+      "2.Minha Casa Minha Vida",
+      "264000",
+      "12º Cartório de Registro de Imóvel",
+      "285468",
+      "Ativo Predial",
+      "250",
+      "5",
+      "1",
+      "207",
+      "42",
+      "LOJA E RESIDÊNCIA (PREDOMINÂNCIA COMERCIAL)",
+      "32",
+      "COMERCIAL HORIZONTAL",
+      "1995",
+      null
+     ],
+     [
+      "8500200693",
+      "R ANDREA PAULINETTI",
+      "99999",
+      "APTO 4001 B",
+      "JD DAS ACACIAS",
+      null,
+      "4707051",
+      "1.Compra e venda",
+      "365000",
+      "2026-08-21 00:00:00",
+      "26196583",
+      "0.15",
+      "39294.8745",
+      "365000",
+      "1.Sistema Financeiro de Habitação",
+      "286454.17",
+      "15º Cartório de Registro de Imóvel",
+      "335560",
+      "Ativo Territorial",
+      "3868",
+      "0",
+      "1",
+      "0",
+      "0",
+      "TERRENO",
+      "0",
+      "TERRENO",
+      null,
+      null
+     ]
+    ]
+   },
+   "LEGENDA": {
+    "linhas": 7,
+    "primeiras": [
+     [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      null,
+      "LEGENDA",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      null,
+      null,
+      "  Dados extraídos da base do ITBI",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    ]
+   },
+   "EXPLICAÇÕES": {
+    "linhas": 32,
+    "primeiras": [
+     [
+      "CAMPO",
+      "PREENCHIMENTO NA DTI (Delcaração de Transações Imo",
+      "CONCEITO",
+      "TIPO",
+      "TAMANHO",
+      "DOMÍNIO (Valores válidos)",
+      "CONDIÇÕES",
+      "OBSERVAÇÕES",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "N° do Cadastro (SQL)",
+      "Declarado pelo contribuinte",
+      "Número que individualiza o imóvel no cadastro do I",
+      "Numérico",
+      "11",
+      "{setor: 001 a 310} - {quadra: 001 a 999} - {lote: ",
+      "Obrigatório",
+      "1. Tem dígito de controle (0 à 9)",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      "2. Não existe o setor 092",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     [
+      "Nome do Logradouro",
+      "Inserido automaticamente pelo sistema a partir do ",
+      "Nome do logradouro do endereço do imóvel (rua, tra",
+      "Alfanumérico",
+      "41",
+      "Sem restrição",
+      "Não é passível de reedição pelo contribuinte",
+      "Os caractéres permitidos são letras, números, espa",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    ]
+   },
+   "Tabela de USOS": {
+    "linhas": 37,
+    "primeiras": [
+     [
+      "USO",
+      "DESCRIÇÃO"
+     ],
+     [
+      "0",
+      "TERRENO"
+     ],
+     [
+      "10",
+      "RESIDÊNCIA"
+     ],
+     [
+      "12",
+      "RESIDÊNCIA COLETIVA, EXCLUSIVE CORTIÇO (MAIS DE UM"
+     ]
+    ]
+   },
+   "Tabela de PADRÕES": {
+    "linhas": 33,
+    "primeiras": [
+     [
+      "PADRÃO",
+      "DESCRIÇÃO"
+     ],
+     [
+      "0",
+      "TERRENO"
+     ],
+     [
+      "10",
+      "RESIDENCIAL HORIZONTAL "
+     ],
+     [
+      "11",
+      "RESIDENCIAL HORIZONTAL "
+     ]
+    ]
+   }
+  }
+ },
+ "rio": {
+  "itens_hub": [
+   {
+    "id": "b8f484f9af7f455a9a2e2747638cf8eb",
+    "titulo": "Dados Tributários Agregados - Portal SMF",
+    "tipo": "Document Link",
+    "url": "https://fazenda.prefeitura.rio/itbi-valores-medios-por-m2-de-transacoes-imobiliarias-por-trecho-de-logradouro",
+    "resumo": "Link para o portal da Secretaria Municipal de Fazenda, que apresenta dados tributários agregados da Cidade do Rio de Janeiro (ITBI, IPTU, ISS)",
+    "modificado": 1750100884000
+   },
+   {
+    "id": "0965968f12424f8792b240568616e6aa",
+    "titulo": "ITBI - Transações Imobiliárias por Divisão Administrativa e Mês - Imóveis Residenciais e Não Residenciais",
+    "tipo": "Feature Service",
+    "url": "https://pgeo3.rio.rj.gov.br/arcgis/rest/services/Fazenda/ITBI/MapServer/5",
+    "resumo": "Dados de Transações Imobiliárias pelas Divisões Administrativas de AP, RP, RA e Bairros, e por mês, na Cidade do Rio de Janeiro, segundo a Natureza de Compra e Venda e de Promessa e Compra e Venda, pa",
+    "modificado": 1794325689000
+   },
+   {
+    "id": "5e4dda4d33f44b1eb9246559b281d1b8",
+    "titulo": "ITBI - Transações por Logradouro e Mês - Imóveis Residenciais e Não Residenciais",
+    "tipo": "Feature Service",
+    "url": "https://pgeo3.rio.rj.gov.br/arcgis/rest/services/Fazenda/ITBI/MapServer/8",
+    "resumo": "Dados de Transações Imobiliárias por Logradouro e Mês, na Cidade do Rio de Janeiro, segundo a Natureza de Compra e Venda e de Promessa e Compra e Venda, para imóveis Residenciais e Não Residenciais, s",
+    "modificado": 1794325682000
+   },
+   {
+    "id": "7310ba49da514b03890be58a5173871c",
+    "titulo": "ITBI - Transações Imobiliárias por Divisão Administrativa e Mês - Imóveis Territoriais",
+    "tipo": "Feature Service",
+    "url": "https://pgeo3.rio.rj.gov.br/arcgis/rest/services/Fazenda/ITBI/MapServer/6",
+    "resumo": "Dados de Transações Imobiliárias pelas Divisões Administrativas de AP, RP, RA e Bairros, e por mês, na Cidade do Rio de Janeiro, segundo a Natureza de Compra e Venda e de Promessa e Compra e Venda, pa",
+    "modificado": 1794325696000
+   },
+   {
+    "id": "4d0b42bb46984ac986ed56b3e77e4523",
+    "titulo": "ITBI - Transações por Logradouro e Ano - Imóveis Territoriais",
+    "tipo": "Feature Service",
+    "url": "https://pgeo3.rio.rj.gov.br/arcgis/rest/services/Fazenda/ITBI/MapServer/3",
+    "resumo": "Dados de Transações Imobiliárias por Logradouro e Ano, na Cidade do Rio de Janeiro, segundo a Natureza de Compra e Venda e de Promessa e Compra e Venda, para Imóveis  Territoriais,  a partir de 2010",
+    "modificado": 1794325768000
+   },
+   {
+    "id": "4618588df7ad40f89cf9c4b8233d1758",
+    "titulo": "ITBI - Transações Imobiliárias por Divisão Administrativa e Ano - Imóveis Territoriais",
+    "tipo": "Feature Service",
+    "url": "https://pgeo3.rio.rj.gov.br/arcgis/rest/services/Fazenda/ITBI/MapServer/2",
+    "resumo": "Dados de Transações Imobiliárias pelas Divisões Administrativas de AP, RP, RA e Bairros, e por ano, na Cidade do Rio de Janeiro, segundo a Natureza de Compra e Venda e de Promessa e Compra e Venda, pa",
+    "modificado": 1794325782000
+   },
+   {
+    "id": "f2ef379e0d6f431ba6bb74dfed7016a0",
+    "titulo": "ITBI - Transações Imobiliárias por Divisão Administrativa e Ano - Imóveis Residenciais e Não Residenciais",
+    "tipo": "Feature Service",
+    "url": "https://pgeo3.rio.rj.gov.br/arcgis/rest/services/Fazenda/ITBI/MapServer/1",
+    "resumo": "Dados de Transações Imobiliárias pelas Divisões Administrativas de AP, RP, RA e Bairros, e por ano, na Cidade do Rio de Janeiro, segundo a Natureza de Compra e Venda e de Promessa e Compra e Venda, pa",
+    "modificado": 1794325774000
+   },
+   {
+    "id": "7ca51bd09ec54576be54c27b88fb098c",
+    "titulo": "ITBI - Transações por Logradouro e Ano - Imóveis Residenciais e Não Residenciais",
+    "tipo": "Feature Service",
+    "url": "https://pgeo3.rio.rj.gov.br/arcgis/rest/services/Fazenda/ITBI/MapServer/4",
+    "resumo": "Dados de Transações Imobiliárias por Logradouro e Ano, na Cidade do Rio de Janeiro, segundo a Natureza de Compra e Venda e de Promessa e Compra e Venda, para imóveis Residenciais e Não Residenciais, s",
+    "modificado": 1794325759000
+   },
+   {
+    "id": "902f0631361a4af58160a32569fc3bca",
+    "titulo": "ITBI - Transações por Logradouro e Mês - Imóveis Territoriais",
+    "tipo": "Feature Service",
+    "url": "https://pgeo3.rio.rj.gov.br/arcgis/rest/services/Fazenda/ITBI/MapServer/7",
+    "resumo": "Dados de Transações Imobiliárias por Logradouro e Mês, na Cidade do Rio de Janeiro, segundo a Natureza de Compra e Venda e de Promessa e Compra e Venda, para Imóveis Territoriais, a partir de 2010.",
+    "modificado": 1794325692000
+   },
+   {
+    "id": "f3452597f9a24bfaac44a4a0674dbf4c",
+    "titulo": "Imóveis transacionados, por faixas de valores base de cálculo das guias de ITBI, conforme sua tipologia, segundo as Áreas de Planejamento (AP) do Município do Rio de Janeiro entre 1996-1998",
+    "tipo": "Microsoft Excel",
+    "url": null,
+    "resumo": "Não foi feita anotação",
+    "modificado": 1693492286000
+   }
+  ],
+  "pagina_smf_status": 200,
+  "pagina_smf_links": [],
+  "pagina_smf_texto": " Requisição Negada Sua requisição foi negada. Em caso de necessidade de contato, informe o support ID: 18005000305342298841 [Go Back] ",
+  "servicos": [
+   {
+    "url": "https://pgeo3.rio.rj.gov.br/arcgis/rest/services/Fazenda/ITBI/MapServer/5",
+    "titulo": "ITBI - Transações Imobiliárias por Divisão Administrativa e Mês - Imóveis Residenciais e Não Residenciais",
+    "amostra": "{\"displayFieldName\":\"codbairro\",\"fieldAliases\":{\"objectid\":\"objectid\",\"codbairro\":\"CODBAIRRO\",\"bairro\":\"Bairro\",\"area_planejamento\":\"Area_Planejamento\",\"cod_rp\":\"Cod_RP\",\"rp\":\"RP\",\"codra\":\"CODRA\",\"ra\":\"RA\",\"total_transações\":\"Total_Transações\",\"uso\":\"Uso\",\"média_percentual_transferido\":\"Média_Percentual_Transferido\",\"média_área_construída\":\"Média_Área_Construída\",\"média_valor_transação\":\"Média_Valor_Transação\",\"média_valor_imóvel\":\"Média_Valor_Imóvel\",\"principal_transação_mercado\":\"Principal_Transação_Mercado\",\"ano_transação\":\"Ano_Transação\",\"mês_transação\":\"Mês_Transação\"},\"fields\":[{\"name\":\"objectid\",\"type\":\"esriFieldTypeOID\",\"alias\":\"objectid\"},{\"name\":\"codbairro\",\"type\":\"esriFieldTypeString\",\"alias\":\"CODBAIRRO\",\"length\":3},{\"name\":\"bairro\",\"type\":\"esriFieldTypeString\",\"alias\":\"Bairro\",\"length\":50},{\"name\":\"area_planejamento\",\"type\":\"esriFieldTypeString\",\"alias\":\"Area_Planejamento\",\"length\":1},{\"name\":\"cod_rp\",\"type\":\"esriFieldTypeString\",\"alias\":\"Cod_RP\",\"length\":50},{\"name\":\"rp\",\"type\":\"esriFieldTypeString\",\"alias\":\"RP\",\"length\":50},{\"name\":\"codra\",\"type\":\"esriFieldTypeSmallInteger\",\"alias\":\"CODRA\"},{\"name\":\"ra\",\"type\":\"esriFieldTypeString\",\"alias\":\"RA\",\"length\":24},{\"name\":\"total_transações\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Total_Transações\"},{\"name\":\"uso\",\"type\":\"esriFieldTypeString\",\"alias\":\"Uso\",\"length\":50},{\"name\":\"média_percentual_transferido\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Percentual_Transferido\"},{\"name\":\"média_área_construída\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Área_Construída\"},{\"name\":\"média_valor_transação\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Valor_Transação\"},{\"name\":\"média_valor_imóvel\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Valor_Imóvel\"},{\"name\":\"principal_transação_mercado\",\"type\":\"esriFieldTypeString\",\"alias\":\"Principal_Transação_Mercado\",\"length\":50},{\"name\":\"ano_transação\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Ano_Transação\"},{\"name\":\"mês_transação\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Mês_Transação\"}],\"features\":[{\"attributes\":{\"objectid\":6029043,\"codbairro\":\"147\",\"bairro\":\"Cosmos                    \",\"area_planejamento\":\"5\",\"cod_rp\":\"5.2\",\"rp\":\"Campo Grande\",\"codra\":18,\"ra\":\"CAMPO GRANDE            \",\"total_transações\":9,\"uso\":\"RESIDENCIAL\",\"média_percentual_transferido\":100.0,\"média_área_construída\":61.888888,\"média_valor_transação\":94203.661111,\"média_valor_imóvel\":94203.661111,\"principal_transação_mercado\":\"COMPRA E VENDA\",\"ano_transação\":2023,\"mês_transação\":9}},{\"attributes\":{\"objectid\":6029044,\"codbairro\":\"147\",\"bairro\":\"Cosmos                    \",\"area_planejamento\":\"5\",\"cod_rp\":\"5.2\",\"rp\":\"Campo Grande\",\"codra\":18,\"ra\":\"CAMPO GRANDE            \",\"total_transações\":10,\"uso\":\"RESIDENCIAL\",\"média_percentual_transferido\":100.0,\"média_área_construída\":57.6,\"média_valor_transação\":95032.912,\"média_valor_imóvel\":95032.912,\"principal_transação_mercado\":\"COMPRA E VENDA\",\"ano_transação\":2023,\"mês_transação\":12}},{\"attributes\":{\"objectid\":6029045,\"codbairro\":\"155\",\"bairro\":\"Jac",
+    "contagem": "{\"count\":38092}"
+   },
+   {
+    "url": "https://pgeo3.rio.rj.gov.br/arcgis/rest/services/Fazenda/ITBI/MapServer/8",
+    "titulo": "ITBI - Transações por Logradouro e Mês - Imóveis Residenciais e Não Residenciais",
+    "amostra": "{\"displayFieldName\":\"cl\",\"fieldAliases\":{\"objectid\":\"objectid\",\"cl\":\"CL\",\"logradouro\":\"LOGRADOURO\",\"codbairro\":\"CODBAIRRO\",\"bairro\":\"Bairro\",\"total_transações\":\"Total_Transações\",\"uso\":\"Uso\",\"principais_tipologias\":\"Principais_Tipologias\",\"média_percentual_transferido\":\"Média_Percentual_Transferido\",\"média_área_construída\":\"Média_Área_Construída\",\"média_valor_transação\":\"Média_Valor_Transação\",\"média_valor_imóvel\":\"Média_Valor_Imóvel\",\"principal_transação_mercado\":\"Principal_Transação_Mercado\",\"ano_transação\":\"Ano_Transação\",\"cd_utilizacao\":\"CD_UTILIZACAO\",\"mês_transação\":\"Mês_Transação\"},\"fields\":[{\"name\":\"objectid\",\"type\":\"esriFieldTypeOID\",\"alias\":\"objectid\"},{\"name\":\"cl\",\"type\":\"esriFieldTypeString\",\"alias\":\"CL\",\"length\":6},{\"name\":\"logradouro\",\"type\":\"esriFieldTypeString\",\"alias\":\"LOGRADOURO\",\"length\":50},{\"name\":\"codbairro\",\"type\":\"esriFieldTypeString\",\"alias\":\"CODBAIRRO\",\"length\":3},{\"name\":\"bairro\",\"type\":\"esriFieldTypeString\",\"alias\":\"Bairro\",\"length\":50},{\"name\":\"total_transações\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Total_Transações\"},{\"name\":\"uso\",\"type\":\"esriFieldTypeString\",\"alias\":\"Uso\",\"length\":50},{\"name\":\"principais_tipologias\",\"type\":\"esriFieldTypeString\",\"alias\":\"Principais_Tipologias\",\"length\":40},{\"name\":\"média_percentual_transferido\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Percentual_Transferido\"},{\"name\":\"média_área_construída\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Área_Construída\"},{\"name\":\"média_valor_transação\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Valor_Transação\"},{\"name\":\"média_valor_imóvel\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Valor_Imóvel\"},{\"name\":\"principal_transação_mercado\",\"type\":\"esriFieldTypeString\",\"alias\":\"Principal_Transação_Mercado\",\"length\":50},{\"name\":\"ano_transação\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Ano_Transação\"},{\"name\":\"cd_utilizacao\",\"type\":\"esriFieldTypeString\",\"alias\":\"CD_UTILIZACAO\",\"length\":2},{\"name\":\"mês_transação\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Mês_Transação\"}],\"features\":[{\"attributes\":{\"objectid\":15293899,\"cl\":\"028217\",\"logradouro\":\"RUA LAURA TELES\",\"codbairro\":\"123\",\"bairro\":\"Tanque                    \",\"total_transações\":3,\"uso\":\"RESIDENCIAL\",\"principais_tipologias\":\"APARTAMENTO\",\"média_percentual_transferido\":100.0,\"média_área_construída\":79.333333,\"média_valor_transação\":334732.97,\"média_valor_imóvel\":334732.97,\"principal_transação_mercado\":\"COMPRA E VENDA\",\"ano_transação\":2017,\"cd_utilizacao\":\"01\",\"mês_transação\":1}},{\"attributes\":{\"objectid\":15293900,\"cl\":\"038497\",\"logradouro\":\"RUA GODOFREDO VIANA\",\"codbairro\":\"123\",\"bairro\":\"Tanque                    \",\"total_transações\":2,\"uso\":\"RESIDENCIAL\",\"principais_tipologias\":\"APARTAMENTO\",\"média_percentual_transferido\":100.0,\"média_área_construída\":60.0,\"média_valor_transação\":221968.62,\"média_valor_imóvel\":221968.62,\"principal_transação_mercado\":\"COMPRA E VENDA\",\"ano_transação\":2017,\"cd_utilizacao\":\"01\",\"mês_transação\":7}},{\"attributes\":{\"objectid\":15293901,\"cl\":\"041079\",\"logradouro\":\"RUA ALEXANDRE RA",
+    "contagem": "{\"count\":98690}"
+   },
+   {
+    "url": "https://pgeo3.rio.rj.gov.br/arcgis/rest/services/Fazenda/ITBI/MapServer/6",
+    "titulo": "ITBI - Transações Imobiliárias por Divisão Administrativa e Mês - Imóveis Territoriais",
+    "amostra": "{\"displayFieldName\":\"codbairro\",\"fieldAliases\":{\"objectid\":\"objectid\",\"codbairro\":\"CODBAIRRO\",\"bairro\":\"Bairro\",\"area_planejamento\":\"Area_Planejamento\",\"cod_rp\":\"Cod_RP\",\"rp\":\"RP\",\"ra\":\"RA\",\"regiao_adm\":\"REGIAO_ADM\",\"total_transações\":\"Total_Transações\",\"uso\":\"Uso\",\"média_percentual_transferido\":\"Média_Percentual_Transferido\",\"média_área_terreno\":\"Média_Área_Terreno\",\"média_valor_transações\":\"Média_Valor_Transações\",\"média_valor_imóvel\":\"Média_Valor_Imóvel\",\"principal_transação_mercado\":\"Principal_Transação_Mercado\",\"ano_transação\":\"Ano_Transação\",\"mês_transação\":\"Mês_Transação\"},\"fields\":[{\"name\":\"objectid\",\"type\":\"esriFieldTypeOID\",\"alias\":\"objectid\"},{\"name\":\"codbairro\",\"type\":\"esriFieldTypeString\",\"alias\":\"CODBAIRRO\",\"length\":3},{\"name\":\"bairro\",\"type\":\"esriFieldTypeString\",\"alias\":\"Bairro\",\"length\":50},{\"name\":\"area_planejamento\",\"type\":\"esriFieldTypeString\",\"alias\":\"Area_Planejamento\",\"length\":1},{\"name\":\"cod_rp\",\"type\":\"esriFieldTypeString\",\"alias\":\"Cod_RP\",\"length\":50},{\"name\":\"rp\",\"type\":\"esriFieldTypeString\",\"alias\":\"RP\",\"length\":50},{\"name\":\"ra\",\"type\":\"esriFieldTypeSmallInteger\",\"alias\":\"RA\"},{\"name\":\"regiao_adm\",\"type\":\"esriFieldTypeString\",\"alias\":\"REGIAO_ADM\",\"length\":24},{\"name\":\"total_transações\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Total_Transações\"},{\"name\":\"uso\",\"type\":\"esriFieldTypeString\",\"alias\":\"Uso\",\"length\":50},{\"name\":\"média_percentual_transferido\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Percentual_Transferido\"},{\"name\":\"média_área_terreno\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Área_Terreno\"},{\"name\":\"média_valor_transações\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Valor_Transações\"},{\"name\":\"média_valor_imóvel\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Valor_Imóvel\"},{\"name\":\"principal_transação_mercado\",\"type\":\"esriFieldTypeString\",\"alias\":\"Principal_Transação_Mercado\",\"length\":50},{\"name\":\"ano_transação\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Ano_Transação\"},{\"name\":\"mês_transação\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Mês_Transação\"}],\"features\":[{\"attributes\":{\"objectid\":991242,\"codbairro\":\"121\",\"bairro\":\"Pechincha                 \",\"area_planejamento\":\"4\",\"cod_rp\":\"4.1\",\"rp\":\"Jacarepaguá\",\"ra\":16,\"regiao_adm\":\"JACAREPAGUA             \",\"total_transações\":1,\"uso\":\"TERRITORIAL\",\"média_percentual_transferido\":100.0,\"média_área_terreno\":885.0,\"média_valor_transações\":384611.77,\"média_valor_imóvel\":384611.77,\"principal_transação_mercado\":\"COMPRA E VENDA\",\"ano_transação\":2016,\"mês_transação\":7}},{\"attributes\":{\"objectid\":991243,\"codbairro\":\"121\",\"bairro\":\"Pechincha                 \",\"area_planejamento\":\"4\",\"cod_rp\":\"4.1\",\"rp\":\"Jacarepaguá\",\"ra\":16,\"regiao_adm\":\"JACAREPAGUA             \",\"total_transações\":3,\"uso\":\"TERRITORIAL\",\"média_percentual_transferido\":60.0,\"média_área_terreno\":548.333333,\"média_valor_transações\":174906.723333,\"média_valor_imóvel\":313934.053333,\"principal_transação_mercado\":\"COMPRA E VENDA\",\"ano_transação\":2016,\"mês_transação\":11}},{\"attributes\":{\"objectid\":991244,\"codbairro\":\"151",
+    "contagem": "{\"count\":5866}"
+   },
+   {
+    "url": "https://pgeo3.rio.rj.gov.br/arcgis/rest/services/Fazenda/ITBI/MapServer/3",
+    "titulo": "ITBI - Transações por Logradouro e Ano - Imóveis Territoriais",
+    "amostra": "{\"displayFieldName\":\"cl\",\"fieldAliases\":{\"objectid\":\"OBJECTID\",\"cl\":\"CL\",\"logradouro\":\"LOGRADOURO\",\"codbairro\":\"CODBAIRRO\",\"bairro\":\"Bairro\",\"total_transações\":\"Total_Transações\",\"uso\":\"Uso\",\"média_percentual_transferido\":\"Média_Percentual_Transferido\",\"média_área_terreno\":\"Média_Área_Terreno\",\"média_valor_transação\":\"Média_Valor_Transação\",\"média_valor_imóvel\":\"Média_Valor_Imóvel\",\"principal_transação_mercado\":\"Principal_Transação_Mercado\",\"ano_transação\":\"Ano_Transação\"},\"fields\":[{\"name\":\"objectid\",\"type\":\"esriFieldTypeOID\",\"alias\":\"OBJECTID\"},{\"name\":\"cl\",\"type\":\"esriFieldTypeString\",\"alias\":\"CL\",\"length\":6},{\"name\":\"logradouro\",\"type\":\"esriFieldTypeString\",\"alias\":\"LOGRADOURO\",\"length\":50},{\"name\":\"codbairro\",\"type\":\"esriFieldTypeString\",\"alias\":\"CODBAIRRO\",\"length\":3},{\"name\":\"bairro\",\"type\":\"esriFieldTypeString\",\"alias\":\"Bairro\",\"length\":50},{\"name\":\"total_transações\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Total_Transações\"},{\"name\":\"uso\",\"type\":\"esriFieldTypeString\",\"alias\":\"Uso\",\"length\":50},{\"name\":\"média_percentual_transferido\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Percentual_Transferido\"},{\"name\":\"média_área_terreno\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Área_Terreno\"},{\"name\":\"média_valor_transação\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Valor_Transação\"},{\"name\":\"média_valor_imóvel\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Valor_Imóvel\"},{\"name\":\"principal_transação_mercado\",\"type\":\"esriFieldTypeString\",\"alias\":\"Principal_Transação_Mercado\",\"length\":50},{\"name\":\"ano_transação\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Ano_Transação\"}],\"features\":[{\"attributes\":{\"objectid\":1362249,\"cl\":\"073353\",\"logradouro\":\"RUA HADDOCK LOBO\",\"codbairro\":\"009\",\"bairro\":\"Estácio                   \",\"total_transações\":4,\"uso\":\"TERRITORIAL\",\"média_percentual_transferido\":26.0,\"média_área_terreno\":2437.5,\"média_valor_transação\":70251.5875,\"média_valor_imóvel\":723344.88,\"principal_transação_mercado\":\"COMPRA E VENDA\",\"ano_transação\":2011}},{\"attributes\":{\"objectid\":1362250,\"cl\":\"063883\",\"logradouro\":\"RUA SAO LUIZ GONZAGA\",\"codbairro\":\"010\",\"bairro\":\"São Cristóvão             \",\"total_transações\":3,\"uso\":\"TERRITORIAL\",\"média_percentual_transferido\":100.0,\"média_área_terreno\":125.0,\"média_valor_transação\":57906.636666,\"média_valor_imóvel\":57906.636666,\"principal_transação_mercado\":\"COMPRA E VENDA\",\"ano_transação\":2011}},{\"attributes\":{\"objectid\":1362251,\"cl\":\"066761\",\"logradouro\":\"RUA BENJAMIM CONSTANT\",\"codbairro\":\"016\",\"bairro\":\"Glória                    \",\"total_transações\":2,\"uso\":\"TERRITORIAL\",\"média_percentual_transferido\":100.0,\"média_área_terreno\":299.5,\"média_valor_transação\":1250000.005,\"média_valor_imóvel\":1250000.005,\"principal_transação_mercado\":\"COMPRA E VENDA\",\"ano_transação\":2011}}],\"exceededTransferLimit\":true}",
+    "contagem": "{\"count\":4804}"
+   },
+   {
+    "url": "https://pgeo3.rio.rj.gov.br/arcgis/rest/services/Fazenda/ITBI/MapServer/2",
+    "titulo": "ITBI - Transações Imobiliárias por Divisão Administrativa e Ano - Imóveis Territoriais",
+    "amostra": "{\"displayFieldName\":\"codbairro\",\"fieldAliases\":{\"objectid\":\"OBJECTID\",\"codbairro\":\"CODBAIRRO\",\"bairro\":\"Bairro\",\"area_planejamento\":\"Area_Planejamento\",\"cod_rp\":\"Cod_RP\",\"rp\":\"RP\",\"ra\":\"RA\",\"regiao_adm\":\"REGIAO_ADM\",\"total_transações\":\"Total_Transações\",\"uso\":\"Uso\",\"média_percentual_transferido\":\"Média_Percentual_Transferido\",\"média_área_terreno\":\"Média_Área_Terreno\",\"média_valor_transações\":\"Média_Valor_Transações\",\"média_valor_imóvel\":\"Média_Valor_Imóvel\",\"principal_transação_mercado\":\"Principal_Transação_Mercado\",\"ano_transação\":\"Ano_Transação\"},\"fields\":[{\"name\":\"objectid\",\"type\":\"esriFieldTypeOID\",\"alias\":\"OBJECTID\"},{\"name\":\"codbairro\",\"type\":\"esriFieldTypeString\",\"alias\":\"CODBAIRRO\",\"length\":3},{\"name\":\"bairro\",\"type\":\"esriFieldTypeString\",\"alias\":\"Bairro\",\"length\":50},{\"name\":\"area_planejamento\",\"type\":\"esriFieldTypeString\",\"alias\":\"Area_Planejamento\",\"length\":1},{\"name\":\"cod_rp\",\"type\":\"esriFieldTypeString\",\"alias\":\"Cod_RP\",\"length\":50},{\"name\":\"rp\",\"type\":\"esriFieldTypeString\",\"alias\":\"RP\",\"length\":50},{\"name\":\"ra\",\"type\":\"esriFieldTypeSmallInteger\",\"alias\":\"RA\"},{\"name\":\"regiao_adm\",\"type\":\"esriFieldTypeString\",\"alias\":\"REGIAO_ADM\",\"length\":24},{\"name\":\"total_transações\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Total_Transações\"},{\"name\":\"uso\",\"type\":\"esriFieldTypeString\",\"alias\":\"Uso\",\"length\":50},{\"name\":\"média_percentual_transferido\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Percentual_Transferido\"},{\"name\":\"média_área_terreno\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Área_Terreno\"},{\"name\":\"média_valor_transações\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Valor_Transações\"},{\"name\":\"média_valor_imóvel\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Valor_Imóvel\"},{\"name\":\"principal_transação_mercado\",\"type\":\"esriFieldTypeString\",\"alias\":\"Principal_Transação_Mercado\",\"length\":50},{\"name\":\"ano_transação\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Ano_Transação\"}],\"features\":[{\"attributes\":{\"objectid\":401297,\"codbairro\":\"014\",\"bairro\":\"Santa Teresa              \",\"area_planejamento\":\"1\",\"cod_rp\":\"1.1\",\"rp\":\"Centro\",\"ra\":23,\"regiao_adm\":\"SANTA TEREZA            \",\"total_transações\":4,\"uso\":\"TERRITORIAL\",\"média_percentual_transferido\":100.0,\"média_área_terreno\":246.75,\"média_valor_transações\":204999.995,\"média_valor_imóvel\":204999.995,\"principal_transação_mercado\":\"COMPRA E VENDA\",\"ano_transação\":2025}},{\"attributes\":{\"objectid\":401298,\"codbairro\":\"151\",\"bairro\":\"Guaratiba                 \",\"area_planejamento\":\"5\",\"cod_rp\":\"5.4\",\"rp\":\"Guaratiba\",\"ra\":26,\"regiao_adm\":\"GUARATIBA               \",\"total_transações\":151,\"uso\":\"TERRITORIAL\",\"média_percentual_transferido\":95.79841,\"média_área_terreno\":2360.192052,\"média_valor_transações\":173448.984238,\"média_valor_imóvel\":210918.53649,\"principal_transação_mercado\":\"COMPRA E VENDA\",\"ano_transação\":2025}},{\"attributes\":{\"objectid\":401299,\"codbairro\":\"019\",\"bairro\":\"Cosme Velho               \",\"area_planejamento\":\"2\",\"cod_rp\":\"2.1\",\"rp\":\"Zona Sul\",\"ra\":4,\"regiao_adm\":\"BOTAFOGO                \",\"tot",
+    "contagem": "{\"count\":1555}"
+   },
+   {
+    "url": "https://pgeo3.rio.rj.gov.br/arcgis/rest/services/Fazenda/ITBI/MapServer/1",
+    "titulo": "ITBI - Transações Imobiliárias por Divisão Administrativa e Ano - Imóveis Residenciais e Não Residenciais",
+    "amostra": "{\"displayFieldName\":\"codbairro\",\"fieldAliases\":{\"objectid\":\"OBJECTID\",\"codbairro\":\"CODBAIRRO\",\"bairro\":\"Bairro\",\"area_planejamento\":\"Area_Planejamento\",\"cod_rp\":\"Cod_RP\",\"rp\":\"RP\",\"codra\":\"CODRA\",\"ra\":\"RA\",\"total_transações\":\"Total_Transações\",\"uso\":\"Uso\",\"média_percentual_transferido\":\"Média_Percentual_Transferido\",\"média_área_construída\":\"Média_Área_Construída\",\"média_valor_transação\":\"Média_Valor_Transação\",\"média_valor_imóvel\":\"Média_Valor_Imóvel\",\"principal_transação_mercado\":\"Principal_Transação_Mercado\",\"ano_transação\":\"Ano_Transação\"},\"fields\":[{\"name\":\"objectid\",\"type\":\"esriFieldTypeOID\",\"alias\":\"OBJECTID\"},{\"name\":\"codbairro\",\"type\":\"esriFieldTypeString\",\"alias\":\"CODBAIRRO\",\"length\":3},{\"name\":\"bairro\",\"type\":\"esriFieldTypeString\",\"alias\":\"Bairro\",\"length\":50},{\"name\":\"area_planejamento\",\"type\":\"esriFieldTypeString\",\"alias\":\"Area_Planejamento\",\"length\":1},{\"name\":\"cod_rp\",\"type\":\"esriFieldTypeString\",\"alias\":\"Cod_RP\",\"length\":50},{\"name\":\"rp\",\"type\":\"esriFieldTypeString\",\"alias\":\"RP\",\"length\":50},{\"name\":\"codra\",\"type\":\"esriFieldTypeSmallInteger\",\"alias\":\"CODRA\"},{\"name\":\"ra\",\"type\":\"esriFieldTypeString\",\"alias\":\"RA\",\"length\":24},{\"name\":\"total_transações\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Total_Transações\"},{\"name\":\"uso\",\"type\":\"esriFieldTypeString\",\"alias\":\"Uso\",\"length\":50},{\"name\":\"média_percentual_transferido\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Percentual_Transferido\"},{\"name\":\"média_área_construída\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Área_Construída\"},{\"name\":\"média_valor_transação\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Valor_Transação\"},{\"name\":\"média_valor_imóvel\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Valor_Imóvel\"},{\"name\":\"principal_transação_mercado\",\"type\":\"esriFieldTypeString\",\"alias\":\"Principal_Transação_Mercado\",\"length\":50},{\"name\":\"ano_transação\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Ano_Transação\"}],\"features\":[{\"attributes\":{\"objectid\":1177910,\"codbairro\":\"039\",\"bairro\":\"Manguinhos                \",\"area_planejamento\":\"3\",\"cod_rp\":\"3.1\",\"rp\":\"Ramos\",\"codra\":10,\"ra\":\"RAMOS                   \",\"total_transações\":1,\"uso\":\"RESIDENCIAL\",\"média_percentual_transferido\":100.0,\"média_área_construída\":70.0,\"média_valor_transação\":91083.02,\"média_valor_imóvel\":91083.02,\"principal_transação_mercado\":\"COMPRA E VENDA\",\"ano_transação\":2020}},{\"attributes\":{\"objectid\":1177911,\"codbairro\":\"053\",\"bairro\":\"Del Castilho              \",\"area_planejamento\":\"3\",\"cod_rp\":\"3.4\",\"rp\":\"Inhaúma\",\"codra\":12,\"ra\":\"INHAUMA                 \",\"total_transações\":284,\"uso\":\"RESIDENCIAL\",\"média_percentual_transferido\":98.419014,\"média_área_construída\":58.862676,\"média_valor_transação\":272941.649084,\"média_valor_imóvel\":276987.929436,\"principal_transação_mercado\":\"COMPRA E VENDA\",\"ano_transação\":2020}},{\"attributes\":{\"objectid\":1177912,\"codbairro\":\"125\",\"bairro\":\"Vila Valqueire            \",\"area_planejamento\":\"4\",\"cod_rp\":\"4.1\",\"rp\":\"Jacarepaguá\",\"codra\":16,\"ra\":\"JACAREPAGUA             \",\"total_transações\":257,\"uso\":",
+    "contagem": "{\"count\":4633}"
+   },
+   {
+    "url": "https://pgeo3.rio.rj.gov.br/arcgis/rest/services/Fazenda/ITBI/MapServer/4",
+    "titulo": "ITBI - Transações por Logradouro e Ano - Imóveis Residenciais e Não Residenciais",
+    "amostra": "{\"displayFieldName\":\"cl\",\"fieldAliases\":{\"objectid\":\"OBJECTID\",\"cl\":\"CL\",\"logradouro\":\"LOGRADOURO\",\"codbairro\":\"CODBAIRRO\",\"bairro\":\"Bairro\",\"total_transações\":\"Total_Transações\",\"uso\":\"Uso\",\"principais_tipologias\":\"Principais_Tipologias\",\"média_percentual_transferido\":\"Média_Percentual_Transferido\",\"média_área_construída\":\"Média_Área_Construída\",\"média_valor_transação\":\"Média_Valor_Transação\",\"média_valor_imóvel\":\"Média_Valor_Imóvel\",\"principal_transação_mercado\":\"Principal_Transação_Mercado\",\"ano_transação\":\"Ano_Transação\",\"cd_utilizacao\":\"CD_UTILIZACAO\"},\"fields\":[{\"name\":\"objectid\",\"type\":\"esriFieldTypeOID\",\"alias\":\"OBJECTID\"},{\"name\":\"cl\",\"type\":\"esriFieldTypeString\",\"alias\":\"CL\",\"length\":6},{\"name\":\"logradouro\",\"type\":\"esriFieldTypeString\",\"alias\":\"LOGRADOURO\",\"length\":50},{\"name\":\"codbairro\",\"type\":\"esriFieldTypeString\",\"alias\":\"CODBAIRRO\",\"length\":3},{\"name\":\"bairro\",\"type\":\"esriFieldTypeString\",\"alias\":\"Bairro\",\"length\":50},{\"name\":\"total_transações\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Total_Transações\"},{\"name\":\"uso\",\"type\":\"esriFieldTypeString\",\"alias\":\"Uso\",\"length\":50},{\"name\":\"principais_tipologias\",\"type\":\"esriFieldTypeString\",\"alias\":\"Principais_Tipologias\",\"length\":40},{\"name\":\"média_percentual_transferido\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Percentual_Transferido\"},{\"name\":\"média_área_construída\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Área_Construída\"},{\"name\":\"média_valor_transação\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Valor_Transação\"},{\"name\":\"média_valor_imóvel\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Valor_Imóvel\"},{\"name\":\"principal_transação_mercado\",\"type\":\"esriFieldTypeString\",\"alias\":\"Principal_Transação_Mercado\",\"length\":50},{\"name\":\"ano_transação\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Ano_Transação\"},{\"name\":\"cd_utilizacao\",\"type\":\"esriFieldTypeString\",\"alias\":\"CD_UTILIZACAO\",\"length\":2}],\"features\":[{\"attributes\":{\"objectid\":14201947,\"cl\":\"063966\",\"logradouro\":\"AVN VENEZUELA\",\"codbairro\":\"001\",\"bairro\":\"Saúde                     \",\"total_transações\":2,\"uso\":\"NAO RESIDENCIAL\",\"principais_tipologias\":\"LOJA\",\"média_percentual_transferido\":100.0,\"média_área_construída\":279.0,\"média_valor_transação\":320341.59,\"média_valor_imóvel\":320341.59,\"principal_transação_mercado\":\"COMPRA E VENDA\",\"ano_transação\":2011,\"cd_utilizacao\":\"02\"}},{\"attributes\":{\"objectid\":14201948,\"cl\":\"063909\",\"logradouro\":\"RUA SILVINO MONTENEGRO\",\"codbairro\":\"002\",\"bairro\":\"Gamboa                    \",\"total_transações\":2,\"uso\":\"NAO RESIDENCIAL\",\"principais_tipologias\":\"CASA\",\"média_percentual_transferido\":100.0,\"média_área_construída\":116.0,\"média_valor_transação\":184872.64,\"média_valor_imóvel\":184872.64,\"principal_transação_mercado\":\"COMPRA E VENDA\",\"ano_transação\":2011,\"cd_utilizacao\":\"02\"}},{\"attributes\":{\"objectid\":14201949,\"cl\":\"060038\",\"logradouro\":\"RUA ALCINDO GUANABARA\",\"codbairro\":\"005\",\"bairro\":\"Centro                    \",\"total_transações\":26,\"uso\":\"NAO RESIDENCIAL\",\"principais_tipologias\":\"SALA\",\"média_percentu",
+    "contagem": "{\"count\":59370}"
+   },
+   {
+    "url": "https://pgeo3.rio.rj.gov.br/arcgis/rest/services/Fazenda/ITBI/MapServer/7",
+    "titulo": "ITBI - Transações por Logradouro e Mês - Imóveis Territoriais",
+    "amostra": "{\"displayFieldName\":\"cl\",\"fieldAliases\":{\"objectid\":\"objectid\",\"cl\":\"CL\",\"logradouro\":\"LOGRADOURO\",\"codbairro\":\"CODBAIRRO\",\"bairro\":\"Bairro\",\"total_transações\":\"Total_Transações\",\"uso\":\"Uso\",\"média_percentual_transferido\":\"Média_Percentual_Transferido\",\"média_área_terreno\":\"Média_Área_Terreno\",\"média_valor_transação\":\"Média_Valor_Transação\",\"média_valor_imóvel\":\"Média_Valor_Imóvel\",\"principal_transação_mercado\":\"Principal_Transação_Mercado\",\"ano_transação\":\"Ano_Transação\",\"mês_transação\":\"Mês_Transação\"},\"fields\":[{\"name\":\"objectid\",\"type\":\"esriFieldTypeOID\",\"alias\":\"objectid\"},{\"name\":\"cl\",\"type\":\"esriFieldTypeString\",\"alias\":\"CL\",\"length\":6},{\"name\":\"logradouro\",\"type\":\"esriFieldTypeString\",\"alias\":\"LOGRADOURO\",\"length\":50},{\"name\":\"codbairro\",\"type\":\"esriFieldTypeString\",\"alias\":\"CODBAIRRO\",\"length\":3},{\"name\":\"bairro\",\"type\":\"esriFieldTypeString\",\"alias\":\"Bairro\",\"length\":50},{\"name\":\"total_transações\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Total_Transações\"},{\"name\":\"uso\",\"type\":\"esriFieldTypeString\",\"alias\":\"Uso\",\"length\":50},{\"name\":\"média_percentual_transferido\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Percentual_Transferido\"},{\"name\":\"média_área_terreno\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Área_Terreno\"},{\"name\":\"média_valor_transação\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Valor_Transação\"},{\"name\":\"média_valor_imóvel\",\"type\":\"esriFieldTypeDouble\",\"alias\":\"Média_Valor_Imóvel\"},{\"name\":\"principal_transação_mercado\",\"type\":\"esriFieldTypeString\",\"alias\":\"Principal_Transação_Mercado\",\"length\":50},{\"name\":\"ano_transação\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Ano_Transação\"},{\"name\":\"mês_transação\",\"type\":\"esriFieldTypeInteger\",\"alias\":\"Mês_Transação\"}],\"features\":[{\"attributes\":{\"objectid\":840044,\"cl\":\"070235\",\"logradouro\":\"RUA DOUTOR JULIO OTONI\",\"codbairro\":\"014\",\"bairro\":\"Santa Teresa              \",\"total_transações\":2,\"uso\":\"TERRITORIAL\",\"média_percentual_transferido\":100.0,\"média_área_terreno\":757.0,\"média_valor_transação\":134999.995,\"média_valor_imóvel\":134999.995,\"principal_transação_mercado\":\"COMPRA E VENDA\",\"ano_transação\":2011,\"mês_transação\":11}},{\"attributes\":{\"objectid\":840045,\"cl\":\"067835\",\"logradouro\":\"AVN CARLOS PEIXOTO\",\"codbairro\":\"020\",\"bairro\":\"Botafogo                  \",\"total_transações\":2,\"uso\":\"TERRITORIAL\",\"média_percentual_transferido\":100.0,\"média_área_terreno\":9924.5,\"média_valor_transação\":4352768.005,\"média_valor_imóvel\":4352768.005,\"principal_transação_mercado\":\"COMPRA E VENDA\",\"ano_transação\":2011,\"mês_transação\":11}},{\"attributes\":{\"objectid\":840046,\"cl\":\"077685\",\"logradouro\":\"RUA MUNIZ BARRETO\",\"codbairro\":\"020\",\"bairro\":\"Botafogo                  \",\"total_transações\":2,\"uso\":\"TERRITORIAL\",\"média_percentual_transferido\":100.0,\"média_área_terreno\":171.0,\"média_valor_transação\":1985064.75,\"média_valor_imóvel\":1985064.75,\"principal_transação_mercado\":\"COMPRA E VENDA\",\"ano_transação\":2011,\"mês_transação\":5}}],\"exceededTransferLimit\":true}",
+    "contagem": "{\"count\":3867}"
+   }
+  ]
+ },
+ "bh_recursos": [
+  [
+   "Dicionário de Dados ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/f925acff-c470-41f0-b4aa-a0e6bece5f20/download/dicionario_de_dados_atualizado_2024_05.pdf"
+  ],
+  [
+   "Dicionário de Dados ITBI Relatórios atualizado em 08/2024",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/139e6fa9-b2d1-4eec-b1e8-bf5e966211bd/download/dicionario_de_dados_itbi_relatorios_atualizado_2024_08.pdf"
+  ],
+  [
+   "Dicionário de Dados ITBI Relatórios atualizado em 01/2025",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/2e0419d2-068b-43a7-8b3b-ad3b4f3fefd9/download/dicionario_de_dados_atualizado_2025_01.pdf"
+  ],
+  [
+   "01/2008 a 05/2024 - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/7f8955aa-0b30-4157-bbc2-7dd444941728/download/pda_itbi_relatorio_200801_a_202405.csv"
+  ],
+  [
+   "2024 - Junho - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/b21f9785-6b4c-43a1-bd66-dbf89e63efe7/download/pda_itbi_relatorio_202406.csv"
+  ],
+  [
+   "2024 - Julho - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/1520a5dc-858a-4eca-89bd-54964c273ce7/download/pda_itbi_relatorio_202407_corrigido.csv"
+  ],
+  [
+   "2024 - Agosto - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/aa948bd0-9554-4e33-87f7-eb61ef0d2903/download/pda_itbi_relatorio_202408.csv"
+  ],
+  [
+   "2024 - Setembro - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/f582a331-9608-49a2-be3b-a5a5aa19ecff/download/pda_itbi_relatorio_202409.csv"
+  ],
+  [
+   "2024 - Outubro - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/f5c13859-c3ee-4e3e-9c34-c6215f49a4a5/download/pda_itbi_relatorio_202410.csv"
+  ],
+  [
+   "2024 - Novembro  -  ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/97db6e95-141a-4402-aa60-50dd06ae9340/download/pda_itbi_relatorio_202411.csv"
+  ],
+  [
+   "2024 - Dezembro - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/af6d7c58-e1d2-4fab-8d9a-487dddc30a20/download/pda_itbi_relatorio_202412.csv"
+  ],
+  [
+   "2025 - Janeiro - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/78c33612-ebf5-4a25-af35-d3065f056579/download/pda_itbi_relatorio_202501.csv"
+  ],
+  [
+   "2025 - Fevereiro - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/23e019f9-6537-4561-9935-ca7d19ae3b6b/download/pda_itbi_relatorio_202502.csv"
+  ],
+  [
+   "2025 - Março - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/df8c42ee-166f-4e5d-9eb3-69fc00f3ae57/download/pda_itbi_relatorio_202503.csv"
+  ],
+  [
+   "2025 - Abril - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/dad2d5af-d9c2-4e09-9766-7f01387fbd9a/download/pda_itbi_relatorio_202504.csv"
+  ],
+  [
+   "2025 - Maio - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/0e353102-585d-4dfb-ab15-84550b550c61/download/pda_itbi_relatorio_202505.csv"
+  ],
+  [
+   "2025 - Junho - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/6be6874d-6e20-4d68-a904-2351fc0f31f4/download/pda_itbi_relatorio_202506.csv"
+  ],
+  [
+   "2025 - Julho - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/9f8b1538-5f8b-469c-8728-f4902b28456e/download/pda_itbi_relatorio_202507.csv"
+  ],
+  [
+   "2025 - Agosto - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/f4e60a70-3bd8-41dc-b031-42b5f3d1671a/download/pda_itbi_relatorio_202508.csv"
+  ],
+  [
+   "2025 - Setembro - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/cbdea14d-77de-4c32-a7db-3e327e09257c/download/pda_itbi_relatorio_202509.csv"
+  ],
+  [
+   "2025 - Outubro - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/fbd1fe60-f838-4392-92c2-98cc09dfc81c/download/pda_itbi_relatorio_202510.csv"
+  ],
+  [
+   "2025 - Novembro - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/9bd075e2-2abe-42d7-a1e2-b68a18245172/download/pda_itbi_relatorio_202511.csv"
+  ],
+  [
+   "2025 - Dezembro - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/c3dd25fd-ac34-4f3f-afcc-21589d64ce8a/download/pda_itbi_relatorio_202512.csv"
+  ],
+  [
+   "2026 - Janeiro - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/2deb4632-f226-40a7-b8ac-89c6d9f8aff9/download/pda_itbi_relatorio_202601.csv"
+  ],
+  [
+   "2026 - Fevereiro - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/453b3f6d-ec7f-415c-af5e-c23d1f488e2a/download/pda_itbi_relatorio_202602.csv"
+  ],
+  [
+   "2026 - Março -  ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/0773a6b9-b107-4692-9b85-760221ec3abb/download/pda_itbi_relatorio_202603.csv"
+  ],
+  [
+   "2026 - Abril - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/9739d3c2-0f38-4aff-9c68-877df748f2ae/download/pda_itbi_relatorio_202604.csv"
+  ],
+  [
+   "2026 - Maio - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/5abcaa09-f12c-4235-8298-b575ab008ace/download/pda_itbi_relatorio_202605.csv"
+  ],
+  [
+   "2026 - Junho - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/0207f55f-6733-4612-bd6a-cd9035381cd0/download/pda_itbi_relatorio_202606.csv"
+  ],
+  [
+   "2026 - Julho - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/39f518a9-c027-41af-868d-0befa2d8f783/download/pda_itbi_relatorio_202607.csv"
+  ],
+  [
+   "2026 - Agosto - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/17dc691a-fcc8-4932-aadb-cf02bd2f52bb/download/pda_itbi_relatorio_202608.csv"
+  ],
+  [
+   "2026 - Setembro - ITBI Relatórios",
+   "https://ckan.pbh.gov.br/dataset/0e13bf71-5355-47ce-8607-966413b08c0a/resource/255cd101-66ac-4a76-9a4c-793719d88c21/download/pda_itbi_relatorio_202609.csv"
+  ]
+ ],
+ "recife_recursos": [
+  [
+   "Dicionário de dados - ITBI",
+   "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/e829c92b-a1b1-47f9-af69-91f584bdc98f/download/dicionario-de-dados-itbi.json",
+   "2026-03-02T15:13:26.979595"
+  ],
+  [
+   "ITBI 2026 - Imposto sobre a Transmissão de Bens Imóveis",
+   "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/fc95e204-a121-4b7a-94b2-e4420539c0d1/download/itbi_2026.csv",
+   "2026-11-03T02:05:00.698813"
+  ],
+  [
+   "ITBI 2025 - Imposto sobre a Transmissão de Bens Imóveis",
+   "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/1d705d4a-f67a-4914-971f-01f9b1685d1b/download/itbi-2025-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+   "2026-03-02T15:13:47.973430"
+  ],
+  [
+   "ITBI 2024 - Imposto sobre a Transmissão de Bens Imóveis",
+   "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/756d9a7e-33aa-4fdd-a541-0f5dc97c7502/download/itbi-2024-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+   "2026-03-02T15:13:51.830944"
+  ],
+  [
+   "ITBI 2023 - Imposto sobre a Transmissão de Bens Imóveis",
+   "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/47dfea23-81ec-455e-83a0-3e451e5b5ca6/download/itbi-2023-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+   "2026-03-02T15:14:12.965386"
+  ],
+  [
+   "ITBI 2022 - Imposto sobre a Transmissão de Bens Imóveis",
+   "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/5226cf6f-ed06-4956-b133-a0c788a5d494/download/itbi-2022-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+   "2026-03-02T15:14:17.013807"
+  ],
+  [
+   "ITBI 2021 - Imposto sobre a Transmissão de Bens Imóveis",
+   "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/f3a083a1-aa48-416d-b3aa-c022192219e6/download/itbi-2021-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+   "2026-03-02T15:14:28.589594"
+  ],
+  [
+   "ITBI 2020 - Imposto sobre a Transmissão de Bens Imóveis",
+   "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/6f79d820-b764-4cde-939f-83d80e728c53/download/itbi-2020-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+   "2026-03-02T15:14:56.073399"
+  ],
+  [
+   "ITBI 2019 - Imposto sobre a Transmissão de Bens Imóveis",
+   "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/6a8a8f7e-8d3d-4729-aaf9-fcc43ae2827a/download/itbi-2019-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+   "2026-03-02T15:15:11.716439"
+  ],
+  [
+   "ITBI 2018 - Imposto sobre a Transmissão de Bens Imóveis",
+   "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/ae29c630-77b8-4109-8e1b-02292069f4d5/download/itbi-2018-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+   "2026-03-02T15:15:37.514613"
+  ],
+  [
+   "ITBI 2017 - Imposto sobre a Transmissão de Bens Imóveis",
+   "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/53617998-09e8-420c-9399-75d859c8528e/download/itbi-2017-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+   "2026-03-02T15:15:53.963001"
+  ],
+  [
+   "ITBI 2016 - Imposto sobre a Transmissão de Bens Imóveis",
+   "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/210db9b0-4ea5-49cb-8084-135ebfca848d/download/itbi-2016-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+   "2026-03-02T15:16:17.773549"
+  ],
+  [
+   "ITBI 2015 - Imposto sobre a Transmissão de Bens Imóveis",
+   "https://dados.recife.pe.gov.br:443/dataset/ae32808e-ab98-4fe4-bacf-a72b2ac14551/resource/87caf0ce-5f05-4952-abe5-83fa46eece4c/download/itbi-2015-imposto-sobre-a-transmissao-de-bens-imoveis.csv",
+   "2026-03-02T15:16:34.573192"
+  ]
+ ],
+ "recife_dicionario": "{\n    \"metadados\": {\n        \"cabecalho\": {\n            \"titulo\": \"\",\n            \"descricao\": \"\",\n            \"categoria_vcge\": \"\",\n            \"fonte_dados\": \"\",\n            \"licenca\": \"Open Database License (ODbL)\",\n            \"responsavel_dados\": \"\",\n            \"responsavel_disponibilizar\": \"EMPREL\",\n            \"frequencia_atualizacao\": \"Anual\",\n            \"endereco_dataset\": \"\",\n            \"status\": \"ativo\",\n            \"endereco_dataset_substituto\": \"\",\n            \"granularidade\": \"\",\n            \"etiquetas\": \"\"\n        },\n        \"recursos\": [\n            {\n                \"identificador\": \"\",\n                \"titulo\": \"\",\n                \"formato\": \"csv\",\n                \"descricao\": \"\"\n            }\n        ],\n        \"campos\": [\n            {\n                \"codigo\": \"LOGRADOURO\",\n                \"descricao\": \"Nome do Logradouro onde o imóvel se localiza\",\n                \"tipo\": \"Char\",\n                \"tamanho\": 38,\n                \"valores_permitidos\": \"\"\n            },\n            {\n                \"codigo\": \"NUMERO\",\n                \"descricao\": \"Número do imóvel\",\n                \"tipo\": \"Char\",\n                \"tamanho\": 15,\n                \"valores_permitidos\": \"\"\n            },\n            {\n                \"codigo\": \"COMPLEMENTO\",\n                \"descricao\": \"Complemento do endereço\",\n                \"tipo\": \"Char\",\n                \"tamanho\": 61,\n                \"valores_permitidos\": \"\"\n            },\n            {\n                \"codigo\": \"BAIRRO\",\n                \"descricao\": \"Bairro onde o imóvel está localizado\",\n                \"tipo\": \"Char\",\n                \"tamanho\": 30,\n                \"valores_permitidos\": \"\"\n            },\n            {\n                \"codigo\": \"CIDADE\",\n                \"descricao\": \"Cidade onde o imóvel está localizado\",\n                \"tipo\": \"Char\",\n                \"tamanho\": 30,\n                \"valores_permitidos\": \"\"\n            },\n            {\n                \"codigo\": \"ESTADO\",\n                \"descricao\": \"Sigla do estado onde o imóvel está localizado\",\n                \"tipo\": \"Char\",\n                \"tamanho\": \"02\",\n                \"valores_permitidos\": \"\"\n            },\n            {\n                \"codigo\": \"ANO CONSTRUCAO\",\n                \"descricao\": \"Ano em que o imóvel foi construido\",\n                \"tipo\": \"Num\",\n                \"tamanho\": 4,\n                \"valores_permitidos\": \"\"\n            },\n            {\n                \"codigo\": \"AREA TERRENO\",\n                \"descricao\": \"Área do terreno em metros\",\n                \"tipo\": \"Num\",\n                \"tamanho\": 8.2,\n                \"valores_permitidos\": \"\"\n            },\n            {\n                \"codigo\": \"AREA CONSTRUIDA\",\n                \"descricao\": \"Área total da construção em metros\",\n                \"tipo\": \"Char\",\n                \"tamanho\": 11,\n                \"valores_permitidos\": \"\"\n            },\n            {\n                \"codigo\": \"FRACAO IDEAL\",\n                \"descricao\": \"Fração ideal\",\n                \"tipo\": \"Num\",\n                \"tamanho\": 7.5,\n                \"valores_permitidos\": \"\"\n            },\n            {\n                \"codigo\": \"PADRAO ACABAMENTO\",\n                \"descricao\": \"Padrão de acabamento do imóvel\",\n                \"tipo\": \"Char\",\n                \"tamanho\": 11,\n                \"valores_permitidos\": \"\"\n            },\n            {\n                \"codigo\": \"TIPO CONSTRUCAO\",\n                \"descricao\": \"Tipo de construção\",\n                \"tipo\": \"Char\",\n                \"tamanho\": 30,\n                \"valores_permitidos\": \"\"\n            },\n            {\n                \"codigo\": \"TIPO OCUPACAO\",\n                \"descricao\": \"Tipo de ocupação dada ao imóvel\",\n                \"tipo\": \"Char\",\n                \"tamanho\": 30,\n                \"valores_permitidos\": \"\"\n            },\n            {\n                \"codigo\": \"VALOR AVALIACAO\",\n                \"descricao\": \"Valor de avaliação do imóvel\",\n                \"tipo\": \"Num\",\n                \"tamanho\": 12.2,\n                \"valores_permitidos\": \"\"\n            },\n            {\n                \"codigo\": \"DATA TRANSACAO\",\n                \"descricao\": \"Data da última compra/venda do imóvel\",\n                \"tipo\": \"Char\",\n                \"tamanho\": 26,\n                \"valores_permitidos\": \"\"\n            },\n            {\n                \"codigo\": \"ESTADO CONSERVACAO\",\n                \"descricao\": \"Estado de conservação do imóvel\",\n                \"tipo\": \"Char\",\n                \"tamanho\": 10,\n                \"valores_permitidos\": \"\"\n            },\n            {\n                \"codigo\": \"TIPO DE IMOVEL\",\n                \"descricao\": \"Tipo de imóvel\",\n                \"tipo\": \"Char\",\n                \"tamanho\": 30,\n                \"valores_permitidos\": \"\"\n            },\n            {\n                \"codigo\": \"SEQUENCIAL\",\n                \"descricao\": \"Número único do imóvel, criptografado\",\n                \"tipo\": \"Char\",\n                \"tamanho\": 30,\n                \"valores_permitidos\": \"\"\n            },\n            {\n                \"codigo\": \"SFH\",\n                \"descricao\": \"SFH\",\n                \"tipo\": \"Num\",\n                \"tamanho\": 12.2,\n                \"valores_permitidos\": \"\"\n            }\n        ]\n    }\n}",
+ "recife_2025": {
+  "linhas": 16318,
+  "tipo_imovel": [
+   [
+    "Apartamento",
+    13341
+   ],
+   [
+    "Casa",
+    1185
+   ],
+   [
+    "Sala",
+    1177
+   ],
+   [
+    "Loja",
+    221
+   ],
+   [
+    "Edificação Especial",
+    127
+   ],
+   [
+    "Centro Comercial/Serviços",
+    72
+   ],
+   [
+    "Galpão",
+    70
+   ],
+   [
+    "Hotel",
+    34
+   ],
+   [
+    "Instituição Financeira",
+    23
+   ],
+   [
+    "Garagem Comercial",
+    21
+   ],
+   [
+    "Industria",
+    14
+   ],
+   [
+    "Hospital",
+    7
+   ],
+   [
+    "Posto de Abastecimento",
+    6
+   ],
+   [
+    "Instituição Educacional",
+    6
+   ],
+   [
+    "Garagem Residencial",
+    6
+   ],
+   [
+    "Mocambo",
+    5
+   ],
+   [
+    "Terreno em cond residencial",
+    2
+   ],
+   [
+    "Galpão Fechado",
+    1
+   ]
+  ],
+  "mes": [
+   [
+    "2025-09",
+    1748
+   ],
+   [
+    "2025-11",
+    1747
+   ],
+   [
+    "2025-07",
+    1691
+   ],
+   [
+    "2025-05",
+    1657
+   ],
+   [
+    "2025-10",
+    1636
+   ],
+   [
+    "2025-08",
+    1417
+   ],
+   [
+    "2025-02",
+    1297
+   ],
+   [
+    "2025-06",
+    1242
+   ],
+   [
+    "2025-01",
+    1237
+   ],
+   [
+    "2025-03",
+    1230
+   ],
+   [
+    "2025-04",
+    1207
+   ],
+   [
+    "2025-12",
+    209
+   ]
+  ],
+  "tipo_ocupacao": [
+   [
+    "RESIDENCIAL",
+    14261
+   ],
+   [
+    "COMERCIAL SEM LIXO ORGANICO",
+    1045
+   ],
+   [
+    "COMERCIAL COM LIXO ORGANICO",
+    1012
+   ]
+  ]
+ },
+ "fortaleza": {
+  "linhas": 112180,
+  "exercicio": [
+   [
+    "2025",
+    24964
+   ],
+   [
+    "2024",
+    24131
+   ],
+   [
+    "2023",
+    22758
+   ],
+   [
+    "2022",
+    21229
+   ],
+   [
+    "2026",
+    19098
+   ]
+  ],
+  "ano_mes": [
+   [
+    "/",
+    1061
+   ],
+   [
+    "1996/ABRIL",
+    1
+   ],
+   [
+    "2000/JUNHO",
+    1
+   ],
+   [
+    "2001/ABRIL",
+    2
+   ],
+   [
+    "2002/MAIO",
+    1
+   ],
+   [
+    "2007/NOVEMBRO",
+    1
+   ],
+   [
+    "2008/OUTUBRO",
+    1
+   ],
+   [
+    "2009/JANEIRO",
+    1
+   ],
+   [
+    "2011/SETEMBRO",
+    6
+   ],
+   [
+    "2013/ABRIL",
+    1
+   ],
+   [
+    "2013/AGOSTO",
+    3
+   ],
+   [
+    "2013/MAIO",
+    14
+   ],
+   [
+    "2015/ABRIL",
+    1
+   ],
+   [
+    "2015/JUNHO",
+    1
+   ],
+   [
+    "2015/OUTUBRO",
+    1
+   ],
+   [
+    "2016/FEVEREIRO",
+    1
+   ],
+   [
+    "2017/NOVEMBRO",
+    1
+   ],
+   [
+    "2018/JULHO",
+    1
+   ],
+   [
+    "2018/OUTUBRO",
+    1
+   ],
+   [
+    "2018/SETEMBRO",
+    2
+   ],
+   [
+    "2019/JULHO",
+    2
+   ],
+   [
+    "2019/MAIO",
+    1
+   ],
+   [
+    "2019/MARCO",
+    1
+   ],
+   [
+    "2019/OUTUBRO",
+    1
+   ],
+   [
+    "2020/FEVEREIRO",
+    1
+   ],
+   [
+    "2020/JULHO",
+    1
+   ],
+   [
+    "2020/JUNHO",
+    1
+   ],
+   [
+    "2020/OUTUBRO",
+    1
+   ],
+   [
+    "2021/ABRIL",
+    5
+   ],
+   [
+    "2021/AGOSTO",
+    7
+   ],
+   [
+    "2021/DEZEMBRO",
+    38
+   ],
+   [
+    "2021/FEVEREIRO",
+    3
+   ],
+   [
+    "2021/JANEIRO",
+    1
+   ],
+   [
+    "2021/JULHO",
+    4
+   ],
+   [
+    "2021/JUNHO",
+    2
+   ],
+   [
+    "2021/MAIO",
+    2
+   ],
+   [
+    "2021/MARCO",
+    2
+   ],
+   [
+    "2021/NOVEMBRO",
+    11
+   ],
+   [
+    "2021/OUTUBRO",
+    5
+   ],
+   [
+    "2021/SETEMBRO",
+    8
+   ],
+   [
+    "2022/ABRIL",
+    1318
+   ],
+   [
+    "2022/AGOSTO",
+    1824
+   ],
+   [
+    "2022/DEZEMBRO",
+    1476
+   ],
+   [
+    "2022/FEVEREIRO",
+    1433
+   ],
+   [
+    "2022/JANEIRO",
+    1149
+   ],
+   [
+    "2022/JULHO",
+    1873
+   ],
+   [
+    "2022/JUNHO",
+    1720
+   ],
+   [
+    "2022/MAIO",
+    1709
+   ],
+   [
+    "2022/MARCO",
+    2044
+   ],
+   [
+    "2022/NOVEMBRO",
+    1757
+   ],
+   [
+    "2022/OUTUBRO",
+    1726
+   ],
+   [
+    "2022/SETEMBRO",
+    1928
+   ],
+   [
+    "2023/ABRIL",
+    1828
+   ],
+   [
+    "2023/AGOSTO",
+    1778
+   ],
+   [
+    "2023/DEZEMBRO",
+    2342
+   ],
+   [
+    "2023/FEVEREIRO",
+    1348
+   ],
+   [
+    "2023/JANEIRO",
+    1910
+   ],
+   [
+    "2023/JULHO",
+    1946
+   ],
+   [
+    "2023/JUNHO",
+    1923
+   ],
+   [
+    "2023/MAIO",
+    2120
+   ],
+   [
+    "2023/MARCO",
+    2263
+   ],
+   [
+    "2023/NOVEMBRO",
+    1800
+   ],
+   [
+    "2023/OUTUBRO",
+    1832
+   ],
+   [
+    "2023/SETEMBRO",
+    1666
+   ],
+   [
+    "2024/ABRIL",
+    2017
+   ],
+   [
+    "2024/AGOSTO",
+    2274
+   ],
+   [
+    "2024/DEZEMBRO",
+    1903
+   ],
+   [
+    "2024/FEVEREIRO",
+    1524
+   ],
+   [
+    "2024/JANEIRO",
+    1601
+   ],
+   [
+    "2024/JULHO",
+    2077
+   ],
+   [
+    "2024/JUNHO",
+    1725
+   ],
+   [
+    "2024/MAIO",
+    1983
+   ],
+   [
+    "2024/MARCO",
+    1569
+   ],
+   [
+    "2024/NOVEMBRO",
+    2194
+   ],
+   [
+    "2024/OUTUBRO",
+    2324
+   ],
+   [
+    "2024/SETEMBRO",
+    2216
+   ],
+   [
+    "2025/ABRIL",
+    1943
+   ],
+   [
+    "2025/AGOSTO",
+    2105
+   ],
+   [
+    "2025/DEZEMBRO",
+    2304
+   ],
+   [
+    "2025/FEVEREIRO",
+    1854
+   ],
+   [
+    "2025/JANEIRO",
+    1808
+   ],
+   [
+    "2025/JULHO",
+    1998
+   ],
+   [
+    "2025/JUNHO",
+    1859
+   ],
+   [
+    "2025/MAIO",
+    1994
+   ],
+   [
+    "2025/MARCO",
+    1816
+   ],
+   [
+    "2025/NOVEMBRO",
+    2473
+   ],
+   [
+    "2025/OUTUBRO",
+    2268
+   ],
+   [
+    "2025/SETEMBRO",
+    2135
+   ],
+   [
+    "2026/ABRIL",
+    1894
+   ],
+   [
+    "2026/AGOSTO",
+    2116
+   ],
+   [
+    "2026/DEZEMBRO",
+    264
+   ],
+   [
+    "2026/FEVEREIRO",
+    1667
+   ],
+   [
+    "2026/JANEIRO",
+    1872
+   ],
+   [
+    "2026/JULHO",
+    2087
+   ],
+   [
+    "2026/JUNHO",
+    2084
+   ],
+   [
+    "2026/MAIO",
+    2125
+   ],
+   [
+    "2026/MARCO",
+    2375
+   ],
+   [
+    "2026/NOVEMBRO",
+    513
+   ],
+   [
+    "2026/OUTUBRO",
+    1312
+   ],
+   [
+    "2026/SETEMBRO",
+    1864
+   ],
+   [
+    "2027/JANEIRO",
+    131
+   ]
+  ],
+  "tipo_uso": [
+   [
+    "Residencial",
+    82753
+   ],
+   [
+    "Comercial",
+    19425
+   ],
+   [
+    "Sem",
+    8724
+   ],
+   [
+    "Prestação",
+    811
+   ],
+   [
+    "Hotelaria",
+    152
+   ],
+   [
+    "Saúde",
+    71
+   ],
+   [
+    "Instrução",
+    58
+   ],
+   [
+    "Fechado",
+    45
+   ],
+   [
+    "Religioso",
+    40
+   ],
+   [
+    "Industrial",
+    36
+   ],
+   [
+    "Transporte",
+    20
+   ],
+   [
+    "Institucional",
+    18
+   ],
+   [
+    "Do lazer",
+    15
+   ],
+   [
+    "Comunicação",
+    6
+   ],
+   [
+    "Desportivo",
+    5
+   ],
+   [
+    "Agricultura",
+    1
+   ]
+  ],
+  "padrao": [
+   [
+    "Alto nivel 1",
+    27696
+   ],
+   [
+    "Alto nivel 3",
+    20960
+   ],
+   [
+    "Alto nivel 2",
+    20529
+   ],
+   [
+    "Luxo 1",
+    14403
+   ],
+   [
+    "Baixo nivel 1",
+    8127
+   ],
+   [
+    "Luxo 2",
+    7466
+   ],
+   [
+    "Normal 3",
+    5988
+   ],
+   [
+    "Normal 2",
+    3702
+   ],
+   [
+    "",
+    2403
+   ],
+   [
+    "Luxo 3",
+    662
+   ],
+   [
+    "Normal 1",
+    194
+   ],
+   [
+    "Baixo nivel 3",
+    45
+   ],
+   [
+    "Baixo nivel 2",
+    5
+   ]
+  ],
+  "data_transacao_vazia": 98469,
+  "versao": [
+   [
+    "1",
+    102162
+   ],
+   [
+    "2",
+    8918
+   ],
+   [
+    "3",
+    940
+   ],
+   [
+    "4",
+    129
+   ],
+   [
+    "5",
+    25
+   ],
+   [
+    "6",
+    6
+   ]
+  ],
+  "bairros": 121
+ },
+ "poa_recursos": [
+  [
+   "Dicionário de Dados",
+   "https://dadosabertos.poa.br/dataset/dd8ee5be-06f4-4107-a3bf-5e15aebba6c1/resource/b0fe9643-82bb-4b91-be26-b6292b7aeac7/download/dicionario-de-dados.pdf",
+   "2026-11-06T18:56:36.011250"
+  ],
+  [
+   "ITBI 2020",
+   "https://dadosabertos.poa.br/dataset/dd8ee5be-06f4-4107-a3bf-5e15aebba6c1/resource/60256fcf-9ae6-4adf-b0b4-b6b45fb4b34b/download/itbi-2020.zip",
+   "2026-11-06T18:51:50.152570"
+  ],
+  [
+   "ITBI 2021",
+   "https://dadosabertos.poa.br/dataset/dd8ee5be-06f4-4107-a3bf-5e15aebba6c1/resource/150848b4-0d01-4ffb-96e0-f5f2a276f5ef/download/itbi-2021.zip",
+   "2026-11-06T18:51:51.876568"
+  ],
+  [
+   "ITBI 2022",
+   "https://dadosabertos.poa.br/dataset/dd8ee5be-06f4-4107-a3bf-5e15aebba6c1/resource/102520c0-3edc-4f85-947f-6a98b96ed160/download/itbi-2022.zip",
+   "2026-11-06T18:51:54.717783"
+  ],
+  [
+   "ITBI 2023",
+   "https://dadosabertos.poa.br/dataset/dd8ee5be-06f4-4107-a3bf-5e15aebba6c1/resource/2a4b0aee-7126-4323-936d-5f82fd04aeef/download/itbi-2023.zip",
+   "2026-11-06T18:51:56.041711"
+  ],
+  [
+   "ITBI 2024",
+   "https://dadosabertos.poa.br/dataset/dd8ee5be-06f4-4107-a3bf-5e15aebba6c1/resource/4947bed6-6be6-40e6-a120-42957e745da5/download/itbi-2024.zip",
+   "2026-11-06T18:51:57.959807"
+  ],
+  [
+   "ITBI 2025",
+   "https://dadosabertos.poa.br/dataset/dd8ee5be-06f4-4107-a3bf-5e15aebba6c1/resource/e46f56f3-ac8a-4513-b155-5d3038a275b2/download/itbi-2025.zip",
+   "2026-11-06T18:52:00.501233"
+  ],
+  [
+   "ITBI 2026",
+   "https://dadosabertos.poa.br/dataset/dd8ee5be-06f4-4107-a3bf-5e15aebba6c1/resource/b4cf6e78-6cb9-41f7-8ef7-57dc67feda0c/download/itbi-2026.zip",
+   "2026-11-06T18:52:02.100925"
+  ]
+ ],
+ "poa_2026": {
+  "linhas": 49684,
+  "situacao": [
+   [
+    "Impressa",
+    46981
+   ],
+   [
+    "Retificada",
+    1549
+   ],
+   [
+    "Reestimada",
+    755
+   ],
+   [
+    "Lançada",
+    399
+   ]
+  ],
+  "finalidade": [
+   [
+    "APARTAMENTO",
+    24668
+   ],
+   [
+    "ESPACO DE ESTACIONAMENTO RESIDENCIAL",
+    10774
+   ],
+   [
+    "RESIDENCIA ISOLADA",
+    2511
+   ],
+   [
+    "SALA COMERCIAL",
+    2287
+   ],
+   [
+    "ESPACO DE ESTACIONAMENTO RESIDENCIAL DESCOBERTO",
+    1832
+   ],
+   [
+    "",
+    1790
+   ],
+   [
+    "ESPACO DE ESTACIONAMENTO NAO RESIDENCIAL",
+    860
+   ],
+   [
+    "RESIDENCIA PADRONIZADA EM COND HORIZONTAL FECHADO",
+    797
+   ],
+   [
+    "APARTAMENTO DE COBERTURA",
+    695
+   ],
+   [
+    "APART-HOTEL(FLAT)",
+    579
+   ],
+   [
+    "RESIDENCIA CONDOM HORIZ ABERTO SEM AREA USO COMUM",
+    381
+   ],
+   [
+    "UNIDADE DE COMERCIO E SERVICO ISOLADA",
+    351
+   ],
+   [
+    "LOJA TERREA EM EDIFICIO",
+    326
+   ],
+   [
+    "RESIDENCIA NAO PADRONIZ EM CONDOM HORIZONTAL FECHADO",
+    308
+   ],
+   [
+    "RESIDENCIA DE FRENTE COM INTERIORES",
+    213
+   ],
+   [
+    "CONSTRUCAO EM AREA PROJETADA DE GLEBA",
+    177
+   ],
+   [
+    "LOJA EM SHOPPING",
+    162
+   ],
+   [
+    "UNIDADE (DE COMÉRCIO OU SERVIÇOS) DE  FRENTE NÃO ISOLADA",
+    159
+   ],
+   [
+    "RESIDENCIA PADRONIZADA COND HORIZ ABERTO C/ ÁREA USO COMUM",
+    130
+   ],
+   [
+    "DEPÓSITO / ARMAZÉM / PRÉDIO INDUSTRIAL",
+    113
+   ],
+   [
+    "ESPACO ESTACIONAMENTO VINCULADO RESID COBERTO",
+    101
+   ],
+   [
+    "GARAGEM COLETIVA",
+    82
+   ],
+   [
+    "RESIDENCIA DE INTERIOR",
+    79
+   ],
+   [
+    "LOJA EM GALERIA",
+    68
+   ],
+   [
+    "ESPACO DE ESTACIONAMENTO NAO RESIDENC DESCOBERTO",
+    52
+   ],
+   [
+    "SALA DE COBERTURA",
+    30
+   ],
+   [
+    "HOTEL OU SIMILAR",
+    27
+   ],
+   [
+    "IMOVEL ESPECIAL",
+    24
+   ],
+   [
+    "ESPACO ESTACIONAMENTO VINCULADO RESID DESCOBERTO",
+    21
+   ],
+   [
+    "RESIDENCIA NAO PADRONIZADA EM COND HORIZ ABERTO C/ ÁREA COMUM",
+    18
+   ],
+   [
+    "TERRENO",
+    16
+   ],
+   [
+    "EDIFICIO GARAGEM",
+    15
+   ],
+   [
+    "LOJA DE INTERIOR",
+    11
+   ],
+   [
+    "POSTO DE COMBUSTIVEL",
+    7
+   ],
+   [
+    "ESPACO ESTACIONAMENTO VINCULADO NAO RESID COBERTO",
+    5
+   ],
+   [
+    "TERRENO EM CONDOMINIO HORIZONTAL FECHADO",
+    5
+   ],
+   [
+    "ESPACO ESTACIONAMENTO VINCULADO NAO RESID DESCOBERTO",
+    3
+   ],
+   [
+    "AREA A VISTORIAR",
+    2
+   ],
+   [
+    "GLEBA",
+    2
+   ],
+   [
+    "TERRENO EM CONDOMINIO HORIZONTAL ABERTO",
+    1
+   ]
+  ],
+  "mes_estimativa": [
+   [
+    "2026-01",
+    4586
+   ],
+   [
+    "2026-02",
+    3624
+   ],
+   [
+    "2026-03",
+    5381
+   ],
+   [
+    "2026-04",
+    4981
+   ],
+   [
+    "2026-05",
+    4712
+   ],
+   [
+    "2026-06",
+    5170
+   ],
+   [
+    "2026-07",
+    5795
+   ],
+   [
+    "2026-08",
+    5306
+   ],
+   [
+    "2026-09",
+    4502
+   ],
+   [
+    "2026-10",
+    4786
+   ],
+   [
+    "2026-11",
+    841
+   ]
+  ],
+  "mes_pagamento": [
+   [
+    "",
+    19743
+   ],
+   [
+    "2023-07",
+    4
+   ],
+   [
+    "2026-01",
+    1864
+   ],
+   [
+    "2026-02",
+    2046
+   ],
+   [
+    "2026-03",
+    3000
+   ],
+   [
+    "2026-04",
+    2975
+   ],
+   [
+    "2026-05",
+    2960
+   ],
+   [
+    "2026-06",
+    3224
+   ],
+   [
+    "2026-07",
+    3517
+   ],
+   [
+    "2026-08",
+    3486
+   ],
+   [
+    "2026-09",
+    3253
+   ],
+   [
+    "2026-10",
+    3132
+   ],
+   [
+    "2026-11",
+    480
+   ]
+  ],
+  "perc": [
+   [
+    "100.0000",
+    46713
+   ],
+   [
+    "50.0000",
+    1109
+   ],
+   [
+    "25.0000",
+    235
+   ],
+   [
+    "10.0000",
+    158
+   ],
+   [
+    "20.0000",
+    75
+   ],
+   [
+    "16.6666",
+    71
+   ],
+   [
+    "33.3333",
+    66
+   ],
+   [
+    "33.3300",
+    52
+   ],
+   [
+    "75.0000",
+    51
+   ],
+   [
+    "12.5000",
+    45
+   ]
+  ]
+ }
+}
