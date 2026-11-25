@@ -670,6 +670,7 @@ def chave_bairro_site(nome):
 def entorno_html(ind: dict, nome_b: str, nome_c: str, s: str) -> str:
     if not ind:
         return ""
+    poli = any(isinstance(ind[c][2], dict) and ind[c][2].get("modo") == "dentro" for c in ("estacoes", "shoppings") if c in ind)
     linhas = []
     for cat, rot, tipo in ITENS_ENTORNO:
         if cat not in ind:
@@ -677,6 +678,7 @@ def entorno_html(ind: dict, nome_b: str, nome_c: str, s: str) -> str:
         v, p, nome = ind[cat]
         if tipo == "n":
             val = nf(round(v))
+            rot = f"{rot}<small>{'média a até 1 km' if poli else 'a até 1 km do ponto do bairro'}</small>"
             if p >= 0.999:
                 comp = "o maior número entre os bairros"
             elif p <= 0.001:
@@ -715,9 +717,9 @@ def entorno_html(ind: dict, nome_b: str, nome_c: str, s: str) -> str:
         return ""
     dentro = any(isinstance(ind[c][2], dict) and ind[c][2].get("modo") == "dentro" for c in ("estacoes", "shoppings") if c in ind)
     if dentro:
-        intro = ("Contamos o que há a até 1 km de vários pontos espalhados pelo bairro e tiramos a média, para um bairro "
-                 "grande não levar vantagem só por ser grande. Em estações e shoppings, os nomes são os que ficam dentro "
-                 "do bairro, e a comparação é por quanto do bairro fica a até 1 km de um deles.")
+        intro = ("Nada aqui é contado só dentro do bairro, senão bairro grande ganharia por ser grande. Medimos o que "
+                 "fica a até 1 km (em linha reta) de pontos espalhados pelo bairro inteiro e tiramos a média. Em estações e shoppings, a comparação "
+                 "é por quanto do bairro fica a até 1 km de um deles; os nomes são os que ficam dentro do bairro.")
     else:
         intro = "Quantos há a até 1 km do ponto do bairro (estações e shoppings: quantos e quais)."
     return f"""<section class="card" id="entorno"><h2>O que tem em volta de {esc(nome_b)}</h2>
