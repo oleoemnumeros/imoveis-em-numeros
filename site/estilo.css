@@ -367,3 +367,6 @@ h2[id],section[id]{scroll-margin-top:96px}
 .mapa-lista li.rot-c b{background:#14161A;color:#fff}
 .mapa-lista li a{font-weight:600;text-decoration:none}
 .mapa-lista li span{grid-column:2;font-size:13px;color:var(--muted)}
+table.entorno td .meter{max-width:220px}
+table.entorno td .s{font-size:13px;color:var(--muted);display:block}
+table.entorno td.r .s{display:block;font-size:12px;max-width:180px;white-space:normal;margin-left:auto}

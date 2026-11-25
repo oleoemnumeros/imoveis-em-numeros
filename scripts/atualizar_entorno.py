@@ -65,18 +65,30 @@ def main():
                 continue
         log(f"== {slug}")
         res = {"fonte": "OpenStreetMap", "baixado_em": dt.date.today().isoformat(), "cat": {}, "faltam": []}
+        if arq.exists():  # aproveita o que já veio numa rodada anterior
+            ant = json.loads(arq.read_text(encoding="utf-8"))
+            res["cat"] = ant.get("cat", {})
+            if ant.get("lugares"):
+                res["lugares"] = ant["lugares"]
         for cat, filtros in CATEGORIAS.items():
+            if cat in res["cat"] and not forcar:
+                continue
             try:
                 com_nome = cat in ("estacoes", "shoppings")
                 res["cat"][cat] = pontos(qid, filtros, com_nome)
                 log(f"  {cat}: {len(res['cat'][cat])}")
+                arq.write_text(json.dumps(res, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
             except Exception as e:  # noqa: BLE001
                 log(f"  ERRO {cat}: {e!r}")
                 res["faltam"].append(cat)
             time.sleep(3)
         try:
+            if res.get("lugares") and not forcar:
+                raise StopIteration
             res["lugares"] = pontos(qid, ['node["place"~"^(suburb|neighbourhood|quarter)$"]'], True)
             log(f"  lugares: {len(res['lugares'])}")
+        except StopIteration:
+            pass
         except Exception as e:  # noqa: BLE001
             log(f"  ERRO lugares: {e!r}")
             res["faltam"].append("lugares")

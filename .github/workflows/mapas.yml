@@ -40,6 +40,7 @@ jobs:
         run: python -u scripts/atualizar_mapas.py
       - name: Baixar o que tem em volta (escolas, saúde, mercados, transporte...)
         continue-on-error: true
+        timeout-minutes: 95
         env:
           FORCAR: ${{ (github.event_name == 'workflow_dispatch' && inputs.forcar) && '1' || '0' }}
         run: python -u scripts/atualizar_entorno.py

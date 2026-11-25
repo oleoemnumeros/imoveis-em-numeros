@@ -486,6 +486,124 @@ class Mapa:
 {self.credito(f' <a href="{u("/" + self.s + "/#mapa")}">Ver o mapa da cidade inteira</a>.')}</section>"""
 
 
+# ---------------------------------------------------------------- entorno (o que tem em volta)
+ENTORNO = RAIZ / "data" / "entorno"
+ITENS_ENTORNO = [  # categoria, rótulo, tipo ("n" = quantos num raio de 1 km; "d" = distância do mais próximo)
+    ("escolas", "Escolas e creches", "n"),
+    ("saude", "Hospitais, clínicas e postos de saúde", "n"),
+    ("mercados", "Supermercados e atacarejos", "n"),
+    ("farmacias", "Farmácias", "n"),
+    ("restaurantes", "Restaurantes, bares e cafés", "n"),
+    ("parques", "Parques e praças", "n"),
+    ("onibus", "Pontos de ônibus", "n"),
+    ("estacoes", "Estação de metrô, trem ou BRT mais próxima", "d"),
+    ("shoppings", "Shopping mais próximo", "d"),
+]
+
+
+def _dist(a, b):
+    import math
+    dx = (a[0] - b[0]) * 111320 * math.cos(math.radians(a[1]))
+    dy = (a[1] - b[1]) * 110540
+    return math.hypot(dx, dy)
+
+
+def calcular_entorno(s, c, mapa) -> dict:
+    """{chave do bairro: {categoria: (valor, percentil, nome)}}; percentil = parte dos bairros da cidade que
+    ficam atrás deste (menos itens, ou mais longe)."""
+    f = ENTORNO / f"{s}.json"
+    if not f.exists():
+        return {}
+    ent = json.loads(f.read_text(encoding="utf-8"))
+    cats = ent.get("cat", {})
+    # centro de cada bairro: ponto central do contorno; sem contorno, o ponto com o nome do bairro no OSM
+    centros = {}
+    if mapa.ok:
+        for k, bs in mapa.por_dado.items():
+            b = max(bs, key=lambda b: (b["bb"][2] - b["bb"][0]) * (b["bb"][3] - b["bb"][1]))
+            centros[k] = tuple(b["c"])
+    lugares = {}
+    for lon, lat, nome in ent.get("lugares", []):
+        lugares.setdefault(chave_bairro_site(nome), (lon, lat))
+    for k in c["bairros"]:
+        if k not in centros and k in lugares:
+            centros[k] = lugares[k]
+    if len(centros) < 10:
+        return {}
+    # grade simples para não comparar cada bairro com todos os pontos
+    def grade(pts):
+        g = {}
+        for p in pts:
+            g.setdefault((int(p[0] * 50), int(p[1] * 50)), []).append(p)
+        return g
+    grades = {cat: grade(cats[cat]) for cat, _, t in ITENS_ENTORNO if t == "n" and cats.get(cat)}
+    brutos = {}
+    for k, ctr in centros.items():
+        r = {}
+        gx, gy = int(ctr[0] * 50), int(ctr[1] * 50)
+        for cat, _, tipo in ITENS_ENTORNO:
+            pts = cats.get(cat)
+            if not pts:
+                continue
+            if tipo == "n":
+                g = grades[cat]
+                n = 0
+                for i in range(gx - 1, gx + 2):
+                    for j in range(gy - 1, gy + 2):
+                        n += sum(1 for p in g.get((i, j), ()) if _dist(ctr, p) <= 1000)
+                r[cat] = (n, None, "")
+            else:
+                melhor = min(pts, key=lambda p: _dist(ctr, p))
+                r[cat] = (_dist(ctr, melhor), None, melhor[2] if len(melhor) > 2 else "")
+        brutos[k] = r
+    out = {k: {} for k in brutos}
+    for cat, _, tipo in ITENS_ENTORNO:
+        vals = [brutos[k][cat][0] for k in brutos if cat in brutos[k]]
+        if len(vals) < 10:
+            continue
+        for k in brutos:
+            if cat not in brutos[k]:
+                continue
+            v, _, nome = brutos[k][cat]
+            if tipo == "n":
+                atras = sum(1 for x in vals if x < v) + 0.5 * (sum(1 for x in vals if x == v) - 1)
+            else:
+                atras = sum(1 for x in vals if x > v) + 0.5 * (sum(1 for x in vals if x == v) - 1)
+            out[k][cat] = (v, atras / max(len(vals) - 1, 1), nome)
+    return out
+
+
+def chave_bairro_site(nome):
+    import importlib
+    import sys as _s
+    _s.path.insert(0, str(Path(__file__).resolve().parent))
+    return importlib.import_module("atualizar").chave_bairro(nome)
+
+
+def entorno_html(ind: dict, nome_b: str, nome_c: str, s: str) -> str:
+    if not ind:
+        return ""
+    linhas = []
+    for cat, rot, tipo in ITENS_ENTORNO:
+        if cat not in ind:
+            continue
+        v, p, nome = ind[cat]
+        if tipo == "n":
+            val = nf(v)
+            comp = f"mais que {pct(p, 0)} dos bairros" if p >= 0.5 else f"menos que {pct(1 - p, 0)} dos bairros"
+        else:
+            val = (f"{nf(v / 1000, 1)} km" if v >= 1000 else f"{nf(round(v / 50) * 50)} m") + (f" <span class='s'>{esc(nome)}</span>" if nome else "")
+            comp = f"mais perto que {pct(p, 0)} dos bairros" if p >= 0.5 else f"mais longe que {pct(1 - p, 0)} dos bairros"
+        barra = f'<div class="meter"><div class="bar"><i style="width:{p * 100:.0f}%"></i></div></div>'
+        linhas.append(f'<tr><td class="wrap">{rot}</td><td class="r num">{val}</td><td class="wrap">{barra}<span class="s">{comp}</span></td></tr>')
+    if not linhas:
+        return ""
+    return f"""<section class="card" id="entorno"><h2>O que tem em volta de {esc(nome_b)}</h2>
+<p class="small">Contagem num raio de 1 km do centro do bairro, comparada com os outros bairros {esc(de_(nome_c))}. A barra mostra quantos bairros ficam atrás.</p>
+<div class="tw"><table class="entorno"><thead><tr><th>Item</th><th class="r">Até 1 km</th><th>Comparação com os bairros {esc(de_(nome_c))}</th></tr></thead><tbody>{"".join(linhas)}</tbody></table></div>
+<p class="small">Fonte: © colaboradores do <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>, mapa colaborativo: pode faltar algum estabelecimento, mas a falta tende a ser parecida entre bairros da mesma cidade. Centro do bairro = ponto central do contorno no mapa{" (em São Paulo, o ponto que o OpenStreetMap marca com o nome do bairro)" if s == "sao-paulo" else ""}.</p></section>"""
+
+
 # ---------------------------------------------------------------- página
 NAV = [("/", "Início")]
 
@@ -789,6 +907,7 @@ class Site:
 <div class="card"><h2>Preço do m² mês a mês</h2>{grafico_m2(meses, m2_mm, f'Metro quadrado mediano em {nb}, média móvel de 3 meses')}
 <p class="small">Média móvel de 3 meses; meses com menos de 5 vendas ficam de fora.</p></div>
 </section>
+{entorno_html(self.entorno.get(s, {}).get(chave_k, {}), nb, nome_c, s)}
 {extras_html}
 {faq}
 <section class="card"><h2>Sobre estes números</h2>
@@ -859,6 +978,7 @@ class Site:
         SAIDA.mkdir(parents=True)
         self.inicio()
         self.mapas = {s: Mapa(s, c) for s, c in self.cidades.items()}
+        self.entorno = {s: calcular_entorno(s, c, self.mapas[s]) for s, c in self.cidades.items()}
         for s, c in self.cidades.items():
             self.cidade(s, c)
         self.sobre()
