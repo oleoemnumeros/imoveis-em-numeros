@@ -503,6 +503,7 @@ ITENS_ENTORNO = [  # categoria, rótulo, tipo ("n" = quantos num raio de 1 km; "
 
 PESOS_PADRAO = {"escolas": 3, "saude": 2, "mercados": 2, "farmacias": 1, "restaurantes": 1, "parques": 2,
                 "onibus": 1, "estacoes": 3, "shoppings": 1, "valor": 3}
+RANKING = False  # desligado: estrutura + preço não bastam para um ranking bom; volta com mais dados (segurança etc.)
 PARTE_VALOR = 0.222  # cada ponto do controle "valorização" = 22% da nota (3 = 67%); o resto é a estrutura
 ROTULO_CURTO = {"escolas": "Escolas e creches", "saude": "Saúde", "mercados": "Supermercados", "farmacias": "Farmácias",
                 "restaurantes": "Restaurantes e bares", "parques": "Parques e praças", "onibus": "Pontos de ônibus",
@@ -888,7 +889,7 @@ class Site:
         vn = var(ci.get("n12"), ci.get("n12_ant"))
         bairros = sorted(c["bairros"].items(), key=lambda kv: -kv[1]["n12"])
         nome = c["nome"]
-        n_rank = self.ranking(s, c)
+        n_rank = self.ranking(s, c) if RANKING else 0
 
         tiles = '<div class="tiles">' + "".join([
             tile("m² mediano (12 meses)", f"R$ {nf(ci.get('m2_12'))}", (seta(vm) + " em 1 ano") if vm is not None else ""),
