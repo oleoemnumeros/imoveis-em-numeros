@@ -339,9 +339,9 @@ h2[id],section[id]{scroll-margin-top:96px}
 @media (max-width:600px){.m-esc{display:none}}
 .mapa-m2 svg{width:100%;height:auto;display:block;max-height:78vh}
 .mapa-m2 path{stroke:#fff;stroke-width:.6;stroke-linejoin:round}
-.mapa-m2 path.sd{fill:#F1F1F4}
+.mapa-m2 path.sd{fill:url(#sd)}
 .mapa-m2 a:hover path,.mapa-m2 a:focus path{stroke:#14161A;stroke-width:1.6}
 .legenda-m2{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--ink2)}
 .legenda-m2 li{display:flex;align-items:center;gap:6px}
 .legenda-m2 i{width:14px;height:14px;border-radius:3px;display:inline-block;border:1px solid #DDD6EE}
-.legenda-m2 i.sd{background:#F1F1F4}
+.legenda-m2 i.sd{background:repeating-linear-gradient(45deg,#F7F7F9 0 3px,#D5D5DD 3px 5px)}

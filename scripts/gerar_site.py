@@ -287,27 +287,33 @@ def curva_html(b: dict, cidade_m2: int | None, nome: str) -> str:
 
 
 # ---------------------------------------------------------------- mapa
-CORES_MAPA = ["#EDE7F8", "#CDBDEE", "#A88CDD", "#8459C6", "#5B2EA6"]
+CORES_MAPA = ["#E2D8F5", "#C3AEEB", "#9F7FDB", "#7A52C7", "#4E2496"]
 MAPAS = RAIZ / "data" / "mapas"
 
 
 def casar_bairros(mapa_bairros, dados_bairros):
-    """{chave do contorno: chave do ITBI}, pelo nome exato, pelo começo do nome ou por semelhança."""
-    import difflib
-    ks = list(dados_bairros.keys())
+    """{chave do contorno: chave do ITBI}: nome igual depois de tirar "de/da/do" e espaços e de abrir
+    abreviações (JAR, STA, STO); ou nome do ITBI cortado no limite de caracteres da base (15)."""
+    def norm(k):
+        ab = {"JAR": "JARDIM", "JD": "JARDIM", "STA": "SANTA", "STO": "SANTO", "VL": "VILA", "PQ": "PARQUE"}
+        ps = [ab.get(p, p) for p in k.split() if p not in ("DE", "DA", "DO", "DAS", "DOS", "E")]
+        return "".join(ps)
+    por_norm = {}
+    for k in dados_bairros:
+        por_norm.setdefault(norm(k), k)
     par = {}
     for b in mapa_bairros:
         k = b["k"]
         if k in dados_bairros:
             par[k] = k
             continue
-        cand = [x for x in ks if len(x) >= 8 and len(k) >= 8 and (x.startswith(k) or k.startswith(x))]
-        if len(cand) == 1:
-            par[k] = cand[0]
+        n = norm(k)
+        if n in por_norm:
+            par[k] = por_norm[n]
             continue
-        m = difflib.get_close_matches(k, ks, n=1, cutoff=0.88)
-        if m:
-            par[k] = m[0]
+        cortados = [x for x in dados_bairros if len(x) == 15 and n.startswith(norm(x))]
+        if len(cortados) == 1:
+            par[k] = cortados[0]
     return par
 
 
@@ -345,14 +351,14 @@ def mapa_html(s, c) -> str:
             partes.append(f'<a href="{u(f"/{s}/{slug(dados[k]["nome"])}/")}"><path d="{d}" fill="{CORES_MAPA[cls]}"><title>{esc(tit)}</title></path></a>')
             usados += 1
         else:
-            partes.append(f'<path class="sd" d="{d}"><title>{esc(nome_bonito(b["nome"]))}: poucas vendas no período</title></path>')
+            partes.append(f'<path class="sd" d="{d}"><title>{esc(nome_bonito(b["nome"]))}: sem dados ou poucas vendas no período</title></path>')
     faixas = [f"até R$ {nf(cortes[0])}"] + [f"R$ {nf(cortes[i])} a {nf(cortes[i + 1])}" for i in range(3)] + [f"acima de R$ {nf(cortes[3])}"]
     leg = "".join(f'<li><i style="background:{CORES_MAPA[i]}"></i>{t}</li>' for i, t in enumerate(faixas))
-    leg += '<li><i class="sd"></i>poucas vendas</li>'
+    leg += '<li><i class="sd"></i>sem dados ou poucas vendas</li>'
     nivel = "distritos" if mp.get("nivel") == 9 else "bairros"
     return f"""<section class="card" id="mapa"><h2>Mapa do preço do m² {esc(em_(c['nome']))}</h2>
 <p class="small">Quanto mais escuro, mais caro o metro quadrado (mediana dos últimos 12 meses). Toque num bairro para abrir a página dele.</p>
-<div class="mapa-m2"><svg viewBox="0 0 {W} {H:.0f}" role="img" aria-label="Mapa do preço do metro quadrado por bairro {esc(em_(c['nome']))}">{"".join(partes)}</svg></div>
+<div class="mapa-m2"><svg viewBox="0 0 {W} {H:.0f}" role="img" aria-label="Mapa do preço do metro quadrado por bairro {esc(em_(c['nome']))}"><defs><pattern id="sd" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#F7F7F9"/><line x1="0" y1="0" x2="0" y2="6" stroke="#D5D5DD" stroke-width="2"/></pattern></defs>{"".join(partes)}</svg></div>
 <ul class="legenda-m2">{leg}</ul>
 <p class="small">Contornos dos {nivel}: © colaboradores do <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>. {usados} de {len(mp['bairros'])} áreas com dados.</p></section>"""
 
