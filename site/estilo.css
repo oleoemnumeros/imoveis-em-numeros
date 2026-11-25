@@ -1,4 +1,4 @@
-:root{color-scheme:only light;
+:root{color-scheme:light dark;
   --ink:#14161A;--ink2:#3D424A;--muted:#5A6070;--line:#DFE6EC;--line2:#EAEFF3;
   --bg:#F6F5FA;--card:#FFFFFF;--acc:#7A52C7;--acc-d:#5B36A8;--acc-l:#EFE9FA;--acc-ink:#2E1A5C;--acc-sobre:#FFFFFF;
   --warn:#C2410C;--good:#15803D;--bad:#B91C1C;--dark:#0E2A40;
@@ -379,3 +379,29 @@ ul.entorno li{padding:10px 0;border-top:1px solid var(--line2);display:flex;flex
 .en-b{height:8px;border-radius:99px;background:var(--line2)}
 .en-b i{display:block;height:8px;border-radius:99px;background:var(--acc)}
 .en-c{font-size:13px;color:var(--muted)}
+
+/* Tema escuro de verdade: com ele declarado, o navegador do celular não "escurece" o site por conta própria
+   (era isso que deixava as barras quase invisíveis). */
+@media (prefers-color-scheme: dark){
+  :root{--ink:#ECEAF3;--ink2:#CFCBDD;--muted:#A9A5BA;--line:#363341;--line2:#2B2935;
+    --bg:#121118;--card:#1C1B24;--acc:#A98BEA;--acc-d:#C8B4F6;--acc-l:#2A2240;--acc-ink:#E8DFFC;--acc-sobre:#16121F;
+    --warn:#FB923C;--good:#4ADE80;--bad:#F87171;--dark:#0B1A27}
+  .busca input,.comp input,.filtro,.pr-in,.pr-sel,.rs select{background:var(--card);color:var(--ink);border-color:#4A4658}
+  .btn.sec,.atalhos a{background:var(--card);border-color:#4A4658}
+  .btn:hover{color:var(--acc-sobre)}
+  .card.aviso{border-color:#4A3D6E}
+  .tag.w,.termo.q{background:#3B2418;color:#FDBA8C}
+  .termo.f{background:#172A45;color:#93C5FD}
+  .termo.e{background:#2B2935;color:#CFCBDD}
+  .pr-res,.pr-res.good,.pr-res.bad,details.calc[open] summary{background:#24222E}
+  details.calc{background:var(--card);border-color:#4A4658}
+  .atalhos span{color:var(--muted)}
+  footer{background:#0B0A10}
+  /* mapas: o contorno separa os bairros com a cor do fundo; etiquetas continuam claras para ler bem */
+  .mapa-m2 path{stroke:var(--card)}
+  .mapa-m2 path.sd,.legenda-m2 i.sd{fill:#34313F;background:#34313F}
+  .mapa-m2 a:hover path,.mapa-m2 a:focus path,.mapa-m2 path.eu{stroke:#FFFFFF}
+  .mapa-m2 .pt{fill:#FFFFFF;stroke:#14161A}
+  .legenda-m2 i{border-color:#4A4658}
+  .previa{background:#2A2240}
+}

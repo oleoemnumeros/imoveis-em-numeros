@@ -787,7 +787,7 @@ class Site:
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="only light">
+<meta name="color-scheme" content="light dark">
 <title>{esc(titulo)}</title>
 <meta name="description" content="{esc(descricao)}">
 {robots}
