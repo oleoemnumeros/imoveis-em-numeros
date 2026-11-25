@@ -345,3 +345,10 @@ h2[id],section[id]{scroll-margin-top:96px}
 .legenda-m2 li{display:flex;align-items:center;gap:6px}
 .legenda-m2 i{width:14px;height:14px;border-radius:3px;display:inline-block;border:1px solid #DDD6EE}
 .legenda-m2 i.sd{background:repeating-linear-gradient(45deg,#F7F7F9 0 3px,#D5D5DD 3px 5px)}
+.mapa-m2 path{vector-effect:non-scaling-stroke}
+.mapa-m2 path.eu{stroke:#14161A;stroke-width:2.6}
+.mapa-m2 text{font-family:Inter,system-ui,sans-serif;font-weight:600;fill:#14161A;paint-order:stroke;stroke:#fff;stroke-width:.25em;stroke-linejoin:round;pointer-events:none}
+.mapa-m2 text.rot-c{fill:#3B1A78}
+.mapa-m2 text.rot-eu{font-weight:700}
+.mapa-m2 .pt{fill:#14161A;stroke:#fff;stroke-width:.6px;vector-effect:non-scaling-stroke;pointer-events:none}
+.mapa-m2.zoom svg{max-height:60vh}

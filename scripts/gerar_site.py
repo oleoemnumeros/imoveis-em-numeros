@@ -317,50 +317,160 @@ def casar_bairros(mapa_bairros, dados_bairros):
     return par
 
 
-def mapa_html(s, c) -> str:
-    f = MAPAS / f"{s}.json"
-    if not f.exists():
-        return ""
-    mp = json.loads(f.read_text(encoding="utf-8"))
-    dados = c["bairros"]
-    par = casar_bairros(mp["bairros"], dados)
-    vals = sorted(dados[par[b["k"]]]["m2_12"] for b in mp["bairros"] if b["k"] in par and dados[par[b["k"]]].get("m2_12"))
-    if len(vals) < 8:
-        return ""
-    cortes = [vals[int(len(vals) * q)] for q in (0.2, 0.4, 0.6, 0.8)]
-    xs = [x for b in mp["bairros"] for a in b["p"] for x, _ in a]
-    ys = [y for b in mp["bairros"] for a in b["p"] for _, y in a]
-    import math
-    lat0 = (min(ys) + max(ys)) / 2
-    kx = math.cos(math.radians(lat0))
-    W = 640
-    esc_ = W / ((max(xs) - min(xs)) * kx)
-    H = (max(ys) - min(ys)) * esc_ + 2
+PADRAO_SD = ('<defs><pattern id="sd" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">'
+             '<rect width="6" height="6" fill="#F7F7F9"/><line x1="0" y1="0" x2="0" y2="6" stroke="#D5D5DD" stroke-width="2"/></pattern></defs>')
 
-    def pt(x, y):
-        return f"{(x - min(xs)) * kx * esc_:.1f} {(max(ys) - y) * esc_ + 1:.1f}"
-    partes = []
-    usados = 0
-    for b in mp["bairros"]:
-        d = " ".join("M" + " L".join(pt(x, y) for x, y in a) + "Z" for a in b["p"])
-        k = par.get(b["k"])
-        if k and dados[k].get("m2_12"):
-            v = dados[k]["m2_12"]
-            cls = sum(1 for x in cortes if v > x)
-            tit = f"{nome_bonito(dados[k]['nome'])}: R$ {nf(v)}/m² ({nf(dados[k]['n12'])} vendas em 12 meses)"
-            partes.append(f'<a href="{u(f"/{s}/{slug(dados[k]["nome"])}/")}"><path d="{d}" fill="{CORES_MAPA[cls]}"><title>{esc(tit)}</title></path></a>')
-            usados += 1
-        else:
-            partes.append(f'<path class="sd" d="{d}"><title>{esc(nome_bonito(b["nome"]))}: sem dados ou poucas vendas no período</title></path>')
-    faixas = [f"até R$ {nf(cortes[0])}"] + [f"R$ {nf(cortes[i])} a {nf(cortes[i + 1])}" for i in range(3)] + [f"acima de R$ {nf(cortes[3])}"]
-    leg = "".join(f'<li><i style="background:{CORES_MAPA[i]}"></i>{t}</li>' for i, t in enumerate(faixas))
-    leg += '<li><i class="sd"></i>sem dados ou poucas vendas</li>'
-    nivel = "distritos" if mp.get("nivel") == 9 else "bairros"
-    return f"""<section class="card" id="mapa"><h2>Mapa do preço do m² {esc(em_(c['nome']))}</h2>
-<p class="small">Quanto mais escuro, mais caro o metro quadrado (mediana dos últimos 12 meses). Toque num bairro para abrir a página dele.</p>
-<div class="mapa-m2"><svg viewBox="0 0 {W} {H:.0f}" role="img" aria-label="Mapa do preço do metro quadrado por bairro {esc(em_(c['nome']))}"><defs><pattern id="sd" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#F7F7F9"/><line x1="0" y1="0" x2="0" y2="6" stroke="#D5D5DD" stroke-width="2"/></pattern></defs>{"".join(partes)}</svg></div>
-<ul class="legenda-m2">{leg}</ul>
-<p class="small">Contornos dos {nivel}: © colaboradores do <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>. {usados} de {len(mp['bairros'])} áreas com dados.</p></section>"""
+
+class Mapa:
+    """Contornos de uma cidade casados com os bairros do ITBI, projetados para SVG (640 de largura)."""
+    W = 640
+
+    def __init__(self, s, c):
+        import math
+        self.s, self.c = s, c
+        self.ok = False
+        f = MAPAS / f"{s}.json"
+        if not f.exists():
+            return
+        mp = json.loads(f.read_text(encoding="utf-8"))
+        self.nivel = mp.get("nivel")
+        self.areas = mp["bairros"]
+        self.dados = c["bairros"]
+        self.par = casar_bairros(self.areas, self.dados)
+        vals = sorted(self.dados[self.par[b["k"]]]["m2_12"] for b in self.areas
+                      if b["k"] in self.par and self.dados[self.par[b["k"]]].get("m2_12"))
+        if len(vals) < 8:
+            return
+        self.cortes = [vals[int(len(vals) * q)] for q in (0.2, 0.4, 0.6, 0.8)]
+        xs = [x for b in self.areas for a in b["p"] for x, _ in a]
+        ys = [y for b in self.areas for a in b["p"] for _, y in a]
+        self.x0, self.y1 = min(xs), max(ys)
+        self.kx = math.cos(math.radians((min(ys) + max(ys)) / 2))
+        self.e = self.W / ((max(xs) - min(xs)) * self.kx)
+        self.H = (max(ys) - min(ys)) * self.e + 2
+        # projeta tudo uma vez
+        for b in self.areas:
+            b["xy"] = [[self.xy(x, y) for x, y in a] for a in b["p"]]
+            b["cxy"] = self.xy(*b["c"])
+            todos = [q for a in b["xy"] for q in a]
+            b["bb"] = (min(q[0] for q in todos), min(q[1] for q in todos), max(q[0] for q in todos), max(q[1] for q in todos))
+        self.por_dado = {}
+        for b in self.areas:
+            if b["k"] in self.par:
+                self.por_dado.setdefault(self.par[b["k"]], []).append(b)
+        self.ok = True
+
+    def xy(self, x, y):
+        return ((x - self.x0) * self.kx * self.e, (self.y1 - y) * self.e + 1)
+
+    def classe(self, k):
+        v = self.dados[k].get("m2_12")
+        return None if v is None else sum(1 for x in self.cortes if v > x)
+
+    def path(self, b, dec=1):
+        return " ".join("M" + " L".join(f"{x:.{dec}f} {y:.{dec}f}" for x, y in a) + "Z" for a in b["xy"])
+
+    def area_svg(self, b, dec=1, destaque=False):
+        d = self.path(b, dec)
+        k = self.par.get(b["k"])
+        if k and self.dados[k].get("m2_12"):
+            dd = self.dados[k]
+            tit = f"{nome_bonito(dd['nome'])}: R$ {nf(dd['m2_12'])}/m² ({nf(dd['n12'])} vendas em 12 meses)"
+            extra = ' class="eu"' if destaque else ""
+            return (f'<a href="{u(f"/{self.s}/{slug(dd["nome"])}/")}"><path{extra} d="{d}" fill="{CORES_MAPA[self.classe(k)]}">'
+                    f'<title>{esc(tit)}</title></path></a>')
+        return f'<path class="sd" d="{d}"><title>{esc(nome_bonito(b["nome"]))}: sem dados ou poucas vendas no período</title></path>'
+
+    def legenda(self):
+        cs = self.cortes
+        faixas = [f"até R$ {nf(cs[0])}"] + [f"R$ {nf(cs[i])} a {nf(cs[i + 1])}" for i in range(3)] + [f"acima de R$ {nf(cs[3])}"]
+        leg = "".join(f'<li><i style="background:{CORES_MAPA[i]}"></i>{t}</li>' for i, t in enumerate(faixas))
+        return f'<ul class="legenda-m2">{leg}<li><i class="sd"></i>sem dados ou poucas vendas</li></ul>'
+
+    def credito(self, extra=""):
+        nivel = "distritos" if self.nivel == 9 else "bairros"
+        return (f'<p class="small">Contornos dos {nivel}: © colaboradores do <a href="https://www.openstreetmap.org/copyright" '
+                f'rel="noopener">OpenStreetMap</a>.{extra}</p>')
+
+    @staticmethod
+    def rotulos(itens, fs, limite):
+        """itens: (x, y, texto, classe). Põe o nome ao lado do ponto, sem sobrepor outro nome."""
+        postos, out = [], []
+        for x, y, t, cls in itens:
+            w, h = len(t) * fs * 0.56, fs * 1.2
+            for dx, dy, anc in ((fs * 0.6, fs * 0.35, "start"), (-fs * 0.6, fs * 0.35, "end"),
+                                (0, -fs * 0.7, "middle"), (0, fs * 1.4, "middle")):
+                x0 = x + dx if anc == "start" else x + dx - w if anc == "end" else x - w / 2
+                caixa = (x0, y + dy - h * 0.8, x0 + w, y + dy + h * 0.2)
+                if caixa[0] < 0 or caixa[2] > limite[0] or caixa[1] < 0 or caixa[3] > limite[1]:
+                    continue
+                if any(not (caixa[2] < p[0] or caixa[0] > p[2] or caixa[3] < p[1] or caixa[1] > p[3]) for p in postos):
+                    continue
+                postos.append(caixa)
+                out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{fs * 0.22:.1f}" class="pt"/>'
+                           f'<text x="{x + dx:.1f}" y="{y + dy:.1f}" text-anchor="{anc}" font-size="{fs:.1f}" class="{cls}">{esc(t)}</text>')
+                break
+        return "".join(out)
+
+    def cidade_html(self) -> str:
+        if not self.ok:
+            return ""
+        partes = [self.area_svg(b) for b in self.areas]
+        # nomes: os 5 bairros com mais vendas e os 5 mais caros (com pelo menos 30 vendas)
+        com = [k for k in self.por_dado if self.dados[k].get("m2_12")]
+        mais_vendas = sorted(com, key=lambda k: -self.dados[k]["n12"])[:5]
+        caros = [k for k in sorted(com, key=lambda k: -self.dados[k]["m2_12"]) if self.dados[k]["n12"] >= 30 and k not in mais_vendas][:5]
+        itens = []
+        for k in mais_vendas + caros:
+            b = max(self.por_dado[k], key=lambda b: (b["bb"][2] - b["bb"][0]) * (b["bb"][3] - b["bb"][1]))
+            itens.append((b["cxy"][0], b["cxy"][1], nome_bonito(self.dados[k]["nome"]), "rot-c" if k in caros else "rot-v"))
+        rot = self.rotulos(itens, 19, (self.W, self.H))
+        nome = self.c["nome"]
+        return f"""<section class="card" id="mapa"><h2>Mapa do preço do m² {esc(em_(nome))}</h2>
+<p class="small">Quanto mais escuro, mais caro o metro quadrado (mediana dos últimos 12 meses). Com nome: os 5 bairros com mais vendas e os 5 mais caros. Toque num bairro para abrir a página dele.</p>
+<div class="mapa-m2"><svg viewBox="0 0 {self.W} {self.H:.0f}" role="img" aria-label="Mapa do preço do metro quadrado por bairro {esc(em_(nome))}">{PADRAO_SD}{"".join(partes)}<g class="rotulos">{rot}</g></svg></div>
+{self.legenda()}
+{self.credito(f" {sum(1 for b in self.areas if b['k'] in self.par)} de {len(self.areas)} áreas com dados.")}</section>"""
+
+    def bairro_html(self, k) -> str:
+        if not self.ok or k not in self.por_dado:
+            return ""
+        meus = self.por_dado[k]
+        bx0 = min(b["bb"][0] for b in meus); by0 = min(b["bb"][1] for b in meus)
+        bx1 = max(b["bb"][2] for b in meus); by1 = max(b["bb"][3] for b in meus)
+        cx, cy = (bx0 + bx1) / 2, (by0 + by1) / 2
+        # janela: 3 vezes o tamanho do bairro, no mínimo 1/6 da largura da cidade, proporção entre 4:3 e 1:1
+        lado = max(bx1 - bx0, by1 - by0) * 3
+        lado = max(lado, self.W / 6)
+        w, h = lado, lado * 0.8
+        vx, vy = cx - w / 2, cy - h / 2
+        vis = [b for b in self.areas if not (b["bb"][2] < vx or b["bb"][0] > vx + w or b["bb"][3] < vy or b["bb"][1] > vy + h)]
+        partes = [self.area_svg(b, dec=2) for b in vis if b not in meus] + [self.area_svg(b, dec=2, destaque=True) for b in meus]
+        fs = w / 640 * 21
+        # nome do próprio bairro primeiro; depois os vizinhos com dados mais próximos
+        dd = self.dados[k]
+        grande = max(meus, key=lambda b: (b["bb"][2] - b["bb"][0]) * (b["bb"][3] - b["bb"][1]))
+        itens = [(grande["cxy"][0] - vx, grande["cxy"][1] - vy, nome_bonito(dd["nome"]), "rot-eu")]
+        viz = []
+        for b in vis:
+            kk = self.par.get(b["k"])
+            if b in meus or not kk or not self.dados[kk].get("m2_12"):
+                continue
+            x, y = b["cxy"]
+            if vx < x < vx + w and vy < y < vy + h:
+                viz.append(((x - cx) ** 2 + (y - cy) ** 2, x - vx, y - vy, nome_bonito(self.dados[kk]["nome"])))
+        vistos = set()
+        for _, x, y, t in sorted(viz)[:12]:
+            if t not in vistos:
+                vistos.add(t)
+                itens.append((x, y, t, "rot-v"))
+        rot = self.rotulos(itens, fs, (w, h))
+        nome_b = nome_bonito(dd["nome"])
+        return f"""<section class="card" id="mapa"><h2>{esc(nome_b)} e os bairros vizinhos</h2>
+<p class="small">Quanto mais escuro, mais caro o metro quadrado. Toque num vizinho para comparar.</p>
+<div class="mapa-m2 zoom"><svg viewBox="{vx:.1f} {vy:.1f} {w:.1f} {h:.1f}" role="img" aria-label="Mapa de {esc(nome_b)} e dos bairros vizinhos">{PADRAO_SD}{"".join(partes)}<g class="rotulos" transform="translate({vx:.1f} {vy:.1f})">{rot}</g></svg></div>
+{self.legenda()}
+{self.credito(f' <a href="{u("/" + self.s + "/#mapa")}">Ver o mapa da cidade inteira</a>.')}</section>"""
 
 
 # ---------------------------------------------------------------- página
@@ -580,7 +690,7 @@ class Site:
 <p class="small">Mediana do m² de cada mês, em média móvel de 3 meses. Valor usado: {vtxt[0]}.</p></div>
 <div class="card"><h2>Dinheiro movimentado</h2>{grafico_valor(meses, ci['valor'], f'Valor movimentado por mês {em_(nome)}')}</div>
 </section>
-{mapa_html(s, c)}
+{self.mapas[s].cidade_html()}
 {curva}
 <section class="card" id="bairros"><h2>Todos os bairros {esc(de_(nome))}</h2>
 <input class="filtro" type="search" placeholder="Filtrar bairro" aria-label="Filtrar bairro" data-filtro="tab-bairros">
@@ -600,10 +710,10 @@ class Site:
                     f"Preço real por bairro, vendas mês a mês e mercado aquecendo ou esfriando, com dados do ITBI.",
                     corpo, ativo=f"/{s}/", migalhas=[(None, nome)], media=bool(c.get("agregado")))
         for k, b in bairros:
-            self.bairro(s, c, b)
+            self.bairro(s, c, b, k)
 
     # ------------------------------------------------------------ bairro
-    def bairro(self, s, c, b):
+    def bairro(self, s, c, b, chave_k):
         meses = c["meses"]
         nome_c = c["nome"]
         nb = nome_bonito(b["nome"])
@@ -658,6 +768,7 @@ class Site:
 <p class="lead">Nos últimos 12 meses, {nf(b['n12'])} imóveis foram vendidos em {esc(nb)} com metro quadrado mediano de <strong>R$ {nf(b.get('m2_12'))}</strong>{', ' + frase_rel if frase_rel else ''}.{faixa}</p>
 </section>
 {tiles}
+{self.mapas[s].bairro_html(chave_k)}
 {curva_html(b, ci.get('m2_12'), nb) if not c.get('agregado') else ''}
 <section class="grid2">
 <div class="card"><h2>Vendas por mês</h2>{grafico_vendas(meses, b['n'], f'Vendas por mês em {nb}')}</div>
@@ -733,6 +844,7 @@ class Site:
             shutil.rmtree(SAIDA)
         SAIDA.mkdir(parents=True)
         self.inicio()
+        self.mapas = {s: Mapa(s, c) for s, c in self.cidades.items()}
         for s, c in self.cidades.items():
             self.cidade(s, c)
         self.sobre()
