@@ -519,7 +519,9 @@ def calcular_entorno(s, c, mapa) -> dict:
     # "shop=mall" no OpenStreetMap inclui galerias pequenas: para "shopping mais próximo", só os com nome de shopping
     import re as _re
     cats["shoppings"] = [p for p in cats.get("shoppings", [])
-                         if len(p) > 2 and _re.search(r"shopping|mall|plaza|outlet|center|centre", p[2], _re.I)]
+                         if len(p) > 2 and _re.search(r"shopping|mall|plaza|outlet|center|centre", p[2], _re.I)
+                         and not _re.match(r"\s*(condom[ií]nio|edif[ií]cio|residencial)", p[2], _re.I)
+                         and not _re.search(r"estacionamento|parking", p[2], _re.I)]
     # centro de cada bairro: ponto central do contorno; sem contorno, o ponto com o nome do bairro no OSM
     centros, poligonos = {}, {}
     if mapa.ok:
@@ -578,14 +580,15 @@ def calcular_entorno(s, c, mapa) -> dict:
             nomes, vistos = [], set()
             for p in dentro:
                 nm = limpa_nome(p[2] if len(p) > 2 else "")
-                ch = chave_bairro_site(nm) if nm else None
+                ch = chave_bairro_site(nm) if _nome_ok(nm) else None
                 if ch and ch not in vistos:
                     vistos.add(ch)
                     nomes.append(nm)
             info = {"nomes": nomes, "modo": modo, "qtd": len(nomes) if nomes else len(dentro),
                     "cobre": float((por_ponto > 0).mean())}
             if not dentro:
-                melhor = min(pts, key=lambda p: _dist(ctr, p))
+                bons = [p for p in pts if _nome_ok(limpa_nome(p[2] if len(p) > 2 else ""))] or pts
+                melhor = min(bons, key=lambda p: _dist(ctr, p))
                 info["mais_proxima"] = limpa_nome(melhor[2] if len(melhor) > 2 else "")
             r[cat] = (info["cobre"], None, info)
         brutos[k] = r
@@ -642,6 +645,11 @@ def _dentro(p, aneis) -> bool:
             if (y1 > y) != (y2 > y) and x < (x2 - x1) * (y - y1) / (y2 - y1) + x1:
                 d = not d
     return d
+
+
+def _nome_ok(nm: str) -> bool:
+    """Nome que serve para mostrar ("Move", "BRT", "Estação 2" não dizem qual é)."""
+    return bool(nm) and not re.fullmatch(r"(move|brt|esta[çc][ãa]o|terminal)?\s*\d*", nm.strip(), flags=re.I)
 
 
 def limpa_nome(nm: str) -> str:
