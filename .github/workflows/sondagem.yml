@@ -27,7 +27,7 @@ jobs:
       - name: Instalar dependências
         run: pip install requests==2.32.3 openpyxl==3.1.5
       - name: Sondar as prefeituras
-        run: python scripts/sondagem4.py
+        run: python scripts/sondagem_dns.py
       - name: Salvar no repositório
         run: |
           git config user.name "Imóveis em Números (robô)"
