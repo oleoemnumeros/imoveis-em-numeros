@@ -963,7 +963,7 @@ class Site:
         self.busca: list = []
 
     def nav(self, ativo):
-        itens = [("/", "Início")] + [(f"/{s}/", c["nome"]) for s, c in self.cidades.items()] + [("/itbi/", "Calculadora de ITBI"), ("/sobre/", "Como funciona")]
+        itens = [("/", "Início")] + [(f"/{s}/", c["nome"]) for s, c in self.cidades.items()] + [("/financiamento/", "Simular financiamento"), ("/itbi/", "Calculadora de ITBI"), ("/sobre/", "Como funciona")]
         return "".join(f'<a href="{u(h)}"' + (' aria-current="page"' if h == ativo else "") + f">{esc(t)}</a>" for h, t in itens)
 
     def pagina(self, caminho, titulo, descricao, corpo, ativo="", migalhas=None, jsonld=None, media=False) -> None:
@@ -1168,7 +1168,8 @@ class Site:
             extras.append(f"<li>Metade dos imóveis vendidos foi construída antes de <b>{ci['ano_med']}</b>.</li>")
         if s in ITBI_REGRAS and ci.get("ticket12"):
             extras.append(f'<li>Vai comprar? No preço mediano ({brl_curto(ci["ticket12"])}), o ITBI à vista fica em cerca de '
-                          f'<b>R$ {nf(itbi_calc(ITBI_REGRAS[s], ci["ticket12"]))}</b>. <a href="{u(f"/{s}/itbi/")}">Calcule o seu →</a></li>')
+                          f'<b>R$ {nf(itbi_calc(ITBI_REGRAS[s], ci["ticket12"]))}</b>. <a href="{u(f"/{s}/itbi/")}">Calcule o seu →</a> · '
+                          f'<a href="{u("/financiamento/")}?valor={round(ci["ticket12"])}&amp;cidade={s}">Simule o financiamento →</a></li>')
         extras_html = f'<section class="card"><h2>Outros números {esc(de_(nome))}</h2><ul>{"".join(extras)}</ul></section>' if extras else ""
 
         curva = curva_html(ci, None, nome) if not c.get("agregado") else ""
@@ -1333,6 +1334,8 @@ class Site:
         if s in ITBI_REGRAS and b.get("ticket12"):
             extras.append(f'<li>No preço mediano do bairro ({brl_curto(b["ticket12"])}), o ITBI à vista fica em cerca de '
                           f'<b>R$ {nf(itbi_calc(ITBI_REGRAS[s], b["ticket12"]))}</b>. <a href="{u(f"/{s}/itbi/")}">Calcule o seu →</a></li>')
+        if b.get("ticket12"):
+            extras.append(f'<li>Financiando 80% de {brl_curto(b["ticket12"])} em 30 anos: <a href="{u("/financiamento/")}?valor={round(b["ticket12"])}&amp;cidade={s}">simule a parcela com os juros de cada banco →</a></li>')
         extras_html = f'<section class="card"><h2>Outros números de {esc(nb)}</h2><ul>{"".join(extras)}</ul></section>' if extras else ""
         perguntas = [
             (f"Quanto custa o metro quadrado em {nb}?",
@@ -1448,6 +1451,57 @@ class Site:
                         + ". Calcule o imposto e veja quanto se paga num imóvel típico de cada bairro.",
                         corpo, ativo=f"/{k}/", migalhas=[(f"/{k}/", nome), (None, "ITBI")], media=bool(c.get("agregado")))
 
+    # ------------------------------------------------------------ simulador de financiamento
+    def financiamento(self):
+        arq = RAIZ / "data" / "juros_imob.json"
+        if not arq.exists():
+            return
+        J = json.loads(arq.read_text(encoding="utf-8"))
+        if not (J.get("reguladas") or J.get("mercado")):
+            return
+        def nome_banco(n):
+            n = re.sub(r"^(BCO|BANCO)\s+", "", n.strip(), flags=re.I)
+            n = re.sub(r"\s+S\.?A\.?$", "", n, flags=re.I)
+            troca = {"CAIXA ECONOMICA FEDERAL": "Caixa", "DO BRASIL": "Banco do Brasil", "ITAÚ UNIBANCO": "Itaú", "BRADESCO": "Bradesco",
+                     "SANTANDER (BRASIL)": "Santander", "INTER": "Inter", "COOPERATIVO SICREDI": "Sicredi", "SICOOB": "Sicoob",
+                     "APE POUPEX": "Poupex", "BRB - BCO DE BRASILIA": "BRB"}
+            return troca.get(n.upper(), n.title())
+        bancos = {k: [[nome_banco(n), aa] for n, _, aa in J.get(k, [])] for k in ("reguladas", "mercado")}
+        med = {k: statistics.median([aa for _, aa in v]) for k, v in bancos.items() if v}
+        dados = esc(json.dumps({"b": bancos, "med": med, "itbi": {k: v for k, v in ITBI_REGRAS.items() if k in self.cidades}},
+                               ensure_ascii=False, separators=(",", ":")))
+        mes = mes_nome(J["mes"])
+        opts_cid = '<option value="">Outra cidade</option>' + "".join(
+            f'<option value="{k}">{esc(NOMES_CIDADE[k])}</option>' for k in ITBI_REGRAS if k in self.cidades)
+        tab = "".join(f'<tr><td>{esc(n)}</td><td class="r num">{nf(aa, 2)}% ao ano</td></tr>' for n, aa in bancos.get("reguladas", []))
+        corpo = f"""<section class="hero">
+<span class="kicker">Simulador</span>
+<h1>Simulador de financiamento imobiliário: parcelas na SAC e na Price</h1>
+<p class="lead">Veja quanto fica a parcela, quanto você paga de juros e quanto precisa ter na mão para comprar, com os juros reais de cada banco publicados pelo Banco Central ({esc(mes)}).</p>
+</section>
+<section class="card"><h2>Simule</h2>
+<div class="fin" data-fin="{dados}">
+<label>Valor do imóvel (R$)<input type="text" inputmode="numeric" name="valor" placeholder="500.000" autocomplete="off"></label>
+<label>Entrada (R$)<input type="text" inputmode="numeric" name="entrada" placeholder="20% do valor" autocomplete="off"></label>
+<label>Prazo (anos)<input type="text" inputmode="numeric" name="prazo" value="30" autocomplete="off"></label>
+<label>Linha de crédito<select name="linha"><option value="reguladas">SFH (taxas reguladas)</option><option value="mercado">Taxas de mercado</option></select></label>
+<label>Banco<select name="banco"></select></label>
+<label class="fin-outra" hidden>Sua taxa (% ao ano)<input type="text" inputmode="decimal" name="taxa" placeholder="11,5" autocomplete="off"></label>
+<label>Cidade (para o ITBI)<select name="cidade">{opts_cid}</select></label>
+<div class="fin-res" aria-live="polite"><p>Digite o valor do imóvel.</p></div>
+</div>
+<p class="small">Estimativa: juros anuais do banco, sem TR, seguros obrigatórios e taxa de administração, que aumentam um pouco a parcela. Renda mínima pela regra comum dos bancos: parcela de até 30% da renda. Fora escritura e registro.</p></section>
+<section class="card"><h2>SAC ou Price?</h2>
+<p><b>SAC:</b> a parcela começa mais alta e cai todo mês, porque você paga sempre a mesma parte da dívida. No total, paga menos juros. É o mais usado pelos bancos.</p>
+<p><b>Price:</b> a parcela é igual do começo ao fim. A primeira cabe melhor no bolso, mas no total os juros são maiores.</p></section>
+<section class="card"><h2>Juros do financiamento imobiliário por banco (SFH, {esc(mes)})</h2>
+<div class="tw"><table><thead><tr><th>Banco</th><th class="r">Juros</th></tr></thead><tbody>{tab}</tbody></table></div>
+<p class="small">Taxa média cobrada por cada banco no mês, mais TR. Fonte: Banco Central do Brasil. <a href="https://economiaemnumeros.com.br/juros-dos-bancos/financiamento-imobiliario/">Veja todas as linhas e a evolução dos juros no Economia em Números →</a></p></section>"""
+        self.busca.append(["Simulador de financiamento imobiliário", "/financiamento/", "Ferramenta"])
+        self.pagina("/financiamento/", "Simulador de financiamento imobiliário: parcela SAC e Price com os juros de cada banco",
+                    f"Simule o financiamento do imóvel: parcela na SAC e na Price, juros totais, renda mínima e quanto precisa de entrada e ITBI, "
+                    f"com a taxa real de cada banco ({mes}, Banco Central).", corpo, ativo="/financiamento/", migalhas=[(None, "Simulador de financiamento")])
+
     def sobre(self):
         linhas = "".join(
             f"<tr><td>{esc(c['nome'])}</td><td class='wrap'>{esc(VALOR_TXT[c['valor']][1])}</td><td>{mes_nome(c['meses'][0])} a {mes_nome(c['ultimo_mes'])}</td>"
@@ -1514,6 +1568,7 @@ class Site:
         for s, c in self.cidades.items():
             self.cidade(s, c)
         self.itbi()
+        self.financiamento()
         self.sobre()
         # 404
         self.pagina("/404/", "Página não encontrada | Imóveis em Números", "Página não encontrada.",

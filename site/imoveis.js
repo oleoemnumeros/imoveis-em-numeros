@@ -148,4 +148,56 @@
     [cid, val, fin].forEach(function (el) { el.addEventListener(el.tagName === "SELECT" ? "change" : "input", calc); });
     calc();
   });
+
+  // simulador de financiamento (SAC e Price)
+  Array.prototype.forEach.call(document.querySelectorAll("[data-fin]"), function (box) {
+    var D = JSON.parse(box.getAttribute("data-fin"));
+    function el(n) { return box.querySelector("[name=" + n + "]"); }
+    var valor = el("valor"), entrada = el("entrada"), prazo = el("prazo"), linha = el("linha"), banco = el("banco"),
+        taxa = el("taxa"), cidade = el("cidade"), res = box.querySelector(".fin-res"), outra = box.querySelector(".fin-outra");
+    function brl(v) { return "R$ " + Math.round(v).toLocaleString("pt-BR"); }
+    function pcs(v) { return v.toLocaleString("pt-BR", {maximumFractionDigits: 2}) + "%"; }
+    function bancos() {
+      var l = linha.value, ops = '<option value="med">Média dos bancos (' + pcs(D.med[l] || 0) + ' ao ano)</option>';
+      (D.b[l] || []).forEach(function (b, i) { ops += '<option value="' + i + '">' + b[0] + " (" + pcs(b[1]) + " ao ano)</option>"; });
+      banco.innerHTML = ops + '<option value="outra">Outra taxa</option>';
+    }
+    function itbi(v, fin) {
+      var r = D.itbi[cidade.value]; if (!r) return null;
+      var f = r.fin;
+      if (!f || !fin || (f.teto_imovel && v > f.teto_imovel)) return v * r.geral / 100;
+      var fv = Math.min(fin, v, f.teto_fin || fin);
+      return fv * f.taxa / 100 + (v - fv) * f.resto / 100;
+    }
+    function calc() {
+      outra.hidden = banco.value !== "outra";
+      var v = num(valor.value);
+      if (!v) { res.innerHTML = "<p>Digite o valor do imóvel.</p>"; return; }
+      var e = num(entrada.value); if (e === null || e === undefined || isNaN(e) || entrada.value.trim() === "") e = v * 0.2;
+      var anos = Math.min(Math.max(num(prazo.value) || 30, 1), 35), n = Math.round(anos * 12);
+      var aa = banco.value === "outra" ? num(taxa.value) : (banco.value === "med" ? D.med[linha.value] : D.b[linha.value][+banco.value][1]);
+      var P = v - e;
+      if (!aa || P <= 0) { res.innerHTML = "<p>Confira a entrada e a taxa.</p>"; return; }
+      var i = Math.pow(1 + aa / 100, 1 / 12) - 1;
+      var sac1 = P / n + P * i, sacN = P / n * (1 + i), sacJ = i * P * (n + 1) / 2;
+      var pmt = P * i / (1 - Math.pow(1 + i, -n)), priceJ = pmt * n - P;
+      var it = itbi(v, P);
+      res.innerHTML =
+        '<div class="fin-cols"><div><h3>SAC</h3><p>1ª parcela <b>' + brl(sac1) + "</b></p><p>última " + brl(sacN) + "</p><p>juros no total " + brl(sacJ) +
+        "</p><p>renda mínima " + brl(sac1 / 0.3) + "</p></div>" +
+        "<div><h3>Price</h3><p>parcela fixa <b>" + brl(pmt) + "</b></p><p>&nbsp;</p><p>juros no total " + brl(priceJ) +
+        "</p><p>renda mínima " + brl(pmt / 0.3) + "</p></div></div>" +
+        '<p class="fin-mao">Para comprar, você precisa ter <b>' + brl(e + (it || 0)) + "</b>: entrada de " + brl(e) +
+        (it !== null ? " + ITBI de " + brl(it) : " (mais o ITBI da sua cidade)") + ".</p>" +
+        '<p class="small">Financiando ' + brl(P) + " em " + anos + " anos a " + pcs(aa) + " ao ano.</p>";
+    }
+    var q = new URLSearchParams(location.search);
+    if (q.get("valor")) valor.value = (+q.get("valor")).toLocaleString("pt-BR");
+    if (q.get("cidade") && D.itbi[q.get("cidade")]) cidade.value = q.get("cidade");
+    bancos();
+    linha.addEventListener("change", function () { bancos(); calc(); });
+    [valor, entrada, prazo, taxa].forEach(function (x) { x.addEventListener("input", calc); });
+    [banco, cidade].forEach(function (x) { x.addEventListener("change", calc); });
+    calc();
+  });
 })();

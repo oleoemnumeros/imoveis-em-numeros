@@ -738,10 +738,46 @@ CIDADES = {
 }
 
 
+JUROS_M = "https://olinda.bcb.gov.br/olinda/servico/taxaJuros/versao/v2/odata/TaxasJurosMensalPorMes"
+JUROS_ARQ = RAIZ / "data" / "juros_imob.json"
+
+
+def _olinda(url: str, params: dict):
+    from urllib.parse import quote
+    q = "&".join(f"{k}={quote(str(v), safe=chr(39))}" for k, v in params.items())  # o Olinda não entende '+'
+    return get(url + "?" + q, timeout=120, tentativas=3).json().get("value", [])
+
+
+def juros_imob():
+    """Juros do financiamento imobiliário de cada banco (Banco Central, média do último mês publicado),
+    corrigido pela TR, para o simulador. reguladas = SFH; mercado = demais (SFI)."""
+    v = _olinda(JUROS_M, {"$top": "1", "$format": "json", "$orderby": "anoMes desc", "$select": "anoMes"})
+    mes = str(v[0]["anoMes"])
+    linhas = _olinda(JUROS_M, {"$top": "20000", "$format": "json", "$filter": f"anoMes eq '{mes}'"})
+    out = {"mes": mes, "reguladas": [], "mercado": []}
+    for x in linhas:
+        mod = x.get("Modalidade") or ""
+        if "imobili" not in mod.lower() or "TR" not in mod or x.get("TaxaJurosAoAno") is None:
+            continue
+        chave = "reguladas" if "reguladas" in mod else "mercado"
+        out[chave].append([x["InstituicaoFinanceira"].strip(), round(float(x["TaxaJurosAoMes"]), 4), round(float(x["TaxaJurosAoAno"]), 4)])
+    for k in ("reguladas", "mercado"):
+        out[k].sort(key=lambda r: r[2])
+    if len(out["reguladas"]) + len(out["mercado"]) < 5:
+        raise RuntimeError(f"juros imobiliários: só {len(out['reguladas']) + len(out['mercado'])} bancos em {mes}")
+    JUROS_ARQ.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    log(f"juros imobiliários {mes}: {len(out['reguladas'])} bancos (SFH), {len(out['mercado'])} (mercado)")
+
+
 def main():
     SAIDA.mkdir(parents=True, exist_ok=True)
     so = sys.argv[1:]  # opcional: só algumas cidades
     falhas = []
+    try:  # juros do simulador: se falhar, fica o arquivo anterior
+        juros_imob()
+    except Exception as e:  # noqa: BLE001
+        log(f"  ERRO juros imobiliários: {e!r}")
+        DBG["juros_imob"] = {"erro": repr(e)[:300]}
     for slug, (f, meta) in CIDADES.items():
         if so and slug not in so:
             continue

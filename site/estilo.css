@@ -401,6 +401,17 @@ ul.entorno li{padding:10px 0;border-top:1px solid var(--line2);display:flex;flex
 .itbi-total{font-size:20px}
 .comp select{font:inherit;font-size:16px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
 
+/* simulador de financiamento */
+.fin{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:8px 0}
+.fin label{display:flex;flex-direction:column;gap:4px;font-size:14px;font-weight:600;color:var(--ink2)}
+.fin [hidden]{display:none}
+.fin input,.fin select{font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+.fin-res{grid-column:1/-1;padding:12px 14px;border-radius:12px;background:var(--acc-l)}
+.fin-res p{margin:.15em 0}
+.fin-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fin-cols h3{margin:0 0 .3em;font-size:16px}
+.fin-mao{margin-top:.7em!important;font-size:17px}
+
 /* Tema escuro de verdade: com ele declarado, o navegador do celular não "escurece" o site por conta própria
    (era isso que deixava as barras quase invisíveis). */
 @media (prefers-color-scheme: dark){
