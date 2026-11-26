@@ -1,0 +1,95 @@
+{
+ "raiz": [
+  "/pdet/microdados/NOVO CAGED/2020",
+  "/pdet/microdados/NOVO CAGED/2021",
+  "/pdet/microdados/NOVO CAGED/2022",
+  "/pdet/microdados/NOVO CAGED/2023",
+  "/pdet/microdados/NOVO CAGED/2024",
+  "/pdet/microdados/NOVO CAGED/2025",
+  "/pdet/microdados/NOVO CAGED/2026",
+  "/pdet/microdados/NOVO CAGED/Comunicado - Grupamento de Atividades Econômicas.pdf",
+  "/pdet/microdados/NOVO CAGED/Layout Não-identificado Novo Caged Movimentação.xlsx",
+  "/pdet/microdados/NOVO CAGED/Legado",
+  "/pdet/microdados/NOVO CAGED/Leia-me.txt",
+  "/pdet/microdados/NOVO CAGED/Sobre o Novo Caged.pdf"
+ ],
+ "meses_ultimo_ano": [
+  "/pdet/microdados/NOVO CAGED/2026/202604",
+  "/pdet/microdados/NOVO CAGED/2026/202605",
+  "/pdet/microdados/NOVO CAGED/2026/202606",
+  "/pdet/microdados/NOVO CAGED/2026/202607",
+  "/pdet/microdados/NOVO CAGED/2026/202608",
+  "/pdet/microdados/NOVO CAGED/2026/202609"
+ ],
+ "arquivos_ultimo_mes": [
+  "/pdet/microdados/NOVO CAGED/2026/202609/CAGEDEXC202609.7z",
+  "/pdet/microdados/NOVO CAGED/2026/202609/CAGEDFOR202609.7z",
+  "/pdet/microdados/NOVO CAGED/2026/202609/CAGEDMOV202609.7z"
+ ],
+ "tamanho_mov": 49478375,
+ "download_s": 62,
+ "extraido": [
+  [
+   "/tmp/mov/CAGEDMOV202609.txt",
+   453114578
+  ]
+ ],
+ "amostra": [
+  "competênciamov;região;uf;município;seção;subclasse;saldomovimentação;cbo2002ocupação;categoria;graudeinstrução;idade;horascontratuais;raçacor;sexo;tipoempregador;tipoestabelecimento;tipomovimentação;tipodedeficiência;indtrabintermitente;indtrabparcial;salário;tamestabjan;indicadoraprendiz;origemdainformação;competênciadec;indicadordeforadoprazo;unidadesaláriocódigo;valorsaláriofixo",
+  "202609;3;33;330455;P;8513900;1;514320;101;7;31;40,00;2;3;0;1;97;0;0;0;1621,00;99;0;1;202609;0;5;1621,00",
+  "202609;4;43;431490;N;7739099;1;782510;101;4;47;44,00;3;1;0;1;97;0;0;0;2500,00;99;0;1;202609;0;5;2500,00",
+  "202609;4;42;421690;G;4520001;1;914410;101;7;35;44,00;1;1;0;1;97;0;0;0;2350,00;99;0;1;202609;0;5;2350,00"
+ ],
+ "linhas": 4307570,
+ "layouts": [
+  "/pdet/microdados/NOVO CAGED/Layout Não-identificado Novo Caged Movimentação.xlsx"
+ ],
+ "abas /pdet/microdados/NOVO CAGED/Layout Não-identificado Novo Caged Movimentação.xlsx": [
+  "Layout",
+  "região",
+  "uf",
+  "município",
+  "seção",
+  "subclasse",
+  "categoria",
+  "cbo2002ocupação",
+  "graudeinstrução",
+  "raçacor",
+  "sexo",
+  "tipoempregador",
+  "tipoestabelecimento",
+  "tipomovimentação",
+  "tipodedeficiência",
+  "indtrabintermitente",
+  "indtrabparcial",
+  "tamestabjan",
+  "indicadoraprendiz",
+  "origemdainformação",
+  "indicadordeexclusão",
+  "indicadordeforadoprazo",
+  "unidadesaláriocódigo"
+ ],
+ "cbo cbo2002ocupação": [
+  [
+   "Código",
+   "Descrição"
+  ],
+  [
+   10105,
+   "Oficial General da Aeronautica"
+  ],
+  [
+   10110,
+   "Oficial General do Exercito"
+  ],
+  [
+   10115,
+   "Oficial General da Marinha"
+  ],
+  [
+   10205,
+   "Oficial da Aeronautica"
+  ]
+ ],
+ "cbo cbo2002ocupação linhas": 2779
+}
