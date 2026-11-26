@@ -1060,6 +1060,11 @@ class Site:
 <p class="lead">Preço de anúncio é o que o vendedor pede. Aqui está o que foi <strong>registrado na compra</strong>: cada venda de apartamento e casa que pagou o ITBI na prefeitura, organizada por cidade e bairro, mês a mês.</p>
 </section>
 <section><div class="cidades">{"".join(cards)}</div></section>
+<section class="card"><h2>Calculadoras</h2><ul>
+<li><a href="{u('/financiamento/')}">Simular financiamento</a>: parcela na SAC e na Price, com os juros de cada banco.</li>
+<li><a href="{u('/itbi/')}">Calculadora de ITBI</a>: o imposto da compra em cada cidade.</li>
+<li><a href="https://economiaemnumeros.com.br/calculadora/reajuste-de-aluguel/">Reajuste de aluguel</a>: quanto sobe o aluguel pelo IGP-M ou pelo IPCA (no Economia em Números).</li>
+</ul></section>
 <section class="grid2">
 <div class="card"><h2>O que você encontra</h2><ul>
 <li><b>Preço do m² por bairro</b>, com a curva de todas as vendas: dá para ver se um anúncio está caro ou barato.</li>
@@ -1494,6 +1499,7 @@ class Site:
 <section class="card"><h2>SAC ou Price?</h2>
 <p><b>SAC:</b> a parcela começa mais alta e cai todo mês, porque você paga sempre a mesma parte da dívida. No total, paga menos juros. É o mais usado pelos bancos.</p>
 <p><b>Price:</b> a parcela é igual do começo ao fim. A primeira cabe melhor no bolso, mas no total os juros são maiores.</p></section>
+<section class="card"><h2>Ainda no aluguel?</h2><p>Compare a parcela com o aluguel que você paga hoje, e veja quanto ele vai subir no aniversário do contrato. <a href="https://economiaemnumeros.com.br/calculadora/reajuste-de-aluguel/">Calcule o reajuste do aluguel pelo IGP-M ou pelo IPCA →</a></p></section>
 <section class="card"><h2>Juros do financiamento imobiliário por banco (SFH, {esc(mes)})</h2>
 <div class="tw"><table><thead><tr><th>Banco</th><th class="r">Juros</th></tr></thead><tbody>{tab}</tbody></table></div>
 <p class="small">Taxa média cobrada por cada banco no mês, mais TR. Fonte: Banco Central do Brasil. <a href="https://economiaemnumeros.com.br/juros-dos-bancos/financiamento-imobiliario/">Veja todas as linhas e a evolução dos juros no Economia em Números →</a></p></section>"""
