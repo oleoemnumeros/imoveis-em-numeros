@@ -90,9 +90,9 @@ def brl_curto(x) -> str:
     if x is None:
         return "–"
     if x >= 1e9:
-        return f"R$ {nf(x / 1e9, 1)} bilhões"
+        return f"R$ {nf(x / 1e9, 1)} {'bilhão' if round(x / 1e9, 1) < 2 else 'bilhões'}"
     if x >= 1e6:
-        return f"R$ {nf(x / 1e6, 1)} milhões"
+        return f"R$ {nf(x / 1e6, 1)} {'milhão' if round(x / 1e6, 1) < 2 else 'milhões'}"
     if x >= 1e3:
         return f"R$ {nf(x / 1e3, 0)} mil"
     return brl(x)
