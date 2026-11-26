@@ -137,7 +137,75 @@ def seta(v, d=1) -> str:
     return f'<span class="{c}">{"▲" if v > 0 else "▼"} {pct(abs(v), d)}</span>'
 
 
+# Nomes para mostrar: as prefeituras mandam os bairros sem acento ("SAUDE", "TRES FIGUEIRAS") e às vezes
+# cortados ("MOINHOS VENTO"). preparar_nomes() troca pelo nome do OpenStreetMap quando o bairro é o mesmo
+# e, se não houver, acentua palavra por palavra com o que aparece acentuado nos nomes do OSM.
+# Só muda o que aparece na tela: os endereços das páginas continuam iguais.
+NOMES_EXIB: dict = {}
+PALAVRAS_ACENTO = {"sao": "são", "jose": "josé", "joao": "joão", "conceicao": "conceição", "antonio": "antônio",
+                   "gloria": "glória", "america": "américa", "uniao": "união", "independencia": "independência",
+                   "esperanca": "esperança", "goncalo": "gonçalo", "inacio": "inácio", "lucia": "lúcia",
+                   "teresopolis": "teresópolis", "petropolis": "petrópolis", "higienopolis": "higienópolis",
+                   "cristovao": "cristóvão", "sebastiao": "sebastião", "estacao": "estação", "alianca": "aliança"}
+
+
+def _sem_acento(t: str) -> str:
+    return "".join(ch for ch in unicodedata.normalize("NFD", t) if unicodedata.category(ch) != "Mn")
+
+
+def preparar_nomes(cidades: dict, mapas: dict) -> None:
+    from collections import Counter
+    formas, simples = {}, Counter()
+    todos = []
+    for s, c in cidades.items():
+        m = mapas.get(s)
+        osm = {}
+        if m is not None and m.ok:
+            for k, bs in m.por_dado.items():
+                ns = {b["nome"] for b in bs}
+                if len(ns) == 1:
+                    osm[k] = ns.pop()
+            todos += [b["nome"] for b in getattr(m, "areas", [])]
+        fe = ENTORNO / f"{s}.json"
+        if fe.exists():
+            for lon, lat, nm in json.loads(fe.read_text(encoding="utf-8")).get("lugares", []):
+                todos.append(nm)
+                osm.setdefault(chave_bairro_site(nm), nm)
+        for k, b in c["bairros"].items():
+            nm = osm.get(k)
+            # só usa o nome do OSM se for o mesmo nome (sem acento) ou o do ITBI cortado
+            if nm and (_sem_acento(nm).upper().replace(" DE ", " ").replace(" DA ", " ").replace(" DO ", " ")
+                       .startswith(_sem_acento(str(b["nome"])).upper().replace(" DE ", " ").replace(" DA ", " ").replace(" DO ", " ")[:15])):
+                NOMES_EXIB[str(b["nome"])] = nm
+    for nm in todos:
+        for w in re.findall(r"[^\W\d_]+", nm):
+            lw = w.lower()
+            if len(lw) < 3:
+                continue
+            k = _sem_acento(lw)
+            if k != lw:
+                formas.setdefault(k, Counter())[lw] += 1
+            else:
+                simples[k] += 1
+    for k, cont in formas.items():
+        forma, n = cont.most_common(1)[0]
+        if n > simples.get(k, 0) and k not in PALAVRAS_ACENTO:
+            PALAVRAS_ACENTO[k] = forma
+
+
+def _acentua(s: str) -> str:
+    def troca(m):
+        w = m.group(0)
+        a = PALAVRAS_ACENTO.get(w.lower())
+        if not a:
+            return w
+        return a[:1].upper() + a[1:] if w[:1].isupper() else a
+    return re.sub(r"[^\W\d_]+", troca, s)
+
+
 def nome_bonito(s: str) -> str:
+    if str(s) in NOMES_EXIB:
+        return NOMES_EXIB[str(s)]
     s = re.sub(r"\s+", " ", str(s)).strip()
     if s.isupper() or s.islower():
         minus = {"de", "da", "do", "das", "dos", "e", "d"}
@@ -152,7 +220,7 @@ def nome_bonito(s: str) -> str:
     s = re.sub(r"\bSta\b\.?", "Santa", s)
     s = re.sub(r"\bSto\b\.?", "Santo", s)
     s = re.sub(r"\bHistoric\b", "Histórico", s)
-    return s
+    return _acentua(s)
 
 
 # ---------------------------------------------------------------- termômetro
@@ -1251,8 +1319,9 @@ class Site:
         if SAIDA.exists():
             shutil.rmtree(SAIDA)
         SAIDA.mkdir(parents=True)
-        self.inicio()
         self.mapas = {s: Mapa(s, c) for s, c in self.cidades.items()}
+        preparar_nomes(self.cidades, self.mapas)
+        self.inicio()
         self.entorno = {s: calcular_entorno(s, c, self.mapas[s]) for s, c in self.cidades.items()}
         self.censo = {s: calcular_censo(s, c) for s, c in self.cidades.items()}
         self.posicoes = {}
