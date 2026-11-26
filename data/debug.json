@@ -1,123 +1,123 @@
 {
  "sao-paulo": {
   "contagens": {
-   "nao_e_compra_e_venda": 97283,
-   "parte_do_imovel": 393702,
-   "com_bairro": 238967,
-   "ok": 369550,
-   "sem_bairro": 135647,
-   "nao_residencial": 96723,
-   "valor_baixo_ou_vazio": 5006,
+   "parte_do_imovel": 402736,
+   "nao_e_compra_e_venda": 99237,
+   "com_bairro": 243851,
+   "ok": 377298,
+   "sem_bairro": 138589,
+   "nao_residencial": 98514,
+   "valor_baixo_ou_vazio": 5084,
    "area_fora": 58,
    "aba_sem_cabecalho_reaproveitado": 2,
-   "bairro_pelo_cep": 227715,
-   "bairro_desconhecido": 10412,
-   "m2_extremo_descartado": 7385,
-   "vendas_no_site": 362165,
-   "bairros_no_site": 726,
-   "bairros_total": 726
+   "bairro_pelo_cep": 232552,
+   "bairro_desconhecido": 10416,
+   "m2_extremo_descartado": 7527,
+   "vendas_no_site": 369771,
+   "bairros_no_site": 738,
+   "bairros_total": 738
   },
   "valores": {
    "natureza": [
     [
      "1.Compra e venda",
-     865039
+     883690
     ],
     [
      "12.Dação em pagamento por escritura pública",
-     23145
+     23544
     ],
     [
      "20.Realização ou integralização de capital ",
-     20214
+     20423
     ],
     [
      "17.Resolução da alienação fiduciária por inadimplemento",
-     11616
+     12149
     ],
     [
      "4.Arrematação (em leilão ou hasta pública)",
-     7931
+     8084
     ],
     [
      "2.Cessão de direitos relativos a compromisso de compra e ven",
-     7718
+     7814
     ],
     [
      "15.Permuta por escritura pública",
-     6871
+     7052
     ],
     [
      "26.Cessão de direitos sobre o imóvel com alienação fiduciári",
-     3005
+     3046
     ],
     [
      "3.Adjudicação (vinculada a processo de execução ou cobrança ",
-     2595
+     2623
     ],
     [
      "5.Adjudicação compulsória",
-     2467
+     2510
     ],
     [
      "29.Excesso de meação na partilha (separação / divórcio)",
-     2127
+     2153
     ],
     [
      "8.Cessão de direitos hereditários (ou sucessórios)",
-     1682
+     1712
     ],
     [
      "23.Cisão total ou parcial",
-     1449
+     1514
     ],
     [
      "33.Demais atos onerosos translativos",
-     1276
+     1287
     ],
     [
      "40.Excesso na integralização de capital",
-     1103
+     1128
     ],
     [
      "27.Excesso de quinhão ou quota-parte na divisão amigável ou ",
-     1067
+     1072
     ],
     [
      "34.Demais sentenças judiciais",
-     843
+     859
     ],
     [
      "21.Incorporação",
-     659
+     663
     ],
     [
      "28.Excesso de meação ou quinhão na partilha (sucessão causa ",
-     407
+     426
     ],
     [
      "30.Excesso de meação na partilha (dissolução da união estáve",
-     313
+     322
     ],
     [
      "35.Demais transações de direitos de compromisso de compra e ",
-     214
+     267
     ],
     [
      "25.Desincorporação do bem imóvel pertencente à pessoa jurídi",
-     191
+     193
     ],
     [
      "19.Usufruto",
-     71
+     72
     ],
     [
      "31.Rejeição dos embargos à arrematação",
-     69
+     70
     ],
     [
      "24.Extinção de pessoa jurídica",
-     60
+     61
     ],
     [
      "11.Cessão de direitos de superfície",
@@ -125,11 +125,11 @@
     ],
     [
      "5.Excesso de meação ou quinhão na partilha",
-     32
+     33
     ],
     [
      "9.Cessão dos direitos do adjudicatário",
-     29
+     30
     ],
     [
      "7.Cessão de benfeitorias e construções em terreno compromiss",
@@ -141,7 +141,7 @@
     ],
     [
      "10.Cessão dos direitos do arrematante",
-     11
+     12
     ],
     [
      "14.Mandato em causa própria",
@@ -156,11 +156,11 @@
      4
     ],
     [
-     "4021050",
+     "1504001",
      2
     ],
     [
-     "1504001",
+     "4021050",
      2
     ],
     [
@@ -168,102 +168,102 @@
      2
     ],
     [
-     "3545070",
-     1
-    ],
-    [
-     "1527040",
-     1
-    ],
-    [
      "5835003",
+     1
+    ],
+    [
+     "32.Rejeição dos embargos à adjudicação",
+     1
+    ],
+    [
+     "4220001",
      1
     ]
    ],
    "uso": [
     [
      "APARTAMENTO EM CONDOMINIO EXIGE FRACAO IDEAL",
-     280479
+     286446
     ],
     [
      "RESIDENCIA",
-     82256
+     83896
     ],
     [
      "GARAGEM UNIDADE AUTONOMA EM EDIFICIO EM CONDOMINIO DE USO EX",
-     34535
+     35181
     ],
     [
      "ESCRITORIO CONSULTORIO EM CONDOMINIO UNID AUTONOMA EXIGE FRA",
-     20550
+     20920
     ],
     [
      "FLAT DE USO COMERCIAL SEMELHANTE A HOTEL",
-     9143
+     9345
     ],
     [
      "RESIDENCIA COLETIVA EXCLUSIVE CORTICO MAIS DE UMA RESIDENCIA",
-     8474
+     8625
     ],
     [
      "TERRENO",
-     7082
+     7186
     ],
     [
      "LOJA",
-     4381
+     4449
     ],
     [
      "GARAGEM UNIDADE AUTONOMA EM EDIFICIO EM CONDOMINIO DE ESCRIT",
-     3642
+     3717
     ],
     [
      "RESIDENCIA E OUTRO USO PREDOMINANCIA RESIDENCIAL",
-     3405
+     3473
     ],
     [
      "LOJA E RESIDENCIA PREDOMINANCIA COMERCIAL",
-     2730
+     2790
     ],
     [
      "LOJA EM EDIFICIO EM CONDOMINIO UNIDADE AUTONOMA EXIGE FRACAO",
-     2423
+     2460
     ],
     [
      "PREDIO DE ESCRITORIO OU CONSULTORIO NAO EM CONDOMINIO COM OU",
-     2395
+     2433
     ],
     [
      "OUTRAS EDIFICACOES DO TIPO COM UTILIZACAO MULTIPLA",
-     2140
+     2183
     ],
     [
      "HOTEL PENSAO OU HOSPEDARIA",
-     1408
+     1428
     ],
     [
      "FLAT RESIDENCIAL EM CONDOMINIO EXIGE FRACAO IDEAL",
-     1291
+     1315
     ],
     [
      "INDUSTRIA",
-     1110
-    ],
-    [
-     "ARMAZENS GERAIS E DEPOSITOS",
-     677
+     1140
     ],
     [
      "OFICINA",
-     674
+     693
+    ],
+    [
+     "ARMAZENS GERAIS E DEPOSITOS",
+     685
     ],
     [
      "GARAGEM UNIDADE AUTONOMA DE PREDIO DE GARAGENS EXIGE FRACAO ",
-     508
+     519
     ],
     [
      "ESCOLA",
-     473
+     480
     ],
     [
      "GARAGEM EXCLUSIVE EM PREDIO EM CONDOMINIO",
@@ -271,31 +271,31 @@
     ],
     [
      "",
-     218
+     229
     ],
     [
      "PREDIO DE APARTAMENTO NAO EM CONDOMINIO DE USO MISTO APARTAM",
-     210
+     214
     ],
     [
      "POSTO DE SERVICO",
-     190
+     192
     ],
     [
      "PREDIO DE APARTAMENTO NAO EM CONDOMINIO DE USO EXCLUSIVAMENT",
-     179
+     182
     ],
     [
      "TEMPLO",
-     147
+     150
     ],
     [
      "HOSPITAL AMBULATORIO CASA DE SAUDE E ASSEMELHADOS",
-     108
+     109
     ],
     [
      "CORTICO HABITACAO COLETIVA SUBNORMAL",
-     70
+     72
     ],
     [
      "ASILO ORFANATO CRECHE SEMINARIO OU CONVENTO",
@@ -303,7 +303,7 @@
     ],
     [
      "PREDIO COM USO MISTO PREDOMINANCIA DE USO NAO RESIDENCIAL NA",
-     33
+     34
     ],
     [
      "ESTACAO RADIOEMISSORA DE TELEVISAO OU EMPRESA JORNALISTICA",
@@ -311,33 +311,138 @@
     ],
     [
      "CINEMA TEATRO CASA DE DIVERSAO CLUBE OU CONGENERE",
-     27
+     28
     ],
     [
      "DEPOSITO EM CONDOMINIO EXIGE FRACAO IDEAL",
-     1
+     2
     ]
    ],
    "financiamento": [
     [
      "",
-     236417
+     241177
     ],
     [
      "1.Sistema Financeiro de Habitação",
-     119975
+     122285
     ],
     [
      "2.Minha Casa Minha Vida",
-     6392
+     6691
     ],
     [
      "3.Consórcio",
-     6105
+     6255
     ],
     [
      "99.SFI, Carteira Hipotecária, etc",
-     5725
+     6032
+    ]
+   ]
+  },
+  "meses": [
+   "2026-08",
+   "2026-09",
+   "2026-10"
+  ],
+  "n_ultimos": [
+   7183,
+   7522,
+   8139,
+   7677,
+   7079,
+   7605
+  ]
+ },
+ "belo-horizonte": {
+  "contagens": {
+   "nao_residencial": 92808,
+   "fora_do_periodo": 300144,
+   "outro_tipo": 14373,
+   "ok": 108921,
+   "valor_baixo_ou_vazio": 480,
+   "area_fora": 9,
+   "m2_extremo_descartado": 2178,
+   "vendas_no_site": 106743,
+   "bairros_no_site": 232,
+   "bairros_total": 292
+  },
+  "valores": {
+   "ocupacao": [
+    [
+     "RESIDENCIAL",
+     423927
+    ],
+    [
+     "NAO RESIDENCIAL",
+     70304
+    ],
+    [
+     "TERRITORIAL",
+     22494
+    ],
+    [
+     "VALOR NULO",
+     10
+    ]
+   ],
+   "tipo_construtivo": [
+    [
+     "AP",
+     350067
+    ],
+    [
+     "CA",
+     60590
+    ],
+    [
+     "SL",
+     28799
+    ],
+    [
+     "LV",
+     22500
+    ],
+    [
+     "VC",
+     16820
+    ],
+    [
+     "LJ",
+     16058
+    ],
+    [
+     "VR",
+     8163
+    ],
+    [
+     "BA",
+     5848
+    ],
+    [
+     "GP",
+     3910
+    ],
+    [
+     "AC",
+     2914
+    ],
+    [
+     "CC",
+     902
+    ],
+    [
+     "BC",
+     136
+    ],
+    [
+     "VV",
+     18
+    ],
+    [
+     "-3",
+     10
     ]
    ]
   },
@@ -347,13 +452,545 @@
    "2026-09"
   ],
   "n_ultimos": [
-   6692,
-   7183,
-   7522,
-   8139,
-   7677,
-   7079
+   1902,
+   1807,
+   2204,
+   2465,
+   2084,
+   1808
   ]
  },
- "gerado_em": "2026-11-25T09:54:39Z"
+ "fortaleza": {
+  "contagens": {
+   "versoes_descartadas": 0,
+   "nao_residencial": 29427,
+   "ok": 76881,
+   "valor_baixo_ou_vazio": 5655,
+   "area_fora": 217,
+   "m2_extremo_descartado": 1538,
+   "ultimo_mes_incompleto_descartado": "2026-10",
+   "vendas_no_site": 74563,
+   "bairros_no_site": 114,
+   "bairros_total": 121
+  },
+  "valores": {
+   "uso": [
+    [
+     "Residencial",
+     82753
+    ],
+    [
+     "Comercial",
+     19425
+    ],
+    [
+     "Sem",
+     8724
+    ],
+    [
+     "Prestação",
+     811
+    ],
+    [
+     "Hotelaria",
+     152
+    ],
+    [
+     "Saúde",
+     71
+    ],
+    [
+     "Instrução",
+     58
+    ],
+    [
+     "Fechado",
+     45
+    ],
+    [
+     "Religioso",
+     40
+    ],
+    [
+     "Industrial",
+     36
+    ],
+    [
+     "Transporte",
+     20
+    ],
+    [
+     "Institucional",
+     18
+    ],
+    [
+     "Do lazer",
+     15
+    ],
+    [
+     "Comunicação",
+     6
+    ],
+    [
+     "Desportivo",
+     5
+    ],
+    [
+     "Agricultura",
+     1
+    ]
+   ],
+   "padrao": [
+    [
+     "Alto nivel 1",
+     21562
+    ],
+    [
+     "Alto nivel 3",
+     18234
+    ],
+    [
+     "Alto nivel 2",
+     16473
+    ],
+    [
+     "Luxo 1",
+     9729
+    ],
+    [
+     "Luxo 2",
+     5030
+    ],
+    [
+     "Normal 3",
+     4272
+    ],
+    [
+     "Baixo nivel 1",
+     3384
+    ],
+    [
+     "Normal 2",
+     2684
+    ],
+    [
+     "Luxo 3",
+     641
+    ],
+    [
+     "",
+     624
+    ],
+    [
+     "Normal 1",
+     94
+    ],
+    [
+     "Baixo nivel 3",
+     26
+    ]
+   ]
+  },
+  "meses": [
+   "2026-07",
+   "2026-08",
+   "2026-09"
+  ],
+  "n_ultimos": [
+   1208,
+   1328,
+   1346,
+   1607,
+   1538,
+   1372
+  ]
+ },
+ "porto-alegre": {
+  "contagens": {
+   "guia_nao_paga": 91404,
+   "nao_residencial_ou_vaga": 62438,
+   "ok": 75676,
+   "parte_do_imovel": 10131,
+   "valor_baixo_ou_vazio": 7525,
+   "area_fora": 88,
+   "fora_do_periodo": 1,
+   "m2_extremo_descartado": 1514,
+   "vendas_no_site": 74162,
+   "bairros_no_site": 85,
+   "bairros_total": 93
+  },
+  "valores": {
+   "finalidade": [
+    [
+     "APARTAMENTO",
+     66587
+    ],
+    [
+     "ESPACO DE ESTACIONAMENTO RESIDENCIAL",
+     36203
+    ],
+    [
+     "RESIDENCIA ISOLADA",
+     8398
+    ],
+    [
+     "SALA COMERCIAL",
+     7115
+    ],
+    [
+     "",
+     5428
+    ],
+    [
+     "ESPACO DE ESTACIONAMENTO RESIDENCIAL DESCOBERTO",
+     5329
+    ],
+    [
+     "ESPACO DE ESTACIONAMENTO NAO RESIDENCIAL",
+     3512
+    ],
+    [
+     "RESIDENCIA PADRONIZADA EM COND HORIZONTAL FECHADO",
+     2963
+    ],
+    [
+     "APARTAMENTO DE COBERTURA",
+     1743
+    ],
+    [
+     "RESIDENCIA CONDOM HORIZ ABERTO SEM AREA USO COMUM",
+     1419
+    ],
+    [
+     "RESIDENCIA NAO PADRONIZ EM CONDOM HORIZONTAL FECHADO",
+     1175
+    ],
+    [
+     "LOJA TERREA EM EDIFICIO",
+     983
+    ],
+    [
+     "UNIDADE DE COMERCIO E SERVICO ISOLADA",
+     957
+    ],
+    [
+     "APART HOTEL FLAT",
+     628
+    ],
+    [
+     "RESIDENCIA DE FRENTE COM INTERIORES",
+     524
+    ],
+    [
+     "ESPACO DE ESTACIONAMENTO NAO RESIDENC DESCOBERTO",
+     412
+    ],
+    [
+     "UNIDADE DE COMERCIO OU SERVICOS DE FRENTE NAO ISOLADA",
+     289
+    ],
+    [
+     "DEPOSITO ARMAZEM PREDIO INDUSTRIAL",
+     263
+    ],
+    [
+     "ESPACO ESTACIONAMENTO VINCULADO RESID COBERTO",
+     250
+    ],
+    [
+     "RESIDENCIA PADRONIZADA COND HORIZ ABERTO C AREA USO COMUM",
+     244
+    ],
+    [
+     "LOJA EM GALERIA",
+     239
+    ],
+    [
+     "LOJA EM SHOPPING",
+     169
+    ],
+    [
+     "RESIDENCIA DE INTERIOR",
+     147
+    ],
+    [
+     "GARAGEM COLETIVA",
+     112
+    ],
+    [
+     "HOTEL OU SIMILAR",
+     111
+    ],
+    [
+     "RESIDENCIA NAO PADRONIZADA EM COND HORIZ ABERTO C AREA COMUM",
+     90
+    ],
+    [
+     "SALA DE COBERTURA",
+     80
+    ],
+    [
+     "TERRENO",
+     68
+    ],
+    [
+     "EDIFICIO GARAGEM",
+     57
+    ],
+    [
+     "ESPACO ESTACIONAMENTO VINCULADO RESID DESCOBERTO",
+     44
+    ],
+    [
+     "CONSTRUCAO EM AREA PROJETADA DE GLEBA",
+     37
+    ],
+    [
+     "ESPACO ESTACIONAMENTO VINCULADO NAO RESID COBERTO",
+     33
+    ],
+    [
+     "POSTO DE COMBUSTIVEL",
+     31
+    ],
+    [
+     "IMOVEL ESPECIAL",
+     31
+    ],
+    [
+     "TERRENO EM CONDOMINIO HORIZONTAL FECHADO",
+     28
+    ],
+    [
+     "LOJA DE INTERIOR",
+     10
+    ],
+    [
+     "GLEBA",
+     7
+    ],
+    [
+     "TERRENO EM CONDOMINIO HORIZONTAL ABERTO",
+     4
+    ],
+    [
+     "COMPLEXO INDUSTRIAL",
+     3
+    ],
+    [
+     "ESPACO ESTACIONAMENTO VINCULADO NAO RESID DESCOBERTO",
+     3
+    ]
+   ]
+  },
+  "meses": [
+   "2026-09",
+   "2026-10",
+   "2026-11"
+  ],
+  "n_ultimos": [
+   1350,
+   1437,
+   1381,
+   1244,
+   1288,
+   1120
+  ]
+ },
+ "recife": {
+  "contagens": {
+   "ok": 64485,
+   "valor_baixo_ou_vazio": 174,
+   "outro_tipo": 9428,
+   "area_fora": 74,
+   "m2_extremo_descartado": 1290,
+   "meses_falhos": [
+    "2025-12"
+   ],
+   "vendas_no_site": 63195,
+   "bairros_no_site": 71,
+   "bairros_total": 88
+  },
+  "valores": {
+   "tipo_imovel": [
+    [
+     "APARTAMENTO",
+     59131
+    ],
+    [
+     "CASA",
+     5602
+    ],
+    [
+     "SALA",
+     5567
+    ],
+    [
+     "LOJA",
+     1858
+    ],
+    [
+     "EDIFICACAO ESPECIAL",
+     539
+    ],
+    [
+     "GALPAO",
+     408
+    ],
+    [
+     "CENTRO COMERCIAL SERVICOS",
+     255
+    ],
+    [
+     "MOCAMBO",
+     243
+    ],
+    [
+     "INSTITUICAO FINANCEIRA",
+     124
+    ],
+    [
+     "HOTEL",
+     117
+    ],
+    [
+     "GARAGEM COMERCIAL",
+     97
+    ],
+    [
+     "GARAGEM RESIDENCIAL",
+     64
+    ],
+    [
+     "INDUSTRIA",
+     52
+    ],
+    [
+     "HOSPITAL",
+     34
+    ],
+    [
+     "INSTITUICAO EDUCACIONAL",
+     25
+    ],
+    [
+     "POSTO DE ABASTECIMENTO",
+     22
+    ],
+    [
+     "TEMPLO RELIGIOSO",
+     10
+    ],
+    [
+     "GALPAO FECHADO",
+     5
+    ],
+    [
+     "LOJA MULTIPLA",
+     4
+    ],
+    [
+     "TERRENO EM COND RESIDENCIAL",
+     4
+    ]
+   ]
+  },
+  "meses": [
+   "2026-08",
+   "2026-09",
+   "2026-10"
+  ],
+  "n_ultimos": [
+   1178,
+   1494,
+   1509,
+   1528,
+   1216,
+   1179
+  ]
+ },
+ "rio": {
+  "registros": 38092,
+  "usos": [
+   [
+    "RESIDENCIAL",
+    25803
+   ],
+   [
+    "NAO RESIDENCIAL",
+    12289
+   ]
+  ],
+  "mercado": [
+   [
+    "COMPRA E VENDA",
+    38004
+   ],
+   [
+    "PROMESSA DE COMPRA E VENDA",
+    88
+   ]
+  ],
+  "exemplo": [
+   {
+    "objectid": 6029043,
+    "codbairro": "147",
+    "bairro": "Cosmos                    ",
+    "area_planejamento": "5",
+    "cod_rp": "5.2",
+    "rp": "Campo Grande",
+    "codra": 18,
+    "ra": "CAMPO GRANDE            ",
+    "total_transações": 9,
+    "uso": "RESIDENCIAL",
+    "média_percentual_transferido": 100.0,
+    "média_área_construída": 61.888888,
+    "média_valor_transação": 94203.661111,
+    "média_valor_imóvel": 94203.661111,
+    "principal_transação_mercado": "COMPRA E VENDA",
+    "ano_transação": 2023,
+    "mês_transação": 9
+   },
+   {
+    "objectid": 6029044,
+    "codbairro": "147",
+    "bairro": "Cosmos                    ",
+    "area_planejamento": "5",
+    "cod_rp": "5.2",
+    "rp": "Campo Grande",
+    "codra": 18,
+    "ra": "CAMPO GRANDE            ",
+    "total_transações": 10,
+    "uso": "RESIDENCIAL",
+    "média_percentual_transferido": 100.0,
+    "média_área_construída": 57.6,
+    "média_valor_transação": 95032.912,
+    "média_valor_imóvel": 95032.912,
+    "principal_transação_mercado": "COMPRA E VENDA",
+    "ano_transação": 2023,
+    "mês_transação": 12
+   },
+   {
+    "objectid": 6029045,
+    "codbairro": "155",
+    "bairro": "Jacarezinho               ",
+    "area_planejamento": "3",
+    "cod_rp": "3.2",
+    "rp": "Méier",
+    "codra": 28,
+    "ra": "JACAREZINHO             ",
+    "total_transações": 1,
+    "uso": "RESIDENCIAL",
+    "média_percentual_transferido": 100.0,
+    "média_área_construída": 42.0,
+    "média_valor_transação": 39173.62,
+    "média_valor_imóvel": 39173.62,
+    "principal_transação_mercado": "COMPRA E VENDA",
+    "ano_transação": 2023,
+    "mês_transação": 8
+   }
+  ],
+  "bairros_no_site": 140
+ },
+ "gerado_em": "2026-11-26T20:45:56Z"
 }
