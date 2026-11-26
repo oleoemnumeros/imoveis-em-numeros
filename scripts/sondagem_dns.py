@@ -2,7 +2,7 @@
 import json, requests
 from pathlib import Path
 out = {}
-for d in ["educacaoemnumeros.com.br", "educacaoemnumero.com.br", "educacaonumeros.com.br", "imovelemnumeros.com.br"]:
+for d in ["ensinoemnumeros.com.br", "escolaemnumeros.com.br", "escolasemnumeros.com.br", "educaemnumeros.com.br", "estudoemnumeros.com.br", "educacaoemnumeros.com", "educacaoemnumeros.net.br"]:
     try:
         r = requests.get(f"https://rdap.registro.br/domain/{d}", timeout=30, headers={"Accept": "application/rdap+json"})
         if r.status_code == 404:
