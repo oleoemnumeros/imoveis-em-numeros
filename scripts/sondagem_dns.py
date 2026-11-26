@@ -1,17 +1,17 @@
-"""Confere o DNS do domínio (A, NS, CNAME do www) e se o site responde."""
-import json, subprocess, requests
+"""Consulta pública (RDAP do registro.br) de domínios: datas de criação e mudança, servidores DNS."""
+import json, requests
 from pathlib import Path
 out = {}
-D = "imoveisemnumeros.com.br"
-for nome, tipo in [("oleoemnumeros.com.br", "NS"), ("oleoemnumeros.com.br", "A"), ("economiaemnumeros.com.br", "NS"), (D, "A"), (D, "SOA")]:
-    for srv in ("8.8.8.8", "a.auto.dns.br"):
-        r = subprocess.run(["dig", "+short", "+norecurse", f"@{srv}", tipo, nome] if srv == "a.dns.br" else ["dig", "+short", f"@{srv}", tipo, nome], capture_output=True, text=True, timeout=30)
-        out[f"{tipo} {nome} @{srv}"] = r.stdout.strip() or r.stderr.strip() or "(vazio)"
-for u in ["http://imoveisemnumeros.com.br/", "https://imoveisemnumeros.com.br/"]:
+for d in ["educacaoemnumeros.com.br", "educacaoemnumero.com.br", "educacaonumeros.com.br", "imovelemnumeros.com.br"]:
     try:
-        r = requests.get(u, timeout=20, allow_redirects=False)
-        out[u] = f"{r.status_code} {r.headers.get('server','')} {r.headers.get('location','')}"
+        r = requests.get(f"https://rdap.registro.br/domain/{d}", timeout=30, headers={"Accept": "application/rdap+json"})
+        if r.status_code == 404:
+            out[d] = "livre (não registrado)"; continue
+        j = r.json()
+        out[d] = {"status": j.get("status"), "eventos": [(e.get("eventAction"), e.get("eventDate")) for e in j.get("events", [])],
+                  "dns": [n.get("ldhName") for n in j.get("nameservers", [])],
+                  "titular": [ (e.get("roles"), (e.get("vcardArray") or [None, []])[1][1:3] if e.get("vcardArray") else e.get("handle")) for e in j.get("entities", [])][:3]}
     except Exception as e:
-        out[u] = f"erro: {type(e).__name__}: {str(e)[:150]}"
+        out[d] = f"erro {e}"
 Path("data/dns.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
 print(json.dumps(out, ensure_ascii=False, indent=1))
