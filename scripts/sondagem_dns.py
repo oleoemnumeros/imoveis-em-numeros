@@ -2,9 +2,10 @@
 import json, subprocess, requests
 from pathlib import Path
 out = {}
-for nome, tipo in [("imoveisemnumeros.com.br", "NS"), ("imoveisemnumeros.com.br", "A"), ("www.imoveisemnumeros.com.br", "CNAME"),
-                   ("imoveisemnumeros.com.br", "SOA")]:
-    for srv in ("8.8.8.8", "a.dns.br"):
+D = "imoveisemnumeros.com.br"
+for nome, tipo in [(D, "A"), ("www." + D, "CNAME"), ("www." + D, "A"), (D, "SOA"), (D, "AAAA"), (D, "TXT"),
+                   (D + "." + D, "A"), ("www." + D + "." + D, "CNAME"), ("@." + D, "A")]:
+    for srv in ("8.8.8.8", "a.auto.dns.br", "b.auto.dns.br"):
         r = subprocess.run(["dig", "+short", f"@{srv}", tipo, nome], capture_output=True, text=True, timeout=30)
         out[f"{tipo} {nome} @{srv}"] = r.stdout.strip() or r.stderr.strip() or "(vazio)"
 for u in ["http://imoveisemnumeros.com.br/", "https://imoveisemnumeros.com.br/"]:
