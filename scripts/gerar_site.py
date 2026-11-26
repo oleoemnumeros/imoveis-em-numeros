@@ -30,6 +30,8 @@ PREVIA = (os.environ.get("PREVIA") or str(_cfg.get("previa", ""))).lower() in ("
 GOAT = '' if PREVIA else '<script data-goatcounter="https://imoveisemnumeros.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>'
 
 ORDEM = ["sao-paulo", "rio-de-janeiro", "belo-horizonte", "fortaleza", "recife", "porto-alegre"]
+NOMES_CIDADE = {"sao-paulo": "São Paulo", "rio-de-janeiro": "Rio de Janeiro", "belo-horizonte": "Belo Horizonte",
+                "fortaleza": "Fortaleza", "recife": "Recife", "porto-alegre": "Porto Alegre"}
 MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro",
          "outubro", "novembro", "dezembro"]
 MES_CURTO = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"]
@@ -301,6 +303,30 @@ def grafico_m2(meses, m2, aria, rotulo="m² mediano") -> str:
                   svg_linha(m2), aria)
 
 
+def tipo_bairro_html(b: dict, nb: str) -> str:
+    """Apartamento e casa separados no bairro (últimos 12 meses)."""
+    pt = b.get("pt") or {}
+    if not pt:
+        return ""
+    rot = {"apto": "Apartamentos", "casa": "Casas"}
+    ls = []
+    for t in ("apto", "casa"):
+        d = pt.get(t)
+        if not d:
+            continue
+        vb = var(d.get("m2_12"), d.get("m2_12_ant")) if (d.get("n12", 0) >= 30 and d.get("n12_ant", 0) >= 30) else None
+        faixa = f"R$ {nf(d['q'][1])} a {nf(d['q'][3])}" if d.get("q") and d["n12"] >= 20 else "–"
+        ls.append(f'<tr><td>{rot[t]}</td><td class="r num">R$ {nf(d.get("m2_12"))}</td><td class="r num m-esc">{seta(vb)}</td>'
+                  f'<td class="r num m-esc">{faixa}</td><td class="r num">{brl_curto(d.get("ticket12"))}</td>'
+                  f'<td class="r num m-esc">{nf(d.get("area12"), 0)} m²</td><td class="r num">{nf(d["n12"])}</td></tr>')
+    falta = [rot[t].lower() for t in ("apto", "casa") if t not in pt]
+    nota = f" Não há vendas suficientes de {falta[0]} para mostrar (mínimo de 10 em 12 meses)." if falta else ""
+    return f"""<section class="card" id="tipos"><h2>Apartamento ou casa em {esc(nb)}</h2>
+<div class="tw"><table><thead><tr><th>Tipo</th><th class="r">m² mediano</th><th class="r m-esc">Em 1 ano</th><th class="r m-esc">Metade das vendas (m²)</th><th class="r">Preço mediano</th><th class="r m-esc">Área mediana</th><th class="r">Vendas (12 meses)</th></tr></thead>
+<tbody>{"".join(ls)}</tbody></table></div>
+<p class="small">Últimos 12 meses. "Metade das vendas" é a faixa do meio do preço do m²: um quarto saiu abaixo e um quarto acima.{nota}</p></section>"""
+
+
 def curva_html(b: dict, cidade_m2: int | None, nome: str) -> str:
     """Distribuição do preço do m² das vendas dos últimos 12 meses, com a faixa do meio marcada."""
     h = b.get("hist")
@@ -340,7 +366,11 @@ def curva_html(b: dict, cidade_m2: int | None, nome: str) -> str:
                    for v in [x0 + (x1 - x0) * k / 4 for k in range(5)])
     svg = (f'<svg viewBox="0 0 {W} {H}" role="img" aria-label="Distribuição do preço do metro quadrado {esc(em_(nome))}">'
            f'{faixa}<path d="{area}" fill="#7A52C7" opacity=".55"/>{"".join(linhas)}{eixo}</svg>')
-    dados = esc(json.dumps({"q": q, "h": h}, separators=(",", ":")))
+    tq = {t: d["q"] for t, d in (b.get("pt") or {}).items() if d.get("q") and d.get("n12", 0) >= 20}
+    dados = esc(json.dumps({"q": q, "h": h, **({"t": tq} if tq else {})}, separators=(",", ":")))
+    sel_tipo = ('<label>Tipo<select name="tipo"><option value="">Todos</option>'
+                + "".join(f'<option value="{t}">{r}</option>' for t, r in (("apto", "Apartamento"), ("casa", "Casa")) if t in tq)
+                + "</select></label>") if tq else ""
     return f"""<section class="card" id="curva">
 <h2>Onde fica o preço do metro quadrado {esc(em_(nome))}</h2>
 <p class="small">Cada venda dos últimos 12 meses entra uma vez. A faixa escura reúne a metade do meio: 25% das vendas saíram abaixo de <b>R$ {nf(q[1])}/m²</b> e 25% acima de <b>R$ {nf(q[3])}/m²</b>.</p>
@@ -349,6 +379,7 @@ def curva_html(b: dict, cidade_m2: int | None, nome: str) -> str:
 <div class="comp" data-comp="{dados}">
 <label>Preço (R$)<input type="text" inputmode="numeric" name="preco" placeholder="650.000" autocomplete="off"></label>
 <label>Área (m²)<input type="text" inputmode="decimal" name="area" placeholder="80" autocomplete="off"></label>
+{sel_tipo}
 </div>
 <p class="comp-res" aria-live="polite">Digite o preço e a área de um imóvel anunciado para ver em que ponto da curva ele cai.</p>
 </section>"""
@@ -856,6 +887,54 @@ def entorno_html(ind: dict, nome_b: str, nome_c: str, s: str, pos=None, url_rank
 <p class="small">Fonte: © colaboradores do <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>, mapa colaborativo: pode faltar algum estabelecimento, mas a falta tende a ser parecida entre bairros da mesma cidade.{"" if dentro else " Este bairro não tem contorno no mapa; usamos o ponto que o OpenStreetMap marca com o nome dele."}</p></section>"""
 
 
+# ---------------------------------------------------------------- ITBI: regras de cada prefeitura (conferidas em nov/2026)
+# geral: alíquota padrão (%). fin: redução para a parte financiada (taxa sobre o financiado; resto = alíquota sobre o restante;
+# teto_fin = limite do valor financiado com a taxa menor; teto_imovel = valor máximo do imóvel para ter a redução).
+ITBI_REGRAS = {
+    "sao-paulo": {"geral": 3, "fin": {"taxa": 0.5, "resto": 3, "teto_fin": 120968, "teto_imovel": 725808,
+                                      "quando": "financiamento pelo SFH, PAR, HIS ou consórcio, com imóvel de até R$ 725.808 (valores de 2026)"},
+                  "url": "https://prefeitura.sp.gov.br/web/fazenda/w/servicos/itbi/2513",
+                  "nota": "A prefeitura usa como base o maior valor entre o preço da compra e o valor venal de referência dela."},
+    "rio-de-janeiro": {"geral": 3, "fin": None, "url": "https://carioca.rio/servicos/itbi-duvidas-sobre-avaliacao-interpretacao-e-aplicacao-da-legislacao-tributaria/",
+                       "nota": "A alíquota é de 3% desde 2018. Há reduções para casos específicos, como famílias de baixa renda; confira na prefeitura se a sua compra se enquadra."},
+    "belo-horizonte": {"geral": 3, "fin": None, "url": "https://prefeitura.pbh.gov.br/fazenda/tributos/itbi",
+                       "nota": "A alíquota é de 3% desde maio de 2014. Há isenções para casos específicos; confira na prefeitura."},
+    "fortaleza": {"geral": 3, "fin": {"taxa": 0.5, "resto": 2, "teto_fin": None, "teto_imovel": None,
+                                      "quando": "financiamento pelo SFH: 0,5% sobre o valor financiado e 2% sobre o restante"},
+                  "url": "https://www.sefin.fortaleza.ce.gov.br/",
+                  "nota": "Regra da Lei Municipal 9.133/2006: nas compras pelo SFH, 0,5% sobre o financiado e 2% sobre o resto; nas demais, 3%."},
+    "recife": {"geral": 3, "fin": {"taxa": 1, "resto": 3, "teto_fin": None, "teto_imovel": None,
+                                   "quando": "financiamento pelo SFH: 1% sobre o valor financiado"},
+               "url": "https://recifeemdia.recife.pe.gov.br/",
+               "nota": "O Recife já teve alíquota menor por tempo limitado (2% até jan/2026) e alíquota de 1,8% para quem paga antes; as regras mudaram em 2026 (Lei 19.490), então confira na prefeitura antes de pagar."},
+    "porto-alegre": {"geral": 3, "fin": {"taxa": 0.5, "resto": 3, "teto_fin": 410795, "teto_imovel": None,
+                                         "quando": "financiamento imobiliário residencial de pelo menos 5 anos, consórcio ou FGTS, até 68.000 UFM (R$ 410.795 em 2026)"},
+                     "url": "https://prefeitura.poa.br/carta-de-servicos/imposto-sobre-transmissao-de-bens-imoveis-itbi",
+                     "nota": "A prefeitura usa como base o maior valor entre o preço da compra e o valor venal que ela apura."},
+}
+
+
+def itbi_calc(regra: dict, valor: float, financiado: float = 0) -> float:
+    """Mesma conta da calculadora em JavaScript (imoveis.js)."""
+    f = regra.get("fin")
+    if not f or not financiado or (f.get("teto_imovel") and valor > f["teto_imovel"]):
+        return valor * regra["geral"] / 100
+    fin = min(financiado, valor, f["teto_fin"] or financiado)
+    return fin * f["taxa"] / 100 + (valor - fin) * f["resto"] / 100
+
+
+def itbi_caixa(regras: dict, s0: str = "") -> str:
+    """Calculadora: escolhe a cidade, digita o valor e, se for o caso, quanto vai financiar."""
+    opts = "".join(f'<option value="{k}"{" selected" if k == s0 else ""}>{esc(NOMES_CIDADE.get(k, k))}</option>' for k in regras)
+    dados = esc(json.dumps(regras, ensure_ascii=False, separators=(",", ":")))
+    return f"""<div class="itbi" data-itbi="{dados}">
+<label>Cidade<select name="cidade">{opts}</select></label>
+<label>Valor do imóvel (R$)<input type="text" inputmode="numeric" name="valor" placeholder="500.000" autocomplete="off"></label>
+<label class="itbi-fin">Valor financiado (R$), se houver<input type="text" inputmode="numeric" name="fin" placeholder="0" autocomplete="off"></label>
+<div class="itbi-res" aria-live="polite"><p>Digite o valor do imóvel.</p></div>
+</div>"""
+
+
 # ---------------------------------------------------------------- página
 NAV = [("/", "Início")]
 
@@ -884,7 +963,7 @@ class Site:
         self.busca: list = []
 
     def nav(self, ativo):
-        itens = [("/", "Início")] + [(f"/{s}/", c["nome"]) for s, c in self.cidades.items()] + [("/sobre/", "Como funciona")]
+        itens = [("/", "Início")] + [(f"/{s}/", c["nome"]) for s, c in self.cidades.items()] + [("/itbi/", "Calculadora de ITBI"), ("/sobre/", "Como funciona")]
         return "".join(f'<a href="{u(h)}"' + (' aria-current="page"' if h == ativo else "") + f">{esc(t)}</a>" for h, t in itens)
 
     def pagina(self, caminho, titulo, descricao, corpo, ativo="", migalhas=None, jsonld=None, media=False) -> None:
@@ -1016,15 +1095,44 @@ class Site:
             tile("Dinheiro movimentado", brl_curto(ci.get("valor12")), "últimos 12 meses"),
         ]) + "</div>"
 
-        linhas = []
-        for i_b, (k, b) in enumerate(bairros):
-            bs = slug(b["nome"])
-            extra = ' class="mais" hidden' if i_b >= 40 else ""
-            vb = var(b.get("m2_12"), b.get("m2_12_ant")) if (b.get("n12", 0) >= 30 and b.get("n12_ant", 0) >= 30) else None
-            linhas.append(f'<tr{extra}><td><a href="{u(f"/{s}/{bs}/")}">{esc(nome_bonito(b["nome"]))}</a></td>'
+        for k, b in bairros:
+            self.busca.append([f"{nome_bonito(b['nome'])} ({nome})", f"/{s}/{slug(b['nome'])}/", "Bairro"])
+
+        def tabela_bairros(tid, lista, rotulo):
+            """Tabela de bairros (todos os imóveis, só apartamentos ou só casas), com filtro e 'mostrar todos'."""
+            ls = []
+            for i_b, b in enumerate(lista):
+                extra = ' class="mais" hidden' if i_b >= 40 else ""
+                vb = var(b.get("m2_12"), b.get("m2_12_ant")) if (b.get("n12", 0) >= 30 and b.get("n12_ant", 0) >= 30) else None
+                ls.append(f'<tr{extra}><td><a href="{u(f"/{s}/{slug(b["nome"])}/")}">{esc(nome_bonito(b["nome"]))}</a></td>'
                           f'<td class="r num">{nf(b.get("m2_12"))}</td><td class="r num">{seta(vb)}</td>'
                           f'<td class="r num">{nf(b["n12"])}</td><td class="r num m-esc">{brl_curto(b.get("ticket12"))}</td></tr>')
-            self.busca.append([f"{nome_bonito(b['nome'])} ({nome})", f"/{s}/{bs}/", "Bairro"])
+            return (f'<input class="filtro" type="search" placeholder="Filtrar bairro" aria-label="Filtrar bairro ({rotulo})" data-filtro="{tid}">'
+                    f'<div class="tw"><table id="{tid}"><thead><tr><th>Bairro</th><th class="r">m² mediano</th><th class="r">Em 1 ano</th>'
+                    f'<th class="r">Vendas (12 meses)</th><th class="r m-esc">Preço mediano</th></tr></thead><tbody>{"".join(ls)}</tbody></table></div>'
+                    + (f'<button class="btn sec" type="button" data-mais="{tid}">Mostrar os {len(lista)} bairros</button>' if len(lista) > 40 else ""))
+
+        todos_b = [b for _, b in bairros]
+        por_t = {}
+        for tp_ in ("apto", "casa"):
+            lt = []
+            for b in todos_b:
+                d = (b.get("pt") or {}).get(tp_)
+                if d:
+                    lt.append({**d, "nome": b["nome"]})
+            por_t[tp_] = sorted(lt, key=lambda x: -x["n12"])
+        if por_t["apto"] or por_t["casa"]:
+            abas = [("todos", "Todos", todos_b), ("apto", "Apartamentos", por_t["apto"]), ("casa", "Casas", por_t["casa"])]
+            abas = [a for a in abas if a[2]]
+            botoes = "".join(f'<button type="button" role="tab" data-aba="ab-{ta}" aria-selected="{"true" if i == 0 else "false"}">{r}</button>'
+                             for i, (ta, r, _) in enumerate(abas))
+            paineis = "".join(f'<div id="ab-{ta}" role="tabpanel"{"" if i == 0 else " hidden"}>{tabela_bairros("tab-" + ta, l, r.lower())}</div>'
+                              for i, (ta, r, l) in enumerate(abas))
+            tabela_html = f'<div class="abas" role="tablist">{botoes}</div>{paineis}'
+            nota_tipo = " Nas abas Apartamentos e Casas, entram os bairros com pelo menos 10 vendas daquele tipo."
+        else:
+            tabela_html = tabela_bairros("tab-bairros", todos_b, "todos")
+            nota_tipo = ""
 
         def top(lista, chave_ord, fmt, n=8, rev=True):
             itens = sorted(lista, key=chave_ord, reverse=rev)[:n]
@@ -1058,6 +1166,9 @@ class Site:
             extras.append(f"<li>Em <b>{pct(ci['base_acima'], 0)}</b> das compras, a prefeitura considerou o imóvel mais valioso que o preço declarado e cobrou o ITBI sobre o valor dela.</li>")
         if ci.get("ano_med"):
             extras.append(f"<li>Metade dos imóveis vendidos foi construída antes de <b>{ci['ano_med']}</b>.</li>")
+        if s in ITBI_REGRAS and ci.get("ticket12"):
+            extras.append(f'<li>Vai comprar? No preço mediano ({brl_curto(ci["ticket12"])}), o ITBI à vista fica em cerca de '
+                          f'<b>R$ {nf(itbi_calc(ITBI_REGRAS[s], ci["ticket12"]))}</b>. <a href="{u(f"/{s}/itbi/")}">Calcule o seu →</a></li>')
         extras_html = f'<section class="card"><h2>Outros números {esc(de_(nome))}</h2><ul>{"".join(extras)}</ul></section>' if extras else ""
 
         curva = curva_html(ci, None, nome) if not c.get("agregado") else ""
@@ -1079,11 +1190,8 @@ class Site:
 {f'<section class="card aviso"><div><h2>Melhores bairros para morar {esc(em_(nome))}</h2><p>Ranking de {n_rank} bairros pela renda dos moradores (Censo 2022) e pela estrutura perto de casa. Você escolhe o peso de cada item.</p></div><a class="btn" href="{u(f"/{s}/melhores-bairros/")}">Ver o ranking</a></section>' if n_rank else ''}
 {curva}
 <section class="card" id="bairros"><h2>Todos os bairros {esc(de_(nome))}</h2>
-<input class="filtro" type="search" placeholder="Filtrar bairro" aria-label="Filtrar bairro" data-filtro="tab-bairros">
-<div class="tw"><table id="tab-bairros"><thead><tr><th>Bairro</th><th class="r">m² mediano</th><th class="r">Em 1 ano</th><th class="r">Vendas (12 meses)</th><th class="r m-esc">Preço mediano</th></tr></thead>
-<tbody>{"".join(linhas)}</tbody></table></div>
-{f'<button class="btn sec" type="button" data-mais="tab-bairros">Mostrar os {len(bairros)} bairros</button>' if len(bairros) > 40 else ''}
-<p class="small">Últimos 12 meses. Entram os bairros com pelo menos 20 vendas desde {mes_nome(meses[0])}. A variação só aparece com 30 vendas ou mais em cada período.</p></section>
+{tabela_html}
+<p class="small">Últimos 12 meses. Entram os bairros com pelo menos 20 vendas desde {mes_nome(meses[0])}. A variação só aparece com 30 vendas ou mais em cada período.{nota_tipo}</p></section>
 {ranks}
 {tipo_html}
 {extras_html}
@@ -1222,6 +1330,9 @@ class Site:
             extras.append(f"<li>Em <b>{pct(b['base_acima'], 0)}</b> das compras, a prefeitura avaliou o imóvel acima do preço declarado e cobrou o ITBI sobre o valor dela (cidade: {pct(ci.get('base_acima'), 0)}).</li>")
         if b.get("ano_med"):
             extras.append(f"<li>Metade dos imóveis vendidos foi construída antes de <b>{b['ano_med']}</b>.</li>")
+        if s in ITBI_REGRAS and b.get("ticket12"):
+            extras.append(f'<li>No preço mediano do bairro ({brl_curto(b["ticket12"])}), o ITBI à vista fica em cerca de '
+                          f'<b>R$ {nf(itbi_calc(ITBI_REGRAS[s], b["ticket12"]))}</b>. <a href="{u(f"/{s}/itbi/")}">Calcule o seu →</a></li>')
         extras_html = f'<section class="card"><h2>Outros números de {esc(nb)}</h2><ul>{"".join(extras)}</ul></section>' if extras else ""
         perguntas = [
             (f"Quanto custa o metro quadrado em {nb}?",
@@ -1245,6 +1356,7 @@ class Site:
 {tiles}
 {self.mapas[s].bairro_html(chave_k)}
 {curva_html(b, ci.get('m2_12'), nb) if not c.get('agregado') else ''}
+{tipo_bairro_html(b, nb)}
 <section class="grid2">
 <div class="card"><h2>Vendas por mês</h2>{grafico_vendas(meses, b['n'], f'Vendas por mês em {nb}')}</div>
 <div class="card"><h2>Preço do m² mês a mês</h2>{grafico_m2(meses, m2_mm, f'Metro quadrado mediano em {nb}, média móvel de 3 meses')}
@@ -1262,6 +1374,80 @@ class Site:
                     corpo, ativo=f"/{s}/", migalhas=[(f"/{s}/", nome_c), (None, nb)], jsonld=[ld], media=bool(c.get("agregado")))
 
     # ------------------------------------------------------------ fixas
+    # ------------------------------------------------------------ ITBI
+    def itbi(self):
+        regras = {k: v for k, v in ITBI_REGRAS.items() if k in self.cidades}
+        if not regras:
+            return
+        def regra_txt(k, r):
+            f_ = r.get("fin")
+            t = f"<b>{nf(r['geral'], 0)}%</b> sobre o valor do imóvel"
+            if f_:
+                t += f"; com {esc(f_['quando'])}, {nf(f_['taxa'], 1)}% sobre a parte financiada"
+                if f_.get("teto_fin"):
+                    t += f" (até R$ {nf(f_['teto_fin'])})"
+                t += f" e {nf(f_['resto'], 0)}% sobre o restante"
+            return t
+        linhas = "".join(f'<tr><td><a href="{u(f"/{k}/itbi/")}">{esc(NOMES_CIDADE[k])}</a></td><td>{regra_txt(k, r)}</td>'
+                         f'<td class="r num">R$ {nf(itbi_calc(r, 500000))}</td></tr>' for k, r in regras.items())
+        corpo = f"""<section class="hero">
+<span class="kicker">Calculadora</span>
+<h1>Calculadora de ITBI: quanto você paga de imposto na compra do imóvel</h1>
+<p class="lead">O ITBI é o imposto da prefeitura pago por quem compra um imóvel, antes da escritura. Escolha a cidade, digite o valor e, se for financiar, quanto vai pegar no banco.</p>
+</section>
+<section class="card"><h2>Calcule o seu ITBI</h2>{itbi_caixa(regras, "sao-paulo")}
+<p class="small">Estimativa pelas regras gerais de cada prefeitura. Isenções e casos especiais (primeiro imóvel de baixo valor, programas habitacionais) não entram na conta.</p></section>
+<section class="card"><h2>Alíquota do ITBI em cada cidade</h2>
+<div class="tw"><table><thead><tr><th>Cidade</th><th>Regra geral</th><th class="r">Imóvel de R$ 500 mil, à vista</th></tr></thead><tbody>{linhas}</tbody></table></div></section>
+<section class="card"><h2>Perguntas comuns</h2>
+<h3>Quem paga o ITBI?</h3><p>Quem compra, salvo acordo diferente no contrato. Sem o imposto pago, o cartório não registra a transferência.</p>
+<h3>Sobre qual valor o imposto é calculado?</h3><p>Sobre o valor da compra. Algumas prefeituras usam uma avaliação própria quando ela é maior que o preço declarado; quem discorda pode pedir revisão. Nas páginas de cada cidade mostramos com que frequência isso acontece.</p>
+<h3>Financiar reduz o ITBI?</h3><p>Em algumas cidades, sim: a parte paga com financiamento habitacional tem alíquota menor. A calculadora já aplica essa regra onde ela existe.</p>
+</section>"""
+        self.busca.append(["Calculadora de ITBI", "/itbi/", "Ferramenta"])
+        self.pagina("/itbi/", "Calculadora de ITBI 2026: São Paulo, Rio, BH, Fortaleza, Recife e Porto Alegre",
+                    "Calcule o ITBI na compra do imóvel em São Paulo, Rio de Janeiro, Belo Horizonte, Fortaleza, Recife e Porto Alegre, "
+                    "com a alíquota de cada prefeitura e a redução para financiamento.", corpo, ativo="/itbi/", migalhas=[(None, "Calculadora de ITBI")])
+        for k, r in regras.items():
+            c = self.cidades[k]
+            nome = c["nome"]
+            ci = c["cidade"]
+            exemplos = "".join(
+                f'<tr><td class="num">R$ {nf(v)}</td><td class="r num">R$ {nf(itbi_calc(r, v))}</td>'
+                + (f'<td class="r num">R$ {nf(itbi_calc(r, v, v * 0.8))}</td>' if r.get("fin") else "") + "</tr>"
+                for v in (300000, 500000, 800000, 1200000))
+            cab_ex = '<th class="r">Financiando 80%</th>' if r.get("fin") else ""
+            # imposto de um imóvel típico nos bairros com mais vendas
+            bs = sorted((b for b in c["bairros"].values() if b.get("ticket12")), key=lambda b: -b["n12"])[:15]
+            tb = "".join(f'<tr><td><a href="{u(f"/{k}/{slug(b["nome"])}/")}">{esc(nome_bonito(b["nome"]))}</a></td>'
+                         f'<td class="r num">{brl_curto(b["ticket12"])}</td><td class="r num">R$ {nf(itbi_calc(r, b["ticket12"]))}</td></tr>' for b in bs)
+            extra = []
+            if ci.get("ticket12"):
+                extra.append(f"O preço mediano das compras {esc(em_(nome))} nos últimos 12 meses foi de <b>{brl_curto(ci['ticket12'])}</b>, "
+                             f"o que dá cerca de <b>R$ {nf(itbi_calc(r, ci['ticket12']))}</b> de ITBI à vista.")
+            if ci.get("financiado") is not None:
+                extra.append(f"<b>{pct(ci['financiado'], 0)}</b> das compras tiveram financiamento bancário.")
+            if ci.get("base_acima") is not None:
+                extra.append(f"Em <b>{pct(ci['base_acima'], 0)}</b> das compras, a prefeitura avaliou o imóvel acima do preço declarado e cobrou o imposto sobre o valor dela.")
+            corpo = f"""<section class="hero">
+<span class="kicker">{esc(nome)} · ITBI</span>
+<h1>ITBI {esc(em_(nome))}: alíquota e calculadora</h1>
+<p class="lead">{regra_txt(k, r)}. {" ".join(extra)}</p>
+</section>
+<section class="card"><h2>Calcule o ITBI {esc(em_(nome))}</h2>{itbi_caixa({k: r}, k)}
+<p class="small">{esc(r.get("nota", ""))} Fonte: <a href="{esc(r["url"])}" rel="noopener">prefeitura {esc(de_(nome))}</a>. Estimativa pelas regras gerais; isenções e casos especiais não entram na conta.</p></section>
+<section class="grid2">
+<div class="card"><h2>Exemplos</h2><div class="tw"><table><thead><tr><th>Valor do imóvel</th><th class="r">À vista</th>{cab_ex}</tr></thead><tbody>{exemplos}</tbody></table></div></div>
+<div class="card"><h2>ITBI de um imóvel típico por bairro</h2><div class="tw"><table><thead><tr><th>Bairro</th><th class="r">Preço mediano</th><th class="r">ITBI à vista</th></tr></thead><tbody>{tb}</tbody></table></div>
+<p class="small">Preço mediano das compras de cada bairro nos últimos 12 meses (ITBI da prefeitura). Bairros com mais vendas.</p></div>
+</section>
+<section class="card"><p><a href="{u("/itbi/")}">Calculadora para as outras cidades →</a> · <a href="{u(f"/{k}/")}">Preço do m² {esc(em_(nome))} por bairro →</a></p></section>"""
+            self.busca.append([f"ITBI {nome}", f"/{k}/itbi/", "Calculadora"])
+            self.pagina(f"/{k}/itbi/", f"ITBI {em_(nome)} 2026: alíquota, calculadora e quanto se paga por bairro",
+                        f"ITBI {em_(nome)}: {r['geral']}% sobre o valor do imóvel" + (", com alíquota menor para a parte financiada" if r.get("fin") else "")
+                        + ". Calcule o imposto e veja quanto se paga num imóvel típico de cada bairro.",
+                        corpo, ativo=f"/{k}/", migalhas=[(f"/{k}/", nome), (None, "ITBI")], media=bool(c.get("agregado")))
+
     def sobre(self):
         linhas = "".join(
             f"<tr><td>{esc(c['nome'])}</td><td class='wrap'>{esc(VALOR_TXT[c['valor']][1])}</td><td>{mes_nome(c['meses'][0])} a {mes_nome(c['ultimo_mes'])}</td>"
@@ -1327,6 +1513,7 @@ class Site:
         self.posicoes = {}
         for s, c in self.cidades.items():
             self.cidade(s, c)
+        self.itbi()
         self.sobre()
         # 404
         self.pagina("/404/", "Página não encontrada | Imóveis em Números", "Página não encontrada.",

@@ -388,6 +388,19 @@ ul.entorno li{padding:10px 0;border-top:1px solid var(--line2);display:flex;flex
 #tab-rank td:first-child{color:var(--muted);width:34px}
 .rank-pos{margin:14px 0 4px;padding:10px 14px;border-radius:10px;background:var(--acc-l);font-size:15px}
 
+/* abas e calculadora de ITBI */
+.abas{display:flex;gap:6px;margin:4px 0 12px;flex-wrap:wrap}
+.abas button{font:inherit;font-size:14px;font-weight:600;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink2);cursor:pointer}
+.abas button[aria-selected="true"]{background:var(--acc);border-color:var(--acc);color:var(--acc-sobre)}
+.itbi{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:8px 0}
+.itbi label{display:flex;flex-direction:column;gap:4px;font-size:14px;font-weight:600;color:var(--ink2)}
+.itbi input,.itbi select{font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+.itbi [hidden]{display:none}
+.itbi-res{grid-column:1/-1;padding:12px 14px;border-radius:12px;background:var(--acc-l)}
+.itbi-res p{margin:0}
+.itbi-total{font-size:20px}
+.comp select{font:inherit;font-size:16px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink)}
+
 /* Tema escuro de verdade: com ele declarado, o navegador do celular não "escurece" o site por conta própria
    (era isso que deixava as barras quase invisíveis). */
 @media (prefers-color-scheme: dark){

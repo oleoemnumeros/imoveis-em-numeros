@@ -86,19 +86,66 @@
   Array.prototype.forEach.call(document.querySelectorAll("[data-comp]"), function (box) {
     var d = JSON.parse(box.getAttribute("data-comp"));
     var res = box.parentNode.querySelector(".comp-res");
-    var preco = box.querySelector("[name=preco]"), area = box.querySelector("[name=area]");
+    var preco = box.querySelector("[name=preco]"), area = box.querySelector("[name=area]"), tipo = box.querySelector("[name=tipo]");
     function calc() {
       var p = num(preco.value), a = num(area.value);
       if (!p || !a || a < 10) { res.textContent = "Digite o preço e a área de um imóvel anunciado para ver em que ponto da curva ele cai."; return; }
-      var m2 = p / a, pc = percentil(d.q, m2);
+      var q = (tipo && tipo.value && d.t && d.t[tipo.value]) || d.q;
+      var qual = tipo && tipo.value ? (tipo.value === "apto" ? " dos apartamentos" : " das casas") : "";
+      var m2 = p / a, pc = percentil(q, m2);
       var txt;
-      if (pc < 0.25) txt = "abaixo da faixa do meio: mais barato que " + Math.round((1 - pc) * 100) + "% das vendas";
-      else if (pc > 0.75) txt = "acima da faixa do meio: mais caro que " + Math.round(pc * 100) + "% das vendas";
-      else txt = "dentro da faixa do meio, onde ficou metade das vendas";
-      var dif = m2 / d.q[2] - 1;
+      if (pc < 0.25) txt = "abaixo da faixa do meio: mais barato que " + Math.round((1 - pc) * 100) + "% das vendas" + qual;
+      else if (pc > 0.75) txt = "acima da faixa do meio: mais caro que " + Math.round(pc * 100) + "% das vendas" + qual;
+      else txt = "dentro da faixa do meio, onde ficou metade das vendas" + qual;
+      var dif = m2 / q[2] - 1;
       res.innerHTML = "<b>R$ " + nf(m2) + "/m²</b>: " + txt + " (" + (dif >= 0 ? "+" : "−") + Math.abs(Math.round(dif * 100)) + "% contra a mediana).";
     }
     preco.addEventListener("input", calc);
     area.addEventListener("input", calc);
+    if (tipo) tipo.addEventListener("change", calc);
+  });
+
+  // abas (Todos / Apartamentos / Casas)
+  Array.prototype.forEach.call(document.querySelectorAll(".abas"), function (grupo) {
+    var bts = grupo.querySelectorAll("[data-aba]");
+    Array.prototype.forEach.call(bts, function (bt) {
+      bt.addEventListener("click", function () {
+        Array.prototype.forEach.call(bts, function (b) {
+          var on = b === bt;
+          b.setAttribute("aria-selected", on ? "true" : "false");
+          document.getElementById(b.getAttribute("data-aba")).hidden = !on;
+        });
+      });
+    });
+  });
+
+  // calculadora de ITBI (mesma conta de itbi_calc no gerador)
+  Array.prototype.forEach.call(document.querySelectorAll("[data-itbi]"), function (box) {
+    var regras = JSON.parse(box.getAttribute("data-itbi"));
+    var cid = box.querySelector("[name=cidade]"), val = box.querySelector("[name=valor]"), fin = box.querySelector("[name=fin]");
+    var res = box.querySelector(".itbi-res"), linhaFin = box.querySelector(".itbi-fin");
+    function brl(v) { return "R$ " + v.toLocaleString("pt-BR", {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
+    function pc(v) { return v.toLocaleString("pt-BR", {maximumFractionDigits: 2}) + "%"; }
+    function calc() {
+      var r = regras[cid.value], f = r.fin;
+      linhaFin.hidden = !f;
+      var v = num(val.value), fi = f ? num(fin.value) : 0;
+      if (!v) { res.innerHTML = "<p>Digite o valor do imóvel.</p>"; return; }
+      var partes = [], imp;
+      if (!f || !fi || (f.teto_imovel && v > f.teto_imovel)) {
+        imp = v * r.geral / 100;
+        partes.push(pc(r.geral) + " sobre " + brl(v));
+        if (f && fi && f.teto_imovel && v > f.teto_imovel) partes.push("sem redução: o imóvel passa de " + brl(f.teto_imovel));
+      } else {
+        var fv = Math.min(fi, v, f.teto_fin || fi);
+        imp = fv * f.taxa / 100 + (v - fv) * f.resto / 100;
+        partes.push(pc(f.taxa) + " sobre " + brl(fv) + " financiados" + (f.teto_fin && fi > f.teto_fin ? " (limite da redução)" : ""));
+        partes.push(pc(f.resto) + " sobre os outros " + brl(v - fv));
+      }
+      res.innerHTML = "<p class=\"itbi-total\">ITBI: <b>" + brl(imp) + "</b></p><p class=\"small\">" + partes.join("; ") +
+        ". Alíquota efetiva: " + pc(imp / v * 100) + ".</p>";
+    }
+    [cid, val, fin].forEach(function (el) { el.addEventListener(el.tagName === "SELECT" ? "change" : "input", calc); });
+    calc();
   });
 })();

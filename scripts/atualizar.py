@@ -601,6 +601,15 @@ def agregar(b: Base, meta: dict) -> dict:
             continue
         r = resumo(lista)
         r["nome"] = nomes[k].most_common(1)[0][0]
+        # apartamento e casa separados (só os números dos últimos 12 meses; tipo com menos de 10 vendas fica de fora)
+        pt = {}
+        for t in ("apto", "casa"):
+            sub = [v for v in lista if v[5] == t]
+            rt = resumo(sub, com_mensal=False)
+            if rt.get("n12", 0) >= 10:
+                pt[t] = {c: rt[c] for c in ("n12", "m2_12", "q", "ticket12", "area12", "hist", "n12_ant", "m2_12_ant") if c in rt}
+        if pt:
+            r["pt"] = pt
         bairros[k] = r
     # mês com falha na base (muito abaixo dos vizinhos, como dez/2025 no Recife): fica em branco, não como queda
     cidade = resumo(vendas)
