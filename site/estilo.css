@@ -355,6 +355,10 @@ h2[id],section[id]{scroll-margin-top:96px}
 .mapa-m2 text.rot-eu{font-weight:700}
 .mapa-m2 .pt{fill:#14161A;stroke:#fff;stroke-width:.6px;vector-effect:non-scaling-stroke;pointer-events:none}
 .mapa-m2.zoom svg{max-height:60vh}
+.mapa-m2.calor path.viz{fill:#F4F2F8;stroke:#D6D0E4;stroke-width:.8}
+.mapa-m2.calor path.hx{stroke:#fff;stroke-width:.8}
+.mapa-m2.calor path.eu-c{fill:none;stroke:#14161A;stroke-width:2.4;pointer-events:none}
+.mapa-m2.calor path.hx:hover{stroke:#14161A;stroke-width:1.6}
 .mapa-m2 .num-m circle{fill:#fff;stroke:#14161A;stroke-width:1.5px;vector-effect:non-scaling-stroke}
 .mapa-m2 .num-m.rot-c circle{fill:#14161A}
 .mapa-m2 .num-m text{font-weight:700;fill:#14161A}
