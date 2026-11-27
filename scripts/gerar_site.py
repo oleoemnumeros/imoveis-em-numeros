@@ -10,6 +10,7 @@ from __future__ import annotations
 import datetime as dt
 import html
 import json
+import math
 import os
 import re
 import shutil
@@ -583,6 +584,65 @@ class Mapa:
 <div class="mapa-m2 zoom"><svg viewBox="{vx:.1f} {vy:.1f} {w:.1f} {h:.1f}" role="img" aria-label="Mapa de {esc(nome_b)} e dos bairros vizinhos">{PADRAO_SD}{"".join(partes)}<g class="rotulos" transform="translate({vx:.1f} {vy:.1f})">{rot}</g></svg></div>
 {self.legenda()}
 {self.credito(f' <a href="{u("/" + self.s + "/#mapa")}">Ver o mapa da cidade inteira</a>.')}</section>"""
+
+    def calor_html(self, k) -> str:
+        """Dois mapas de hexágonos dentro do bairro: preço do m² e quantidade de vendas (data/cidades/<cidade>.json, "calor").
+        Só existe onde a prefeitura publica a localização de cada venda; cada hexágono tem pelo menos 5 vendas em 12 meses."""
+        cal = self.c.get("calor") or {}
+        cel = [c for c in cal.get("cel", []) if c[4] == k]
+        if not self.ok or k not in self.por_dado or len(cel) < 4:
+            return ""
+        lado = cal.get("lado_m", 110)
+        meus = self.por_dado[k]
+
+        def vertices(la, lo):
+            out = []
+            for i in range(6):
+                ang = math.radians(60 * i + 30)
+                dla = lado * math.sin(ang) / 110540.0
+                dlo = lado * math.cos(ang) / (111320.0 * math.cos(math.radians(la)))
+                out.append(self.xy(lo + dlo, la + dla))
+            return out
+        hexes = [(c, vertices(c[0], c[1])) for c in cel]
+        xs = [p[0] for _, v in hexes for p in v] + [b["bb"][0] for b in meus] + [b["bb"][2] for b in meus]
+        ys = [p[1] for _, v in hexes for p in v] + [b["bb"][1] for b in meus] + [b["bb"][3] for b in meus]
+        x0, x1, y0, y1 = min(xs), max(xs), min(ys), max(ys)
+        mg = max(x1 - x0, y1 - y0) * 0.08
+        vx, vy, w, h = x0 - mg, y0 - mg, x1 - x0 + 2 * mg, y1 - y0 + 2 * mg
+        vis = [b for b in self.areas if not (b["bb"][2] < vx or b["bb"][0] > vx + w or b["bb"][3] < vy or b["bb"][1] > vy + h)]
+        fundo = "".join(f'<path class="viz" d="{self.path(b, 2)}"/>' for b in vis if b not in meus)
+        contorno = "".join(f'<path class="eu-c" d="{self.path(b, 2)}"/>' for b in meus)
+        nb = nome_bonito(self.dados[k]["nome"])
+
+        def cortes(vals):
+            vs = sorted(vals)
+            return [vs[min(len(vs) - 1, int(len(vs) * q))] for q in (0.2, 0.4, 0.6, 0.8)]
+
+        def mapa(idx, cores, fmt, rotulo):
+            cs = cortes([c[idx] for c in cel])
+            partes = []
+            for c, v in hexes:
+                cl = sum(1 for x in cs if c[idx] > x)
+                d = "M" + " L".join(f"{x:.2f} {y:.2f}" for x, y in v) + "Z"
+                partes.append(f'<path class="hx" d="{d}" fill="{cores[cl]}"><title>R$ {nf(c[3])}/m² · {nf(c[2])} vendas em 12 meses</title></path>')
+            faixas = [f"até {fmt(cs[0])}"] + [f"{fmt(cs[i])} a {fmt(cs[i + 1])}" for i in range(3)] + [f"acima de {fmt(cs[3])}"]
+            leg = "".join(f'<li><i style="background:{cores[i]}"></i>{t}</li>' for i, t in enumerate(faixas))
+            svg = (f'<div class="mapa-m2 zoom calor"><svg viewBox="{vx:.1f} {vy:.1f} {w:.1f} {h:.1f}" role="img" aria-label="{esc(rotulo)}">'
+                   f'{fundo}{"".join(partes)}{contorno}</svg></div><ul class="legenda-m2">{leg}</ul>')
+            return svg
+        base = f"calor-{slug(nb)}"
+        abas = (f'<div class="abas" role="tablist"><button type="button" role="tab" data-aba="{base}-p" aria-selected="true">Preço do m²</button>'
+                f'<button type="button" role="tab" data-aba="{base}-n" aria-selected="false">Quantidade de vendas</button></div>')
+        p = mapa(3, CORES_MAPA, lambda v: f"R$ {nf(v)}", f"Mapa do preço do metro quadrado dentro de {nb}, em hexágonos")
+        n = mapa(2, CORES_N, lambda v: nf(v), f"Mapa da quantidade de vendas dentro de {nb}, em hexágonos")
+        return f"""<section class="card" id="calor"><h2>Onde estão as vendas dentro de {esc(nb)}</h2>
+<p class="small">Cada hexágono tem cerca de {round(lado * 1.73)} m de largura. As cores comparam as partes do próprio bairro: no mapa de preço, mais escuro é o metro quadrado mais caro; no de vendas, mais escuro é onde mais imóveis foram vendidos nos últimos 12 meses.</p>
+{abas}<div id="{base}-p" role="tabpanel">{p}</div><div id="{base}-n" role="tabpanel" hidden>{n}</div>
+<p class="small">Só aparecem hexágonos com pelo menos {cal.get("min", 5)} vendas, para que nenhuma venda individual possa ser identificada. A localização vem da própria prefeitura, na base do ITBI.</p>
+{self.credito()}</section>"""
+
+
+CORES_N = ["#FDE7D2", "#FBC08E", "#F5934A", "#E0661D", "#A8420C"]
 
 
 # ---------------------------------------------------------------- entorno (o que tem em volta)
@@ -1363,6 +1423,7 @@ class Site:
 </section>
 {tiles}
 {self.mapas[s].bairro_html(chave_k)}
+{self.mapas[s].calor_html(chave_k)}
 {curva_html(b, ci.get('m2_12'), nb) if not c.get('agregado') else ''}
 {tipo_bairro_html(b, nb)}
 <section class="grid2">

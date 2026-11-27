@@ -135,6 +135,95 @@ def mes_de(s) -> str | None:
     return None
 
 
+# ------------------------------------------------------------------ pontos das vendas (mapa de calor dentro do bairro)
+# Só Recife (latitude/longitude) e Fortaleza (coordenadas SIRGAS 2000) publicam onde fica cada imóvel. As vendas são
+# juntadas em hexágonos de CALOR_LADO metros, e só vai para o site o hexágono com pelo menos CALOR_MIN vendas em 12 meses:
+# nenhum ponto, endereço ou venda individual fica salvo.
+CALOR_LADO = 110      # metros, do centro ao vértice (o hexágono tem ~190 m de largura)
+CALOR_MIN = 5
+CAIXA = {  # (lat mín, lat máx, lon mín, lon máx): ponto fora disso é erro de digitação ou de coordenada
+    "recife": (-8.16, -7.92, -35.02, -34.85),
+    "fortaleza": (-3.90, -3.68, -38.66, -38.38),
+}
+
+
+def utm_sul_para_latlon(x, y, zona):
+    """UTM (SIRGAS 2000 = GRS80, hemisfério sul) para latitude e longitude em graus (fórmulas de Snyder)."""
+    a, f, k0 = 6378137.0, 1 / 298.257222101, 0.9996
+    e2 = f * (2 - f)
+    ep2 = e2 / (1 - e2)
+    x -= 500000.0
+    y -= 10000000.0
+    m = y / k0
+    mu = m / (a * (1 - e2 / 4 - 3 * e2 ** 2 / 64 - 5 * e2 ** 3 / 256))
+    e1 = (1 - math.sqrt(1 - e2)) / (1 + math.sqrt(1 - e2))
+    p1 = (mu + (3 * e1 / 2 - 27 * e1 ** 3 / 32) * math.sin(2 * mu) + (21 * e1 ** 2 / 16 - 55 * e1 ** 4 / 32) * math.sin(4 * mu)
+          + (151 * e1 ** 3 / 96) * math.sin(6 * mu) + (1097 * e1 ** 4 / 512) * math.sin(8 * mu))
+    c1 = ep2 * math.cos(p1) ** 2
+    t1 = math.tan(p1) ** 2
+    n1 = a / math.sqrt(1 - e2 * math.sin(p1) ** 2)
+    r1 = a * (1 - e2) / (1 - e2 * math.sin(p1) ** 2) ** 1.5
+    d = x / (n1 * k0)
+    lat = p1 - (n1 * math.tan(p1) / r1) * (d ** 2 / 2 - (5 + 3 * t1 + 10 * c1 - 4 * c1 ** 2 - 9 * ep2) * d ** 4 / 24
+                                          + (61 + 90 * t1 + 298 * c1 + 45 * t1 ** 2 - 252 * ep2 - 3 * c1 ** 2) * d ** 6 / 720)
+    lon = (d - (1 + 2 * t1 + c1) * d ** 3 / 6 + (5 - 2 * c1 + 28 * t1 - 3 * c1 ** 2 + 8 * ep2 + 24 * t1 ** 2) * d ** 5 / 120) / math.cos(p1)
+    return math.degrees(lat), (zona - 1) * 6 - 180 + 3 + math.degrees(lon)
+
+
+def ponto(slug, lat, lon):
+    """(lat, lon) se estiver dentro da cidade; None se faltar ou estiver fora."""
+    cx = CAIXA.get(slug)
+    if cx is None or lat is None or lon is None:
+        return None
+    if cx[0] <= lat <= cx[1] and cx[2] <= lon <= cx[3]:
+        return round(lat, 6), round(lon, 6)
+    return None
+
+
+def hexagono(lat, lon, lat0, lon0, lado=CALOR_LADO):
+    """Hexágono (pontudo em cima, coordenadas axiais q, r) que contém o ponto, numa projeção plana local em metros."""
+    x = (lon - lon0) * 111320.0 * math.cos(math.radians(lat0))
+    y = (lat - lat0) * 110540.0
+    q = (math.sqrt(3) / 3 * x - y / 3) / lado
+    r = (2 / 3 * y) / lado
+    # arredondamento cúbico
+    cx, cz = q, r
+    cy = -cx - cz
+    rx, ry, rz = round(cx), round(cy), round(cz)
+    dx, dy, dz = abs(rx - cx), abs(ry - cy), abs(rz - cz)
+    if dx > dy and dx > dz:
+        rx = -ry - rz
+    elif dy <= dz:
+        rz = -rx - ry
+    return int(rx), int(rz)
+
+
+def centro_hex(q, r, lat0, lon0, lado=CALOR_LADO):
+    x = lado * math.sqrt(3) * (q + r / 2)
+    y = lado * 1.5 * r
+    return lat0 + y / 110540.0, lon0 + x / (111320.0 * math.cos(math.radians(lat0)))
+
+
+def calor(vendas, doze) -> dict | None:
+    """Hexágonos dos últimos 12 meses com pelo menos CALOR_MIN vendas: [lat, lon, vendas, m² mediano, bairro]."""
+    pts = [v for v in vendas if v[2] in doze and v[6].get("pt")]
+    if len(pts) < 50:
+        return None
+    lat0 = round(statistics.median(v[6]["pt"][0] for v in pts), 4)
+    lon0 = round(statistics.median(v[6]["pt"][1] for v in pts), 4)
+    grupos = defaultdict(list)
+    for v in pts:
+        grupos[hexagono(*v[6]["pt"], lat0, lon0)].append(v)
+    cel = []
+    for (q, r), lista in grupos.items():
+        if len(lista) < CALOR_MIN:
+            continue
+        la, lo = centro_hex(q, r, lat0, lon0)
+        bairro = Counter(v[0] for v in lista if v[0]).most_common(1)
+        cel.append([round(la, 5), round(lo, 5), len(lista), r0(statistics.median(v[3] / v[4] for v in lista)), bairro[0][0] if bairro else ""])
+    return {"lado_m": CALOR_LADO, "min": CALOR_MIN, "n_pontos": len(pts), "cel": sorted(cel, key=lambda c: (c[4], c[0], c[1]))}
+
+
 class Base:
     """Acumula as vendas de uma cidade: (bairro, mês, valor, área, tipo, extras)."""
 
@@ -385,8 +474,13 @@ def fortaleza() -> Base:
         # mês em que a declaração (DTI) foi cadastrada; "ANO_MES_DEBITO" é o vencimento e vai até meses à frente
         mes = mes_de(row.get("DATA CADASTRAMENTO GI IMOVEL"))
         b.conta("padrao", row.get("PADRAO CONSTRUCAO"))
+        x, y = num(row.get("XSIRGAS2000")), num(row.get("YSIRGAS2000"))
+        pt = None
+        if x and y and 400000 < x < 700000 and 9000000 < y < 9700000:
+            pt = ponto("fortaleza", *utm_sul_para_latlon(x, y, 24))
+        b.dbg["com_coordenada" if pt else "sem_coordenada"] += 1
         b.add(row.get("BAIRRO"), mes, num(row.get("VL BASE CALCULO")), num(row.get("AREA EDIFICADA")), tipo,
-              venal=num(row.get("VL VENAL")), padrao=(row.get("PADRAO CONSTRUCAO") or "").strip())
+              venal=num(row.get("VL VENAL")), padrao=(row.get("PADRAO CONSTRUCAO") or "").strip(), pt=pt)
     return b
 
 
@@ -450,9 +544,11 @@ def recife() -> Base:
             if not tipo:
                 b.dbg["outro_tipo"] += 1
                 continue
+            pt = ponto("recife", num(row.get("LATITUDE")), num(row.get("LONGITUDE")))
+            b.dbg["com_coordenada" if pt else "sem_coordenada"] += 1
             b.add(row.get("BAIRRO"), mes_de(row.get("DATA TRANSACAO")), num(row.get("VALOR AVALIACAO")),
                   num(row.get("AREA CONSTRUIDA")), tipo, ano=num(row.get("ANO CONSTRUCAO")),
-                  padrao=(row.get("PADRAO ACABAMENTO") or "").strip())
+                  padrao=(row.get("PADRAO ACABAMENTO") or "").strip(), pt=pt)
     return b
 
 
@@ -619,6 +715,10 @@ def agregar(b: Base, meta: dict) -> dict:
         if viz and cidade["n"][i] < 0.35 * statistics.median(viz):
             falhos.append(i)
     res = dict(meta)
+    cal = calor(vendas, doze)
+    if cal:
+        res["calor"] = cal
+        b.dbg["hexagonos"] = len(cal["cel"])
     res.update({"meses": meses, "ultimo_mes": ultimo, "cidade": cidade,
                 "por_tipo": {t: resumo([v for v in vendas if v[5] == t]) for t in ("apto", "casa")},
                 "bairros": bairros,
