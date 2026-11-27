@@ -464,11 +464,14 @@
   "contagens": {
    "versoes_descartadas": 0,
    "nao_residencial": 29427,
+   "com_coordenada": 82748,
    "ok": 76881,
    "valor_baixo_ou_vazio": 5655,
    "area_fora": 217,
+   "sem_coordenada": 5,
    "m2_extremo_descartado": 1538,
    "ultimo_mes_incompleto_descartado": "2026-10",
+   "hexagonos": 876,
    "vendas_no_site": 74563,
    "bairros_no_site": 114,
    "bairros_total": 121
@@ -799,11 +802,14 @@
  },
  "recife": {
   "contagens": {
+   "com_coordenada": 41207,
    "ok": 64485,
+   "sem_coordenada": 23526,
    "valor_baixo_ou_vazio": 174,
    "outro_tipo": 9428,
    "area_fora": 74,
    "m2_extremo_descartado": 1290,
+   "hexagonos": 486,
    "meses_falhos": [
     "2025-12"
    ],
@@ -992,5 +998,5 @@
   ],
   "bairros_no_site": 140
  },
- "gerado_em": "2026-11-26T20:45:56Z"
+ "gerado_em": "2026-11-27T23:23:16Z"
 }
