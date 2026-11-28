@@ -1,0 +1,128 @@
+"""IndexNow: avisa o Bing (e os buscadores que usam o mesmo protocolo) quais páginas mudaram nesta publicação.
+
+  python scripts/indexnow.py preparar <pasta do site> <https://dominio> <chave>
+      Compara o miolo (<main>) de cada página com o manifesto da publicação anterior, que fica no próprio
+      site (/indexnow-manifesto-2.json). Grava na pasta o manifesto novo, a lista do que mudou
+      (/indexnow-novas.json) e o arquivo da chave (/<chave>.txt), que prova que o site é nosso.
+      Também acerta a data de cada página no sitemap.xml (<lastmod>): ela só muda quando o miolo da página
+      muda. As datas ficam no próprio site (/lastmod.json), de uma publicação para a outra.
+  python scripts/indexnow.py enviar <pasta do site ou -> <https://dominio> <chave>
+      Depois do deploy: envia a lista. Sem a pasta ("-"), lê a lista já publicada no site.
+
+Nunca derruba a publicação: qualquer falha vira aviso e o script termina com sucesso.
+"""
+import hashlib
+import json
+import re
+import sys
+import time
+import urllib.error
+import urllib.request
+from pathlib import Path
+
+LIMITE = 10000          # máximo de endereços por envio, pelo protocolo
+MIOLO = re.compile(rb"<main\b.*?</main>", re.S)
+AGENTE = {"User-Agent": "familia-em-numeros-indexnow/1.0"}
+
+
+def baixar(url: str, espera: int = 30):
+    with urllib.request.urlopen(urllib.request.Request(url, headers=AGENTE), timeout=espera) as r:
+        return r.read()
+
+
+def manifesto(pasta: Path) -> dict:
+    m = {}
+    for arq in sorted(pasta.rglob("index.html")):
+        bruto = arq.read_bytes()
+        if b'name="robots" content="noindex' in bruto[:4000] or b'http-equiv="refresh"' in bruto[:4000]:
+            continue
+        achado = MIOLO.search(bruto)
+        rel = arq.parent.relative_to(pasta).as_posix()
+        m["/" if rel == "." else f"/{rel}/"] = hashlib.md5(achado.group(0) if achado else bruto).hexdigest()[:10]
+    return m
+
+
+def preparar(pasta: Path, base: str, chave: str) -> list:
+    novo = manifesto(pasta)
+    robots = pasta / "robots.txt"
+    fechado = robots.exists() and re.search(r"^Disallow: /\s*$", robots.read_text("utf-8"), re.M)
+    try:
+        velho = json.loads(baixar(f"{base}/indexnow-manifesto-2.json?t={int(time.time())}"))
+    except Exception as e:  # primeira vez, ou site fora do ar: trata tudo como novo
+        print(f"IndexNow: sem manifesto anterior ({e}); todas as páginas contam como novas.")
+        velho = {}
+    mudou = [] if fechado else [c for c, h in novo.items() if velho.get(c) != h]
+    mudou.sort(key=lambda c: (c.count("/"), c))          # páginas principais primeiro, se passar do limite
+    (pasta / "indexnow-manifesto-2.json").write_text(json.dumps(novo, separators=(",", ":")), "utf-8")
+    (pasta / "indexnow-novas.json").write_text(json.dumps(mudou[:LIMITE], separators=(",", ":")), "utf-8")
+    (pasta / f"{chave}.txt").write_text(chave, "utf-8")
+    datas_sitemap(pasta, base, novo)
+    print(f"IndexNow: {len(mudou)} de {len(novo)} páginas mudaram" + (" (site fechado aos buscadores: nada será enviado)" if fechado else ""))
+    return mudou
+
+
+def datas_sitemap(pasta: Path, base: str, novo: dict) -> None:
+    """<lastmod> verdadeiro: a data em que o miolo da página mudou pela última vez, e não a data da publicação.
+    Sem isso, todas as páginas dizem ter mudado hoje, todo dia, e o Google passa a ignorar a data."""
+    sm = pasta / "sitemap.xml"
+    if not sm.exists():
+        return
+    hoje = time.strftime("%Y-%m-%d")
+    try:
+        velhas = json.loads(baixar(f"{base}/lastmod.json?t={int(time.time())}"))
+    except Exception as e:  # primeira vez: todas ficam com a data de hoje
+        print(f"Sitemap: sem datas anteriores ({e}); usando a data de hoje.")
+        velhas = {}
+    datas = {}
+    for c, h in novo.items():
+        v = velhas.get(c)
+        datas[c] = [h, v[1] if v and v[0] == h else hoje]
+    (pasta / "lastmod.json").write_text(json.dumps(datas, separators=(",", ":")), "utf-8")
+    dom = re.escape(base)
+    texto = re.sub(r"<loc>" + dom + r"([^<]*)</loc><lastmod>[^<]*</lastmod>",
+                   lambda m: f"<loc>{base}{m.group(1)}</loc><lastmod>{datas.get(m.group(1), [None, hoje])[1]}</lastmod>",
+                   sm.read_text("utf-8"))
+    sm.write_text(texto, "utf-8")
+    print(f"Sitemap: {sum(1 for d in datas.values() if d[1] == hoje)} de {len(datas)} páginas com data de hoje.")
+
+
+def enviar(pasta, base: str, chave: str) -> int:
+    local = Path(pasta) / "indexnow-novas.json" if pasta != "-" else None
+    caminhos = json.loads(local.read_text("utf-8") if local and local.exists() else baixar(f"{base}/indexnow-novas.json?t={int(time.time())}"))
+    if not caminhos:
+        print("IndexNow: nenhuma página mudou; nada a enviar.")
+        return 0
+    corpo = json.dumps({"host": base.split("//", 1)[1], "key": chave, "keyLocation": f"{base}/{chave}.txt",
+                        "urlList": [base + c for c in caminhos[:LIMITE]]}).encode("utf-8")
+    # logo depois do deploy o arquivo da chave pode ainda não estar no ar, e aí o envio é recusado (403): espera por ele
+    for _ in range(18):
+        try:
+            if baixar(f"{base}/{chave}.txt?t={int(time.time())}").decode("utf-8").strip() == chave:
+                break
+        except Exception:
+            pass
+        time.sleep(10)
+    else:
+        print("::warning::IndexNow: o arquivo da chave não apareceu no site em 3 minutos; tentando assim mesmo.")
+    req = urllib.request.Request("https://api.indexnow.org/indexnow", data=corpo, method="POST",
+                                 headers={**AGENTE, "Content-Type": "application/json; charset=utf-8"})
+    for tentativa in range(4):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                print(f"IndexNow: {len(caminhos[:LIMITE])} endereços enviados, resposta {r.status}.")
+            return len(caminhos)
+        except urllib.error.HTTPError as e:
+            print(f"IndexNow: tentativa {tentativa + 1} recusada ({e.code}): {e.read()[:300].decode('utf-8', 'replace')}")
+            if e.code not in (403, 429, 500, 502, 503) or tentativa == 3:
+                raise
+            time.sleep(60)
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        modo, pasta, base, chave = sys.argv[1:5]
+        base = base.rstrip("/")
+        preparar(Path(pasta), base, chave) if modo == "preparar" else enviar(pasta, base, chave)
+    except Exception as e:  # noqa: BLE001 — a publicação não pode cair por causa do aviso aos buscadores
+        print(f"::warning::IndexNow não concluído: {e}")

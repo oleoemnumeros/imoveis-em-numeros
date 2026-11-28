@@ -71,6 +71,11 @@ jobs:
           PREVIA: ${{ vars.PREVIA }}
         run: python scripts/gerar_site.py
 
+      - name: IndexNow, o que mudou nesta publicação
+        if: always() && hashFiles('docs/index.html') != ''
+        continue-on-error: true
+        run: python scripts/indexnow.py preparar docs https://imoveisemnumeros.com.br 206313c3bd709c7bc6dccea95e497503
+
       - name: Empacotar site
         if: always() && hashFiles('docs/index.html') != ''
         uses: actions/upload-pages-artifact@v3
@@ -90,3 +95,8 @@ jobs:
       - name: Publicar no GitHub Pages (segunda tentativa)
         if: always() && steps.publicar.outcome == 'failure'
         uses: actions/deploy-pages@v4
+
+      - name: IndexNow, avisar o Bing das páginas que mudaram
+        if: always() && hashFiles('docs/index.html') != ''
+        continue-on-error: true
+        run: python scripts/indexnow.py enviar docs https://imoveisemnumeros.com.br 206313c3bd709c7bc6dccea95e497503
